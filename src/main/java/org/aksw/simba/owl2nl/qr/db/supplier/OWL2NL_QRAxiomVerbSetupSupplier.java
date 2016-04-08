@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.SQLDataException;
 
+// ToDo: how to lock this for non-experts?
 public class OWL2NL_QRAxiomVerbSetupSupplier extends OWL2NL_QRAxiomSetupSupplier {
     private static final String STARTED_EXPERIMENTS_QUERY = "SELECT DISTINCT axiomId FROM AxiomExperiments WHERE axiomId NOT IN (SELECT DISTINCT axiomId FROM AxiomExperiments WHERE userId=?);";
     private static final String NOT_STARTED_EXPERIMENTS_QUERY = "SELECT id FROM Axioms WHERE id NOT IN (SELECT DISTINCT axiomId FROM AxiomExperiments)";
