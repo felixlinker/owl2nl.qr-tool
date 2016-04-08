@@ -11,6 +11,7 @@ import java.util.List;
 
 public class OWL2NL_QRDbAdapterExtension {
 
+    private static final String UPDATE_EXPERT_USER = "UPDATE Users SET isExpert=? WHERE userId=?;";
     private static final String INSERT_USER = "INSERT INTO Users(username) VALUES (?)";
     private static final String SELECT_NUMBER_OF_ANSWERS = "SELECT COUNT(expId) FROM AxiomExperiments WHERE userId=?"; // ToDo: calculate sum
     private static final String SELECT_USER = "SELECT id, isExpert FROM Users WHERE id=?;";
@@ -41,6 +42,8 @@ public class OWL2NL_QRDbAdapterExtension {
     }
 
     public static void setUserIsExpert(JdbcTemplate jdbcTemplate, User user, boolean isExpert) {
-        // ToDo
+        if (jdbcTemplate.update(UPDATE_EXPERT_USER, new Object[] { isExpert ? 1 : 0, user.getId() }) == 0) {
+            // ToDo: log error
+        }
     }
 }

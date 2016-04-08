@@ -3,6 +3,7 @@ package org.aksw.simba.owl2nl.qr.parser;
 import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResult;
 import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResultBase;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper;
+import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRUserGroupGuiHelper;
 import org.aksw.simba.qr.ExperimentResultParser;
 import org.aksw.simba.qr.datatypes.ExperimentResult;
 import org.slf4j.Logger;
@@ -25,14 +26,17 @@ public abstract class OWL2NL_QRResultParser implements ExperimentResultParser {
         return null;
     }
 
-    protected OWL2NL_QRExperimentResultBase getBaseResult(HttpServletRequest request) {
-        // ToDo
-        return null;
-    }
+    protected OWL2NL_QRExperimentResultBase getBaseResult(HttpServletRequest request) throws NumberFormatException {
+        String tmpString = request.getParameter(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY);
+        int experimentId = Integer.parseInt(tmpString);
+        OWL2NL_QRExperimentResultBase baseResult = new OWL2NL_QRExperimentResultBase(experimentId);
 
-    protected int parseExperimentId(HttpServletRequest request) throws NumberFormatException {
-        String tempString = request.getParameter(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY);
-        return Integer.parseInt(tempString);
+        tmpString = request.getParameter(OWL2NL_QRUserGroupGuiHelper.RADIO_KEY);
+        if (tmpString != null) {
+            baseResult.setExpert(Boolean.parseBoolean(tmpString));
+        }
+
+        return null;
     }
 
 }

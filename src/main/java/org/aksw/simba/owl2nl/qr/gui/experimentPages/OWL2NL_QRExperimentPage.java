@@ -2,6 +2,7 @@ package org.aksw.simba.owl2nl.qr.gui.experimentPages;
 
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper;
+import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRUserGroupGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRRadioButtonHelper;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRStarRatingHelper;
 import org.aksw.simba.qr.gui.GuiHelper;
@@ -15,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup> implements Page {
 
@@ -103,8 +105,20 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
     }
 
     protected HtmlContainer createUserGroupSelection() {
-        // ToDo
-        return null;
+        HtmlContainer container = new HtmlContainer();
+
+        Div messageDiv = new Div();
+        messageDiv.addElement(new Paragraph(italic("Please select a user group:")));
+
+        OWL2NL_QRUserGroupGuiHelper userGuiHelper = new OWL2NL_QRUserGroupGuiHelper();
+        LinkedList<OWL2NL_QRRadioButtonHelper> buttonHelpers = new LinkedList<>();
+        buttonHelpers.add(new OWL2NL_QRRadioButtonHelper(userGuiHelper.EXPERT_RADIO_NAME, userGuiHelper.RADIO_KEY, userGuiHelper.EXPERT_RADIO_VALUE));
+        buttonHelpers.add(new OWL2NL_QRRadioButtonHelper(userGuiHelper.AMATEUR_RADIO_NAME, userGuiHelper.RADIO_KEY, userGuiHelper.AMATEUR_RADIO_NAME));
+
+        messageDiv.addElement(generateRadioButtonList(buttonHelpers));
+
+        container.addElement(messageDiv);
+        return container;
     }
 
     protected HtmlContainer createContent() {
@@ -297,5 +311,6 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
     }
 
     abstract HtmlContainer getInstructions();
+
     abstract Div generateExperimentDiv(T t);
 }
