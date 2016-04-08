@@ -108,7 +108,7 @@ public class DataInserter {
      * @param data
      */
     private void insertData(Integer category, String[][] data) {
-        List<Object[]> batchArgs = new ArrayList<Object[]>(data.length);
+        List<Object[]> batchArgs = new ArrayList<>(data.length);
         List<Integer> expIds;
         IntegerRowMapper rowMapper = new IntegerRowMapper();
         Object selectArgs[] = new Object[2];

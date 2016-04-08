@@ -4,8 +4,8 @@ import org.aksw.simba.qr.datatypes.UserId;
 
 public class OWL2NL_QRUser extends UserId {
     private int numberOfAnswers = 0;
-    private boolean isExpert = false;
-    private boolean isExpertSet = false;
+    private boolean expert = false;
+    private boolean expertSet = false;
 
     public OWL2NL_QRUser(int id) {
         super(id);
@@ -20,15 +20,15 @@ public class OWL2NL_QRUser extends UserId {
     }
 
     public void setExpert(boolean isExpert) {
-        this.isExpertSet = true;
-        this.isExpert = isExpert;
+        this.expertSet = true;
+        this.expert = isExpert;
     }
 
     public boolean isExpert() {
-        return isExpert;
+        return expert;
     }
 
     public boolean isExpertSet() {
-        return isExpertSet;
+        return expertSet;
     }
 }

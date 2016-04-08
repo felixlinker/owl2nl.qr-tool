@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by felix on 05.04.2016.
+ * Simple row mapper to create a OWL2NL_QRTriple from a sql query result
  */
 public class OWL2NL_QRTripleRowMapper implements RowMapper<OWL2NL_QRTriple> {
     @Override

@@ -1,6 +1,7 @@
 package org.aksw.simba.owl2nl.qr.parser;
 
 import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRClassVerbExperimentResult;
+import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResultBase;
 import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRResourceVerbExperimentResult;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRClassVerbGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRResourceVerbGuiHelper;
@@ -12,12 +13,9 @@ public class OWL2NL_QRResourceVerbResultParser extends OWL2NL_QRResultParser {
 
     @Override
     public ExperimentResult getExperimentResult(HttpServletRequest request) {
-        int experimentId, adequacy, fluency, completeness;
-        try {
-            experimentId = super.parseExperimentId(request);
-        } catch (NumberFormatException e) {
-            return logIdParsingError();
-        }
+        OWL2NL_QRExperimentResultBase baseResult = super.getBaseResult(request);
+
+        int adequacy, fluency, completeness;
 
         // ToDo: what happens if adequacy isn't set
         String tempString = request.getParameter(OWL2NL_QRResourceVerbGuiHelper.ADEQUACY_RATING_KEY);
@@ -42,7 +40,7 @@ public class OWL2NL_QRResourceVerbResultParser extends OWL2NL_QRResultParser {
             return logParsingError();
         }
 
-        LOGGER.info("Parsed a result for resource verbalization experiment #{} (adequacy={}, fluency={}, completeness={}).", experimentId, adequacy, fluency, completeness);
-        return new OWL2NL_QRResourceVerbExperimentResult(experimentId, adequacy, fluency, completeness);
+        LOGGER.info("Parsed a result for resource verbalization experiment #{} (adequacy={}, fluency={}, completeness={}).", baseResult.getExperimentSetupId(), adequacy, fluency, completeness);
+        return new OWL2NL_QRResourceVerbExperimentResult(baseResult, adequacy, fluency, completeness);
     }
 }

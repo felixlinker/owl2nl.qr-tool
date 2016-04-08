@@ -1,10 +1,17 @@
 package org.aksw.simba.owl2nl.qr.data.ontoelements;
 
 /**
- * Created by felix on 05.04.2016.
+ * Class for ontology triples stored in the db
  */
 public class OWL2NL_QRTriple extends OWL2NL_QROntoElement {
+    /**
+     * Triple value
+     */
     private String triple;
+
+    /**
+     * Triple verbalization
+     */
     private String verbalization;
 
     public OWL2NL_QRTriple(int id, String triple, String verbalization) {

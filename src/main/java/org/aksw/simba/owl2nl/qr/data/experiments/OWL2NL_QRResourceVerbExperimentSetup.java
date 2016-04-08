@@ -5,9 +5,19 @@ import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Experiment setup for Resource verbalization
+ */
 public class OWL2NL_QRResourceVerbExperimentSetup extends OWL2NL_QRExperimentSetup {
 
+    /**
+     * Verbalization of the resource
+     */
     private String resourceVerbalization;
+
+    /**
+     * All triples belonging to the resource
+     */
     private LinkedList<OWL2NL_QRTriple> triples = new LinkedList<>();
 
     public OWL2NL_QRResourceVerbExperimentSetup(int id, String resourceVerbalization) {

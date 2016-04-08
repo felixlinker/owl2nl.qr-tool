@@ -1,13 +1,18 @@
 package org.aksw.simba.owl2nl.qr.data.results;
 
+import org.aksw.simba.qr.datatypes.ExperimentResult;
+
 /**
- * Created by felix on 04.04.2016.
+ * Experiment result for class verbalization experiment
  */
 public class OWL2NL_QRClassVerbExperimentResult extends OWL2NL_QRExperimentResult {
+    /**
+     * Triple chosen by user to be a correct instance of the associated axiom
+     */
     private int chosenTriple;
 
-    public OWL2NL_QRClassVerbExperimentResult(int id, int chosenTriple) {
-        super(id);
+    public OWL2NL_QRClassVerbExperimentResult(OWL2NL_QRExperimentResultBase baseResult, int chosenTriple) {
+        super(baseResult);
         this.chosenTriple = chosenTriple;
     }
 

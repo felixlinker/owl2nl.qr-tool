@@ -1,7 +1,7 @@
 package org.aksw.simba.owl2nl.qr.data.ontoelements;
 
 /**
- * Created by felix on 05.04.2016.
+ * Base class for all elements of an ontology that are stored in the evaluation db
  */
 public abstract class OWL2NL_QROntoElement {
     private int id;

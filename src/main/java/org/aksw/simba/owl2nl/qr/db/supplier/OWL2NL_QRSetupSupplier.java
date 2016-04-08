@@ -30,23 +30,23 @@ public abstract class OWL2NL_QRSetupSupplier extends AbstractStartedExperimentsF
 
     @Override
     public ExperimentSetup getExperimentSetupForUser(JdbcTemplate jdbctemplate, User user) {
-        if (user instanceof OWL2NL_QRUser) {
+        ExperimentSetup setup = super.getExperimentSetupForUser(jdbctemplate, user);
+        if (user instanceof OWL2NL_QRUser && setup instanceof OWL2NL_QRExperimentSetup) {
             OWL2NL_QRUser owl2NLQrUser = (OWL2NL_QRUser)user;
+            OWL2NL_QRExperimentSetup owl2NlSetup = (OWL2NL_QRExperimentSetup) setup;
+
             if (owl2NLQrUser.isExpertSet()) {
                 // We know whether he is an expert or not -> do experiments
-                ExperimentSetup setup = super.getExperimentSetupForUser(jdbctemplate, user);
                 if (setup instanceof OWL2NL_QRExperimentSetup) {
-                    ((OWL2NL_QRExperimentSetup) setup).setUserAnswerCount(owl2NLQrUser.getNumberOfAnswers());
+                    owl2NlSetup.setUserAnswerCount(owl2NLQrUser.getNumberOfAnswers());
+                    owl2NlSetup.setPerformedByExpert(((OWL2NL_QRUser) user).isExpert());
                 }
 
-                return setup;
-            } else {
-                // We don't know whether the current user is an expert or an amateur -> display option for him to choose
-                // ToDo
+                return owl2NlSetup;
             }
         }
 
-        return super.getExperimentSetupForUser(jdbctemplate, user);
+        return setup;
     }
 
     /**

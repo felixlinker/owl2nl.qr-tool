@@ -87,6 +87,10 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         container.addElement(getInstructions());
         container.addElement(createMessageDiv());
 
+        if (!experiment.isExpertValueKnown()) {
+            container.addElement(createUserGroupSelection());
+        }
+
         Div headerDiv = new Div();
         headerDiv.addAttribute("class", "page-header");
         headerDiv.addElement(new Heading(new Text("Task"), HeadingOrder.H1));
@@ -98,71 +102,9 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         container.addElement(experimentDiv);
     }
 
-    protected WebElement generateUnorderedList(Collection<String> items) throws IllegalArgumentException {
-        if (items.size() == 0) {
-            throw new IllegalArgumentException();
-        }
-
-        UnnumberedList list = new UnnumberedList();
-        for (String item: items) {
-            list.addElement(item);
-        }
-
-        return list;
-    }
-
-    protected WebElement generateRadioButtonList(Collection<OWL2NL_QRRadioButtonHelper> buttons) throws IllegalArgumentException {
-        if (buttons.size() == 0) {
-            throw new IllegalArgumentException();
-        }
-
-        Div div = new Div();
-        for (OWL2NL_QRRadioButtonHelper button: buttons) {
-            div.addElement(generateRadioButton(button.getName(), button.getKey(), button.getValue()));
-        }
-
-        return div;
-    }
-
-    private WebElement generateRadioButton(String name, String id, String value) {
-        InputElement input = new InputElement(name, InputType.Radiobutton);
-        input.addAttribute("id", id);
-        input.addAttribute("value", value);
-        return input;
-    }
-
-    protected WebElement generateStarRatingTable(OWL2NL_QRStarRatingHelper...ratings) throws IllegalArgumentException {
-        if (ratings.length == 0) {
-            throw new IllegalArgumentException();
-        }
-
-        Table table = new Table();
-        for (OWL2NL_QRStarRatingHelper rating: ratings) {
-            TableRow row = new TableRow();
-            row.addCell(new TableCell(new Text(rating.getName())));
-            row.addCell(new TableCell(generateStarRating(0, 5, 1, rating.getKey(), rating.getKey())));
-            table.addRow(row);
-        }
-
-        return table;
-    }
-
-    private WebElement generateStarRating(int min, int max, int step, String name, String id) {
-        InputElement input = new InputElement(name, InputType.Number);
-        input.addAttribute("class", "star_rating");
-        input.addAttribute("min", Integer.toString(min));
-        input.addAttribute("value", Integer.toString(min));
-        input.addAttribute("max", Integer.toString(max));
-        input.addAttribute("step", Integer.toString(step));
-        input.addAttribute("id", id);
-        return input;
-    }
-
-    protected WebElement createSubmitButton() {
-        InputElement input = new InputElement(OWL2NL_QRGuiHelper.SUBMIT_BUTTON_KEY, InputType.Submit);
-        input.addAttribute("id", "submit");
-        input.addAttribute("value", OWL2NL_QRGuiHelper.SUBMIT_BUTTON_LABEL);
-        return new Paragraph(input);
+    protected HtmlContainer createUserGroupSelection() {
+        // ToDo
+        return null;
     }
 
     protected HtmlContainer createContent() {
@@ -268,6 +210,73 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         headDiv.addElement(new Heading(new Text("Survey"), HeadingOrder.H1));
         headDiv.addElement(new Paragraph(new Text("This is a survey for evaluating the calculation of RDF dataset similarity in terms of topical relatedness.")));
         return headDiv;
+    }
+
+    protected WebElement generateUnorderedList(Collection<String> items) throws IllegalArgumentException {
+        if (items.size() == 0) {
+            throw new IllegalArgumentException();
+        }
+
+        UnnumberedList list = new UnnumberedList();
+        for (String item: items) {
+            list.addElement(item);
+        }
+
+        return list;
+    }
+
+    protected WebElement generateRadioButtonList(Collection<OWL2NL_QRRadioButtonHelper> buttons) throws IllegalArgumentException {
+        if (buttons.size() == 0) {
+            throw new IllegalArgumentException();
+        }
+
+        Div div = new Div();
+        for (OWL2NL_QRRadioButtonHelper button: buttons) {
+            div.addElement(generateRadioButton(button.getName(), button.getKey(), button.getValue()));
+        }
+
+        return div;
+    }
+
+    private WebElement generateRadioButton(String name, String id, String value) {
+        InputElement input = new InputElement(name, InputType.Radiobutton);
+        input.addAttribute("id", id);
+        input.addAttribute("value", value);
+        return input;
+    }
+
+    protected WebElement generateStarRatingTable(OWL2NL_QRStarRatingHelper...ratings) throws IllegalArgumentException {
+        if (ratings.length == 0) {
+            throw new IllegalArgumentException();
+        }
+
+        Table table = new Table();
+        for (OWL2NL_QRStarRatingHelper rating: ratings) {
+            TableRow row = new TableRow();
+            row.addCell(new TableCell(new Text(rating.getName())));
+            row.addCell(new TableCell(generateStarRating(0, 5, 1, rating.getKey(), rating.getKey())));
+            table.addRow(row);
+        }
+
+        return table;
+    }
+
+    private WebElement generateStarRating(int min, int max, int step, String name, String id) {
+        InputElement input = new InputElement(name, InputType.Number);
+        input.addAttribute("class", "star_rating");
+        input.addAttribute("min", Integer.toString(min));
+        input.addAttribute("value", Integer.toString(min));
+        input.addAttribute("max", Integer.toString(max));
+        input.addAttribute("step", Integer.toString(step));
+        input.addAttribute("id", id);
+        return input;
+    }
+
+    protected WebElement createSubmitButton() {
+        InputElement input = new InputElement(OWL2NL_QRGuiHelper.SUBMIT_BUTTON_KEY, InputType.Submit);
+        input.addAttribute("id", "submit");
+        input.addAttribute("value", OWL2NL_QRGuiHelper.SUBMIT_BUTTON_LABEL);
+        return new Paragraph(input);
     }
 
     protected String bold(String content) {

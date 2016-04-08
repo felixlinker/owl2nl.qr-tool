@@ -1,6 +1,8 @@
 package org.aksw.simba.owl2nl.qr.parser;
 
 import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRAxiomVerbExperimentResult;
+import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResult;
+import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResultBase;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRAxiomVerbGuiHelper;
 import org.aksw.simba.qr.datatypes.ExperimentResult;
 
@@ -10,12 +12,9 @@ public class OWL2NL_QRAxiomVerbResultParser extends OWL2NL_QRResultParser {
 
     @Override
     public ExperimentResult getExperimentResult(HttpServletRequest request) {
-        int experimentId, adequacy, fluency;
-        try {
-            experimentId = super.parseExperimentId(request);
-        } catch (NumberFormatException e) {
-            return logIdParsingError();
-        }
+        OWL2NL_QRExperimentResultBase baseResult = super.getBaseResult(request);
+
+        int adequacy, fluency;
 
         String tempString = request.getParameter(OWL2NL_QRAxiomVerbGuiHelper.ADEQUACY_RATING_KEY);
         try {
@@ -30,7 +29,7 @@ public class OWL2NL_QRAxiomVerbResultParser extends OWL2NL_QRResultParser {
             return super.logParsingError();
         }
 
-        LOGGER.info("Parsed a result for axiom verbalization experiment #{} (adequacy={}, fluency={}).", experimentId, adequacy, fluency);
-        return new OWL2NL_QRAxiomVerbExperimentResult(experimentId, adequacy, fluency);
+        LOGGER.info("Parsed a result for axiom verbalization experiment #{} (adequacy={}, fluency={}).", baseResult.getExperimentSetupId(), adequacy, fluency);
+        return new OWL2NL_QRAxiomVerbExperimentResult(baseResult, adequacy, fluency);
     }
 }

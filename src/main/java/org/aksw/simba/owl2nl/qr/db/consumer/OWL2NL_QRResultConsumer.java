@@ -1,5 +1,9 @@
 package org.aksw.simba.owl2nl.qr.db.consumer;
 
+import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResult;
+import org.aksw.simba.owl2nl.qr.db.OWL2NL_QRDbAdapterExtension;
+import org.aksw.simba.qr.datatypes.User;
+import org.aksw.simba.qr.db.ExperimentResultConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
@@ -10,31 +14,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public abstract class OWL2NL_QRResultConsumer {
+public abstract class OWL2NL_QRResultConsumer<T extends OWL2NL_QRExperimentResult> implements ExperimentResultConsumer<T> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(OWL2NL_QRResultConsumer.class);
+    protected static final Logger LOGGER = LoggerFactory.getLogger(OWL2NL_QRResultConsumer.class);
 
-    protected boolean storeResults(JdbcTemplate jdbcTemplate, String checkQuery, String storeQuery) {
-        List<Object> queryResult = jdbcTemplate.query(checkQuery, new ObjectRowMapper());
-        if (!queryResult.isEmpty()) {
-            LOGGER.info("The result is already present inside the database. The new one will be ignored.");
-            return true;
-        }
+    protected static final ObjectRowMapper OBJECT_ROW_MAPPER = new ObjectRowMapper();
 
-        try {
-            if (jdbcTemplate.update(storeQuery) == 0) {
-                LOGGER.error("Creation of experiment result didn't changed a single row ( TODO ). Return false.");
-                return false;
-            }
-        } catch (DataAccessException e) {
-            LOGGER.error("Creation of experiment result didn't changed a single row ( TODO ). Return false.");
-            return false;
+    @Override
+    public boolean storeExperimentResult(JdbcTemplate jdbcTemplate, T experimentResult, User user) {
+        if (experimentResult.isExpertSet()) {
+            OWL2NL_QRDbAdapterExtension.setUserIsExpert(jdbcTemplate, user, experimentResult.isExpert());
         }
 
         return true;
     }
 
-    protected class ObjectRowMapper implements RowMapper<Object> {
+    protected static class ObjectRowMapper implements RowMapper<Object> {
         @Override
         public Object mapRow(ResultSet resultSet, int i) throws SQLException {
             return new Object();

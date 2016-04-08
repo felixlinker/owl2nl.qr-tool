@@ -3,8 +3,12 @@ package org.aksw.simba.owl2nl.qr.db;
 import org.aksw.simba.db.mapper.IntegerRowMapper;
 import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRUser;
 import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRUserRowMapper;
+import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResult;
+import org.aksw.simba.qr.datatypes.User;
 import org.aksw.simba.qr.db.DbAdapter;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.time.chrono.JapaneseDate;
 import java.util.List;
 
 public class OWL2NL_QRDbAdapterExtension {
@@ -16,13 +20,12 @@ public class OWL2NL_QRDbAdapterExtension {
     private static final IntegerRowMapper INT_ROW_MAPPER = new IntegerRowMapper();
     private static final OWL2NL_QRUserRowMapper USER_ROW_MAPPER = new OWL2NL_QRUserRowMapper();
 
-    public int addUser(String loginname, DbAdapter db) {
-        db.getJdbcTemplate().update(INSERT_USER, new Object[] { loginname });
-        return db.getUserId(loginname);
+    public static int addUser(String loginName, DbAdapter db) {
+        db.getJdbcTemplate().update(INSERT_USER, new Object[] { loginName });
+        return db.getUserId(loginName);
     }
 
-    // ToDo - get user properly
-    public OWL2NL_QRUser getUser(int userId, DbAdapter db) {
+    public static OWL2NL_QRUser getUser(int userId, DbAdapter db) {
 
         OWL2NL_QRUser user = null;
         List<OWL2NL_QRUser> users = db.getJdbcTemplate().query(SELECT_USER, new Object[] { userId }, USER_ROW_MAPPER);
@@ -37,5 +40,9 @@ public class OWL2NL_QRDbAdapterExtension {
 
         // ToDo: return null if there is no user?
         return user;
+    }
+
+    public static void setUserIsExpert(JdbcTemplate jdbcTemplate, User user, boolean isExpert) {
+        // ToDo
     }
 }

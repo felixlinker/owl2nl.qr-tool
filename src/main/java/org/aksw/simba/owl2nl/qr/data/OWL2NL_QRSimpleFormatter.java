@@ -1,9 +1,16 @@
 package org.aksw.simba.owl2nl.qr.data;
 
 /**
- * Created by felix on 05.04.2016.
+ * Helper class to do simple string formatting
  */
 public class OWL2NL_QRSimpleFormatter {
+    /**
+     * Formats a string by mapping every ? in it with an argument
+     * @param query String containing ?s to map
+     * @param args Arguments that will mapped successive to each ?
+     * @return composed string
+     * @throws IllegalArgumentException Thrown if the amount of args does not fit the amount of ?s
+     */
     public static String compose(String query, Object ...args) throws IllegalArgumentException {
         String[] splittedQuery = query.split("\\?");
         boolean lastIsQuestionMark = query.charAt(query.length() - 1) == '?';

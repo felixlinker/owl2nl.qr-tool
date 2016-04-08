@@ -1,14 +1,24 @@
 package org.aksw.simba.owl2nl.qr.data.results;
 
+import org.aksw.simba.qr.datatypes.ExperimentResult;
+
 /**
- * Created by felix on 04.04.2016.
+ * Experiment result for Axiom verbalization
  */
 public class OWL2NL_QRAxiomVerbExperimentResult extends OWL2NL_QRExperimentResult {
+
+    /**
+     * User rating for fluency
+     */
     private int adequacy;
+
+    /**
+     * User rating for adequacy
+     */
     private int fluency;
 
-    public OWL2NL_QRAxiomVerbExperimentResult(int id, int adequacy, int fluency) {
-        super(id);
+    public OWL2NL_QRAxiomVerbExperimentResult(OWL2NL_QRExperimentResultBase baseResult, int adequacy, int fluency) {
+        super(baseResult);
         this.adequacy = adequacy;
         this.fluency = fluency;
     }

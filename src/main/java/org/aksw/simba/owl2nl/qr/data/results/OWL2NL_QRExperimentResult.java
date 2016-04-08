@@ -3,16 +3,25 @@ package org.aksw.simba.owl2nl.qr.data.results;
 import org.aksw.simba.qr.datatypes.ExperimentResult;
 
 /**
- * Created by felix on 05.04.2016.
+ * Base class for all experiment result
  */
 public abstract class OWL2NL_QRExperimentResult implements ExperimentResult {
-    private int experimentSetupId;
-    public OWL2NL_QRExperimentResult(int id) {
-        this.experimentSetupId = id;
+    private OWL2NL_QRExperimentResultBase baseResult;
+
+    public OWL2NL_QRExperimentResult(OWL2NL_QRExperimentResultBase baseResult) {
+        this.baseResult = baseResult;
     }
 
     @Override
     public int getExperimentSetupId() {
-        return experimentSetupId;
+        return baseResult.getExperimentSetupId();
+    }
+
+    public boolean isExpert() {
+        return baseResult.isExpert();
+    }
+
+    public boolean isExpertSet() {
+        return baseResult.isExpertSet();
     }
 }

@@ -1,20 +1,31 @@
 package org.aksw.simba.owl2nl.qr.data.results;
 
 /**
- * Created by felix on 04.04.2016.
+ * Experiment result for resource verbalization
  */
 public class OWL2NL_QRResourceVerbExperimentResult extends OWL2NL_QRExperimentResult {
+    /**
+     * user rating for adequacy - can be -1 if not set
+     */
     private int adequacy;
+
+    /**
+     * user rating for fluency
+     */
     private int fluency;
+
+    /**
+     * user rating for completeness - can be -1 if not set
+     */
     private int completeness;
 
     /**
      * Constructor for user group amateur result
-     * @param id
+     * @param baseResult
      * @param fluency
      */
-    public OWL2NL_QRResourceVerbExperimentResult(int id, int fluency) {
-        super(id);
+    public OWL2NL_QRResourceVerbExperimentResult(OWL2NL_QRExperimentResultBase baseResult, int fluency) {
+        super(baseResult);
         initResult(-1, fluency, -1);
     }
 
@@ -25,8 +36,8 @@ public class OWL2NL_QRResourceVerbExperimentResult extends OWL2NL_QRExperimentRe
      * @param fluency
      * @param completeness
      */
-    public OWL2NL_QRResourceVerbExperimentResult(int id, int adequacy, int fluency, int completeness) {
-        super(id);
+    public OWL2NL_QRResourceVerbExperimentResult(OWL2NL_QRExperimentResultBase baseResult, int adequacy, int fluency, int completeness) {
+        super(baseResult);
         initResult(adequacy, fluency, completeness);
     }
 

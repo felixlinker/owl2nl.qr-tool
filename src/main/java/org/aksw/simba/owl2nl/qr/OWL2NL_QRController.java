@@ -22,8 +22,6 @@ public class OWL2NL_QRController extends Controller {
 
     private static final long serialVersionUID = 1L;
 
-    private OWL2NL_QRDbAdapterExtension dbExtension = new OWL2NL_QRDbAdapterExtension();
-
     @Override
     protected User identifyUser(HttpServletRequest request, GuiHelper<ExperimentSetup> guiHelper) {
         HttpSession session = request.getSession();
@@ -31,10 +29,10 @@ public class OWL2NL_QRController extends Controller {
         int userId = db.getUserId(session.getId());
         if (userId == DbAdapter.ID_NOT_FOUND) {
             LOGGER.info("Identified a new user session ({}). Adding it to the database.", session.getId());
-            userId = dbExtension.addUser(session.getId(), db);
+            userId = OWL2NL_QRDbAdapterExtension.addUser(session.getId(), db);
             return new OWL2NL_QRUser(userId);
         } else {
-            OWL2NL_QRUser user = dbExtension.getUser(userId, db);
+            OWL2NL_QRUser user = OWL2NL_QRDbAdapterExtension.getUser(userId, db);
             LOGGER.info("user #" + userId + " has already " + user.getNumberOfAnswers() + " answers.");
             return user;
         }
