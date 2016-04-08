@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<link href="css/tapioca-qr.css" type="text/css" rel="stylesheet">
+<link href="css/jquery-ui.min.css" type="text/css" rel="stylesheet">
+<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="css/bootstrap-theme.min.css" type="text/css"
+	rel="stylesheet">
+<link href="css/star-rating.min.css" media="all" rel="stylesheet"
+	type="text/css" />
+<!--java script files are included at the end of the body -->
+<title>Survey</title>
+</head>
+<body>
+	<div role="main" class="container theme-showcase">
+		<form enctype="application/x-www-form-urlencoded" method="POST"
+			action="survey" onsubmit="return checkSubmit();"
+			accept-charset="UTF-8">
+			<div class="jumbotron">
+				<h1>Survey</h1>
+				<p>This is a survey for evaluating the calculation of RDF
+					dataset similarity in terms of topical relatedness.</p>
+			</div>
+			<div class="page-header">
+				<h1>Instructions</h1>
+			</div>
+			<p>TODO</p>
+			<p>For getting a chance to win one of the amazon vouchers, you
+				will have to submit the answers of 10 different pages (during a
+				single session). After the submission of the tenth page, a solution
+				word is displayed, that you can send to
+				roeder@informatik.uni-leipzig.de if you want to take part in the
+				lottery.</p>
+			<div></div>
+			<div class="page-header">
+				<h1>Task</h1>
+			</div>
+			<div class="panel panel-default experiment_div">
+				<div class="panel-heading">
+					<h3 class="panel-title"></h3>
+				</div>
+				<div class="panel-body">
+					<p>
+						KoalaWithPhD <b>EquivalentTo:</b> Koala <b>and</b> (hasDegree <b>value</b>
+						PhD)
+					</p>
+					<p>every koala with ph d is a koala that has degree PhD</p>
+					<table>
+						<tr>
+							<td>adequacy:</td>
+							<td><input name="adequacy" class="star_rating" id="rating_0"
+								type="number" min="0" max="5" step="1" value="0"></input></td>
+						</tr>
+						<tr>
+							<td>fluency:</td>
+							<td><input name="rating" class="star_rating" id="rating_1"
+								type="number" min="0" max="5" step="1" value="0"></input></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<p>
+				<input name="submit" id="submit" type="submit" value="Submit"></input>
+			</p>
+			<input name="experimentId" id="experimentId" type="hidden" value="1"></input>
+			<input name="userId" id="userId" type="hidden" value="11"></input> <input
+				name="experimentType" id="experimentType" type="hidden"
+				value="OWL2NL_QR"></input>
+		</form>
+		<p class="footer_paragraph">
+			This survey has been created by <a
+				href="http://www.aksw.org/MichaelRoeder.html">Michael R&ouml;der</a>,
+			a member of the Agile Knowledge Semantic Web (AKSW) research group (<a
+				href="http://www.aksw.org">http://www.aksw.org</a>). The answers are
+			stored in an anonymized way. The cookie that comes with this page
+			only contains a session id that is used to count the number of anwers
+			the user has generated. After answering 10 forms during a single
+			session, a key word is shown with which the user can take part in the
+			lottery of amazon vouchers. Regarding the lottery, any recourse to
+			courts of law is excluded and the judges' decision is final.
+		</p>
+	</div>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="js/star-rating.min.js" type="text/javascript"></script>
+	<script src="js/owl2nl.qr-tool.js" type="text/javascript"></script>
+</body>
+</html>

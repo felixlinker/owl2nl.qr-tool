@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+        	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:OWL2NL_QR.properties" />
+
+	<bean id="databaseDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="${org.aksw.simba.owl2nl.qr.db.driverClassName}" />
+		<property name="url"
+			value="jdbc:hsqldb:file:${org.aksw.simba.owl2nl.qr.db.file}" />
+	</bean>
+
+	<bean id="dbAdapter" class="org.aksw.simba.qr.db.DbAdapter">
+		<constructor-arg name="datasource" ref="databaseDataSource" />
+	</bean>
+	<!-- Initialize the database -->
+	<jdbc:initialize-database data-source="databaseDataSource">
+		<jdbc:script location="classpath:create-db.sql" />
+	</jdbc:initialize-database>
+
+	<!--<bean id="guiHelper" class="org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper" />-->
+
+
+	<!-- Axiom verbalization -->
+	<!-- ToDo: different description for different beans? -->
+	<bean class="org.aksw.simba.qr.datatypes.SimpleExperimentDescription">
+		<constructor-arg name="experimentName" value="OWL2NL_QRAxiomVerb" />
+		<constructor-arg name="experimentSetupSupplier">
+			<bean class="org.aksw.simba.owl2nl.qr.db.supplier.OWL2NL_QRAxiomVerbSetupSupplier" />
+		</constructor-arg>
+		<constructor-arg name="guiHelper">
+			<bean class="org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRAxiomVerbGuiHelper" />
+		</constructor-arg>
+		<constructor-arg name="experimentResultParser">
+			<bean class="org.aksw.simba.owl2nl.qr.parser.OWL2NL_QRAxiomVerbResultParser" />
+		</constructor-arg>
+		<constructor-arg name="experimentResultConsumer">
+			<bean class="org.aksw.simba.owl2nl.qr.db.consumer.OWL2NL_QRAxiomVerbResultConsumer" />
+		</constructor-arg>
+	</bean>
+
+	<!-- Class verbalization -->
+	<bean class="org.aksw.simba.qr.datatypes.SimpleExperimentDescription">
+		<constructor-arg name="experimentName" value="OWL2NL_QRClassVerb" />
+		<constructor-arg name="experimentSetupSupplier">
+			<bean class="org.aksw.simba.owl2nl.qr.db.supplier.OWL2NL_QRClassVerbSetupSupplier" />
+		</constructor-arg>
+		<constructor-arg name="guiHelper">
+			<bean class="org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRClassVerbGuiHelper" />
+		</constructor-arg>
+		<constructor-arg name="experimentResultParser">
+			<bean class="org.aksw.simba.owl2nl.qr.parser.OWL2NL_QRClassVerbResultParser" />
+		</constructor-arg>
+		<constructor-arg name="experimentResultConsumer">
+			<bean class="org.aksw.simba.owl2nl.qr.db.consumer.OWL2NL_QRClassVerbResultConsumer" />
+		</constructor-arg>
+	</bean>
+
+	<!-- Resource verbalization -->
+	<bean class="org.aksw.simba.qr.datatypes.SimpleExperimentDescription">
+		<constructor-arg name="experimentName" value="OWL2NL_QRResourceVerb" />
+		<constructor-arg name="experimentSetupSupplier">
+			<bean class="org.aksw.simba.owl2nl.qr.db.supplier.OWL2NL_QRResourceVerbSetupSupplier" />
+		</constructor-arg>
+		<constructor-arg name="guiHelper">
+			<bean class="org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRResourceVerbGuiHelper" />
+		</constructor-arg>
+		<constructor-arg name="experimentResultParser">
+			<bean class="org.aksw.simba.owl2nl.qr.parser.OWL2NL_QRResourceVerbResultParser" />
+		</constructor-arg>
+		<constructor-arg name="experimentResultConsumer">
+			<bean class="org.aksw.simba.owl2nl.qr.db.consumer.OWL2NL_QRResourceVerbResultConsumer" />
+		</constructor-arg>
+	</bean>
+
+</beans>

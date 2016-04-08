@@ -1,0 +1,235 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://rawgit.com/twbs/bootstrap/master/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://rawgit.com/wenzhixin/bootstrap-table/1.8.0/dist/bootstrap-table.css">
+<style type="text/css">
+   pre {
+	border: 0; 
+	background-color: transparent
+font-family: monospace;	}
+table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+thead th {
+    background-color: #006DCC;
+    color: white;
+}
+
+tbody td {
+    background-color: #EEEEEE;
+}
+
+tr td:first-child,
+tr th:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+tr td:last-child,
+tr th:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.fixed-table-container tbody td {
+    border: none;
+}
+.fixed-table-container thead th {
+    border: none;
+}
+
+.bootstrap-table .table {
+	border-collapse: inherit !important;
+}</style>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://rawgit.com/twbs/bootstrap/master/dist/js/bootstrap.min.js"></script>
+<script src="https://rawgit.com/wenzhixin/bootstrap-table/1.8.0/dist/bootstrap-table-all.min.js"></script>
+</head>
+<body>
+<table data-toggle="table" data-striped='true'>
+<thead><tr><th data-align="left" data-sortable="true" data-valign='middle'>ID</th><th data-align="left" data-sortable="true" data-valign='middle'>Axiom</th><th data-align="left" data-sortable="true" data-valign='middle'>NL</th><tbody>
+<tr>
+<td>1</td>
+<td>KoalaWithPhD <b>EquivalentTo:</b> Koala <b>and</b> (hasDegree <b>value</b> PhD)</td>
+<td>every koala with ph d is a koala that has degree PhD</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Female <b>EquivalentTo:</b> hasGender <b>value</b> female</td>
+<td>every female is something that has gender female</td>
+</tr>
+<tr>
+<td>3</td>
+<td> <b>Functional</b>  hasGender</td>
+<td>everything is something that has at most 1 gender</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GraduateStudent <b>SubClassOf:</b> Student</td>
+<td>every graduate student is a student</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Marsupials <b>DisjointWith:</b> Person</td>
+<td>every marsupial is something that is not a person</td>
+</tr>
+<tr>
+<td>6</td>
+<td>hasChildren <b>Domain:</b> Animal</td>
+<td>everything that has a child is an animal</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Male <b>EquivalentTo:</b> hasGender <b>value</b> male</td>
+<td>every male is something that has gender male</td>
+</tr>
+<tr>
+<td>8</td>
+<td>hasHabitat <b>Domain:</b> Animal</td>
+<td>everything that has a habitat is an animal</td>
+</tr>
+<tr>
+<td>9</td>
+<td>MaleStudentWith3Daughters <b>EquivalentTo:</b> Student <b>and</b> (hasChildren <b>only</b> Female) <b>and</b> (hasGender <b>value</b> male) <b>and</b> (hasChildren <b>exactly</b> 3 Thing)</td>
+<td>every male student with 3 daughter is a student that has as child only a female, that has gender male and that has exactly 3 children</td>
+</tr>
+<tr>
+<td>10</td>
+<td>hasChildren <b>Range:</b> Animal</td>
+<td>everything is something that has as child only an animal</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Quokka <b>SubClassOf:</b> Marsupials</td>
+<td>every quokka is a marsupial</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Student <b>EquivalentTo:</b> Person <b>and</b> (hasHabitat <b>some</b> University) <b>and</b> (isHardWorking <b>value</b> true)</td>
+<td>every student is a person that has as habitat an university and that is hard working</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Person <b>SubClassOf:</b> Animal</td>
+<td>every person is an animal</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Animal <b>SubClassOf:</b> hasHabitat <b>min</b> 1 Thing</td>
+<td>every animal is something that has at least 1 habitat</td>
+</tr>
+<tr>
+<td>15</td>
+<td>DryEucalyptForest <b>SubClassOf:</b> Forest</td>
+<td>every dry eucalypt forest is a forest</td>
+</tr>
+<tr>
+<td>16</td>
+<td>hasGender <b>Range:</b> Gender</td>
+<td>everything is something that has as gender only a gender</td>
+</tr>
+<tr>
+<td>17</td>
+<td>University <b>SubClassOf:</b> Habitat</td>
+<td>every university is a habitat</td>
+</tr>
+<tr>
+<td>18</td>
+<td> <b>Functional</b>  isHardWorking</td>
+<td>everything is something that is hard working at most 1 Literals</td>
+</tr>
+<tr>
+<td>19</td>
+<td>isHardWorking <b>Range:</b> boolean</td>
+<td>everything is something that is hard working or not</td>
+</tr>
+<tr>
+<td>20</td>
+<td>hasDegree <b>Range:</b> Degree</td>
+<td>everything is something that has as degree only a degree</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Koala <b>SubClassOf:</b> hasHabitat <b>some</b> DryEucalyptForest</td>
+<td>every koala is something that has as habitat a dry eucalypt forest</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Animal <b>SubClassOf:</b> hasGender <b>exactly</b> 1 Thing</td>
+<td>every animal is something that has exactly 1 gender</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Parent <b>SubClassOf:</b> Animal</td>
+<td>every parent is an animal</td>
+</tr>
+<tr>
+<td>24</td>
+<td>hasDegree <b>Domain:</b> Person</td>
+<td>everything that has a degree is a person</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Rainforest <b>SubClassOf:</b> Forest</td>
+<td>every rainforest is a forest</td>
+</tr>
+<tr>
+<td>26</td>
+<td>hasHabitat <b>Range:</b> Habitat</td>
+<td>everything is something that has as habitat only a habitat</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Koala <b>SubClassOf:</b> Marsupials</td>
+<td>every koala is a marsupial</td>
+</tr>
+<tr>
+<td>28</td>
+<td>GraduateStudent <b>SubClassOf:</b> hasDegree <b>some</b> ({BA , BS})</td>
+<td>every graduate student is something that has as degree BA or BS</td>
+</tr>
+<tr>
+<td>29</td>
+<td>TasmanianDevil <b>SubClassOf:</b> Marsupials</td>
+<td>every tasmanian devil is a marsupial</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Koala <b>SubClassOf:</b> isHardWorking <b>value</b> false</td>
+<td>every koala is something that is not hard working</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Marsupials <b>SubClassOf:</b> Animal</td>
+<td>every marsupial is an animal</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Forest <b>SubClassOf:</b> Habitat</td>
+<td>every forest is a habitat</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Parent <b>EquivalentTo:</b> Animal <b>and</b> (hasChildren <b>min</b> 1 Thing)</td>
+<td>every parent is an animal that has at least 1 child</td>
+</tr>
+<tr>
+<td>34</td>
+<td>isHardWorking <b>Domain:</b> Person</td>
+<td>everything that is hard working is a person</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Quokka <b>SubClassOf:</b> isHardWorking <b>value</b> true</td>
+<td>every quokka is something that is hard working</td>
+</tr>
+<tr>
+<td>36</td>
+<td>hasGender <b>Domain:</b> Animal</td>
+<td>everything that has a gender is an animal</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://rawgit.com/twbs/bootstrap/master/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://rawgit.com/wenzhixin/bootstrap-table/1.8.0/dist/bootstrap-table.css">
+<style type="text/css">
+   pre {
+	border: 0; 
+	background-color: transparent
+font-family: monospace;	}
+table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+thead th {
+    background-color: #006DCC;
+    color: white;
+}
+
+tbody td {
+    background-color: #EEEEEE;
+}
+
+tr td:first-child,
+tr th:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+tr td:last-child,
+tr th:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.fixed-table-container tbody td {
+    border: none;
+}
+.fixed-table-container thead th {
+    border: none;
+}
+
+.bootstrap-table .table {
+	border-collapse: inherit !important;
+}</style>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://rawgit.com/twbs/bootstrap/master/dist/js/bootstrap.min.js"></script>
+<script src="https://rawgit.com/wenzhixin/bootstrap-table/1.8.0/dist/bootstrap-table-all.min.js"></script>
+</head>
+<body>
+<table data-toggle="table" data-striped='true'>
+<thead><tr><th data-align="left" data-sortable="true" data-valign='middle'>ID</th><th data-align="left" data-sortable="true" data-valign='middle'>Axiom</th><th data-align="left" data-sortable="true" data-valign='middle'>NL</th><tbody>
+<tr>
+<td>1</td>
+<td> <b>Functional</b>  hasEMail</td>
+<td>everything is something that has e mail at most 1 Literals</td>
+</tr>
+<tr>
+<td>2</td>
+<td>BudgetAccommodation <b>EquivalentTo:</b> Accommodation <b>and</b> (hasRating <b>some</b> ({OneStarRating , TwoStarRating}))</td>
+<td>every budget accommodation is an accommodation that has as rating One Star Rating or Two Star Rating</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Hiking <b>SubClassOf:</b> Sports</td>
+<td>every hiking is a sport</td>
+</tr>
+<tr>
+<td>4</td>
+<td> <b>Functional</b>  hasCity</td>
+<td>everything is something that has city at most 1 Literals</td>
+</tr>
+<tr>
+<td>5</td>
+<td>hasZipCode <b>Domain:</b> Contact</td>
+<td>everything that has zip code is a contact</td>
+</tr>
+<tr>
+<td>6</td>
+<td>hasStreet <b>Range:</b> string</td>
+<td>everything is something that has street only string</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Adventure <b>SubClassOf:</b> Activity</td>
+<td>every adventure is an activity</td>
+</tr>
+<tr>
+<td>8</td>
+<td>NationalPark <b>SubClassOf:</b> hasAccommodation <b>some</b> Campground</td>
+<td>every national park is something that has as accommodation a campground</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Capital <b>SubClassOf:</b> hasActivity <b>some</b> Museums</td>
+<td>every capital is something that has as activity a museum</td>
+</tr>
+<tr>
+<td>10</td>
+<td>hasRating <b>Domain:</b> Accommodation</td>
+<td>everything that has a rating is an accommodation</td>
+</tr>
+<tr>
+<td>11</td>
+<td>hasContact <b>Range:</b> Contact</td>
+<td>everything is something that has as contact only a contact</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Campground <b>DisjointWith:</b> Hotel</td>
+<td>every campground is something that is not a hotel</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Relaxation <b>DisjointWith:</b> Sports</td>
+<td>every relaxation is something that is not a sport</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Campground <b>SubClassOf:</b> Accommodation</td>
+<td>every campground is an accommodation</td>
+</tr>
+<tr>
+<td>15</td>
+<td>hasEMail <b>Domain:</b> Contact</td>
+<td>everything that has e mail is a contact</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Beach <b>SubClassOf:</b> Destination</td>
+<td>every beach is a destination</td>
+</tr>
+<tr>
+<td>17</td>
+<td>RuralArea <b>SubClassOf:</b> Destination</td>
+<td>every rural area is a destination</td>
+</tr>
+<tr>
+<td>18</td>
+<td>BedAndBreakfast <b>DisjointWith:</b> Hotel</td>
+<td>every bed and breakfast is something that is not a hotel</td>
+</tr>
+<tr>
+<td>19</td>
+<td>hasCity <b>Domain:</b> Contact</td>
+<td>everything that has city is a contact</td>
+</tr>
+<tr>
+<td>20</td>
+<td>hasEMail <b>Range:</b> string</td>
+<td>everything is something that has e mail only string</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Relaxation <b>DisjointWith:</b> Sightseeing</td>
+<td>every relaxation is something that is not a sightseeing</td>
+</tr>
+<tr>
+<td>22</td>
+<td>LuxuryHotel <b>SubClassOf:</b> hasRating <b>value</b> ThreeStarRating</td>
+<td>every luxury hotel is something that has rating Three Star Rating</td>
+</tr>
+<tr>
+<td>23</td>
+<td>NationalPark <b>SubClassOf:</b> hasActivity <b>some</b> Hiking</td>
+<td>every national park is something that has as activity a hiking</td>
+</tr>
+<tr>
+<td>24</td>
+<td>hasActivity <b>Range:</b> Activity</td>
+<td>everything is something that has as activity only an activity</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Capital <b>SubClassOf:</b> City</td>
+<td>every capital is a city</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Museums <b>SubClassOf:</b> Sightseeing</td>
+<td>every museum is a sightseeing</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Adventure <b>DisjointWith:</b> Relaxation</td>
+<td>every adventure is something that is not a relaxation</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Farml <b>and</b> <b>SubClassOf:</b> RuralArea</td>
+<td>every farmland is a rural area</td>
+</tr>
+<tr>
+<td>29</td>
+<td>isOfferedAt <b>Range:</b> Destination</td>
+<td>everything is something that is offered at only a destination</td>
+</tr>
+<tr>
+<td>30</td>
+<td>hasContact <b>Domain:</b> Activity</td>
+<td>everything that has a contact is an activity</td>
+</tr>
+<tr>
+<td>31</td>
+<td>hasPart <b>Range:</b> Destination</td>
+<td>everything is something that has as part only a destination</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Surfing <b>SubClassOf:</b> Sports</td>
+<td>every surfing is a sport</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Adventure <b>DisjointWith:</b> Sports</td>
+<td>every adventure is something that is not a sport</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Sightseeing <b>DisjointWith:</b> Sports</td>
+<td>every sightseeing is something that is not a sport</td>
+</tr>
+<tr>
+<td>35</td>
+<td>BudgetHotelDestination <b>EquivalentTo:</b> Destination <b>and</b> (hasAccommodation <b>some</b> (BudgetAccommodation <b>and</b> Hotel))</td>
+<td>every budget hotel destination is a destination that has as accommodation a budget accommodation whose a hotel</td>
+</tr>
+<tr>
+<td>36</td>
+<td>RuralArea <b>DisjointWith:</b> UrbanArea</td>
+<td>every rural area is something that is not an urban area</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Safari <b>SubClassOf:</b> Sightseeing</td>
+<td>every safari is a sightseeing</td>
+</tr>
+<tr>
+<td>38</td>
+<td>hasActivity <b>Domain:</b> Destination</td>
+<td>everything that has a activity is a destination</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Town <b>SubClassOf:</b> UrbanArea</td>
+<td>every town is an urban area</td>
+</tr>
+<tr>
+<td>40</td>
+<td>City <b>SubClassOf:</b> hasAccommodation <b>some</b> LuxuryHotel</td>
+<td>every city is something that has as accommodation a luxury hotel</td>
+</tr>
+<tr>
+<td>41</td>
+<td>AccommodationRating <b>EquivalentTo:</b> {OneStarRating , ThreeStarRating , TwoStarRating}</td>
+<td>every accommodation rating is One Star Rating, Three Star Rating or Two Star Rating</td>
+</tr>
+<tr>
+<td>42</td>
+<td>NationalPark <b>SubClassOf:</b> RuralArea</td>
+<td>every national park is a rural area</td>
+</tr>
+<tr>
+<td>43</td>
+<td>FamilyDestination <b>EquivalentTo:</b> Destination <b>and</b> (hasAccommodation <b>min</b> 1 Thing) <b>and</b> (hasActivity <b>min</b> 2 Thing)</td>
+<td>every family destination is a destination that has at least 1 accommodation and that has at least 2 activity</td>
+</tr>
+<tr>
+<td>44</td>
+<td>City <b>SubClassOf:</b> UrbanArea</td>
+<td>every city is an urban area</td>
+</tr>
+<tr>
+<td>45</td>
+<td>UrbanArea <b>SubClassOf:</b> Destination</td>
+<td>every urban area is a destination</td>
+</tr>
+<tr>
+<td>46</td>
+<td> <b>Functional</b>  hasZipCode</td>
+<td>everything is something that has zip code at most 1 Literals</td>
+</tr>
+<tr>
+<td>47</td>
+<td>hasZipCode <b>Range:</b> int</td>
+<td>everything is something that has zip code only int</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Sunbathing <b>SubClassOf:</b> Relaxation</td>
+<td>every sunbathing is a relaxation</td>
+</tr>
+<tr>
+<td>49</td>
+<td>BunjeeJumping <b>SubClassOf:</b> Adventure</td>
+<td>every bunjee jumping is an adventure</td>
+</tr>
+<tr>
+<td>50</td>
+<td>RetireeDestination <b>EquivalentTo:</b> Destination <b>and</b> (hasAccommodation <b>some</b> (hasRating <b>value</b> ThreeStarRating)) <b>and</b> (hasActivity <b>some</b> Sightseeing)</td>
+<td>every retiree destination is a destination that has as accommodation something that has rating Three Star Rating and that has as activity a sightseeing</td>
+</tr>
+<tr>
+<td>51</td>
+<td>QuietDestination <b>EquivalentTo:</b> Destination <b>and</b> ( <b>not</b> (FamilyDestination))</td>
+<td>every quiet destination is a destination that is not a family destination</td>
+</tr>
+<tr>
+<td>52</td>
+<td>BedAndBreakfast <b>DisjointWith:</b> Campground</td>
+<td>every bed and breakfast is something that is not a campground</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Safari <b>SubClassOf:</b> Adventure</td>
+<td>every safari is an adventure</td>
+</tr>
+<tr>
+<td>54</td>
+<td>LuxuryHotel <b>SubClassOf:</b> Hotel</td>
+<td>every luxury hotel is a hotel</td>
+</tr>
+<tr>
+<td>55</td>
+<td>BedAndBreakfast <b>SubClassOf:</b> Accommodation</td>
+<td>every bed and breakfast is an accommodation</td>
+</tr>
+<tr>
+<td>56</td>
+<td>hasRating <b>Range:</b> AccommodationRating</td>
+<td>everything is something that has as rating only an accommodation rating</td>
+</tr>
+<tr>
+<td>57</td>
+<td>isOfferedAt <b>Domain:</b> Activity</td>
+<td>everything that is offered at something is an activity</td>
+</tr>
+<tr>
+<td>58</td>
+<td>hasAccommodation <b>Range:</b> Accommodation</td>
+<td>everything is something that has as accommodation only an accommodation</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Adventure <b>DisjointWith:</b> Sightseeing</td>
+<td>every adventure is something that is not a sightseeing</td>
+</tr>
+<tr>
+<td>60</td>
+<td>hasAccommodation <b>Domain:</b> Destination</td>
+<td>everything that has a accommodation is a destination</td>
+</tr>
+<tr>
+<td>61</td>
+<td>BackpackersDestination <b>EquivalentTo:</b> Destination <b>and</b> (hasAccommodation <b>some</b> BudgetAccommodation) <b>and</b> (hasActivity <b>some</b> (Adventure <b>or</b> Sports))</td>
+<td>every backpackers destination is a destination that has as accommodation a budget accommodation and that has as activity an adventure or a sport</td>
+</tr>
+<tr>
+<td>62</td>
+<td> <b>Functional</b>  hasStreet</td>
+<td>everything is something that has street at most 1 Literals</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Hotel <b>SubClassOf:</b> Accommodation</td>
+<td>every hotel is an accommodation</td>
+</tr>
+<tr>
+<td>64</td>
+<td>hasPart <b>Domain:</b> Destination</td>
+<td>everything that has a part is a destination</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Yoga <b>SubClassOf:</b> Relaxation</td>
+<td>every yoga is a relaxation</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Sports <b>SubClassOf:</b> Activity</td>
+<td>every sport is an activity</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Sightseeing <b>SubClassOf:</b> Activity</td>
+<td>every sightseeing is an activity</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Relaxation <b>SubClassOf:</b> Activity</td>
+<td>every relaxation is an activity</td>
+</tr>
+<tr>
+<td>69</td>
+<td>hasStreet <b>Domain:</b> Contact</td>
+<td>everything that has street is a contact</td>
+</tr>
+<tr>
+<td>70</td>
+<td>hasCity <b>Range:</b> string</td>
+<td>everything is something that has city only string</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Campground <b>SubClassOf:</b> hasRating <b>value</b> OneStarRating</td>
+<td>every campground is something that has rating One Star Rating</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
