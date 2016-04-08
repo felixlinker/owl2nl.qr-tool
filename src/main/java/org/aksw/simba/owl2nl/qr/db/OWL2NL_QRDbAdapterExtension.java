@@ -2,13 +2,11 @@ package org.aksw.simba.owl2nl.qr.db;
 
 import org.aksw.simba.db.mapper.IntegerRowMapper;
 import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRUser;
-import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRUserRowMapper;
-import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResult;
+import org.aksw.simba.owl2nl.qr.data.rowMapper.OWL2NL_QRUserRowMapper;
 import org.aksw.simba.qr.datatypes.User;
 import org.aksw.simba.qr.db.DbAdapter;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import java.time.chrono.JapaneseDate;
 import java.util.List;
 
 public class OWL2NL_QRDbAdapterExtension {

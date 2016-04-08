@@ -1,5 +1,7 @@
-package org.aksw.simba.owl2nl.qr.data.experiments;
+package org.aksw.simba.owl2nl.qr.data.rowMapper;
 
+import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRAxiomVerbExperimentSetup;
+import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

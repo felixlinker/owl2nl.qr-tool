@@ -1,6 +1,6 @@
 package org.aksw.simba.owl2nl.qr.db.supplier;
 
-import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRClassVerbExperimentRowMapper;
+import org.aksw.simba.owl2nl.qr.data.rowMapper.OWL2NL_QRClassVerbExperimentRowMapper;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRClassVerbExperimentSetup;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
 import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;

@@ -1,5 +1,6 @@
-package org.aksw.simba.owl2nl.qr.data;
+package org.aksw.simba.owl2nl.qr.data.rowMapper;
 
+import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRUser;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
