@@ -17,15 +17,17 @@ public class OWL2NL_QRResourceVerbResultParser extends OWL2NL_QRResultParser {
 
         int adequacy, fluency, completeness;
 
-        // ToDo: what happens if adequacy isn't set
         String tempString = request.getParameter(OWL2NL_QRResourceVerbGuiHelper.ADEQUACY_RATING_KEY);
-        try {
-            adequacy = Integer.parseInt(tempString);
-        } catch (NumberFormatException e) {
-            return logParsingError();
+        if (tempString == null) {
+            adequacy = -1;
+        } else {
+            try {
+                adequacy = Integer.parseInt(tempString);
+            } catch (NumberFormatException e) {
+                return logParsingError();
+            }
         }
 
-        // ToDo: what happens if fluency isn't set
         tempString = request.getParameter(OWL2NL_QRResourceVerbGuiHelper.FLUENCY_RATING_KEY);
         try {
             fluency = Integer.parseInt(tempString);
@@ -34,10 +36,14 @@ public class OWL2NL_QRResourceVerbResultParser extends OWL2NL_QRResultParser {
         }
 
         tempString = request.getParameter(OWL2NL_QRResourceVerbGuiHelper.COMPLETENSS_RATING_KEY);
-        try {
-            completeness = Integer.parseInt(tempString);
-        } catch (NumberFormatException e) {
-            return logParsingError();
+        if (tempString == null) {
+            completeness = -1;
+        } else {
+            try {
+                completeness = Integer.parseInt(tempString);
+            } catch (NumberFormatException e) {
+                return logParsingError();
+            }
         }
 
         LOGGER.info("Parsed a result for resource verbalization experiment #{} (adequacy={}, fluency={}, completeness={}).", baseResult.getExperimentSetupId(), adequacy, fluency, completeness);
