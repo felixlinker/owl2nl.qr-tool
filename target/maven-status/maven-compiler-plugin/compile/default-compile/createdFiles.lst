@@ -1,3 +1,4 @@
+org\aksw\simba\owl2nl\qr\data\OWL2NL_QRUserRowMapper.class
 org\aksw\simba\owl2nl\qr\data\ontoelements\OWL2NL_QRTripleRowMapper.class
 org\aksw\simba\owl2nl\qr\data\ontoelements\OWL2NL_QRTriple.class
 org\aksw\simba\owl2nl\qr\gui\guiHelper\OWL2NL_QRClassVerbGuiHelper.class

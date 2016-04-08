@@ -3,12 +3,15 @@ package org.aksw.simba.owl2nl.qr.data;
 import org.aksw.simba.qr.datatypes.UserId;
 
 public class OWL2NL_QRUser extends UserId {
-    private int numberOfAnswers;
-    private boolean isExpert;
+    private int numberOfAnswers = 0;
+    private boolean isExpert = false;
     private boolean isExpertSet = false;
 
-    public OWL2NL_QRUser(int id, int numberOfAnswers) {
+    public OWL2NL_QRUser(int id) {
         super(id);
+    }
+
+    public void setNumberOfAnswers(int numberOfAnswers) {
         this.numberOfAnswers = numberOfAnswers;
     }
 

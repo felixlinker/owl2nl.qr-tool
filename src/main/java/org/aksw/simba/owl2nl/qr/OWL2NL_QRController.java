@@ -32,12 +32,11 @@ public class OWL2NL_QRController extends Controller {
         if (userId == DbAdapter.ID_NOT_FOUND) {
             LOGGER.info("Identified a new user session ({}). Adding it to the database.", session.getId());
             userId = dbExtension.addUser(session.getId(), db);
-            return new OWL2NL_QRUser(userId, 0);
+            return new OWL2NL_QRUser(userId);
         } else {
-            // ToDo: query user
-            int answerCount = dbExtension.getNumberOfAnswers(userId, db);
-            LOGGER.info("user #" + userId + " has already " + answerCount + " answers.");
-            return new OWL2NL_QRUser(userId, answerCount);
+            OWL2NL_QRUser user = dbExtension.getUser(userId, db);
+            LOGGER.info("user #" + userId + " has already " + user.getNumberOfAnswers() + " answers.");
+            return user;
         }
     }
 
@@ -46,8 +45,8 @@ public class OWL2NL_QRController extends Controller {
             GuiHelper<ExperimentSetup> guiHelper) {
         ExperimentDescription<?, ?> expDesc = super.identifyExperiment(request, guiHelper);
         if (expDesc == null) {
-            List<ExperimentDescription<?, ?>> eperimentDescriptions = getExperimentDescriptions();
-            expDesc = eperimentDescriptions.get(0);
+            List<ExperimentDescription<?, ?>> experimentDescriptions = getExperimentDescriptions();
+            expDesc = experimentDescriptions.get(0);
         }
         return expDesc;
     }
