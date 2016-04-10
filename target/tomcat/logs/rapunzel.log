@@ -1,16 +1,13 @@
-2016-04-08 11:58:13,569 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
-2016-04-08 11:58:13,669 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Apr 08 11:58:13 CEST 2016]; root of context hierarchy
-2016-04-08 11:58:13,718 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
-2016-04-08 11:58:14,066 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
-2016-04-08 11:58:14,104 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@197ce367: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#1,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#2]; root of factory hierarchy
-2016-04-08 11:58:14,145 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
-2016-04-08 11:58:14,753 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
-2016-04-08 11:58:14,806 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
-2016-04-08 11:58:14,810 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
-2016-04-08 11:58:14,829 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 19 ms.
-2016-04-08 11:58:15,081 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization completed in 1512 ms
-2016-04-08 11:58:18,657 INFO  [http-8080-1    ]  qr.Controller                  - Containing 3 experiments after initialization.
-2016-04-08 11:58:18,691 INFO  [http-8080-1    ]  qr.OWL2NL_QRController         - Identified a new user session (AD80C60959DD29BA606C31045B3F4366). Adding it to the database.
-2016-04-08 11:58:18,730 INFO  [http-8080-1    ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
-2016-04-08 11:58:18,775 INFO  [http-8080-1    ]  support.SQLErrorCodesFactory   - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]
-2016-04-08 11:58:18,790 INFO  [http-8080-1    ]  qr.Controller                  - There are no more experiments for the user with the Id 34. Sending finish page.
+2016-04-10 18:37:44,667 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
+2016-04-10 18:37:44,808 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Sun Apr 10 18:37:44 CEST 2016]; root of context hierarchy
+2016-04-10 18:37:44,919 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
+2016-04-10 18:37:45,322 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
+2016-04-10 18:37:45,357 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3a209918: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#0]; root of factory hierarchy
+2016-04-10 18:37:45,396 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
+2016-04-10 18:37:46,039 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
+2016-04-10 18:37:46,091 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
+2016-04-10 18:37:46,097 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
+2016-04-10 18:37:46,118 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 21 ms.
+2016-04-10 18:37:46,148 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization completed in 1481 ms
+2016-04-10 18:37:47,597 INFO  [http-8080-1    ]  qr.Controller                  - Containing 1 experiments after initialization.
+2016-04-10 18:37:47,826 INFO  [http-8080-1    ]  qr.OWL2NL_QRController         - Identified a new user session (F3773F24B118E8540F3D67C805899DA7). Adding it to the database.

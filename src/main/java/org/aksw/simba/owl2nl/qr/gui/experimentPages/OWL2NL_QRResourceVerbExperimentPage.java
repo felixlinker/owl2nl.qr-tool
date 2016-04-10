@@ -53,18 +53,17 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
         titleDiv.addElement(heading);
         experimentDiv.addElement(titleDiv);
 
-        experimentDiv.addElement(new Paragraph(experiment.getResourceVerbalization()));
+        Div bodyDiv = new Div();
+        bodyDiv.addAttribute("class", "panel-body");
+        bodyDiv.addElement(new Paragraph(experiment.getResourceVerbalization()));
         OWL2NL_QRStarRatingHelper[] starRatingHelpers;
         if (experiment.isPerformedByExpert()) {
-            experimentDiv.addElement(generateUnorderedList(guiHelper.TRIPLE_STRING_LIST_CONVERTER.map(experiment.getTriples())));
+            bodyDiv.addElement(generateUnorderedList(guiHelper.TRIPLE_STRING_LIST_CONVERTER.map(experiment.getTriples())));
             starRatingHelpers = guiHelper.STAR_RATINGS_EXPERT;
         } else {
             starRatingHelpers = guiHelper.STAR_RATINGS_AMATEUR;
         }
-        experimentDiv.addElement(generateStarRatingTable(starRatingHelpers));
-
-        Div bodyDiv = new Div();
-        bodyDiv.addAttribute("class", "panel-body");
+        bodyDiv.addElement(generateStarRatingTable(starRatingHelpers));
 
         experimentDiv.addElement(bodyDiv);
         return experimentDiv;

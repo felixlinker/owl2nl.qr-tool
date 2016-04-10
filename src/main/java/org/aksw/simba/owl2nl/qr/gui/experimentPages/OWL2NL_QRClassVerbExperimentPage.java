@@ -54,15 +54,16 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         titleDiv.addElement(heading);
         experimentDiv.addElement(titleDiv);
 
-        experimentDiv.addElement(new Paragraph(experiment.getAxiom()));
-        experimentDiv.addElement(new Paragraph("Instances:"));
+        Div bodyDiv = new Div();
+        bodyDiv.addAttribute("class", "panel-body");
+        bodyDiv.addElement(new Paragraph(experiment.getAxiom()));
+        bodyDiv.addElement(new Paragraph("Instances:"));
 
-        experimentDiv.addElement(generateRadioButtonList(guiHelper.TRIPLE_TO_RADIO_MAPPER.map(experiment.getInstances())));
+        bodyDiv.addElement(generateRadioButtonList(guiHelper.TRIPLE_TO_RADIO_MAPPER.map(experiment.getInstances())));
 
         // ToDo: enable options for showing verbalizations
 
-        Div bodyDiv = new Div();
-        bodyDiv.addAttribute("class", "panel-body");
+
 
         experimentDiv.addElement(bodyDiv);
         return experimentDiv;

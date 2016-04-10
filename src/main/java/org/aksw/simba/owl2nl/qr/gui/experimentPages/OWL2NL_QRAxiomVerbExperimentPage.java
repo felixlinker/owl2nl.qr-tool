@@ -51,13 +51,12 @@ public class OWL2NL_QRAxiomVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         titleDiv.addElement(heading);
         experimentDiv.addElement(titleDiv);
 
-        experimentDiv.addElement(new Paragraph(bold(experiment.getAxiom())));
-        experimentDiv.addElement(new Paragraph(experiment.getVerbalization()));
-
-        experimentDiv.addElement(generateStarRatingTable(guiHelper.STAR_RATINGS));
-
         Div bodyDiv = new Div();
         bodyDiv.addAttribute("class", "panel-body");
+        bodyDiv.addElement(new Paragraph(new BoldText(experiment.getAxiom())));
+        bodyDiv.addElement(new Paragraph(experiment.getVerbalization()));
+
+        bodyDiv.addElement(generateStarRatingTable(guiHelper.STAR_RATINGS));
 
         experimentDiv.addElement(bodyDiv);
         return experimentDiv;

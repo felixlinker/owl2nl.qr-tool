@@ -12,12 +12,13 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import javax.xml.crypto.Data;
 import java.sql.SQLDataException;
 import java.util.List;
 
 public abstract class OWL2NL_QRSetupSupplier extends AbstractStartedExperimentsFirstSetupSupplier {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(OWL2NL_QRSetupSupplier.class);
+    protected static final Logger LOGGER = LoggerFactory.getLogger(OWL2NL_QRSetupSupplier.class);
 
     /**
      * Row mapper to map the result sets from the experiment query
@@ -68,15 +69,13 @@ public abstract class OWL2NL_QRSetupSupplier extends AbstractStartedExperimentsF
             OWL2NL_QRExperimentSetup experimentSetup = experimentSetups.get(0);
             try {
                 experimentSetup = finishExperimentSetup(jdbcTemplate, experimentSetup);
-            } catch (ClassCastException e) {
-                // ToDo: log error
-            } catch (SQLDataException e) {
-                // ToDo: log error
+            } catch (ClassCastException | DataAccessException | SQLDataException e) {
+                LOGGER.error("Failed to finish experiment for setupId={}", setupId);
             }
 
             return experimentSetup;
         } catch (DataAccessException e) {
-            // ToDo: log error
+            LOGGER.error("Failed to load experiment for setupId={}", setupId);
             return null;
         }
     }

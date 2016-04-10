@@ -108,7 +108,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         HtmlContainer container = new HtmlContainer();
 
         Div messageDiv = new Div();
-        messageDiv.addElement(new Paragraph(italic("Please select a user group:")));
+        messageDiv.addElement(new Paragraph(new BoldText("Please select a user group:")));
 
         OWL2NL_QRUserGroupGuiHelper userGuiHelper = new OWL2NL_QRUserGroupGuiHelper();
         LinkedList<OWL2NL_QRRadioButtonHelper> buttonHelpers = new LinkedList<>();
@@ -244,12 +244,29 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
             throw new IllegalArgumentException();
         }
 
-        Div div = new Div();
+        /*Div div = new Div();
         for (OWL2NL_QRRadioButtonHelper button: buttons) {
             div.addElement(generateRadioButton(button.getName(), button.getKey(), button.getValue()));
         }
 
-        return div;
+        return div;*/
+
+         HtmlContainer container = new HtmlContainer();
+         InputElement input;
+         Label label;
+         for (OWL2NL_QRRadioButtonHelper button: buttons) {
+             input = new InputElement(button.getKey(), InputType.Radiobutton);
+             input.addAttribute("id", "radio_");
+             input.addAttribute("value", button.getValue());
+             container.addElement(input);
+
+             label = new Label(new Text(button.getName()));
+             label.addAttribute("for", "radio_");
+             label.addAttribute("class", "rating_label");
+             container.addElement(label);
+         }
+
+        return container;
     }
 
     private WebElement generateRadioButton(String name, String id, String value) {
@@ -291,14 +308,6 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         input.addAttribute("id", "submit");
         input.addAttribute("value", OWL2NL_QRGuiHelper.SUBMIT_BUTTON_LABEL);
         return new Paragraph(input);
-    }
-
-    protected String bold(String content) {
-        return tagText(content, BOLD_START_TAG, BOLD_END_TAG);
-    }
-
-    protected String italic(String content) {
-        return tagText(content, ITALIC_START_TAG, ITALIC_END_TAG);
     }
 
     private String tagText(String text, String startTag, String endTag) {
