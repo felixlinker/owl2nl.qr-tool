@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF[
+	<!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+	<!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+	<!ENTITY owl 'http://www.w3.org/2002/07/owl#'>
+	<!ENTITY swivt 'http://semantic-mediawiki.org/swivt/1.0#'>
+	<!ENTITY wiki 'http://www.wecowi.de/wiki/Spezial:URI-Aufl&#37;C3&#37;B6ser/'>
+	<!ENTITY property 'http://www.wecowi.de/wiki/Spezial:URI-Aufl&#37;C3&#37;B6ser/Attribut-3A'>
+	<!ENTITY wikiurl 'https://www.wecowi.de/wiki/'>
+]>
+
+<rdf:RDF
+	xmlns:rdf="&rdf;"
+	xmlns:rdfs="&rdfs;"
+	xmlns:owl ="&owl;"
+	xmlns:swivt="&swivt;"
+	xmlns:wiki="&wiki;"
+	xmlns:property="&property;">
+
+	<owl:Ontology rdf:about="https://www.wecowi.de/wiki/Spezial:RDF_exportieren/Angela_Merkel">
+		<swivt:creationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-04-10T17:10:57+02:00</swivt:creationDate>
+		<owl:imports rdf:resource="http://semantic-mediawiki.org/swivt/1.0"/>
+	</owl:Ontology>
+	<swivt:Subject rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Angela_Merkel">
+		<rdf:type rdf:resource="&wiki;Kategorie-3ABekannte_Person"/>
+		<rdfs:label>Angela Merkel</rdfs:label>
+		<swivt:page rdf:resource="https://www.wecowi.de/wiki/Angela_Merkel"/>
+		<rdfs:isDefinedBy rdf:resource="https://www.wecowi.de/wiki/Spezial:RDF_exportieren/Angela_Merkel"/>
+		<swivt:wikiNamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</swivt:wikiNamespace>
+		<property:Alter rdf:datatype="http://www.w3.org/2001/XMLSchema#double">60</property:Alter>
+		<property:Beruf rdf:resource="&wiki;Politikerin"/>
+		<property:Beruf rdf:resource="&wiki;Physikerin"/>
+		<property:Familienname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Merkel</property:Familienname>
+		<property:Geboren rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1954-06-17Z</property:Geboren>
+		<property:Geboren-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2434910.5</property:Geboren-23aux>
+		<property:Geburtsjahr rdf:resource="&wiki;1954"/>
+		<property:Geburtsland rdf:resource="&wiki;Deutschland"/>
+		<property:Geburtsmonat rdf:resource="&wiki;Juni"/>
+		<property:Geburtsname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kasner</property:Geburtsname>
+		<property:Geburtsort rdf:resource="&wiki;Hamburg"/>
+		<property:Geburtstag rdf:resource="&wiki;17._Juni"/>
+		<property:Geschlecht rdf:resource="&wiki;Weiblich"/>
+		<property:Heimatland rdf:resource="&wiki;Deutschland"/>
+		<property:Religionszugeh-C3-B6rigkeit rdf:resource="&wiki;evangelisch"/>
+		<property:Vorname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Angela</property:Vorname>
+		<property:Wohnort rdf:resource="&wiki;Hamburg"/>
+		<property:Zweiter_Vorname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dorothea</property:Zweiter_Vorname>
+		<property:Hat_Abfrage-23aux rdf:resource="&wiki;Angela_Merkel-23_QUERY255de01a26ba1de1bbc2510134fa4cd7"/>
+		<property:Erstellt-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-08-12T23:36:54Z</property:Erstellt-23aux>
+		<property:Erstellt-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2456152.4839583</property:Erstellt-23aux>
+		<property:Letzter_Bearbeiter_ist-23aux rdf:resource="&wiki;Benutzer-3APenarc"/>
+		<swivt:wikiPageModificationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2014-07-14T17:46:29Z</swivt:wikiPageModificationDate>
+		<property:Zuletzt_ge-C3-A4ndert-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2456853.2406134</property:Zuletzt_ge-C3-A4ndert-23aux>
+		<swivt:wikiPageSortKey rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Merkel, Angela</swivt:wikiPageSortKey>
+	</swivt:Subject>
+	<swivt:Subject rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Angela_Merkel-23_QUERY255de01a26ba1de1bbc2510134fa4cd7">
+		<swivt:masterPage rdf:resource="&wiki;Angela_Merkel"/>
+		<swivt:wikiNamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</swivt:wikiNamespace>
+		<property:Abfragetiefe-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</property:Abfragetiefe-23aux>
+		<property:Abfrageformat-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#string">list</property:Abfrageformat-23aux>
+		<property:Abfragegr-C3-B6-C3-9Fe-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2</property:Abfragegr-C3-B6-C3-9Fe-23aux>
+		<property:Abfragetext-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#string">[[Abkürzung für::Deutschland]]</property:Abfragetext-23aux>
+		<swivt:wikiPageSortKey rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Angela Merkel</swivt:wikiPageSortKey>
+	</swivt:Subject>
+	<swivt:Subject rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Deutschland-23_a48045cafbe599a8fdc3f3508c72d969">
+		<swivt:masterPage rdf:resource="&wiki;Deutschland"/>
+		<swivt:wikiNamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</swivt:wikiNamespace>
+		<property:Vollst-C3-A4ndiger_Name rdf:resource="&wiki;Angela_Merkel"/>
+		<swivt:wikiPageSortKey rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Deutschland</swivt:wikiPageSortKey>
+	</swivt:Subject>
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AVollst-C3-A4ndiger_Name">
+		<rdfs:label>Vollständiger Name</rdfs:label>
+		<swivt:page rdf:resource="https://www.wecowi.de/wiki/Attribut:Vollst%C3%A4ndiger_Name"/>
+		<rdfs:isDefinedBy rdf:resource="https://www.wecowi.de/wiki/Spezial:RDF_exportieren/Attribut:Vollst%C3%A4ndiger_Name"/>
+		<swivt:wikiNamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">102</swivt:wikiNamespace>
+		<swivt:wikiPageSortKey rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vollständiger Name</swivt:wikiPageSortKey>
+		<swivt:type rdf:resource="http://semantic-mediawiki.org/swivt/1.0#_wpg"/>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#creationDate" />
+	<owl:Class rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Kategorie-3ABekannte_Person" />
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#page" />
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiNamespace" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AAlter" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3ABeruf" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AFamilienname" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeboren" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeboren-23aux" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeburtsjahr" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeburtsland" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeburtsmonat" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeburtsname" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeburtsort" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeburtstag" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeschlecht" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AHeimatland" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AReligionszugeh-C3-B6rigkeit" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AVorname" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AWohnort" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AZweiter_Vorname" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AHat_Abfrage-23aux" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AErstellt-23aux" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3ALetzter_Bearbeiter_ist-23aux" />
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiPageModificationDate" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AZuletzt_ge-C3-A4ndert-23aux" />
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiPageSortKey" />
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#masterPage" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AAbfragetiefe-23aux" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AAbfrageformat-23aux" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AAbfragegr-C3-B6-C3-9Fe-23aux" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AAbfragetext-23aux" />
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#type" />
+	<!-- Created by Semantic MediaWiki, http://semantic-mediawiki.org/ -->
+</rdf:RDF>

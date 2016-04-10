@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF[
+	<!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+	<!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+	<!ENTITY owl 'http://www.w3.org/2002/07/owl#'>
+	<!ENTITY swivt 'http://semantic-mediawiki.org/swivt/1.0#'>
+	<!ENTITY wiki 'http://www.wecowi.de/wiki/Spezial:URI-Aufl&#37;C3&#37;B6ser/'>
+	<!ENTITY property 'http://www.wecowi.de/wiki/Spezial:URI-Aufl&#37;C3&#37;B6ser/Attribut-3A'>
+	<!ENTITY wikiurl 'https://www.wecowi.de/wiki/'>
+]>
+
+<rdf:RDF
+	xmlns:rdf="&rdf;"
+	xmlns:rdfs="&rdfs;"
+	xmlns:owl ="&owl;"
+	xmlns:swivt="&swivt;"
+	xmlns:wiki="&wiki;"
+	xmlns:property="&property;">
+
+	<owl:Ontology rdf:about="https://www.wecowi.de/wiki/Spezial:RDF_exportieren/Albert_Einstein">
+		<swivt:creationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-04-10T17:08:23+02:00</swivt:creationDate>
+		<owl:imports rdf:resource="http://semantic-mediawiki.org/swivt/1.0"/>
+	</owl:Ontology>
+	<swivt:Subject rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Albert_Einstein">
+		<rdf:type rdf:resource="&wiki;Kategorie-3ABekannte_Person"/>
+		<rdfs:label>Albert Einstein</rdfs:label>
+		<swivt:page rdf:resource="https://www.wecowi.de/wiki/Albert_Einstein"/>
+		<rdfs:isDefinedBy rdf:resource="https://www.wecowi.de/wiki/Spezial:RDF_exportieren/Albert_Einstein"/>
+		<swivt:wikiNamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</swivt:wikiNamespace>
+		<property:Alter rdf:datatype="http://www.w3.org/2001/XMLSchema#double">76</property:Alter>
+		<property:Auszeichnung rdf:resource="&wiki;Albert_Einstein-23_084df084d383ea33f99c002b3e6bb507"/>
+		<property:Beruf rdf:resource="&wiki;Physiker"/>
+		<property:Familienname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Einstein</property:Familienname>
+		<property:Geboren rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1879-03-14Z</property:Geboren>
+		<property:Geboren-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2407422.5</property:Geboren-23aux>
+		<property:Geburtsjahr rdf:resource="&wiki;1879"/>
+		<property:Geburtsland rdf:resource="&wiki;Deutschland"/>
+		<property:Geburtsmonat rdf:resource="&wiki;M-C3-A4rz"/>
+		<property:Geburtsort rdf:resource="&wiki;Ulm"/>
+		<property:Geburtstag rdf:resource="&wiki;14._M-C3-A4rz"/>
+		<property:Geschlecht rdf:resource="&wiki;M-C3-A4nnlich"/>
+		<property:Heimatland rdf:resource="&wiki;Deutschland"/>
+		<property:Kurzinfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Einer der bedeutendsten Physiker des 20. Jahrhunderts und besonders durch die Entdeckung der [[Relativitätstheorie]] bekannt. Erhielt [[1921]] den Nobelpreis in Physik für die Erforschung des photoelektrischen Effekts</property:Kurzinfo>
+		<property:Lemma rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Einstein, Albert</property:Lemma>
+		<property:Religionszugeh-C3-B6rigkeit rdf:resource="&wiki;Judentum"/>
+		<property:Sterbeort rdf:resource="&wiki;Princeton,_New_Jersey"/>
+		<property:Todesjahr rdf:resource="&wiki;1955"/>
+		<property:Todesmonat rdf:resource="&wiki;April"/>
+		<property:Todestag rdf:resource="&wiki;18._April"/>
+		<property:Verstorben rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1955-04-18Z</property:Verstorben>
+		<property:Verstorben-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2435215.5</property:Verstorben-23aux>
+		<property:Vorname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Albert</property:Vorname>
+		<property:Wohnort rdf:resource="&wiki;Ulm"/>
+		<property:Wohnort rdf:resource="&wiki;Princeton,_New_Jersey"/>
+		<property:Hat_Abfrage-23aux rdf:resource="&wiki;Albert_Einstein-23_QUERY9571f2504eeb83f02d02499990eeb966"/>
+		<property:Erstellt-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2008-03-14T23:38:40Z</property:Erstellt-23aux>
+		<property:Erstellt-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2454540.4851852</property:Erstellt-23aux>
+		<property:Letzter_Bearbeiter_ist-23aux rdf:resource="&wiki;Benutzer-3ADaSch"/>
+		<swivt:wikiPageModificationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-15T18:13:59Z</swivt:wikiPageModificationDate>
+		<property:Zuletzt_ge-C3-A4ndert-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2456308.2597106</property:Zuletzt_ge-C3-A4ndert-23aux>
+		<swivt:wikiPageSortKey rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Einstein, Albert</swivt:wikiPageSortKey>
+	<swivt:Subject rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Albert_Einstein-23_QUERY9571f2504eeb83f02d02499990eeb966">
+		<swivt:masterPage rdf:resource="&wiki;Albert_Einstein"/>
+		<swivt:wikiNamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</swivt:wikiNamespace>
+		<property:Abfragetiefe-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1</property:Abfragetiefe-23aux>
+		<property:Abfrageformat-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#string">list</property:Abfrageformat-23aux>
+		<property:Abfragegr-C3-B6-C3-9Fe-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2</property:Abfragegr-C3-B6-C3-9Fe-23aux>
+		<property:Abfragetext-23aux rdf:datatype="http://www.w3.org/2001/XMLSchema#string">[[Abkürzung für::Deutschland]]</property:Abfragetext-23aux>
+		<swivt:wikiPageSortKey rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Albert Einstein</swivt:wikiPageSortKey>
+	</swivt:Subject>
+	<swivt:Subject rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/albert_Einstein">
+		<rdfs:label>albert Einstein</rdfs:label>
+		<swivt:page rdf:resource="https://www.wecowi.de/wiki/albert_Einstein"/>
+		<rdfs:isDefinedBy rdf:resource="https://www.wecowi.de/wiki/Spezial:RDF_exportieren/albert_Einstein"/>
+		<swivt:wikiNamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</swivt:wikiNamespace>
+		<swivt:redirectsTo rdf:resource="&wiki;Albert_Einstein"/>
+		<owl:sameAs rdf:resource="&wiki;Albert_Einstein"/>
+		<swivt:wikiPageSortKey rdf:datatype="http://www.w3.org/2001/XMLSchema#string">albert Einstein</swivt:wikiPageSortKey>
+	</swivt:Subject>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#creationDate" />
+	<owl:Class rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Kategorie-3ABekannte_Person" />
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#page" />
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiNamespace" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AAlter" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AAuszeichnung" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3ABeruf" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AFamilienname" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeboren" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeboren-23aux" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeburtsjahr" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeburtsland" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeburtsmonat" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeburtsort" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeburtstag" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AGeschlecht" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AHeimatland" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AKurzinfo" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3ALemma" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AReligionszugeh-C3-B6rigkeit" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3ASterbeort" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3ATodesjahr" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3ATodesmonat" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3ATodestag" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AVerstorben" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AVerstorben-23aux" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AVorname" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AWohnort" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AHat_Abfrage-23aux" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AErstellt-23aux" />
+	<owl:ObjectProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3ALetzter_Bearbeiter_ist-23aux" />
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiPageModificationDate" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AZuletzt_ge-C3-A4ndert-23aux" />
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiPageSortKey" />
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#masterPage" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AAbfragetiefe-23aux" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AAbfrageformat-23aux" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AAbfragegr-C3-B6-C3-9Fe-23aux" />
+	<owl:DatatypeProperty rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Attribut-3AAbfragetext-23aux" />
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#redirectsTo" />
+	<!-- Created by Semantic MediaWiki, http://semantic-mediawiki.org/ -->
+</rdf:RDF>

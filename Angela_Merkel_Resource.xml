@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF[
+	<!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+	<!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+	<!ENTITY owl 'http://www.w3.org/2002/07/owl#'>
+	<!ENTITY swivt 'http://semantic-mediawiki.org/swivt/1.0#'>
+	<!ENTITY wiki 'http://www.wecowi.de/wiki/Spezial:URI-Aufl&#37;C3&#37;B6ser/'>
+	<!ENTITY property 'http://www.wecowi.de/wiki/Spezial:URI-Aufl&#37;C3&#37;B6ser/Attribut-3A'>
+	<!ENTITY wikiurl 'https://www.wecowi.de/wiki/'>
+]>
+
+<rdf:RDF
+	xmlns:rdf="&rdf;"
+	xmlns:rdfs="&rdfs;"
+	xmlns:owl ="&owl;"
+	xmlns:swivt="&swivt;"
+	xmlns:wiki="&wiki;"
+	xmlns:property="&property;">
+	<swivt:Subject rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Angela_Merkel">
+		<property:Beruf rdf:resource="&wiki;Politikerin"/>
+		<property:Beruf rdf:resource="&wiki;Physikerin"/>
+		<property:Geburtsjahr rdf:resource="&wiki;1954"/>
+		<property:Geburtsland rdf:resource="&wiki;Deutschland"/>
+	</swivt:Subject>
+</rdf:RDF>

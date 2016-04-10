@@ -19,8 +19,8 @@
     <swivt:Subject rdf:about="http://www.wecowi.de/wiki/Spezial:URI-Aufl%C3%B6ser/Albert_Einstein">
         <rdfs:label>Albert Einstein</rdfs:label>
         <property:Geboren rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1879-03-14Z</property:Geboren>
-        <property:Kurzinfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Einer der bedeutendsten Physiker des 20. Jahrhunderts und besonders durch die Entdeckung der [[Relativitätstheorie]] bekannt. Erhielt [[1921]] den Nobelpreis in Physik für die Erforschung des photoelektrischen Effekts</property:Kurzinfo>
         <property:Verstorben rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1955-04-18Z</property:Verstorben>
         <property:Beruf rdf:resource="&wiki;Physiker"/>
+        <property:Geburtsort rdf:resource="&wiki;Ulm"/>
     </swivt:Subject>
 </rdf:RDF>
