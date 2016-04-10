@@ -30,8 +30,8 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
         container.addElement(headerDiv);
 
-        // ToDo: add explanation
-        container.addElement(new Paragraph("TODO"));
+        container.addElement(new Paragraph("In this experiment, you will see an axiom and it's verbalization. Below there are five instances of the axiom. Four of them wrong and one correct."));
+        container.addElement(new Paragraph("Please select the correct instance."));
 
         return container;
     }

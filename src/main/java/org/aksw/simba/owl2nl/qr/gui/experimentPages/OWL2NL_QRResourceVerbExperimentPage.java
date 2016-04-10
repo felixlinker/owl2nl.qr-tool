@@ -28,9 +28,8 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
         headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
         container.addElement(headerDiv);
 
-        // ToDo: alter explanation in order to show different explanations for different user groups
-        // ToDo: add explanation
-        container.addElement(new Paragraph("TODO"));
+        container.addElement(new Paragraph("In this experiment you have to rate the verbalization of a resource. If you're not an expert, you'll just be able to rate the fluency of the language."));
+        container.addElement(new Paragraph("If however you are an expert you'll see the triples creating the resource. Please rate how complete and adequate the resources verbalization is, too."));
 
         return container;
     }
