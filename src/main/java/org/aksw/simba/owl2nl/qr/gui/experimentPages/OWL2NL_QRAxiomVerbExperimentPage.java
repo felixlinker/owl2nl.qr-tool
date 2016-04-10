@@ -27,14 +27,9 @@ public class OWL2NL_QRAxiomVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
         container.addElement(headerDiv);
 
-        // ToDo: add explanation
-        container.addElement(new Paragraph("TODO"));
-
-        StringBuilder builder = new StringBuilder();
-        builder.append("For getting a chance to win one of the amazon vouchers, you will have to submit the answers of ");
-        builder.append(NUMBER_OF_ANSWERS_NEEDED_FOR_KEY_WORD);
-        builder.append(" different pages (during a single session). After the submission of the tenth page, a solution word is displayed, that you can send to roeder@informatik.uni-leipzig.de if you want to take part in the lottery.");
-        container.addElement(new Paragraph(builder.toString()));
+        // ToDo: check language
+        container.addElement(new Paragraph("Below you can see an axiom from an owl ontology and its verbalization."));
+        container.addElement(new Paragraph("Please rate the verbalization according to how adequately it is describing the axiom and how fluent the language is."));
 
         return container;
     }
@@ -53,8 +48,12 @@ public class OWL2NL_QRAxiomVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
 
         Div bodyDiv = new Div();
         bodyDiv.addAttribute("class", "panel-body");
-        bodyDiv.addElement(new Paragraph(new BoldText(experiment.getAxiom())));
-        bodyDiv.addElement(new Paragraph(experiment.getVerbalization()));
+        Paragraph axiomParagraph = new Paragraph();
+        axiomParagraph.addElement(new Text("Axiom: "));
+        axiomParagraph.addElement(new BoldText(experiment.getAxiom()));
+        bodyDiv.addElement(axiomParagraph);
+
+        bodyDiv.addElement(new Paragraph("Verbalization: "+experiment.getVerbalization()));
 
         bodyDiv.addElement(generateStarRatingTable(guiHelper.STAR_RATINGS));
 

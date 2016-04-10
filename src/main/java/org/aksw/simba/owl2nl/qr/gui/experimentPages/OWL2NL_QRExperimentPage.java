@@ -86,12 +86,23 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
     }
 
     protected void addPageContent(HtmlContainer container) {
-        container.addElement(getInstructions());
-        container.addElement(createMessageDiv());
-
         if (!experiment.isExpertValueKnown()) {
+            Div headerDiv = new Div();
+            headerDiv.addAttribute("class", "page-header");
+            headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
+            container.addElement(headerDiv);
+            container.addElement(new Paragraph("Before you start with the evaluation please tell us how familiar you are with RDF and OWL concepts."));
+            container.addElement(new Paragraph("If you're not familiar with OWL and RDF concepts, please select 'Amateur' as user group. If you are familiar with those concepts, you can select 'Expert' as user group."));
+
             container.addElement(createUserGroupSelection());
+            this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
+            return;
         }
+
+        HtmlContainer intructions = getInstructions();
+        intructions.addElement(new Paragraph(getWinText()));
+        container.addElement(intructions);
+        container.addElement(createMessageDiv());
 
         Div headerDiv = new Div();
         headerDiv.addAttribute("class", "page-header");
@@ -244,36 +255,29 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
             throw new IllegalArgumentException();
         }
 
-        /*Div div = new Div();
+        HtmlContainer container = new HtmlContainer();
+        Table table = new Table();
+        InputElement input;
+        Label label;
         for (OWL2NL_QRRadioButtonHelper button: buttons) {
-            div.addElement(generateRadioButton(button.getName(), button.getKey(), button.getValue()));
+            input = new InputElement(button.getKey(), InputType.Radiobutton);
+            input.addAttribute("id", "radio_");
+            input.addAttribute("value", button.getValue());
+//            container.addElement(input);
+
+            label = new Label(new Text(button.getName()));
+            label.addAttribute("for", "radio_");
+            label.addAttribute("class", "rating_label");
+//            container.addElement(label);
+
+            TableRow row = new TableRow();
+            row.addCell(input);
+            row.addCell(label);
+            table.addRow(row);
         }
 
-        return div;*/
-
-         HtmlContainer container = new HtmlContainer();
-         InputElement input;
-         Label label;
-         for (OWL2NL_QRRadioButtonHelper button: buttons) {
-             input = new InputElement(button.getKey(), InputType.Radiobutton);
-             input.addAttribute("id", "radio_");
-             input.addAttribute("value", button.getValue());
-             container.addElement(input);
-
-             label = new Label(new Text(button.getName()));
-             label.addAttribute("for", "radio_");
-             label.addAttribute("class", "rating_label");
-             container.addElement(label);
-         }
-
+        container.addElement(table);
         return container;
-    }
-
-    private WebElement generateRadioButton(String name, String id, String value) {
-        InputElement input = new InputElement(name, InputType.Radiobutton);
-        input.addAttribute("id", id);
-        input.addAttribute("value", value);
-        return input;
     }
 
     protected WebElement generateStarRatingTable(OWL2NL_QRStarRatingHelper...ratings) throws IllegalArgumentException {
@@ -310,11 +314,12 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         return new Paragraph(input);
     }
 
-    private String tagText(String text, String startTag, String endTag) {
+    protected String getWinText() {
+        // ToDo: alter this text
         StringBuilder builder = new StringBuilder();
-        builder.append(startTag);
-        builder.append(text);
-        builder.append(endTag);
+        builder.append("For getting a chance to win one of the amazon vouchers, you will have to submit the answers of ");
+        builder.append(NUMBER_OF_ANSWERS_NEEDED_FOR_KEY_WORD);
+        builder.append(" different pages (during a single session). After the submission of the tenth page, a solution word is displayed, that you can send to roeder@informatik.uni-leipzig.de if you want to take part in the lottery.");
 
         return builder.toString();
     }

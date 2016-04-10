@@ -14,19 +14,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public abstract class OWL2NL_QRResultConsumer<T extends OWL2NL_QRExperimentResult> implements ExperimentResultConsumer<T> {
+public abstract class OWL2NL_QRResultConsumer implements ExperimentResultConsumer<OWL2NL_QRExperimentResult> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(OWL2NL_QRResultConsumer.class);
 
     protected static final ObjectRowMapper OBJECT_ROW_MAPPER = new ObjectRowMapper();
 
     @Override
-    public boolean storeExperimentResult(JdbcTemplate jdbcTemplate, T experimentResult, User user) {
+    public boolean storeExperimentResult(JdbcTemplate jdbcTemplate, OWL2NL_QRExperimentResult experimentResult, User user) {
         if (experimentResult.isExpertSet()) {
             OWL2NL_QRDbAdapterExtension.setUserIsExpert(jdbcTemplate, user, experimentResult.isExpert());
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     protected static class ObjectRowMapper implements RowMapper<Object> {

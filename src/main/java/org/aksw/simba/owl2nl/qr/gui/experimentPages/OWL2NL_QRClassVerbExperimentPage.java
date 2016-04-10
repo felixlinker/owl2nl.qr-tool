@@ -33,12 +33,6 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         // ToDo: add explanation
         container.addElement(new Paragraph("TODO"));
 
-        StringBuilder builder = new StringBuilder();
-        builder.append("For getting a chance to win one of the amazon vouchers, you will have to submit the answers of ");
-        builder.append(NUMBER_OF_ANSWERS_NEEDED_FOR_KEY_WORD);
-        builder.append(" different pages (during a single session). After the submission of the tenth page, a solution word is displayed, that you can send to roeder@informatik.uni-leipzig.de if you want to take part in the lottery.");
-        container.addElement(new Paragraph(builder.toString()));
-
         return container;
     }
 

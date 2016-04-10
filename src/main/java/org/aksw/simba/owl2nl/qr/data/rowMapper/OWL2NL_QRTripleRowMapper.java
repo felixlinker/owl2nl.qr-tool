@@ -1,5 +1,6 @@
-package org.aksw.simba.owl2nl.qr.data.ontoelements;
+package org.aksw.simba.owl2nl.qr.data.rowMapper;
 
+import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

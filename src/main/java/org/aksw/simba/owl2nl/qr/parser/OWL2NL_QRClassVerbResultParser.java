@@ -13,6 +13,9 @@ public class OWL2NL_QRClassVerbResultParser extends OWL2NL_QRResultParser {
     @Override
     public ExperimentResult getExperimentResult(HttpServletRequest request) {
         OWL2NL_QRExperimentResultBase baseResult = super.getBaseResult(request);
+        if (baseResult.isBaseResultOnly()) {
+            return new OWL2NL_QRExperimentResult(baseResult);
+        }
 
         int chosenId;
 

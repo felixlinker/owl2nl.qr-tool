@@ -1,8 +1,10 @@
 package org.aksw.simba.owl2nl.qr.parser;
 
 import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRClassVerbExperimentResult;
+import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResult;
 import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResultBase;
 import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRResourceVerbExperimentResult;
+import org.aksw.simba.owl2nl.qr.db.OWL2NL_QRDbAdapterExtension;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRClassVerbGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRResourceVerbGuiHelper;
 import org.aksw.simba.qr.datatypes.ExperimentResult;
@@ -14,6 +16,9 @@ public class OWL2NL_QRResourceVerbResultParser extends OWL2NL_QRResultParser {
     @Override
     public ExperimentResult getExperimentResult(HttpServletRequest request) {
         OWL2NL_QRExperimentResultBase baseResult = super.getBaseResult(request);
+        if (baseResult.isBaseResultOnly()) {
+            return new OWL2NL_QRExperimentResult(baseResult);
+        }
 
         int adequacy, fluency, completeness;
 

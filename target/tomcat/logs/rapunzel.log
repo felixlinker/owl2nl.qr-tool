@@ -1,13 +1,11 @@
-2016-04-10 18:37:44,667 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
-2016-04-10 18:37:44,808 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Sun Apr 10 18:37:44 CEST 2016]; root of context hierarchy
-2016-04-10 18:37:44,919 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
-2016-04-10 18:37:45,322 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
-2016-04-10 18:37:45,357 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3a209918: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#0]; root of factory hierarchy
-2016-04-10 18:37:45,396 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
-2016-04-10 18:37:46,039 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
-2016-04-10 18:37:46,091 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
-2016-04-10 18:37:46,097 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
-2016-04-10 18:37:46,118 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 21 ms.
-2016-04-10 18:37:46,148 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization completed in 1481 ms
-2016-04-10 18:37:47,597 INFO  [http-8080-1    ]  qr.Controller                  - Containing 1 experiments after initialization.
-2016-04-10 18:37:47,826 INFO  [http-8080-1    ]  qr.OWL2NL_QRController         - Identified a new user session (F3773F24B118E8540F3D67C805899DA7). Adding it to the database.
+2016-04-10 23:09:36,597 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
+2016-04-10 23:09:36,649 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Sun Apr 10 23:09:36 CEST 2016]; root of context hierarchy
+2016-04-10 23:09:36,676 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
+2016-04-10 23:09:36,806 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
+2016-04-10 23:09:36,817 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1de5cc88: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#1,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#2]; root of factory hierarchy
+2016-04-10 23:09:36,836 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
+2016-04-10 23:09:37,082 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
+2016-04-10 23:09:37,106 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
+2016-04-10 23:09:37,109 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
+2016-04-10 23:09:37,116 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 7 ms.
+2016-04-10 23:09:37,237 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization completed in 640 ms

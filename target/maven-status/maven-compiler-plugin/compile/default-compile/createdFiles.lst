@@ -1,4 +1,3 @@
-org\aksw\simba\owl2nl\qr\data\ontoelements\OWL2NL_QRTripleRowMapper.class
 org\aksw\simba\owl2nl\qr\data\ontoelements\OWL2NL_QRTriple.class
 org\aksw\simba\owl2nl\qr\gui\guiHelper\OWL2NL_QRClassVerbGuiHelper.class
 org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2NL_QRResourceVerbExperimentRowMapper.class
@@ -24,6 +23,7 @@ org\aksw\simba\owl2nl\qr\db\consumer\OWL2NL_QRAxiomVerbResultConsumer.class
 org\aksw\simba\owl2nl\qr\parser\OWL2NL_QRClassVerbResultParser.class
 org\aksw\simba\owl2nl\qr\gui\experimentPages\OWL2NL_QRAxiomVerbExperimentPage.class
 org\aksw\simba\owl2nl\qr\gui\guiHelper\OWL2NL_QRResourceVerbGuiHelper.class
+org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2NL_QRTripleRowMapper.class
 org\aksw\simba\owl2nl\qr\data\OWL2NL_QRUser.class
 org\aksw\simba\owl2nl\qr\gui\guiHelper\OWL2NL_QRUserGroupGuiHelper.class
 org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2NL_QRAxiomVerbExperimentRowMapper.class

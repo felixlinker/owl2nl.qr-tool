@@ -5,7 +5,7 @@ import org.aksw.simba.qr.datatypes.ExperimentResult;
 /**
  * Base class for all experiment result
  */
-public abstract class OWL2NL_QRExperimentResult implements ExperimentResult {
+public class OWL2NL_QRExperimentResult implements ExperimentResult {
     private OWL2NL_QRExperimentResultBase baseResult;
 
     public OWL2NL_QRExperimentResult(OWL2NL_QRExperimentResultBase baseResult) {

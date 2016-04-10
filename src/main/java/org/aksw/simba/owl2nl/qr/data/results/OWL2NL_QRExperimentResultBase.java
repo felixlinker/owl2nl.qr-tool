@@ -39,4 +39,8 @@ public class OWL2NL_QRExperimentResultBase {
     public boolean isExpertSet() {
         return expertSet;
     }
+
+    public boolean isBaseResultOnly() {
+        return expertSet;
+    }
 }
