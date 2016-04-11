@@ -31,6 +31,7 @@ org\aksw\simba\owl2nl\qr\db\supplier\OWL2NL_QRResourceVerbSetupSupplier.class
 org\aksw\simba\owl2nl\qr\gui\experimentPages\OWL2NL_QRResourceVerbExperimentPage.class
 org\aksw\simba\owl2nl\qr\gui\experimentPages\OWL2NL_QRExperimentPage.class
 org\aksw\simba\owl2nl\qr\data\ontoelements\OWL2NL_QROntoElement.class
+org\aksw\simba\owl2nl\qr\descriptions\OWL2NL_QRClassVerbExperimentDescr.class
 org\aksw\simba\owl2nl\qr\gui\experimentPages\OWL2NL_QRClassVerbExperimentPage.class
 org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2NL_QRUserRowMapper.class
 org\aksw\simba\owl2nl\qr\db\supplier\OWL2NL_QRSetupSupplier.class
@@ -38,11 +39,13 @@ org\aksw\simba\owl2nl\qr\data\experiments\OWL2NL_QRAxiomVerbExperimentSetup.clas
 org\aksw\simba\owl2nl\qr\data\results\OWL2NL_QRExperimentResult.class
 org\aksw\simba\owl2nl\qr\data\experiments\OWL2NL_QRResourceVerbExperimentSetup.class
 org\aksw\simba\owl2nl\qr\data\experiments\OWL2NL_QRExperimentSetup.class
+org\aksw\simba\owl2nl\qr\descriptions\OWL2NL_QRResourceVerbExperimentDescr.class
 org\aksw\simba\owl2nl\qr\OWL2NL_QRController.class
 org\aksw\simba\owl2nl\qr\data\ListConverter.class
 org\aksw\simba\owl2nl\qr\gui\guiHelper\OWL2NL_QRGuiHelper$1.class
 org\aksw\simba\owl2nl\qr\tools\DataInserter.class
 org\aksw\simba\owl2nl\qr\data\experiments\OWL2NL_QRClassVerbExperimentSetup.class
+org\aksw\simba\owl2nl\qr\descriptions\OWL2NL_QRAxiomVerbExperimentDescr.class
 org\aksw\simba\owl2nl\qr\db\supplier\OWL2NL_QRAxiomVerbSetupSupplier.class
 org\aksw\simba\owl2nl\qr\gui\guiHelper\OWL2NL_QRAxiomVerbGuiHelper.class
 org\aksw\simba\owl2nl\qr\parser\OWL2NL_QRResultParser.class

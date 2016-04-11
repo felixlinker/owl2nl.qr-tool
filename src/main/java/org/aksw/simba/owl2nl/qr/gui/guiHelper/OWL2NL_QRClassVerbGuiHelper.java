@@ -10,6 +10,7 @@ import org.aksw.simba.qr.gui.Page;
 public class OWL2NL_QRClassVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QRClassVerbExperimentSetup> {
 
     public static final String CHOSEN_TRIPLE_KEY = "chosenTriple";
+    public static final String EXPERIMENT_IDENTIFIER_KEY = "OWL2NL_QRClassVerb";
 
     public static final ListConverter<OWL2NL_QRTriple, OWL2NL_QRRadioButtonHelper> TRIPLE_TO_RADIO_MAPPER = triple ->  new OWL2NL_QRRadioButtonHelper(triple.getTriple(), CHOSEN_TRIPLE_KEY, String.valueOf(triple.getId()));
 
@@ -21,5 +22,17 @@ public class OWL2NL_QRClassVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QRCla
     @Override
     public Page getFinishPage() {
         return new OWL2NL_QRClassVerbExperimentPage(this, null);
+    }
+
+    @Override
+    public String getStringValue(StringValue key) {
+        switch (key) {
+            case EXPERIMENT_IDENTIFIER_KEY: {
+                return EXPERIMENT_IDENTIFIER_KEY;
+            }
+            default: {
+                return super.getStringValue(key);
+            }
+        }
     }
 }
