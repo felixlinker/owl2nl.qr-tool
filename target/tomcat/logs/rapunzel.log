@@ -1,14 +1,14 @@
-2016-04-11 15:27:46,920 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
-2016-04-11 15:27:47,043 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Apr 11 15:27:47 CEST 2016]; root of context hierarchy
-2016-04-11 15:27:47,086 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
-2016-04-11 15:27:47,421 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
-2016-04-11 15:27:47,441 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6684f7f2: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRAxiomVerbExperimentDescr#0,org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRClassVerbExperimentDescr#0,org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRResourceVerbExperimentDescr#0]; root of factory hierarchy
-2016-04-11 15:27:47,462 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
-2016-04-11 15:27:47,960 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
-2016-04-11 15:27:48,008 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
-2016-04-11 15:27:48,012 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
-2016-04-11 15:27:48,026 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 14 ms.
-2016-04-11 15:27:48,040 WARN  [main           ]  support.XmlWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt
+2016-04-11 15:35:20,015 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
+2016-04-11 15:35:20,132 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Apr 11 15:35:20 CEST 2016]; root of context hierarchy
+2016-04-11 15:35:20,181 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
+2016-04-11 15:35:20,494 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
+2016-04-11 15:35:20,518 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@892af0e: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRAxiomVerbExperimentDescr#0,org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRClassVerbExperimentDescr#0,org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRResourceVerbExperimentDescr#0]; root of factory hierarchy
+2016-04-11 15:35:20,549 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
+2016-04-11 15:35:21,051 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
+2016-04-11 15:35:21,096 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
+2016-04-11 15:35:21,100 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
+2016-04-11 15:35:21,114 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 14 ms.
+2016-04-11 15:35:21,130 WARN  [main           ]  support.XmlWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRAxiomVerbExperimentDescr#0' defined in ServletContext resource [/WEB-INF/spring/applicationContext.xml]: Could not resolve matching constructor (hint: specify index/type/name arguments for simple parameters to avoid type ambiguities)
 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:247)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1077)
@@ -61,8 +61,8 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:497)
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
-2016-04-11 15:27:48,046 INFO  [main           ]  support.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6684f7f2: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRAxiomVerbExperimentDescr#0,org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRClassVerbExperimentDescr#0,org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRResourceVerbExperimentDescr#0]; root of factory hierarchy
-2016-04-11 15:27:48,050 ERROR [main           ]  context.ContextLoader          - Context initialization failed
+2016-04-11 15:35:21,133 INFO  [main           ]  support.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@892af0e: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRAxiomVerbExperimentDescr#0,org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRClassVerbExperimentDescr#0,org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRResourceVerbExperimentDescr#0]; root of factory hierarchy
+2016-04-11 15:35:21,137 ERROR [main           ]  context.ContextLoader          - Context initialization failed
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRAxiomVerbExperimentDescr#0' defined in ServletContext resource [/WEB-INF/spring/applicationContext.xml]: Could not resolve matching constructor (hint: specify index/type/name arguments for simple parameters to avoid type ambiguities)
 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:247)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1077)

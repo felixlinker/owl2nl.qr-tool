@@ -110,7 +110,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         container.addElement(headerDiv);
 
         Div experimentDiv = generateExperimentDiv(experiment);
-        this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY, Integer.toString(experiment.getId()));
+        this.addHiddenValue(guiHelper.getStringValue(StringValue.EXPERIMENT_IDENTIFIER_KEY), Integer.toString(experiment.getId()));
 
         container.addElement(experimentDiv);
     }
