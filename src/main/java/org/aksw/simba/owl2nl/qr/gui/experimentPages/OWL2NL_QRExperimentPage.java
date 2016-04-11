@@ -1,8 +1,9 @@
 package org.aksw.simba.owl2nl.qr.gui.experimentPages;
 
+import org.aksw.simba.owl2nl.qr.data.ListConverter;
+import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRClassVerbExperimentSetup;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
-import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper;
-import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRUserGroupGuiHelper;
+import org.aksw.simba.owl2nl.qr.gui.guiHelper.*;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRRadioButtonHelper;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRStarRatingHelper;
 import org.aksw.simba.qr.gui.GuiHelper;
@@ -96,6 +97,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
 
             container.addElement(createUserGroupSelection());
             this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
+            this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, guiHelper.getExperimentIdentifierValue());
             return;
         }
 
@@ -142,9 +144,26 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
             Div alertDiv = new Div();
             alertDiv.addAttribute("class", "alert alert-warning");
             alertDiv.addAttribute("role", "alert");
-            alertDiv.addElement(new Text(
-                    "There are no more datasets for you. Thank you very much for all the work that you have done!"));
+            alertDiv.addElement(new Text("There are no more datasets for you. Thank you very much for all the work that you have done!"));
             container.addElement(alertDiv);
+
+            LinkedList<String> experimentTypes = new LinkedList<>();
+            experimentTypes.add(OWL2NL_QRAxiomVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE);
+            experimentTypes.add(OWL2NL_QRClassVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE);
+            experimentTypes.add(OWL2NL_QRResourceVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE);
+            experimentTypes.remove(guiHelper.getExperimentIdentifierValue());
+
+            // ToDo: map experiment identifiers to more fluent language
+
+            addHiddenValue(guiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
+
+            ListConverter<String, OWL2NL_QRRadioButtonHelper> converter = a -> new OWL2NL_QRRadioButtonHelper(a, OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, a);
+            container.addElement(new Paragraph("If you haven't tried below experiments, you can try them now!"));
+            container.addElement(generateRadioButtonList(converter.map(experimentTypes)));
+
+
+
+            container.addElement(createSubmitButton());
         }
         return container;
     }
@@ -267,8 +286,8 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
 //            container.addElement(input);
 
             label = new Label(new Text(button.getName()));
-            label.addAttribute("for", "radio_");
-            label.addAttribute("class", "rating_label");
+//            label.addAttribute("for", "radio_");
+//            label.addAttribute("class", "rating_label");
 //            container.addElement(label);
 
             TableRow row = new TableRow();

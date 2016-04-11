@@ -36,6 +36,10 @@ public abstract class OWL2NL_QRResultParser implements ExperimentResultParser {
             baseResult.setExpert(Boolean.parseBoolean(tmpString));
         }
 
+        if (experimentId == -1) {
+            baseResult.setIsBaseResultOnly();
+        }
+
         return baseResult;
     }
 
