@@ -1,28 +1,26 @@
-2016-04-11 15:47:08,090 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
-2016-04-11 15:47:08,247 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Apr 11 15:47:08 CEST 2016]; root of context hierarchy
-2016-04-11 15:47:08,322 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
-2016-04-11 15:47:08,690 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
-2016-04-11 15:47:08,712 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@10e56da9: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#1,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#2]; root of factory hierarchy
-2016-04-11 15:47:08,746 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
-2016-04-11 15:47:11,363 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
-2016-04-11 15:47:11,410 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
-2016-04-11 15:47:11,414 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
-2016-04-11 15:47:11,431 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 17 ms.
-2016-04-11 15:47:11,661 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization completed in 3570 ms
-2016-04-11 15:47:16,516 INFO  [http-8080-1    ]  qr.Controller                  - Containing 3 experiments after initialization.
-2016-04-11 15:47:16,558 INFO  [http-8080-1    ]  qr.OWL2NL_QRController         - Identified a new user session (716A5CAAA359B141746188C69BAD284B). Adding it to the database.
-2016-04-11 15:47:18,522 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #57 has already 0 answers.
-2016-04-11 15:47:18,523 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 15:47:18,524 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (57) for experiment #-1.
-2016-04-11 15:47:18,530 INFO  [http-8080-2    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
-2016-04-11 15:47:21,433 INFO  [http-8080-3    ]  qr.OWL2NL_QRController         - user #57 has already 0 answers.
-2016-04-11 15:47:21,433 INFO  [http-8080-3    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 15:47:21,434 INFO  [http-8080-3    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #1 (adequacy=1, fluency=1).
-2016-04-11 15:47:21,434 INFO  [http-8080-3    ]  qr.Controller                  - Found an experiment result of user (57) for experiment #1.
-2016-04-11 15:47:23,505 INFO  [http-8080-4    ]  qr.OWL2NL_QRController         - user #57 has already 1 answers.
-2016-04-11 15:47:23,505 INFO  [http-8080-4    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 15:47:23,505 INFO  [http-8080-4    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #2 (adequacy=2, fluency=1).
-2016-04-11 15:47:23,505 INFO  [http-8080-4    ]  qr.Controller                  - Found an experiment result of user (57) for experiment #2.
-2016-04-11 15:47:23,520 INFO  [http-8080-4    ]  qr.Controller                  - There are no more experiments for the user with the Id 57. Sending finish page.
-2016-04-11 15:47:26,346 INFO  [http-8080-5    ]  qr.OWL2NL_QRController         - user #57 has already 2 answers.
-2016-04-11 15:47:26,354 INFO  [http-8080-5    ]  qr.Controller                  - There are no more experiments for the user with the Id 57. Sending finish page.
+2016-04-11 15:55:50,308 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
+2016-04-11 15:55:50,413 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Apr 11 15:55:50 CEST 2016]; root of context hierarchy
+2016-04-11 15:55:50,470 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
+2016-04-11 15:55:50,768 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
+2016-04-11 15:55:50,785 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5d5d3a5c: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#1,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#2]; root of factory hierarchy
+2016-04-11 15:55:50,816 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
+2016-04-11 15:55:52,383 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
+2016-04-11 15:55:52,436 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
+2016-04-11 15:55:52,440 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
+2016-04-11 15:55:52,456 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 16 ms.
+2016-04-11 15:55:52,709 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization completed in 2400 ms
+2016-04-11 15:55:56,335 INFO  [http-8080-1    ]  qr.Controller                  - Containing 3 experiments after initialization.
+2016-04-11 15:55:56,373 INFO  [http-8080-1    ]  qr.OWL2NL_QRController         - Identified a new user session (6173615741C7FDDF0FB91DE53E8472BE). Adding it to the database.
+2016-04-11 15:55:59,301 INFO  [http-8080-5    ]  qr.OWL2NL_QRController         - user #58 has already 0 answers.
+2016-04-11 15:55:59,301 INFO  [http-8080-5    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-11 15:55:59,304 INFO  [http-8080-5    ]  qr.Controller                  - Found an experiment result of user (58) for experiment #-1.
+2016-04-11 15:55:59,310 INFO  [http-8080-5    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
+2016-04-11 15:56:01,346 INFO  [http-8080-6    ]  qr.OWL2NL_QRController         - user #58 has already 0 answers.
+2016-04-11 15:56:01,346 INFO  [http-8080-6    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-11 15:56:01,347 INFO  [http-8080-6    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #1 (adequacy=2, fluency=2).
+2016-04-11 15:56:01,347 INFO  [http-8080-6    ]  qr.Controller                  - Found an experiment result of user (58) for experiment #1.
+2016-04-11 15:56:03,468 INFO  [http-8080-4    ]  qr.OWL2NL_QRController         - user #58 has already 1 answers.
+2016-04-11 15:56:03,468 INFO  [http-8080-4    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-11 15:56:03,468 INFO  [http-8080-4    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #2 (adequacy=2, fluency=2).
+2016-04-11 15:56:03,468 INFO  [http-8080-4    ]  qr.Controller                  - Found an experiment result of user (58) for experiment #2.
+2016-04-11 15:56:03,484 INFO  [http-8080-4    ]  qr.Controller                  - There are no more experiments for the user with the Id 58. Sending finish page.
