@@ -29,7 +29,7 @@
 
 	<!-- Axiom verbalization -->
 	<!-- ToDo: different description for different beans? -->
-	<bean class="org.aksw.simba.qr.datatypes.SimpleExperimentDescription">
+	<bean class="org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRAxiomVerbExperimentDescr">
 		<constructor-arg name="experimentName" value="OWL2NL_QRAxiomVerb" />
 		<constructor-arg name="experimentSetupSupplier">
 			<bean class="org.aksw.simba.owl2nl.qr.db.supplier.OWL2NL_QRAxiomVerbSetupSupplier" />
@@ -46,7 +46,7 @@
 	</bean>
 
 	<!-- Class verbalization -->
-	<bean class="org.aksw.simba.qr.datatypes.SimpleExperimentDescription">
+	<bean class="org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRClassVerbExperimentDescr">
 		<constructor-arg name="experimentName" value="OWL2NL_QRClassVerb" />
 		<constructor-arg name="experimentSetupSupplier">
 			<bean class="org.aksw.simba.owl2nl.qr.db.supplier.OWL2NL_QRClassVerbSetupSupplier" />
@@ -63,7 +63,7 @@
 	</bean>
 
 	<!-- Resource verbalization -->
-	<bean class="org.aksw.simba.qr.datatypes.SimpleExperimentDescription">
+	<bean class="org.aksw.simba.owl2nl.qr.descriptions.OWL2NL_QRResourceVerbExperimentDescr">
 		<constructor-arg name="experimentName" value="OWL2NL_QRResourceVerb" />
 		<constructor-arg name="experimentSetupSupplier">
 			<bean class="org.aksw.simba.owl2nl.qr.db.supplier.OWL2NL_QRResourceVerbSetupSupplier" />
@@ -78,5 +78,4 @@
 			<bean class="org.aksw.simba.owl2nl.qr.db.consumer.OWL2NL_QRResourceVerbResultConsumer" />
 		</constructor-arg>
 	</bean>
-
 </beans>
