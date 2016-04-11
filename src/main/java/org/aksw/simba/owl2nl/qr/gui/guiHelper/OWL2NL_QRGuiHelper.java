@@ -1,18 +1,14 @@
 package org.aksw.simba.owl2nl.qr.gui.guiHelper;
 
-import org.aksw.simba.owl2nl.qr.data.ListConverter;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
-import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;
-import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentPage;
-import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRRadioButtonHelper;
 import org.aksw.simba.qr.gui.AbstractGuiHelper;
-import org.aksw.simba.qr.gui.Page;
 
 public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> extends AbstractGuiHelper<T> {
 
     public static final String APPLICATION_NAME = "Survey";
     public static final String LONG_APPLICATION_NAME = "";
     public static final String EXPERIMENT_ID_KEY = "experimentId";
+    public static final String EXPERIMENT_IDENTIFIER_KEY = "experimentType";
     public static final String SUBMIT_BUTTON_KEY = "submit";
     public static final String SUBMIT_BUTTON_LABEL = "Submit";
     public static final String PATH = "survey";
@@ -32,6 +28,9 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
     @Override
     public String getStringValue(StringValue key) {
         switch (key) {
+            case EXPERIMENT_IDENTIFIER_KEY: {
+                return EXPERIMENT_IDENTIFIER_KEY;
+            }
             case APPLICATION_NAME: {
                 return APPLICATION_NAME;
             }
@@ -55,4 +54,6 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
             }
         }
     }
+
+    public abstract String getExperimentIdentifierValue();
 }
