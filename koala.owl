@@ -245,6 +245,91 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </owl:FunctionalProperty>
   <Degree rdf:ID="MA"/>
+
+  <!-- INDIVIDUALS START FROM HERE -->
+
+  <!-- INDIVIDUALS FOR Student -->
+
+  <Person rdf:ID="Barbara">
+    <hasHabitat owl:Class="#City"/>
+    <isHardWorking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHardWorking>
+  </Person>
+
+  <Animal rdf:ID="Marvin">
+    <hasHabitat rdf:Class="#University"/>
+    <isHardWorking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHardWorking>
+  </Animal>
+
+  
+
+  <!-- INDIVIDUALS FOR Parent -->
+
+  <Person rdf:ID="Robert"/>
+
+  <Elefant rdf:ID="Philipp"/>
+
+  <Person rdf:ID="Julien"/>
+
+  <Animal rdf:ID="Otto">
+    <hasHabitat rdf:resource="#DryEucalyptForest"/>
+  </Animal>
+
+  <Elefant rdf:ID="Kendrick">
+    <hasChildren owl:Class="#Animal"/>
+    <hasChildren owl:Class="#Animal"/>
+    <hasChildren owl:Class="#Animal"/>
+  </Elefant>
+
+  <!-- INDIVIDUALS FOR MaleStudentWith3Daughters -->
+  <Student rdf:ID="Anna">
+    <hasGender owl:Gender="female"/>
+    <hasChildren owl:Class="#Female"/>
+    <hasChildren owl:Class="#Female"/>
+    <hasChildren owl:Class="#Female"/>
+  </Student>
+
+  <Person rdf:ID="Linda">
+    <isHardWorking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHardWorking>
+    <hasChildren owl:Class="#Female"/>
+    <hasChildren owl:Class="#Female"/>
+    <hasChildren owl:Class="#Female"/>
+  </Person>
+
+  <Student rdf:ID="James">
+    <hasChildren owl:Class="#Female"/>
+    <hasChildren owl:Class="#Female"/>
+    <hasChildren owl:Class="#Female"/>
+  </Student>
+
+  <Person rdf:ID="John">
+    <hasHabitat rdf:Class="#University"/>
+    <hasChildren owl:Class="#Female"/>
+    <hasChildren owl:Class="#Female"/>
+    <hasChildren owl:Class="#Female"/>
+  </Person>
+
+  <Student rdf:ID="Martin">
+    <hasGender owl:Gender="male"/>
+    <hasChildren owl:Class="#Female"/>
+    <hasChildren owl:Class="#Female"/>
+    <hasChildren owl:Class="#Female"/>
+  </Student>
+
+  <!-- GENERIC STUFF -->
+
+  <owl:Class rdf:ID="Elefant">
+    <owl:subClassOf>
+      <owl:Class rdf:about="#Animal"/>
+    </owl:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:ID="City">
+    <owl:subClassOf>
+      <owl:Class rdf:about="#Habitat"/>
+    </owl:subClassOf>
+  </owl:Class>
+
+  <!-- INDIVIDUALS START FROM HERE -->
 </rdf:RDF>
 
 <!-- Created with Protege (with OWL Plugin, Build 60)  http://protege.stanford.edu -->
