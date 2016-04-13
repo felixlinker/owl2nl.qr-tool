@@ -248,6 +248,33 @@
 
   <!-- INDIVIDUALS START FROM HERE -->
 
+  <!-- INDIVIDUALS FOR KoalaWithPHD -->
+
+  <Koala rdf:ID="SmallKoala">
+    <hasDegree rdf:resource="#BA"/>
+    <hasDegree rdf:resource="#MA"/>
+  </Koala>
+
+  <Animal rdf:ID="BigKoala">
+    <hasDegree rdf:resource="#PhD"/>
+  </Animal>
+
+  <Animal rdf:ID="HugeKoala">
+    <hasHabitat rdf:Class="#DryEucalyptForest"/>
+    <hasDegree rdf:resource="#PhD"/>
+  </Animal>
+
+  <Koala rdf:ID="NiceKoala">
+    <hasHabitat rdf:Class="#DryEucalyptForest"/>
+    <hasDegree rdf:resource="#MA"/>
+  </Koala>
+
+  <Koala rdf:ID="Freddie">
+    <hasGender owl:Gender="male"/>
+    <hasDegree owl:resource="#PhD"/>
+    <hasDegree owl:resource="#BA"/>
+  </Koala>
+
   <!-- INDIVIDUALS FOR Student -->
 
   <Person rdf:ID="Barbara">
@@ -256,11 +283,23 @@
   </Person>
 
   <Animal rdf:ID="Marvin">
-    <hasHabitat rdf:Class="#University"/>
+    <hasHabitat owl:Class="#University"/>
     <isHardWorking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHardWorking>
   </Animal>
 
-  
+  <Person rdf:ID="Jenna">
+    <hasHabitat owl:Class="#University"/>
+  </Person>
+
+  <Person rdf:ID="Felix">
+    <hasHabitat owl:Class="#University"/>
+    <isHardWorking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isHardWorking>
+  </Person>
+
+  <Person rdf:ID="Lisa">
+    <hasHabitat rdf:Class="#University"/>
+    <isHardWorking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHardWorking>
+  </Person>
 
   <!-- INDIVIDUALS FOR Parent -->
 
