@@ -250,111 +250,147 @@
 
   <!-- INDIVIDUALS FOR KoalaWithPHD -->
 
-  <Koala rdf:ID="SmallKoala">
+  <owl:NamedIndividual rdf:about="#SmallKoala">
+    <owl:type rdf:resource="#Koala"/>
     <hasDegree rdf:resource="#BA"/>
     <hasDegree rdf:resource="#MA"/>
-  </Koala>
+  </owl:NamedIndividual>
 
-  <Animal rdf:ID="BigKoala">
+  <owl:NamedIndividual rdf:about="#BigKoala">
+    <owl:type rdf:resource="#Koala"/>
     <hasDegree rdf:resource="#PhD"/>
-  </Animal>
+  </owl:NamedIndividual>
 
-  <Animal rdf:ID="HugeKoala">
-    <hasHabitat rdf:Class="#DryEucalyptForest"/>
+  <owl:NamedIndividual rdf:about="#HugeKoala">
+    <owl:type rdf:resource="#Animal"/>
+    <hasHabitat rdf:resource="#ThatOneVeryDryEucalyptForest"/>
     <hasDegree rdf:resource="#PhD"/>
-  </Animal>
+  </owl:NamedIndividual>
 
-  <Koala rdf:ID="NiceKoala">
-    <hasHabitat rdf:Class="#DryEucalyptForest"/>
+  <owl:NamedIndividual rdf:about="#NiceKoala">
+    <owl:type rdf:resource="#Koala"/>
+    <hasHabitat rdf:resource="#ThatOneVeryDryEucalyptForest"/>
     <hasDegree rdf:resource="#MA"/>
-  </Koala>
+  </owl:NamedIndividual>
 
-  <Koala rdf:ID="Freddie">
+  <owl:NamedIndividual rdf:about="#Freddie">
+    <owl:type rdf:resource="#Koala"/>
     <hasGender owl:Gender="male"/>
     <hasDegree owl:resource="#PhD"/>
     <hasDegree owl:resource="#BA"/>
-  </Koala>
+  </owl:NamedIndividual>
 
   <!-- INDIVIDUALS FOR Student -->
 
-  <Person rdf:ID="Barbara">
-    <hasHabitat owl:Class="#City"/>
+  <owl:NamedIndividual rdf:about="#Barbara">
+    <owl:type rdf:resource="#Person"/>
+    <hasHabitat owl:resource="#Leipzig"/>
     <isHardWorking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHardWorking>
-  </Person>
+  </owl:NamedIndividual>
 
-  <Animal rdf:ID="Marvin">
-    <hasHabitat owl:Class="#University"/>
+  <owl:NamedIndividual rdf:about="#Marvin">
+    <owl:type rdf:resource="#Animal"/>
+    <hasHabitat owl:resource="#UniLeipzig"/>
     <isHardWorking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHardWorking>
-  </Animal>
+  </owl:NamedIndividual>
 
-  <Person rdf:ID="Jenna">
-    <hasHabitat owl:Class="#University"/>
-  </Person>
+  <owl:NamedIndividual rdf:about="#Jenna">
+    <owl:type rdf:resource="#Person"/>
+    <hasHabitat owl:resource="#UniLeipzig"/>
+  </owl:NamedIndividual>
 
-  <Person rdf:ID="Felix">
-    <hasHabitat owl:Class="#University"/>
+  <owl:NamedIndividual rdf:about="#Felix">
+    <owl:type rdf:resource="#Person"/>
+    <hasHabitat owl:resource="#UniLeipzig"/>
     <isHardWorking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isHardWorking>
-  </Person>
+  </owl:NamedIndividual>
 
-  <Person rdf:ID="Lisa">
-    <hasHabitat rdf:Class="#University"/>
+  <owl:NamedIndividual rdf:about="#Lisa">
+    <owl:type rdf:resource="#Person"/>
+    <hasHabitat owl:resource="#UniLeipzig"/>
     <isHardWorking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHardWorking>
-  </Person>
+  </owl:NamedIndividual>
 
   <!-- INDIVIDUALS FOR Parent -->
 
-  <Person rdf:ID="Robert"/>
+  <owl:NamedIndividual rdf:about="#Robert">
+    <owl:type rdf:resource="#Person"/>
+  </owl:NamedIndividual>
 
-  <Elefant rdf:ID="Philipp"/>
+  <owl:NamedIndividual rdf:about="#Philipp">
+    <owl:type rdf:resource="#Elefant"/>
+  </owl:NamedIndividual>
 
-  <Person rdf:ID="Julien"/>
+  <owl:NamedIndividual rdf:about="#Julien">
+    <owl:type rdf:resource="#Person"/>
+  </owl:NamedIndividual>
 
-  <Animal rdf:ID="Otto">
-    <hasHabitat rdf:resource="#DryEucalyptForest"/>
-  </Animal>
+  <owl:NamedIndividual rdf:about="#Otto">
+    <owl:type rdf:resource="#Animal"/>
+    <hasHabitat rdf:resource="#ThatOneVeryDryEucalyptForest"/>
+  </owl:NamedIndividual>
 
-  <Elefant rdf:ID="Kendrick">
-    <hasChildren owl:Class="#Animal"/>
-    <hasChildren owl:Class="#Animal"/>
-    <hasChildren owl:Class="#Animal"/>
-  </Elefant>
+  <owl:NamedIndividual rdf:about="#Kendrick">
+    <owl:type rdf:resource="#Elefant"/>
+    <hasChildren owl:resource="#Donna"/>
+    <hasChildren owl:resource="#Nancy"/>
+    <hasChildren owl:resource="#Carol"/>
+  </owl:NamedIndividual>
 
   <!-- INDIVIDUALS FOR MaleStudentWith3Daughters -->
-  <Student rdf:ID="Anna">
+
+  <owl:NamedIndividual rdf:about="#Anna">
+    <owl:type rdf:resource="#Student"/>
     <hasGender owl:Gender="female"/>
-    <hasChildren owl:Class="#Female"/>
-    <hasChildren owl:Class="#Female"/>
-    <hasChildren owl:Class="#Female"/>
-  </Student>
+    <hasChildren owl:resource="#Donna"/>
+    <hasChildren owl:resource="#Nancy"/>
+    <hasChildren owl:resource="#Carol"/>
+  </owl:NamedIndividual>
 
-  <Person rdf:ID="Linda">
+  <owl:NamedIndividual rdf:about="#Linda">
+    <owl:type rdf:resource="#Person"/>
     <isHardWorking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isHardWorking>
-    <hasChildren owl:Class="#Female"/>
-    <hasChildren owl:Class="#Female"/>
-    <hasChildren owl:Class="#Female"/>
-  </Person>
+    <hasChildren owl:resource="#Donna"/>
+    <hasChildren owl:resource="#Nancy"/>
+    <hasChildren owl:resource="#Carol"/>
+  </owl:NamedIndividual>
 
-  <Student rdf:ID="James">
-    <hasChildren owl:Class="#Female"/>
-    <hasChildren owl:Class="#Female"/>
-    <hasChildren owl:Class="#Female"/>
-  </Student>
+  <owl:NamedIndividual rdf:about="#James">
+    <owl:type rdf:resource="#Student"/>
+    <hasChildren owl:resource="#Donna"/>
+    <hasChildren owl:resource="#Nancy"/>
+    <hasChildren owl:resource="#Carol"/>
+  </owl:NamedIndividual>
 
-  <Person rdf:ID="John">
-    <hasHabitat rdf:Class="#University"/>
-    <hasChildren owl:Class="#Female"/>
-    <hasChildren owl:Class="#Female"/>
-    <hasChildren owl:Class="#Female"/>
-  </Person>
+  <owl:NamedIndividual rdf:about="#John">
+    <owl:type rdf:resource="#Person"/>
+    <hasHabitat owl:resource="#UniLeipzig"/>
+    <hasChildren owl:resource="#Donna"/>
+    <hasChildren owl:resource="#Nancy"/>
+    <hasChildren owl:resource="#Carol"/>
+  </owl:NamedIndividual>
 
-  <Student rdf:ID="Martin">
+  <owl:NamedIndividual rdf:about="#Martin">
+    <owl:type rdf:resource="#Student"/>
     <hasGender owl:Gender="male"/>
-    <hasChildren owl:Class="#Female"/>
-    <hasChildren owl:Class="#Female"/>
-    <hasChildren owl:Class="#Female"/>
-  </Student>
+    <hasChildren owl:resource="#Donna"/>
+    <hasChildren owl:resource="#Nancy"/>
+    <hasChildren owl:resource="#Carol"/>
+  </owl:NamedIndividual>
 
   <!-- GENERIC STUFF -->
+
+  <owl:NamedIndividual rdf:ID="#Donna">
+    <owl:type rdf:resource="#Female"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:ID="#Nancy">
+    <owl:type rdf:resource="#Female"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:ID="#Carol">
+    <owl:type rdf:resource="#Female"/>
+  </owl:NamedIndividual>
 
   <owl:Class rdf:ID="Elefant">
     <owl:subClassOf>
@@ -368,7 +404,18 @@
     </owl:subClassOf>
   </owl:Class>
 
-  <!-- INDIVIDUALS START FROM HERE -->
+  <owl:NamedIndividual rdf:about="#Leipzig">
+    <owl:type rdf:resource="#City"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="#UniLeipzig">
+    <owl:type rdf:resource="#University"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="#ThatOneVeryDryEucalyptForest">
+    <owl:typee rdf:resource="#DryEucalyptForest"/>
+  </owl:NamedIndividual>
+
 </rdf:RDF>
 
 <!-- Created with Protege (with OWL Plugin, Build 60)  http://protege.stanford.edu -->
