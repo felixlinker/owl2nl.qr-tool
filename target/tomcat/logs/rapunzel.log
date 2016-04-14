@@ -1,62 +1,24 @@
-2016-04-11 16:43:37,327 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
-2016-04-11 16:43:37,418 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Apr 11 16:43:37 CEST 2016]; root of context hierarchy
-2016-04-11 16:43:37,465 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
-2016-04-11 16:43:37,755 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
-2016-04-11 16:43:37,774 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5b322873: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#1,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#2]; root of factory hierarchy
-2016-04-11 16:43:37,799 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
-2016-04-11 16:43:41,547 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
-2016-04-11 16:43:41,627 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
-2016-04-11 16:43:41,634 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
-2016-04-11 16:43:41,659 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 24 ms.
-2016-04-11 16:43:41,985 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization completed in 4658 ms
-2016-04-11 16:43:44,612 INFO  [http-8080-1    ]  qr.Controller                  - Containing 3 experiments after initialization.
-2016-04-11 16:43:44,650 INFO  [http-8080-1    ]  qr.OWL2NL_QRController         - Identified a new user session (09198CDD24B2A84AA572838E6E2B591A). Adding it to the database.
-2016-04-11 16:43:50,302 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #61 has already 0 answers.
-2016-04-11 16:43:50,302 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 16:43:50,304 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (61) for experiment #-1.
-2016-04-11 16:43:50,310 INFO  [http-8080-2    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
-2016-04-11 16:43:52,403 INFO  [http-8080-3    ]  qr.OWL2NL_QRController         - user #61 has already 0 answers.
-2016-04-11 16:43:52,403 INFO  [http-8080-3    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 16:43:52,403 INFO  [http-8080-3    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #1 (adequacy=2, fluency=2).
-2016-04-11 16:43:52,404 INFO  [http-8080-3    ]  qr.Controller                  - Found an experiment result of user (61) for experiment #1.
-2016-04-11 16:43:54,848 INFO  [http-8080-4    ]  qr.OWL2NL_QRController         - user #61 has already 1 answers.
-2016-04-11 16:43:54,848 INFO  [http-8080-4    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 16:43:54,848 INFO  [http-8080-4    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #2 (adequacy=2, fluency=2).
-2016-04-11 16:43:54,849 INFO  [http-8080-4    ]  qr.Controller                  - Found an experiment result of user (61) for experiment #2.
-2016-04-11 16:43:54,863 INFO  [http-8080-4    ]  qr.Controller                  - There are no more experiments for the user with the Id 61. Sending finish page.
-2016-04-11 16:43:58,016 INFO  [http-8080-4    ]  qr.OWL2NL_QRController         - user #61 has already 2 answers.
-2016-04-11 16:43:58,016 INFO  [http-8080-4    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 16:43:58,016 INFO  [http-8080-4    ]  qr.Controller                  - Found an experiment result of user (61) for experiment #-1.
-2016-04-11 16:43:58,017 INFO  [http-8080-4    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
-2016-04-11 16:44:01,908 INFO  [http-8080-4    ]  qr.OWL2NL_QRController         - user #61 has already 2 answers.
-2016-04-11 16:44:01,908 INFO  [http-8080-4    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 16:44:01,908 INFO  [http-8080-4    ]  parser.OWL2NL_QRResultParser   - Parsed a result for class verbalization experiment #1 (chosenId=1).
-2016-04-11 16:44:01,908 INFO  [http-8080-4    ]  qr.Controller                  - Found an experiment result of user (61) for experiment #1.
-2016-04-11 16:44:03,336 INFO  [http-8080-4    ]  qr.OWL2NL_QRController         - user #61 has already 3 answers.
-2016-04-11 16:44:03,337 INFO  [http-8080-4    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 16:44:03,337 INFO  [http-8080-4    ]  parser.OWL2NL_QRResultParser   - Parsed a result for class verbalization experiment #2 (chosenId=4).
-2016-04-11 16:44:03,337 INFO  [http-8080-4    ]  qr.Controller                  - Found an experiment result of user (61) for experiment #2.
-2016-04-11 16:44:03,352 INFO  [http-8080-4    ]  qr.Controller                  - There are no more experiments for the user with the Id 61. Sending finish page.
-2016-04-11 16:44:05,595 INFO  [http-8080-4    ]  qr.OWL2NL_QRController         - user #61 has already 2 answers.
-2016-04-11 16:44:05,595 INFO  [http-8080-4    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 16:44:05,595 INFO  [http-8080-4    ]  qr.Controller                  - Found an experiment result of user (61) for experiment #-1.
-2016-04-11 16:44:05,596 INFO  [http-8080-4    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
-2016-04-11 16:44:08,749 INFO  [http-8080-4    ]  qr.OWL2NL_QRController         - user #61 has already 2 answers.
-2016-04-11 16:44:08,749 INFO  [http-8080-4    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 16:44:08,749 INFO  [http-8080-4    ]  parser.OWL2NL_QRResultParser   - Parsed a result for resource verbalization experiment #1 (adequacy=3, fluency=2, completeness=4).
-2016-04-11 16:44:08,751 INFO  [http-8080-4    ]  qr.Controller                  - Found an experiment result of user (61) for experiment #1.
-2016-04-11 16:44:11,957 INFO  [http-8080-4    ]  qr.OWL2NL_QRController         - user #61 has already 3 answers.
-2016-04-11 16:44:11,957 INFO  [http-8080-4    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 16:44:11,957 INFO  [http-8080-4    ]  parser.OWL2NL_QRResultParser   - Parsed a result for resource verbalization experiment #2 (adequacy=3, fluency=2, completeness=4).
-2016-04-11 16:44:11,958 INFO  [http-8080-4    ]  qr.Controller                  - Found an experiment result of user (61) for experiment #2.
-2016-04-11 16:44:11,971 INFO  [http-8080-4    ]  qr.Controller                  - There are no more experiments for the user with the Id 61. Sending finish page.
-2016-04-11 16:44:16,373 INFO  [http-8080-4    ]  qr.OWL2NL_QRController         - user #61 has already 2 answers.
-2016-04-11 16:44:16,373 INFO  [http-8080-4    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 16:44:16,374 INFO  [http-8080-4    ]  qr.Controller                  - Found an experiment result of user (61) for experiment #-1.
-2016-04-11 16:44:16,374 INFO  [http-8080-4    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
-2016-04-11 16:44:16,381 INFO  [http-8080-4    ]  qr.Controller                  - There are no more experiments for the user with the Id 61. Sending finish page.
-2016-04-11 16:44:17,749 INFO  [http-8080-4    ]  qr.OWL2NL_QRController         - user #61 has already 2 answers.
-2016-04-11 16:44:17,749 INFO  [http-8080-4    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-11 16:44:17,749 INFO  [http-8080-4    ]  qr.Controller                  - Found an experiment result of user (61) for experiment #-1.
-2016-04-11 16:44:17,749 INFO  [http-8080-4    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
-2016-04-11 16:44:17,757 INFO  [http-8080-4    ]  qr.Controller                  - There are no more experiments for the user with the Id 61. Sending finish page.
+2016-04-14 15:30:52,948 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
+2016-04-14 15:30:53,075 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Thu Apr 14 15:30:53 CEST 2016]; root of context hierarchy
+2016-04-14 15:30:53,177 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
+2016-04-14 15:30:53,644 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
+2016-04-14 15:30:53,658 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@2ae3235e: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#1,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#2]; root of factory hierarchy
+2016-04-14 15:30:53,691 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
+2016-04-14 15:30:54,284 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
+2016-04-14 15:30:54,324 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
+2016-04-14 15:30:54,328 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
+2016-04-14 15:30:54,354 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 26 ms.
+2016-04-14 15:30:54,557 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization completed in 1609 ms
+2016-04-14 15:30:59,839 INFO  [http-8080-1    ]  qr.Controller                  - Containing 3 experiments after initialization.
+2016-04-14 15:30:59,881 INFO  [http-8080-1    ]  qr.OWL2NL_QRController         - Identified a new user session (6949E35C9D3DEC65DC06C3528E187970). Adding it to the database.
+2016-04-14 15:30:59,902 INFO  [http-8080-1    ]  qr.Controller                  - There are no more experiments for the user with the Id 1. Sending finish page.
+2016-04-14 15:31:02,783 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 0 answers.
+2016-04-14 15:31:02,783 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-14 15:31:02,784 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #-1.
+2016-04-14 15:31:02,785 INFO  [http-8080-2    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
+2016-04-14 15:31:02,792 INFO  [http-8080-2    ]  qr.Controller                  - There are no more experiments for the user with the Id 1. Sending finish page.
+2016-04-14 15:31:04,061 INFO  [http-8080-5    ]  qr.OWL2NL_QRController         - user #1 has already 0 answers.
+2016-04-14 15:31:04,062 INFO  [http-8080-5    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-14 15:31:04,062 INFO  [http-8080-5    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #-1.
+2016-04-14 15:31:04,062 INFO  [http-8080-5    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
+2016-04-14 15:31:04,069 INFO  [http-8080-5    ]  qr.Controller                  - There are no more experiments for the user with the Id 1. Sending finish page.

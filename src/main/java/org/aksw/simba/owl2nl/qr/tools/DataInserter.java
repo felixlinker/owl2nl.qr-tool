@@ -17,13 +17,10 @@ public class DataInserter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DataInserter.class);
 
-//    private static final String PROPERTIES_FILE_NAME = "OWL2NL_QR.properties";
-//    private static final String DRIVER_CLASS_NAME_PROPERTY_KEY = "org.aksw.simba.owl2nl.qr.db.driverClassName";
-//    private static final String DB_FILE_PROPERTY_KEY = "org.aksw.simba.owl2nl.qr.db.file";
-//    private static final String DB_URL_FIRST_PART = "jdbc:hsqldb:file:";
-//    private static final String SELECT_EXPERIMENT = "SELECT id FROM Experiments WHERE axiom=? AND verbalization=?";
-//    private static final String INSERT_EXPERIMENT = "INSERT INTO Experiments(category, axiom, verbalization) VALUES(?,?,?)";
-
+    private static final String PROPERTIES_FILE_NAME = "OWL2NL_QR.properties";
+    private static final String DRIVER_CLASS_NAME_PROPERTY_KEY = "org.aksw.simba.owl2nl.qr.db.driverClassName";
+    private static final String DB_FILE_PROPERTY_KEY = "org.aksw.simba.owl2nl.qr.db.file";
+    private static final String DB_URL_FIRST_PART = "jdbc:hsqldb:file:";
     private static final String CSV_DELIMITER = ";";
 
     public static void main(String[] args) {
@@ -32,8 +29,8 @@ public class DataInserter {
             return;
         }
         DataInserter inserter = new DataInserter(jdbctemplate);
-        inserter.runAxioms(new File("axiomConversionResults_koala.csv"));
-        inserter.runResources(new File("axiomConversionResults_travel.csv"));
+        inserter.runAxioms(new File("C:/Git/owl2nl.qr-tool/axioms.csv"));
+        inserter.runResources(new File("C:/Git/owl2nl.qr-tool/resources.csv"));
     }
 
     protected static JdbcTemplate getJdbcTemplate() {
@@ -156,7 +153,7 @@ public class DataInserter {
                 List<Integer> primaryKeyResult = jdbctemplate.query(SELECT_RESOURCE_ID, new Object[] { res }, new IntegerRowMapper());
 
                 if (primaryKeyResult.isEmpty()) {
-                    throw new SQLException("Couldn't get primary key for resource: " + res)
+                    throw new SQLException("Couldn't get primary key for resource: " + res);
                 }
 
                 int pk = primaryKeyResult.get(0);
