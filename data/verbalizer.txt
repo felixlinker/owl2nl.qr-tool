@@ -1,6 +1,6 @@
 public static void main(String[] args) {
         SparqlEndpoint endpoint = SparqlEndpoint.getEndpointDBpedia();
-        Verbalizer verbalizer = new Verbalizer(endpoint, "C:/Users/felix/Desktop/avatarcache", "C:/Program Files (x86)/WordNet/2.1");
+        Verbalizer verbalizer = new Verbalizer(endpoint, "C:/Git/owl2nl.qr-tool/data/verbalizer.txt", "C:/Program Files (x86)/WordNet/2.1");
         TripleConverter converter = new TripleConverter(endpoint);
 
         PrefixMapping mapping = PrefixMapping.Factory.create();
@@ -28,7 +28,7 @@ public static void main(String[] args) {
 
         FileWriter fw = null;
         try {
-            fw = new FileWriter("C:/users/felix/desktop/resources.csv");
+            fw = new FileWriter("C:/Git/owl2nl.qr-tool/data/resources.csv");
             for (Summary summary: summaries) {
                 fw.append(summary.printCsvLine());
             }
