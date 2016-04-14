@@ -15,7 +15,8 @@ public class OWL2NL_QRResourceVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QR
     public static final String FLUENCY_RATING_KEY = "fluency";
     public static final String COMPLETENESS_RATING_NAME = "completeness:";
     public static final String COMPLETENSS_RATING_KEY = "completeness";
-    public static final String EXPERIMENT_IDENTIFIER_VALUE= "OWL2NL_QRResourceVerb";
+    public static final String EXPERIMENT_IDENTIFIER_VALUE = "OWL2NL_QRResourceVerb";
+    public static final String EXPERIMENT_IDENTIFIER_NAME = "Resource verbalization";
 
     public static final ListConverter<OWL2NL_QRTriple, String> TRIPLE_STRING_LIST_CONVERTER = a -> a.getTriple();
     public static final OWL2NL_QRStarRatingHelper[] STAR_RATINGS_EXPERT = { new OWL2NL_QRStarRatingHelper(ADEQUACY_RATING_KEY, ADEQUACY_RATING_NAME), new OWL2NL_QRStarRatingHelper(FLUENCY_RATING_KEY, FLUENCY_RATING_NAME), new OWL2NL_QRStarRatingHelper(COMPLETENSS_RATING_KEY, COMPLETENESS_RATING_NAME)};

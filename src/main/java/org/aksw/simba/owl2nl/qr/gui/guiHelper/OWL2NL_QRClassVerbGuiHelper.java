@@ -11,6 +11,7 @@ public class OWL2NL_QRClassVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QRCla
 
     public static final String CHOSEN_TRIPLE_KEY = "chosenTriple";
     public static final String EXPERIMENT_IDENTIFIER_VALUE = "OWL2NL_QRClassVerb";
+    public static final String EXPERIMENT_IDENTIFIER_NAME = "Class verbalization";
 
     public static final ListConverter<OWL2NL_QRTriple, OWL2NL_QRRadioButtonHelper> TRIPLE_TO_RADIO_MAPPER = triple ->  new OWL2NL_QRRadioButtonHelper(triple.getTriple(), CHOSEN_TRIPLE_KEY, String.valueOf(triple.getId()));
 

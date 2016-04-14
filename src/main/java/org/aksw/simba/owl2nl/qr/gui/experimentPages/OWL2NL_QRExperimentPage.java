@@ -157,11 +157,9 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
 
             addHiddenValue(guiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
 
-            ListConverter<String, OWL2NL_QRRadioButtonHelper> converter = a -> new OWL2NL_QRRadioButtonHelper(a, OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, a);
+            ListConverter<String, OWL2NL_QRRadioButtonHelper> converter = a -> new OWL2NL_QRRadioButtonHelper(mapExperimentType(a), OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, a);
             container.addElement(new Paragraph("If you haven't tried below experiments, you can try them now!"));
             container.addElement(generateRadioButtonList(converter.map(experimentTypes)));
-
-
 
             container.addElement(createSubmitButton());
         }
@@ -342,6 +340,15 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         builder.append(" different pages (during a single session). After the submission of the tenth page, a solution word is displayed, that you can send to roeder@informatik.uni-leipzig.de if you want to take part in the lottery.");
 
         return builder.toString();
+    }
+
+    protected String mapExperimentType(String type) {
+        switch (type) {
+            case OWL2NL_QRAxiomVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE: return OWL2NL_QRAxiomVerbGuiHelper.EXPERIMENT_IDENTIFIER_NAME;
+            case OWL2NL_QRClassVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE: return OWL2NL_QRClassVerbGuiHelper.EXPERIMENT_IDENTIFIER_NAME;
+            case OWL2NL_QRResourceVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE: return OWL2NL_QRResourceVerbGuiHelper.EXPERIMENT_IDENTIFIER_NAME;
+            default: return type;
+        }
     }
 
     abstract HtmlContainer getInstructions();
