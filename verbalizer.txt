@@ -3,6 +3,13 @@ public static void main(String[] args) {
         Verbalizer verbalizer = new Verbalizer(endpoint, "C:/Users/felix/Desktop/avatarcache", "C:/Program Files (x86)/WordNet/2.1");
         TripleConverter converter = new TripleConverter(endpoint);
 
+        PrefixMapping mapping = PrefixMapping.Factory.create();
+        mapping.setNsPrefix("dbr", "http://dbpedia.org/resource/");
+        mapping.setNsPrefix("dbo", "http://dbpedia.org/ontology/");
+        mapping.setNsPrefix("xs", "http://www.w3.org/2001/XMLSchema#");
+        mapping.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+
+
         String[] resources = new String[] { "http://dbpedia.org/resource/Albert_Einstein", "http://dbpedia.org/resource/Michael_Jackson", "http://dbpedia.org/resource/Barack_Obama" , "http://dbpedia.org/resource/Angela_Merkel", "http://dbpedia.org/resource/Microsoft", "http://dbpedia.org/resource/Facebook" };
         LinkedList<Summary> summaries = new LinkedList<>();
 
@@ -13,7 +20,7 @@ public static void main(String[] args) {
             LinkedList<TripleHelper> cluster = new LinkedList<>();
             for (Triple t: triples) {
                 String verbalization = converter.convertTripleToText(t);
-                cluster.add(new TripleHelper(t, verbalization));
+                cluster.add(new TripleHelper(mapping, t, verbalization));
             }
 
             summaries.add(new Summary(resource, summary, cluster));
@@ -62,16 +69,18 @@ public static void main(String[] args) {
     }
 
     private static class TripleHelper {
+        private PrefixMapping mapping;
         private Triple t;
         private String verb;
-        public TripleHelper(Triple t, String verb) {
+        public TripleHelper(PrefixMapping mapping, Triple t, String verb) {
+            this.mapping = mapping;
             this.t = t;
             this.verb = verb;
         }
 
         public String toCsv() {
             StringBuilder builder = new StringBuilder();
-            builder.append(t.toString());
+            builder.append(t.toString(mapping));
             builder.append(';');
             builder.append(verb);
             builder.append(';');

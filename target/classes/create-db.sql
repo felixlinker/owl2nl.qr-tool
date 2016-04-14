@@ -1,8 +1,8 @@
-DROP TABLE ResourceExperiments;
-DROP TABLE AxiomExperiments;
-DROP TABLE ClassExperiments;
+--DROP TABLE ResourceExperiments;
+--DROP TABLE AxiomExperiments;
+--DROP TABLE ClassExperiments;
 --DROP TABLE Instances;
-DROP TABLE Users;
+--DROP TABLE Users;
 --DROP TABLE Triples;
 --DROP TABLE Axioms;
 --DROP TABLE Resources;
