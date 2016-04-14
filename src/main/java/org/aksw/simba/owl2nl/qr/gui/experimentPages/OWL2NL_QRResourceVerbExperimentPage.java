@@ -1,6 +1,7 @@
 package org.aksw.simba.owl2nl.qr.gui.experimentPages;
 
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRResourceVerbExperimentSetup;
+import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRResourceVerbGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRStarRatingHelper;
@@ -9,6 +10,8 @@ import org.aksw.simba.webelements.HtmlContainer;
 import org.aksw.simba.webelements.Paragraph;
 import org.aksw.simba.webelements.*;
 import org.aksw.simba.webelements.Heading.HeadingOrder;
+
+import java.util.Collection;
 
 public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage<OWL2NL_QRResourceVerbExperimentSetup> {
 
@@ -48,10 +51,11 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
 
         Div bodyDiv = new Div();
         bodyDiv.addAttribute("class", "panel-body");
-        bodyDiv.addElement(new Paragraph(experiment.getResourceVerbalization()));
+        bodyDiv.addElement(new Paragraph(new BoldText(experiment.getResourceVerbalization())));
         OWL2NL_QRStarRatingHelper[] starRatingHelpers;
         if (experiment.isPerformedByExpert()) {
-            bodyDiv.addElement(generateUnorderedList(guiHelper.TRIPLE_STRING_LIST_CONVERTER.map(experiment.getTriples())));
+//            bodyDiv.addElement(generateUnorderedList(guiHelper.TRIPLE_STRING_LIST_CONVERTER.map(experiment.getTriples())));
+            bodyDiv.addElement(generateTriplesParagraph(experiment.getTriples()));
             starRatingHelpers = guiHelper.STAR_RATINGS_EXPERT;
         } else {
             starRatingHelpers = guiHelper.STAR_RATINGS_AMATEUR;
@@ -60,5 +64,23 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
 
         experimentDiv.addElement(bodyDiv);
         return experimentDiv;
+    }
+
+    private WebElement generateTriplesParagraph(Collection<OWL2NL_QRTriple> triples) {
+        HtmlContainer container = new HtmlContainer();
+
+        Div explanationDiv = new Div();
+        explanationDiv.addElement(new Paragraph("Below you see all resources and their verbalization by which the resource has been verbalized."));
+        container.addElement(explanationDiv);
+
+        for (OWL2NL_QRTriple triple: triples) {
+            Div tripleDiv = new Div();
+            tripleDiv.addElement(new Paragraph(triple.getTriple()));
+            tripleDiv.addElement(new Paragraph(triple.getVerbalization()));
+            tripleDiv.addElement(new Paragraph());
+            container.addElement(tripleDiv);
+        }
+
+        return container;
     }
 }

@@ -29,7 +29,7 @@ public class DataInserter {
             return;
         }
         DataInserter inserter = new DataInserter(jdbctemplate);
-        inserter.runAxioms(new File("C:/Git/owl2nl.qr-tool/data/axioms.csv"));
+//        inserter.runAxioms(new File("C:/Git/owl2nl.qr-tool/data/axioms.csv"));
         inserter.runResources(new File("C:/Git/owl2nl.qr-tool/data/resources.csv"));
     }
 
