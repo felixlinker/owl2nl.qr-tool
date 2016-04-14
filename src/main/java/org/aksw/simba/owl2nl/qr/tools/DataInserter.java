@@ -29,8 +29,8 @@ public class DataInserter {
             return;
         }
         DataInserter inserter = new DataInserter(jdbctemplate);
-        inserter.runAxioms(new File("C:/Git/owl2nl.qr-tool/axioms.csv"));
-        inserter.runResources(new File("C:/Git/owl2nl.qr-tool/resources.csv"));
+        inserter.runAxioms(new File("C:/Git/owl2nl.qr-tool/data/axioms.csv"));
+        inserter.runResources(new File("C:/Git/owl2nl.qr-tool/data/resources.csv"));
     }
 
     protected static JdbcTemplate getJdbcTemplate() {
