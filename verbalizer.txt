@@ -1,8 +1,7 @@
-Nur zum Zwischenspeichern steht hier der Code, den ich den in den Verbalizer eingefügt habe, um per Avatar die Ressourcen zu verbalisieren:
-
-    public static void main(String[] args) {
+public static void main(String[] args) {
         SparqlEndpoint endpoint = SparqlEndpoint.getEndpointDBpedia();
         Verbalizer verbalizer = new Verbalizer(endpoint, "C:/Users/felix/Desktop/avatarcache", "C:/Program Files (x86)/WordNet/2.1");
+        TripleConverter converter = new TripleConverter(endpoint);
 
         String[] resources = new String[] { "http://dbpedia.org/resource/Albert_Einstein", "http://dbpedia.org/resource/Michael_Jackson", "http://dbpedia.org/resource/Barack_Obama" , "http://dbpedia.org/resource/Angela_Merkel", "http://dbpedia.org/resource/Microsoft", "http://dbpedia.org/resource/Facebook" };
         LinkedList<Summary> summaries = new LinkedList<>();
@@ -11,8 +10,13 @@ Nur zum Zwischenspeichern steht hier der Code, den ich den in den Verbalizer ein
             OWLIndividual ind = new OWLNamedIndividualImpl(IRI.create(resource));
             String summary = verbalizer.summarize(ind);
             Collection<Triple> triples = verbalizer.getSummaryTriples(ind);
+            LinkedList<TripleHelper> cluster = new LinkedList<>();
+            for (Triple t: triples) {
+                String verbalization = converter.convertTripleToText(t);
+                cluster.add(new TripleHelper(t, verbalization));
+            }
 
-            summaries.add(new Summary(summary, triples));
+            summaries.add(new Summary(summary, cluster));
         }
 
         FileWriter fw = null;
@@ -34,8 +38,8 @@ Nur zum Zwischenspeichern steht hier der Code, den ich den in den Verbalizer ein
 
     private static class Summary {
         private String summary;
-        private Collection<Triple> cluster;
-        public Summary(String summary, Collection<Triple> cluster) {
+        private Collection<TripleHelper> cluster;
+        public Summary(String summary, Collection<TripleHelper> cluster) {
             this.summary = summary;
             this.cluster = cluster;
         }
@@ -44,12 +48,29 @@ Nur zum Zwischenspeichern steht hier der Code, den ich den in den Verbalizer ein
             StringBuilder output = new StringBuilder();
             output.append(summary.toString());
             output.append(';');
-            for (Triple triple: cluster) {
-                output.append(triple.toString());
-                output.append(';');
+            for (TripleHelper triple: cluster) {
+                output.append(triple.toCsv());
             }
             output.append('\n');
 
             return output.toString();
+        }
+    }
+
+    private static class TripleHelper {
+        private Triple t;
+        private String verb;
+        public TripleHelper(Triple t, String verb) {
+            this.t = t;
+            this.verb = verb;
+        }
+
+        public String toCsv() {
+            StringBuilder builder = new StringBuilder();
+            builder.append(t.toString());
+            builder.append(';');
+            builder.append(verb);
+            builder.append(';');
+            return builder.toString();
         }
     }
