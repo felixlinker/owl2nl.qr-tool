@@ -16,7 +16,7 @@ public static void main(String[] args) {
                 cluster.add(new TripleHelper(t, verbalization));
             }
 
-            summaries.add(new Summary(summary, cluster));
+            summaries.add(new Summary(resource, summary, cluster));
         }
 
         FileWriter fw = null;
@@ -37,16 +37,20 @@ public static void main(String[] args) {
     }
 
     private static class Summary {
+        private String resource;
         private String summary;
         private Collection<TripleHelper> cluster;
-        public Summary(String summary, Collection<TripleHelper> cluster) {
+        public Summary(String resource, String summary, Collection<TripleHelper> cluster) {
+            this.resource = resource;
             this.summary = summary;
             this.cluster = cluster;
         }
 
         public String printCsvLine() {
             StringBuilder output = new StringBuilder();
-            output.append(summary.toString());
+            output.append(resource);
+            output.append(';');
+            output.append(summary);
             output.append(';');
             for (TripleHelper triple: cluster) {
                 output.append(triple.toCsv());
