@@ -15,7 +15,7 @@ import java.util.List;
 
 public class OWL2NL_QRClassVerbSetupSupplier extends OWL2NL_QRAxiomSetupSupplier {
     private static final String STARTED_EXPERIMENTS_QUERY = "SELECT DISTINCT axiomId FROM ClassExperiments WHERE axiomId NOT IN (SELECT DISTINCT axiomId FROM ClassExperiments WHERE userId=?);";
-    private static final String NOT_STARTED_EXPERIMENTS_QUERY = "SELECT id FROM Axioms WHERE id NOT IN (SELECT DISTINCT axiomId FROM ClassExperiments);";
+    private static final String NOT_STARTED_EXPERIMENTS_QUERY = "SELECT Axioms.id FROM Axioms JOIN Instances ON Axioms.id = Instances.instanceOf WHERE Axioms.id NOT IN (SELECT DISTINCT axiomId FROM ClassExperiments);";
     private static final String INSTANCE_QUERY = "SELECT id, triple, verbalization FROM Instances WHERE instanceOf=?;";
 
     public OWL2NL_QRClassVerbSetupSupplier() {

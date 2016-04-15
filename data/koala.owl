@@ -133,14 +133,6 @@
     
 
 
-    <!-- http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Elefant -->
-
-    <owl:Class rdf:about="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Elefant">
-        <rdfs:subClassOf rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Animal"/>
-    </owl:Class>
-    
-
-
     <!-- http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Female -->
 
     <owl:Class rdf:about="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Female">
@@ -419,6 +411,7 @@
 
     <owl:NamedIndividual rdf:about="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Carla">
         <rdf:type rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Person"/>
+        <hasGender rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#female"/>
     </owl:NamedIndividual>
     
 
@@ -427,6 +420,7 @@
 
     <owl:NamedIndividual rdf:about="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Caroline">
         <rdf:type rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Person"/>
+        <hasGender rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#female"/>
     </owl:NamedIndividual>
     
 
@@ -517,7 +511,7 @@
     <!-- http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Kendrick -->
 
     <owl:NamedIndividual rdf:about="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Kendrick">
-        <rdf:type rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Elefant"/>
+        <rdf:type rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Animal"/>
         <hasChildren rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Felix"/>
         <hasChildren rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Freddie"/>
         <hasChildren rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#NiceKoala"/>
@@ -567,6 +561,7 @@
 
     <owl:NamedIndividual rdf:about="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Marie">
         <rdf:type rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Person"/>
+        <hasGender rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#female"/>
     </owl:NamedIndividual>
     
 
@@ -623,7 +618,7 @@
     <!-- http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Philipp -->
 
     <owl:NamedIndividual rdf:about="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Philipp">
-        <rdf:type rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Elefant"/>
+        <rdf:type rdf:resource="http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Animal"/>
     </owl:NamedIndividual>
     
 

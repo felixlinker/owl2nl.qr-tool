@@ -1,0 +1,98 @@
+koala:Anna
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasHabitat koala:Leipzig ;
+  koala:isHardWorking true .
+
+koala:BigKoala
+  a owl:NamedIndividual, koala:Animal ;
+  koala:hasDegree koala:PhD .
+
+koala:Carla
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasGender koala:female .
+
+koala:Caroline
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasGender koala:female .
+
+koala:Felix
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasHabitat koala:UniLeipzig ;
+  koala:isHardWorking false .
+
+koala:Freddie
+  a owl:NamedIndividual, koala:Koala ;
+  koala:hasDegree koala:BA, koala:PhD ;
+  koala:hasGender koala:male .
+
+koala:Harold
+  a owl:NamedIndividual, koala:Student ;
+  koala:hasChildren koala:Carla, koala:Caroline, koala:Marie .
+
+koala:HugeKoala
+  a owl:NamedIndividual, koala:Animal ;
+  koala:hasDegree koala:PhD ;
+  koala:hasHabitat koala:ThatOneVeryDryEucalyptForest .
+
+koala:Jack
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasChildren koala:Carla, koala:Caroline, koala:Marie ;
+  koala:hasHabitat koala:UniLeipzig .
+
+koala:James a owl:NamedIndividual, koala:Person .
+koala:Jenna
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasHabitat koala:UniLeipzig .
+
+koala:John
+  a owl:NamedIndividual, koala:Student ;
+  koala:hasChildren koala:Carla, koala:Caroline, koala:Marie ;
+  koala:hasGender koala:male .
+
+koala:Kendrick
+  a owl:NamedIndividual, koala:Animal ;
+  koala:hasChildren koala:Felix, koala:Freddie, koala:NiceKoala .
+
+koala:Kim
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasHabitat koala:UniLeipzig ;
+  koala:isHardWorking true .
+
+koala:Leipzig a owl:NamedIndividual, koala:City .
+koala:Lena
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasChildren koala:Carla, koala:Caroline, koala:Marie ;
+  koala:isHardWorking true .
+
+koala:Marie
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasGender koala:female .
+
+koala:Marvin
+  a owl:NamedIndividual, koala:Animal ;
+  koala:hasHabitat koala:UniTuebingen ;
+  koala:isHardWorking true .
+
+koala:NiceKoala
+  a owl:NamedIndividual, koala:Koala ;
+  koala:hasDegree koala:MA ;
+  koala:hasHabitat koala:ThatOneVeryDryEucalyptForest .
+
+koala:Nicole
+  a owl:NamedIndividual, koala:Student ;
+  koala:hasChildren koala:Carla, koala:Caroline, koala:Marie ;
+  koala:hasGender koala:female .
+
+koala:Otto
+  a owl:NamedIndividual, koala:Animal ;
+  koala:hasHabitat koala:ThatOneVeryDryEucalyptForest .
+
+koala:Philipp a owl:NamedIndividual, koala:Animal .
+koala:SmallKoala
+  a owl:NamedIndividual, koala:Koala ;
+  koala:hasDegree koala:BA, koala:MA .
+
+koala:ThatOneVeryDryEucalyptForest a owl:NamedIndividual, koala:DryEucalyptForest .
+koala:UniLeipzig a owl:NamedIndividual, koala:University .
+koala:UniTuebingen a owl:NamedIndividual, koala:University .
+

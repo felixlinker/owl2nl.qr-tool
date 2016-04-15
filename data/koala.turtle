@@ -1,0 +1,313 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix koala: <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl> a owl:Ontology .
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasChildren>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Animal> ;
+  rdfs:range <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Animal> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasDegree>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Person> ;
+  rdfs:range <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Degree> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasGender>
+  a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Animal> ;
+  rdfs:range <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Gender> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasHabitat>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Animal> ;
+  rdfs:range <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Habitat> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Person> ;
+  rdfs:range xsd:boolean .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Animal>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasHabitat> ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasGender> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ] ;
+  rdfs:seeAlso "Male" ;
+  owl:versionInfo "1.1" .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#City>
+  a owl:Class ;
+  rdfs:subClassOf <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Habitat> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Degree> a owl:Class .
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#DryEucalyptForest>
+  a owl:Class ;
+  rdfs:subClassOf <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Forest> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Female>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Restriction ;
+    owl:onProperty <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasGender> ;
+    owl:hasValue <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#female>
+  ] .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Forest>
+  a owl:Class ;
+  rdfs:subClassOf <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Habitat> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Gender> a owl:Class .
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#GraduateStudent>
+  a owl:Class ;
+  rdfs:subClassOf <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Student>, [
+    a owl:Restriction ;
+    owl:onProperty <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasDegree> ;
+    owl:someValuesFrom [
+      a owl:Class ;
+      owl:oneOf (
+       <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#BA>
+       <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#BS>
+     )
+    ]
+  ] .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Habitat> a owl:Class .
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Koala>
+  a owl:Class ;
+  rdfs:subClassOf <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Marsupials>, [
+    a owl:Restriction ;
+    owl:onProperty <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasHabitat> ;
+    owl:someValuesFrom <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#DryEucalyptForest>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking> ;
+    owl:hasValue false
+  ] .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#KoalaWithPhD>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Koala>
+     _:genid12
+   )
+  ] ;
+  owl:versionInfo "1.2" .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Male>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Restriction ;
+    owl:onProperty <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasGender> ;
+    owl:hasValue <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#male>
+  ] .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#MaleStudentWith3Daughters>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Student>
+     _:genid17
+     _:genid19
+     _:genid21
+   )
+  ] .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Marsupials>
+  a owl:Class ;
+  rdfs:subClassOf <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Animal> ;
+  owl:disjointWith <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Person> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Parent>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Animal>
+     _:genid25
+   )
+  ] ;
+  rdfs:subClassOf <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Animal> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Person>
+  a owl:Class ;
+  rdfs:subClassOf <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Animal> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Quokka>
+  a owl:Class ;
+  rdfs:subClassOf <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Marsupials>, [
+    a owl:Restriction ;
+    owl:onProperty <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking> ;
+    owl:hasValue true
+  ] .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Rainforest>
+  a owl:Class ;
+  rdfs:subClassOf <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Forest> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Student>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Person>
+     _:genid30
+     _:genid32
+   )
+  ] .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#TasmanianDevil>
+  a owl:Class ;
+  rdfs:subClassOf <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Marsupials> .
+
+<http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#University>
+  a owl:Class ;
+  rdfs:subClassOf <http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Habitat> .
+
+koala:Anna
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasHabitat koala:Leipzig ;
+  koala:isHardWorking true .
+
+koala:BA a owl:NamedIndividual, koala:Degree .
+koala:BS a owl:NamedIndividual, koala:Degree .
+koala:BigKoala
+  a owl:NamedIndividual, koala:Animal ;
+  koala:hasDegree koala:PhD .
+
+koala:Carla
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasGender koala:female .
+
+koala:Caroline
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasGender koala:female .
+
+koala:Felix
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasHabitat koala:UniLeipzig ;
+  koala:isHardWorking false .
+
+koala:Freddie
+  a owl:NamedIndividual, koala:Koala ;
+  koala:hasDegree koala:BA, koala:PhD ;
+  koala:hasGender koala:male .
+
+koala:Harold
+  a owl:NamedIndividual, koala:Student ;
+  koala:hasChildren koala:Carla, koala:Caroline, koala:Marie .
+
+koala:HugeKoala
+  a owl:NamedIndividual, koala:Animal ;
+  koala:hasDegree koala:PhD ;
+  koala:hasHabitat koala:ThatOneVeryDryEucalyptForest .
+
+koala:Jack
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasChildren koala:Carla, koala:Caroline, koala:Marie ;
+  koala:hasHabitat koala:UniLeipzig .
+
+koala:James a owl:NamedIndividual, koala:Person .
+koala:Jenna
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasHabitat koala:UniLeipzig .
+
+koala:John
+  a owl:NamedIndividual, koala:Student ;
+  koala:hasChildren koala:Carla, koala:Caroline, koala:Marie ;
+  koala:hasGender koala:male .
+
+koala:Kendrick
+  a owl:NamedIndividual, koala:Animal ;
+  koala:hasChildren koala:Felix, koala:Freddie, koala:NiceKoala .
+
+koala:Kim
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasHabitat koala:UniLeipzig ;
+  koala:isHardWorking true .
+
+koala:Leipzig a owl:NamedIndividual, koala:City .
+koala:Lena
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasChildren koala:Carla, koala:Caroline, koala:Marie ;
+  koala:isHardWorking true .
+
+koala:MA a owl:NamedIndividual, koala:Degree .
+koala:Marie
+  a owl:NamedIndividual, koala:Person ;
+  koala:hasGender koala:female .
+
+koala:Marvin
+  a owl:NamedIndividual, koala:Animal ;
+  koala:hasHabitat koala:UniTuebingen ;
+  koala:isHardWorking true .
+
+koala:NiceKoala
+  a owl:NamedIndividual, koala:Koala ;
+  koala:hasDegree koala:MA ;
+  koala:hasHabitat koala:ThatOneVeryDryEucalyptForest .
+
+koala:Nicole
+  a owl:NamedIndividual, koala:Student ;
+  koala:hasChildren koala:Carla, koala:Caroline, koala:Marie ;
+  koala:hasGender koala:female .
+
+koala:Otto
+  a owl:NamedIndividual, koala:Animal ;
+  koala:hasHabitat koala:ThatOneVeryDryEucalyptForest .
+
+koala:PhD a owl:NamedIndividual, koala:Degree .
+koala:Philipp a owl:NamedIndividual, koala:Animal .
+koala:SmallKoala
+  a owl:NamedIndividual, koala:Koala ;
+  koala:hasDegree koala:BA, koala:MA .
+
+koala:ThatOneVeryDryEucalyptForest a owl:NamedIndividual, koala:DryEucalyptForest .
+koala:UniLeipzig a owl:NamedIndividual, koala:University .
+koala:UniTuebingen a owl:NamedIndividual, koala:University .
+koala:female a owl:NamedIndividual, koala:Gender .
+koala:male a owl:NamedIndividual, koala:Gender .
+_:genid12
+  a owl:Restriction ;
+  owl:onProperty koala:hasDegree ;
+  owl:hasValue koala:PhD .
+
+_:genid17
+  a owl:Restriction ;
+  owl:onProperty koala:hasChildren ;
+  owl:allValuesFrom koala:Female .
+
+_:genid19
+  a owl:Restriction ;
+  owl:onProperty koala:hasGender ;
+  owl:hasValue koala:male .
+
+_:genid21
+  a owl:Restriction ;
+  owl:onProperty koala:hasChildren ;
+  owl:cardinality "3"^^xsd:nonNegativeInteger .
+
+_:genid25
+  a owl:Restriction ;
+  owl:onProperty koala:hasChildren ;
+  owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid30
+  a owl:Restriction ;
+  owl:onProperty koala:hasHabitat ;
+  owl:someValuesFrom koala:University .
+
+_:genid32
+  a owl:Restriction ;
+  owl:onProperty koala:isHardWorking ;
+  owl:hasValue true .
