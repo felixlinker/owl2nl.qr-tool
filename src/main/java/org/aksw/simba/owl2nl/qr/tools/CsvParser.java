@@ -73,6 +73,7 @@ public class CsvParser {
             }
         }
 
+        cells.add(StringEscapeUtils.unescapeJava(cell.toString()));
         return cells;
     }
 
@@ -87,7 +88,7 @@ public class CsvParser {
     public static void main(String[] args) {
         CsvParser csv;
         try {
-            csv = new CsvParser("C:/Git/owl2nl.qr-tool/data/instances.csv");
+            csv = new CsvParser("C:/Git/owl2nl.qr-tool/data/axioms.csv");
         } catch (FileNotFoundException e) { return; }
 
         LinkedList<LinkedList<String>> cells = csv.getRows();

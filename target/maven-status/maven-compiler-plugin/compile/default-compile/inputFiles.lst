@@ -1,6 +1,8 @@
+C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\tools\CsvParser.java
 C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\data\results\OWL2NL_QRExperimentResultBase.java
 C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\data\experiments\OWL2NL_QRResourceVerbExperimentSetup.java
 C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\data\results\OWL2NL_QRAxiomVerbExperimentResult.java
+C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2NL_QRObjectRowMapper.java
 C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\db\supplier\OWL2NL_QRClassVerbSetupSupplier.java
 C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\gui\experimentPages\OWL2NL_QRClassVerbExperimentPage.java
 C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2NL_QRUserRowMapper.java

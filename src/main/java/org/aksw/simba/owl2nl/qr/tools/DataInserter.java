@@ -222,7 +222,7 @@ public class DataInserter {
 
     private static final String SELECT_AXIOM_ID = "SELECT id FROM Axioms WHERE axiom=?;";
     private static final String UPDATE_INSTANCE = "INSERT INTO Instances (instanceOf, triple, verbalization, correctInstance) VALUES (?,?,?,?);";
-    private static final String SELECT_INSTANCE = "SELECT id FROM Instances WHERE triple=?;";
+    private static final String SELECT_INSTANCE = "SELECT id FROM Instances WHERE triple=? AND instanceOf=?;";
 
     public void runClasses(File file) {
         HashMap<String, LinkedList<Instance>> classes;
@@ -246,7 +246,7 @@ public class DataInserter {
 
             int pk = pks.get(0);
             for (Instance instace: instances) {
-                if (jdbctemplate.query(SELECT_INSTANCE, new Object[] { instace.instance }, new OWL2NL_QRObjectRowMapper()).isEmpty()) {
+                if (jdbctemplate.query(SELECT_INSTANCE, new Object[] { instace.instance, pk }, new OWL2NL_QRObjectRowMapper()).isEmpty()) {
                     if ((jdbctemplate.update(UPDATE_INSTANCE, new Object[] { pk, instace.instance, instace.verbalization, instace.isCorrect ? 1 : 0 })) == 0) {
                         LOGGER.error("Error: Couldn't insert instace: " + instace.instance);
                     }

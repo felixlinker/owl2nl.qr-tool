@@ -1,3 +1,4 @@
+org\aksw\simba\owl2nl\qr\tools\DataInserter$Instance.class
 org\aksw\simba\owl2nl\qr\data\ontoelements\OWL2NL_QRTriple.class
 org\aksw\simba\owl2nl\qr\gui\guiHelper\OWL2NL_QRClassVerbGuiHelper.class
 org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2NL_QRResourceVerbExperimentRowMapper.class
@@ -18,7 +19,6 @@ org\aksw\simba\owl2nl\qr\db\OWL2NL_QRDbAdapterExtension.class
 org\aksw\simba\owl2nl\qr\data\results\OWL2NL_QRClassVerbExperimentResult.class
 org\aksw\simba\owl2nl\qr\db\supplier\OWL2NL_QRAxiomSetupSupplier.class
 org\aksw\simba\owl2nl\qr\gui\webElementsHelper\OWL2NL_QRStarRatingHelper.class
-org\aksw\simba\owl2nl\qr\db\consumer\OWL2NL_QRResultConsumer$ObjectRowMapper.class
 org\aksw\simba\owl2nl\qr\db\consumer\OWL2NL_QRResultConsumer.class
 org\aksw\simba\owl2nl\qr\db\consumer\OWL2NL_QRAxiomVerbResultConsumer.class
 org\aksw\simba\owl2nl\qr\parser\OWL2NL_QRClassVerbResultParser.class
@@ -33,6 +33,7 @@ org\aksw\simba\owl2nl\qr\gui\experimentPages\OWL2NL_QRResourceVerbExperimentPage
 org\aksw\simba\owl2nl\qr\gui\experimentPages\OWL2NL_QRExperimentPage.class
 org\aksw\simba\owl2nl\qr\data\ontoelements\OWL2NL_QROntoElement.class
 org\aksw\simba\owl2nl\qr\tools\DataInserter$Resource.class
+org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2NL_QRObjectRowMapper.class
 org\aksw\simba\owl2nl\qr\gui\experimentPages\OWL2NL_QRClassVerbExperimentPage.class
 org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2NL_QRUserRowMapper.class
 org\aksw\simba\owl2nl\qr\tools\DataInserter$Axiom.class
@@ -41,6 +42,7 @@ org\aksw\simba\owl2nl\qr\data\experiments\OWL2NL_QRAxiomVerbExperimentSetup.clas
 org\aksw\simba\owl2nl\qr\data\results\OWL2NL_QRExperimentResult.class
 org\aksw\simba\owl2nl\qr\data\experiments\OWL2NL_QRResourceVerbExperimentSetup.class
 org\aksw\simba\owl2nl\qr\data\experiments\OWL2NL_QRExperimentSetup.class
+org\aksw\simba\owl2nl\qr\tools\CsvParser.class
 org\aksw\simba\owl2nl\qr\OWL2NL_QRController.class
 org\aksw\simba\owl2nl\qr\data\ListConverter.class
 org\aksw\simba\owl2nl\qr\gui\guiHelper\OWL2NL_QRGuiHelper$1.class

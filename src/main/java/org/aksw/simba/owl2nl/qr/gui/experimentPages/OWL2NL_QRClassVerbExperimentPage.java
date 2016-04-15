@@ -12,6 +12,9 @@ import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRStarRatingHelper;
 import org.aksw.simba.webelements.*;
 import org.aksw.simba.webelements.Heading.HeadingOrder;
 
+import java.util.Collections;
+import java.util.LinkedList;
+
 public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OWL2NL_QRClassVerbExperimentSetup> {
 
     private OWL2NL_QRClassVerbGuiHelper guiHelper;
@@ -53,11 +56,11 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         bodyDiv.addElement(new Paragraph(experiment.getAxiom()));
         bodyDiv.addElement(new Paragraph("Instances:"));
 
-        bodyDiv.addElement(generateRadioButtonList(guiHelper.TRIPLE_TO_RADIO_MAPPER.map(experiment.getInstances())));
+        LinkedList<OWL2NL_QRTriple> instances = experiment.getInstances();
+        Collections.shuffle(instances);
+        bodyDiv.addElement(generateRadioButtonList(guiHelper.TRIPLE_TO_RADIO_MAPPER.map(instances)));
 
         // ToDo: enable options for showing verbalizations
-
-
 
         experimentDiv.addElement(bodyDiv);
         return experimentDiv;

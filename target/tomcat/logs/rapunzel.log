@@ -1,11 +1,232 @@
-2016-04-14 18:08:31,674 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
-2016-04-14 18:08:31,815 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Thu Apr 14 18:08:31 CEST 2016]; root of context hierarchy
-2016-04-14 18:08:31,881 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
-2016-04-14 18:08:32,257 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
-2016-04-14 18:08:32,280 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@37fef327: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#1,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#2]; root of factory hierarchy
-2016-04-14 18:08:32,305 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
-2016-04-14 18:08:32,801 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
-2016-04-14 18:08:32,848 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
-2016-04-14 18:08:32,853 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
-2016-04-14 18:08:32,883 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 30 ms.
-2016-04-14 18:08:33,150 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization completed in 1476 ms
+2016-04-15 17:34:57,026 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
+2016-04-15 17:34:57,177 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Fri Apr 15 17:34:57 CEST 2016]; root of context hierarchy
+2016-04-15 17:34:57,240 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
+2016-04-15 17:34:57,726 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
+2016-04-15 17:34:57,742 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@24405466: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#1,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#2]; root of factory hierarchy
+2016-04-15 17:34:57,763 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
+2016-04-15 17:34:58,285 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
+2016-04-15 17:34:58,329 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
+2016-04-15 17:34:58,333 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
+2016-04-15 17:34:58,352 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 19 ms.
+2016-04-15 17:34:58,883 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization completed in 1856 ms
+2016-04-15 17:35:02,301 INFO  [http-8080-1    ]  qr.Controller                  - Containing 3 experiments after initialization.
+2016-04-15 17:35:02,338 INFO  [http-8080-1    ]  qr.OWL2NL_QRController         - Identified a new user session (2C225819EE256B72580A63916BC4A112). Adding it to the database.
+2016-04-15 17:35:05,805 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 0 answers.
+2016-04-15 17:35:05,805 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:05,806 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #-1.
+2016-04-15 17:35:05,811 INFO  [http-8080-2    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
+2016-04-15 17:35:08,611 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 0 answers.
+2016-04-15 17:35:08,611 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:08,611 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #1 (adequacy=2, fluency=2).
+2016-04-15 17:35:08,611 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #1.
+2016-04-15 17:35:09,991 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 1 answers.
+2016-04-15 17:35:09,991 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:09,991 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #2 (adequacy=3, fluency=2).
+2016-04-15 17:35:09,991 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #2.
+2016-04-15 17:35:11,263 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 2 answers.
+2016-04-15 17:35:11,263 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:11,263 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #3 (adequacy=2, fluency=2).
+2016-04-15 17:35:11,263 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #3.
+2016-04-15 17:35:12,468 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 3 answers.
+2016-04-15 17:35:12,468 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:12,468 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #4 (adequacy=2, fluency=2).
+2016-04-15 17:35:12,468 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #4.
+2016-04-15 17:35:13,614 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 4 answers.
+2016-04-15 17:35:13,615 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:13,615 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #5 (adequacy=2, fluency=2).
+2016-04-15 17:35:13,615 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #5.
+2016-04-15 17:35:14,730 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 5 answers.
+2016-04-15 17:35:14,730 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:14,730 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #6 (adequacy=3, fluency=2).
+2016-04-15 17:35:14,730 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #6.
+2016-04-15 17:35:15,951 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 6 answers.
+2016-04-15 17:35:15,951 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:15,951 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #7 (adequacy=2, fluency=3).
+2016-04-15 17:35:15,951 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #7.
+2016-04-15 17:35:17,510 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 7 answers.
+2016-04-15 17:35:17,510 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:17,510 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #8 (adequacy=2, fluency=2).
+2016-04-15 17:35:17,510 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #8.
+2016-04-15 17:35:19,888 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 8 answers.
+2016-04-15 17:35:19,888 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:19,889 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #9 (adequacy=2, fluency=2).
+2016-04-15 17:35:19,889 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #9.
+2016-04-15 17:35:21,031 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 9 answers.
+2016-04-15 17:35:21,032 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:21,032 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #10 (adequacy=2, fluency=2).
+2016-04-15 17:35:21,032 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #10.
+2016-04-15 17:35:22,245 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 10 answers.
+2016-04-15 17:35:22,245 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:22,245 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #11 (adequacy=2, fluency=2).
+2016-04-15 17:35:22,245 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #11.
+2016-04-15 17:35:24,972 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 11 answers.
+2016-04-15 17:35:24,973 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:24,973 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #12 (adequacy=3, fluency=3).
+2016-04-15 17:35:24,973 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #12.
+2016-04-15 17:35:26,959 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 12 answers.
+2016-04-15 17:35:26,959 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:26,960 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #13 (adequacy=3, fluency=3).
+2016-04-15 17:35:26,960 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #13.
+2016-04-15 17:35:28,710 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 13 answers.
+2016-04-15 17:35:28,710 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:28,711 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #14 (adequacy=3, fluency=3).
+2016-04-15 17:35:28,711 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #14.
+2016-04-15 17:35:30,191 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 14 answers.
+2016-04-15 17:35:30,191 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:30,191 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #15 (adequacy=3, fluency=4).
+2016-04-15 17:35:30,191 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #15.
+2016-04-15 17:35:31,836 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 15 answers.
+2016-04-15 17:35:31,836 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:31,836 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #16 (adequacy=2, fluency=3).
+2016-04-15 17:35:31,836 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #16.
+2016-04-15 17:35:33,538 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 16 answers.
+2016-04-15 17:35:33,538 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:33,538 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #17 (adequacy=3, fluency=3).
+2016-04-15 17:35:33,538 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #17.
+2016-04-15 17:35:35,246 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 17 answers.
+2016-04-15 17:35:35,246 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:35,246 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #18 (adequacy=3, fluency=3).
+2016-04-15 17:35:35,247 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #18.
+2016-04-15 17:35:38,062 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 18 answers.
+2016-04-15 17:35:38,062 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:38,062 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #19 (adequacy=3, fluency=3).
+2016-04-15 17:35:38,062 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #19.
+2016-04-15 17:35:39,892 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 19 answers.
+2016-04-15 17:35:39,892 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:39,893 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #20 (adequacy=3, fluency=3).
+2016-04-15 17:35:39,893 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #20.
+2016-04-15 17:35:41,320 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 20 answers.
+2016-04-15 17:35:41,320 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:41,320 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #21 (adequacy=3, fluency=3).
+2016-04-15 17:35:41,320 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #21.
+2016-04-15 17:35:42,849 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 21 answers.
+2016-04-15 17:35:42,849 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:42,849 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #22 (adequacy=3, fluency=3).
+2016-04-15 17:35:42,849 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #22.
+2016-04-15 17:35:44,479 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 22 answers.
+2016-04-15 17:35:44,479 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:44,480 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #23 (adequacy=3, fluency=3).
+2016-04-15 17:35:44,480 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #23.
+2016-04-15 17:35:46,298 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 23 answers.
+2016-04-15 17:35:46,298 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:46,298 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #24 (adequacy=3, fluency=3).
+2016-04-15 17:35:46,299 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #24.
+2016-04-15 17:35:47,669 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 24 answers.
+2016-04-15 17:35:47,670 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:47,671 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #25 (adequacy=3, fluency=3).
+2016-04-15 17:35:47,671 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #25.
+2016-04-15 17:35:49,180 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 25 answers.
+2016-04-15 17:35:49,180 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:49,180 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #26 (adequacy=3, fluency=3).
+2016-04-15 17:35:49,180 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #26.
+2016-04-15 17:35:51,179 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 26 answers.
+2016-04-15 17:35:51,180 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:51,181 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #27 (adequacy=3, fluency=3).
+2016-04-15 17:35:51,181 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #27.
+2016-04-15 17:35:52,800 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 27 answers.
+2016-04-15 17:35:52,800 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:52,800 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #28 (adequacy=3, fluency=3).
+2016-04-15 17:35:52,800 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #28.
+2016-04-15 17:35:54,954 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 28 answers.
+2016-04-15 17:35:54,955 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:54,955 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #29 (adequacy=3, fluency=3).
+2016-04-15 17:35:54,955 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #29.
+2016-04-15 17:35:56,526 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 29 answers.
+2016-04-15 17:35:56,526 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:35:56,526 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #30 (adequacy=3, fluency=3).
+2016-04-15 17:35:56,527 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #30.
+2016-04-15 17:36:12,024 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 30 answers.
+2016-04-15 17:36:12,024 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:12,024 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #31 (adequacy=3, fluency=3).
+2016-04-15 17:36:12,024 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #31.
+2016-04-15 17:36:13,699 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 31 answers.
+2016-04-15 17:36:13,699 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:13,700 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #32 (adequacy=3, fluency=3).
+2016-04-15 17:36:13,700 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #32.
+2016-04-15 17:36:15,719 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 32 answers.
+2016-04-15 17:36:15,719 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:15,719 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #33 (adequacy=3, fluency=3).
+2016-04-15 17:36:15,719 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #33.
+2016-04-15 17:36:16,998 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 33 answers.
+2016-04-15 17:36:17,000 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:17,000 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #34 (adequacy=3, fluency=3).
+2016-04-15 17:36:17,000 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #34.
+2016-04-15 17:36:18,164 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 34 answers.
+2016-04-15 17:36:18,164 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:18,164 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #35 (adequacy=3, fluency=3).
+2016-04-15 17:36:18,164 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #35.
+2016-04-15 17:36:19,164 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 35 answers.
+2016-04-15 17:36:19,164 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:19,164 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #36 (adequacy=3, fluency=3).
+2016-04-15 17:36:19,164 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #36.
+2016-04-15 17:36:20,094 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 36 answers.
+2016-04-15 17:36:20,094 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:20,095 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #37 (adequacy=3, fluency=3).
+2016-04-15 17:36:20,095 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #37.
+2016-04-15 17:36:21,783 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 37 answers.
+2016-04-15 17:36:21,783 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:21,783 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #38 (adequacy=3, fluency=2).
+2016-04-15 17:36:21,783 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #38.
+2016-04-15 17:36:23,153 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 38 answers.
+2016-04-15 17:36:23,153 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:23,154 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #39 (adequacy=3, fluency=3).
+2016-04-15 17:36:23,154 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #39.
+2016-04-15 17:36:25,372 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 39 answers.
+2016-04-15 17:36:25,372 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:25,372 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #40 (adequacy=3, fluency=3).
+2016-04-15 17:36:25,372 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #40.
+2016-04-15 17:36:26,423 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 40 answers.
+2016-04-15 17:36:26,423 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:26,423 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for axiom verbalization experiment #41 (adequacy=3, fluency=3).
+2016-04-15 17:36:26,423 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #41.
+2016-04-15 17:36:26,435 INFO  [http-8080-2    ]  qr.Controller                  - There are no more experiments for the user with the Id 1. Sending finish page.
+2016-04-15 17:36:32,285 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 41 answers.
+2016-04-15 17:36:32,285 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:32,285 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #-1.
+2016-04-15 17:36:32,286 INFO  [http-8080-2    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
+2016-04-15 17:36:55,576 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 41 answers.
+2016-04-15 17:36:55,576 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:55,576 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for class verbalization experiment #2 (chosenId=5).
+2016-04-15 17:36:55,576 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #2.
+2016-04-15 17:36:57,512 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 42 answers.
+2016-04-15 17:36:57,513 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:36:57,513 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for class verbalization experiment #4 (chosenId=15).
+2016-04-15 17:36:57,513 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #4.
+2016-04-15 17:39:10,553 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 43 answers.
+2016-04-15 17:39:10,553 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:39:10,553 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for class verbalization experiment #5 (chosenId=19).
+2016-04-15 17:39:10,553 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #5.
+2016-04-15 17:39:12,462 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 44 answers.
+2016-04-15 17:39:12,462 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:39:12,462 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for class verbalization experiment #6 (chosenId=7).
+2016-04-15 17:39:12,462 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #6.
+2016-04-15 17:39:12,475 INFO  [http-8080-2    ]  qr.Controller                  - There are no more experiments for the user with the Id 1. Sending finish page.
+2016-04-15 17:39:14,426 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 45 answers.
+2016-04-15 17:39:14,426 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:39:14,426 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #-1.
+2016-04-15 17:39:14,427 INFO  [http-8080-2    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
+2016-04-15 17:39:17,862 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 45 answers.
+2016-04-15 17:39:17,862 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:39:17,863 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for resource verbalization experiment #1 (adequacy=2, fluency=1, completeness=5).
+2016-04-15 17:39:17,863 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #1.
+2016-04-15 17:39:21,249 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 46 answers.
+2016-04-15 17:39:21,250 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:39:21,250 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for resource verbalization experiment #2 (adequacy=3, fluency=2, completeness=3).
+2016-04-15 17:39:21,250 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #2.
+2016-04-15 17:39:26,300 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 47 answers.
+2016-04-15 17:39:26,300 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:39:26,300 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for resource verbalization experiment #3 (adequacy=3, fluency=2, completeness=3).
+2016-04-15 17:39:26,300 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #3.
+2016-04-15 17:39:29,451 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 48 answers.
+2016-04-15 17:39:29,451 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:39:29,451 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for resource verbalization experiment #4 (adequacy=2, fluency=3, completeness=2).
+2016-04-15 17:39:29,451 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #4.
+2016-04-15 17:39:32,149 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 45 answers.
+2016-04-15 17:39:32,149 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:39:32,149 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for resource verbalization experiment #5 (adequacy=2, fluency=4, completeness=1).
+2016-04-15 17:39:32,149 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #5.
+2016-04-15 17:39:34,614 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #1 has already 50 answers.
+2016-04-15 17:39:34,614 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-15 17:39:34,614 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - Parsed a result for resource verbalization experiment #6 (adequacy=3, fluency=2, completeness=2).
+2016-04-15 17:39:34,614 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (1) for experiment #6.
+2016-04-15 17:39:34,626 INFO  [http-8080-2    ]  qr.Controller                  - There are no more experiments for the user with the Id 1. Sending finish page.
