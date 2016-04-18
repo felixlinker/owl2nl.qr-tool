@@ -19,7 +19,7 @@ public class OWL2NL_QRClassVerbResultParser extends OWL2NL_QRResultParser {
 
         int chosenId;
 
-        String tempString = request.getParameter(OWL2NL_QRClassVerbGuiHelper.CHOSEN_TRIPLE_KEY);
+        String tempString = request.getParameter(OWL2NL_QRClassVerbGuiHelper.CHOSEN_INSTANCE_KEY);
         try {
             chosenId = Integer.parseInt(tempString);
         } catch (NumberFormatException e) {
