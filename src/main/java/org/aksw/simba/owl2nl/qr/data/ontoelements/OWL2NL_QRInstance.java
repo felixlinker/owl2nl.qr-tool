@@ -1,6 +1,7 @@
 package org.aksw.simba.owl2nl.qr.data.ontoelements;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by felix on 18.04.2016.
@@ -14,7 +15,7 @@ public class OWL2NL_QRInstance extends OWL2NL_QROntoElement {
         this.name = name;
     }
 
-    public void addTriples(LinkedList<OWL2NL_QRTriple> triples) {
+    public void addTriples(List<OWL2NL_QRTriple> triples) {
         triples.addAll(triples);
     }
 

@@ -12,6 +12,6 @@ import java.sql.SQLException;
 public class OWL2NL_QRInstanceRowMapper implements RowMapper<OWL2NL_QRInstance> {
     @Override
     public OWL2NL_QRInstance mapRow(ResultSet resultSet, int i) throws SQLException {
-        return null; // ToDo
+        return new OWL2NL_QRInstance(resultSet.getInt("id"), resultSet.getString("name"));
     }
 }

@@ -28,7 +28,7 @@ public class OWL2NL_QRClassVerbExperimentSetup extends OWL2NL_QRAxiomVerbExperim
         return (LinkedList<OWL2NL_QRInstance>)instances.clone();
     }
 
-    public void addOverheadeTriples(LinkedList<OWL2NL_QRTriple> triples) {
+    public void addOverheadeTriples(List<OWL2NL_QRTriple> triples) {
         this.overheadTriples.addAll(triples);
     }
 
