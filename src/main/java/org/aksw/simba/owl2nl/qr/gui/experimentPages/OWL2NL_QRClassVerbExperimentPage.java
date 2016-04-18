@@ -2,6 +2,7 @@ package org.aksw.simba.owl2nl.qr.gui.experimentPages;
 
 import org.aksw.simba.owl2nl.qr.data.ListConverter;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRClassVerbExperimentSetup;
+import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRInstance;
 import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRClassVerbGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper;
@@ -53,14 +54,64 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
 
         Div bodyDiv = new Div();
         bodyDiv.addAttribute("class", "panel-body");
-        bodyDiv.addElement(new Paragraph(experiment.getAxiom()));
-        bodyDiv.addElement(new Paragraph("Instances:"));
+        if (experiment.isPerformedByExpert()) {
+            bodyDiv.addElement(new Paragraph(experiment.getAxiom()));
+        }
+        bodyDiv.addElement(new Paragraph(experiment.getVerbalization()));
 
-        LinkedList<OWL2NL_QRTriple> instances = experiment.getInstances();
+        // Show all instances
+        Div instancesDiv = new Div();
+        instancesDiv.addElement(new BoldText("Instances"));
+        LinkedList<OWL2NL_QRInstance> instances = experiment.getInstances();
         Collections.shuffle(instances);
-        bodyDiv.addElement(generateRadioButtonList(guiHelper.TRIPLE_TO_RADIO_MAPPER.map(instances)));
+        for (OWL2NL_QRInstance instance: instances) {
+            Div instanceDiv = new Div();
+            instanceDiv.addElement(new Paragraph(new BoldText(instance.getName())));
 
-        // ToDo: enable options for showing verbalizations
+            Table tripleTable = new Table();
+            if (experiment.isPerformedByExpert()) {
+                LinkedList<String> headCells = new LinkedList<>();
+                headCells.add("Triple");
+                headCells.add("Verbalization");
+                tripleTable.addRow(new TableRow(headCells));
+            }
+
+            for (OWL2NL_QRTriple triple: instance.getTriples()) {
+                LinkedList<String> cells = new LinkedList<>();
+                if (experiment.isPerformedByExpert()) {
+                    cells.add(triple.getTriple());
+                }
+                cells.add(triple.getVerbalization());
+
+                tripleTable.addRow(new TableRow(cells));
+            }
+        }
+        bodyDiv.addElement(instancesDiv);
+
+        // Add user selection
+        bodyDiv.addElement(generateRadioButtonList(guiHelper.INSTANCE_TO_RADIO_MAPPER.map(instances)));
+
+        // Add overhead instances
+        Div overheadDiv = new Div();
+        overheadDiv.addElement(new Paragraph("Below you see some necessary information for above instances."));
+        LinkedList<OWL2NL_QRTriple> overheadTriples = experiment.getOverheadTriples();
+        Table overheadTable = new Table();
+        if (experiment.isPerformedByExpert()) {
+            LinkedList<String> head = new LinkedList<>();
+            head.add("Triple");
+            head.add("Verbalization");
+            overheadTable.addRow(head);
+        }
+
+        for (OWL2NL_QRTriple triple: overheadTriples) {
+            LinkedList<String> cells = new LinkedList<>();
+            if (experiment.isPerformedByExpert()) {
+                cells.add(triple.getTriple());
+            }
+            cells.add(triple.getVerbalization());
+            overheadDiv.addElement(overheadTable);
+        }
+        bodyDiv.addElement(overheadDiv);
 
         experimentDiv.addElement(bodyDiv);
         return experimentDiv;
