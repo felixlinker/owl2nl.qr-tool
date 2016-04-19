@@ -2,7 +2,7 @@ public static void main(String[] args) throws Exception {
 		LinkedList<TripleHelper> output = new LinkedList<>();
 		TripleConverter c = new TripleConverter();
 
-		BufferedReader fileReader = new BufferedReader(new FileReader("C:/Git/owl2nl.qr-tool/data/instances_verb.csv"));
+		BufferedReader fileReader = new BufferedReader(new FileReader("C:/Git/owl2nl.qr-tool/data/instances_base.csv"));
 
 		String line;
 		while ((line = fileReader.readLine()) != null) {
