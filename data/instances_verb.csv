@@ -60,11 +60,11 @@ http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#SmallKoala http://
 http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#HugeKoala http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasHabitat http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#ThatOneVeryDryEucalyptForest
 http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#NiceKoala http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasHabitat http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#ThatOneVeryDryEucalyptForest
 http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Freddie http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasDegree http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#PhD
-"http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Anna http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking ""true""^^http://www.w3.org/2001/XMLSchema#boolean"
-"http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Marvin http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking ""true""^^http://www.w3.org/2001/XMLSchema#boolean"
-"http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Felix http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking ""false""^^http://www.w3.org/2001/XMLSchema#boolean"
-"http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Kim http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking ""true""^^http://www.w3.org/2001/XMLSchema#boolean"
-"http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Anna http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking ""true""^^http://www.w3.org/2001/XMLSchema#boolean"
+http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Anna http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking "true"^^http://www.w3.org/2001/XMLSchema#boolean
+http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Marvin http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking "true"^^http://www.w3.org/2001/XMLSchema#boolean
+http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Felix http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking "false"^^http://www.w3.org/2001/XMLSchema#boolean
+http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Kim http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking "true"^^http://www.w3.org/2001/XMLSchema#boolean
+http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Anna http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking "true"^^http://www.w3.org/2001/XMLSchema#boolean
 http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Kendrick http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasChildren http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Freddie
 http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Nicole http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasChildren http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Caroline
 http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Harold http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasChildren http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Caroline
@@ -79,7 +79,7 @@ http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Lena http://proteg
 http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Jack http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasChildren http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Marie
 http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#John http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasChildren http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Marie
 http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Nicole http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasGender http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#female
-"http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Lena http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking ""true""^^http://www.w3.org/2001/XMLSchema#boolean"
+http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Lena http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#isHardWorking "true"^^http://www.w3.org/2001/XMLSchema#boolean
 http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#Jack http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasHabitat http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#UniLeipzig
 http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#John http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#hasGender http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#male
 http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#BA http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/2002/07/owl#NamedIndividual
