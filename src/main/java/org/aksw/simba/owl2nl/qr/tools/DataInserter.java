@@ -35,7 +35,7 @@ public class DataInserter {
         DataInserter inserter = new DataInserter(jdbctemplate);
         inserter.runAxioms(new File("C:/Git/owl2nl.qr-tool/data/axioms.csv"));
         inserter.runResources(new File("C:/Git/owl2nl.qr-tool/data/resources.csv"));
-        inserter.runClasses(new File("C:/Git/owl2nl.qr-tool/data/instances.csv"));
+//        inserter.runClasses(new File("C:/Git/owl2nl.qr-tool/data/instances.csv"));
     }
 
     protected static JdbcTemplate getJdbcTemplate() {
@@ -221,8 +221,12 @@ public class DataInserter {
     /*** CLASS FUNCTIONS ***/
 
     private static final String SELECT_AXIOM_ID = "SELECT id FROM Axioms WHERE axiom=?;";
-    private static final String UPDATE_INSTANCE = "INSERT INTO Instances (instanceOf, triple, verbalization, correctInstance) VALUES (?,?,?,?);";
-    private static final String SELECT_INSTANCE = "SELECT id FROM Instances WHERE triple=? AND instanceOf=?;";
+    private static final String UPDATE_INSTANCE = "INSERT INTO Instances (instanceOf, name, correctInstance) VALUES (?,?,?);";
+    private static final String SELECT_INSTANCE = "SELECT id FROM Instances WHERE name=? AND instanceOf=?;";
+    private static final String UPDATE_INSTANCE_TRIPLE = "INSERT INTO InstanceTriples (tripleOf, triple, verbalization) VALUES (?,?,?);";
+    private static final String SELECT_INSTANCE_TRIPLE = "SELECT id FROM InstanceTriples WHERE triple=? AND tripleOf=?;";
+    private static final String UPDATE_OVERHEAD_TRIPLE = "INSERT INTO InstanceTriples (overheadTripleOf, triple, verbalization) VALUES (?,?,?);";
+    private static final String SELECT_OVERHEAD_TRIPLE = "SELECT id FROM InstanceTriples WHERE overheadTripleOf=? AND triple=?;";
 
     public void runClasses(File file) {
         HashMap<String, LinkedList<Instance>> classes;

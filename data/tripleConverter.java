@@ -31,7 +31,8 @@ public static void main(String[] args) throws Exception {
 
 			Node third;
 			if (splitted[2].contains("^^")) {
-				third = NodeFactory.createLiteral(splitted[2]);
+				String[] literal = (splitted[2]).split("\\^\\^");
+				third = NodeFactory.createLiteral(literal[0], literal[1]);
 			} else {
 				third = NodeFactory.createURI(splitted[2]);
 			}
