@@ -1,12 +1,10 @@
 package org.aksw.simba.owl2nl.qr.gui.experimentPages;
 
 import org.aksw.simba.owl2nl.qr.data.ListConverter;
-import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRClassVerbExperimentSetup;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.*;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRRadioButtonHelper;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRStarRatingHelper;
-import org.aksw.simba.qr.gui.GuiHelper;
 import org.aksw.simba.qr.gui.GuiHelper.StringValue;
 import org.aksw.simba.qr.gui.Page;
 import org.aksw.simba.webelements.*;

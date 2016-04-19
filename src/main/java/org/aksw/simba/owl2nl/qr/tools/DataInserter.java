@@ -1,20 +1,17 @@
 package org.aksw.simba.owl2nl.qr.tools;
 
-import au.com.bytecode.opencsv.CSVReader;
 import org.aksw.simba.db.mapper.IntegerRowMapper;
 import org.aksw.simba.owl2nl.qr.data.rowMapper.OWL2NL_QRObjectRowMapper;
-import org.aksw.simba.webelements.LineBreak;
-import org.aksw.simba.webelements.Link;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.pool.ObjectPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import java.io.*;
-import java.sql.ResultSet;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.*;
 

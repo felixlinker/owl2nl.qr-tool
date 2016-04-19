@@ -1,6 +1,5 @@
 package org.aksw.simba.owl2nl.qr.parser;
 
-import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResult;
 import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResultBase;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRUserGroupGuiHelper;
@@ -10,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
 public abstract class OWL2NL_QRResultParser implements ExperimentResultParser {
 

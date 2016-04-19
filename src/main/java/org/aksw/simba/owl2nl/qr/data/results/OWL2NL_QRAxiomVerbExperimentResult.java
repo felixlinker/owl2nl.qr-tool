@@ -1,7 +1,5 @@
 package org.aksw.simba.owl2nl.qr.data.results;
 
-import org.aksw.simba.qr.datatypes.ExperimentResult;
-
 /**
  * Experiment result for Axiom verbalization
  */

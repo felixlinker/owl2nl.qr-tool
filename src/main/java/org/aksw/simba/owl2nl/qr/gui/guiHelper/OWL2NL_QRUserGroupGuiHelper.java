@@ -1,7 +1,6 @@
 package org.aksw.simba.owl2nl.qr.gui.guiHelper;
 
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRRadioButtonHelper;
-import org.aksw.simba.qr.gui.Page;
 
 import java.util.LinkedList;
 import java.util.List;

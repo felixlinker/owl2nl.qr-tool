@@ -1,6 +1,5 @@
 package org.aksw.simba.owl2nl.qr.tools;
 
-import com.sun.jmx.snmp.internal.SnmpSubSystem;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.io.*;

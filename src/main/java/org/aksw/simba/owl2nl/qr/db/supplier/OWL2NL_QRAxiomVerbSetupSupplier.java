@@ -1,9 +1,9 @@
 package org.aksw.simba.owl2nl.qr.db.supplier;
 
-import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRUser;
-import org.aksw.simba.owl2nl.qr.data.rowMapper.OWL2NL_QRAxiomVerbExperimentRowMapper;
-import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
 import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRSimpleFormatter;
+import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRUser;
+import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
+import org.aksw.simba.owl2nl.qr.data.rowMapper.OWL2NL_QRAxiomVerbExperimentRowMapper;
 import org.aksw.simba.qr.datatypes.ExperimentSetup;
 import org.aksw.simba.qr.datatypes.User;
 import org.springframework.dao.DataAccessException;

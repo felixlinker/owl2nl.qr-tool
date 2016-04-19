@@ -5,20 +5,15 @@ import org.aksw.simba.owl2nl.qr.db.OWL2NL_QRDbAdapterExtension;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper;
 import org.aksw.simba.qr.Controller;
 import org.aksw.simba.qr.datatypes.ExperimentDescription;
-import org.aksw.simba.qr.datatypes.ExperimentResult;
 import org.aksw.simba.qr.datatypes.ExperimentSetup;
 import org.aksw.simba.qr.datatypes.User;
 import org.aksw.simba.qr.db.DbAdapter;
 import org.aksw.simba.qr.gui.GuiHelper;
-import org.aksw.simba.qr.gui.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.util.List;
 
 public class OWL2NL_QRController extends Controller {

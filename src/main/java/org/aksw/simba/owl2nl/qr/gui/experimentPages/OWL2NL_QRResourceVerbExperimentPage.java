@@ -2,12 +2,8 @@ package org.aksw.simba.owl2nl.qr.gui.experimentPages;
 
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRResourceVerbExperimentSetup;
 import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;
-import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRResourceVerbGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRStarRatingHelper;
-import org.aksw.simba.webelements.Div;
-import org.aksw.simba.webelements.HtmlContainer;
-import org.aksw.simba.webelements.Paragraph;
 import org.aksw.simba.webelements.*;
 import org.aksw.simba.webelements.Heading.HeadingOrder;
 

@@ -3,7 +3,6 @@ package org.aksw.simba.owl2nl.qr.gui.guiHelper;
 import org.aksw.simba.owl2nl.qr.data.ListConverter;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRClassVerbExperimentSetup;
 import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRInstance;
-import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;
 import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRClassVerbExperimentPage;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRRadioButtonHelper;
 import org.aksw.simba.qr.gui.Page;

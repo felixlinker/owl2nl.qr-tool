@@ -1,11 +1,8 @@
 package org.aksw.simba.owl2nl.qr.db.consumer;
 
 import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRClassVerbExperimentResult;
-import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRSimpleFormatter;
 import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRExperimentResult;
-import org.aksw.simba.owl2nl.qr.data.results.OWL2NL_QRResourceVerbExperimentResult;
 import org.aksw.simba.qr.datatypes.User;
-import org.aksw.simba.qr.db.ExperimentResultConsumer;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 

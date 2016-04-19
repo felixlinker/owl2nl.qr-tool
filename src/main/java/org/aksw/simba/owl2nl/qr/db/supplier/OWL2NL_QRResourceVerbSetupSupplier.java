@@ -1,11 +1,11 @@
 package org.aksw.simba.owl2nl.qr.db.supplier;
 
+import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRSimpleFormatter;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
-import org.aksw.simba.owl2nl.qr.data.rowMapper.OWL2NL_QRResourceVerbExperimentRowMapper;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRResourceVerbExperimentSetup;
 import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;
+import org.aksw.simba.owl2nl.qr.data.rowMapper.OWL2NL_QRResourceVerbExperimentRowMapper;
 import org.aksw.simba.owl2nl.qr.data.rowMapper.OWL2NL_QRTripleRowMapper;
-import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRSimpleFormatter;
 import org.aksw.simba.qr.datatypes.User;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
