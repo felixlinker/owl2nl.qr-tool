@@ -47,7 +47,7 @@ public class OWL2NL_QRClassVerbSetupSupplier extends OWL2NL_QRAxiomSetupSupplier
 
         for (OWL2NL_QRInstance instance: instances) {
             List<OWL2NL_QRTriple> instanceTriples = jdbcTemplate.query(INSTANCE_TRIPLE_QUERY, new Object[] { instance.getId() }, TRIPLE_ROW_MAPPER);
-           instance.addTriples(instanceTriples);
+            instance.addTriples(instanceTriples);
         }
 
         ((OWL2NL_QRClassVerbExperimentSetup)experimentSetup).addInstances(instances);

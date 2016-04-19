@@ -16,7 +16,7 @@ public class OWL2NL_QRInstance extends OWL2NL_QROntoElement {
     }
 
     public void addTriples(List<OWL2NL_QRTriple> triples) {
-        triples.addAll(triples);
+        this.triples.addAll(triples);
     }
 
     public LinkedList<OWL2NL_QRTriple> getTriples() {

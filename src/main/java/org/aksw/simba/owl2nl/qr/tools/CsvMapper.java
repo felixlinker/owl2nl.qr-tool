@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
- * Created by felix on 19.04.2016.
+ * Follows no general function. For specific use by me (Felix Linker) only
  */
 public class CsvMapper {
     public static void main(String[] args) {

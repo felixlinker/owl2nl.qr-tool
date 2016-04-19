@@ -30,7 +30,9 @@ org\aksw\simba\owl2nl\qr\data\OWL2NL_QRUser.class
 org\aksw\simba\owl2nl\qr\gui\guiHelper\OWL2NL_QRUserGroupGuiHelper.class
 org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2NL_QRAxiomVerbExperimentRowMapper.class
 org\aksw\simba\owl2nl\qr\db\supplier\OWL2NL_QRResourceVerbSetupSupplier.class
+org\aksw\simba\owl2nl\qr\tools\DataInserter$ClassVerbExp.class
 org\aksw\simba\owl2nl\qr\gui\experimentPages\OWL2NL_QRResourceVerbExperimentPage.class
+org\aksw\simba\owl2nl\qr\tools\CsvMapper.class
 org\aksw\simba\owl2nl\qr\gui\experimentPages\OWL2NL_QRExperimentPage.class
 org\aksw\simba\owl2nl\qr\data\ontoelements\OWL2NL_QROntoElement.class
 org\aksw\simba\owl2nl\qr\tools\DataInserter$Resource.class

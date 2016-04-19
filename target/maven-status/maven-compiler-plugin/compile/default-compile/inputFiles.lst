@@ -5,6 +5,7 @@ C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2
 C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\gui\experimentPages\OWL2NL_QRClassVerbExperimentPage.java
 C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\gui\guiHelper\OWL2NL_QRGuiHelper.java
 C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\gui\webElementsHelper\OWL2NL_QRRadioButtonHelper.java
+C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\tools\CsvMapper.java
 C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\db\consumer\OWL2NL_QRAxiomVerbResultConsumer.java
 C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\data\experiments\OWL2NL_QRExperimentSetup.java
 C:\Git\owl2nl.qr-tool\src\main\java\org\aksw\simba\owl2nl\qr\data\OWL2NL_QRSimpleFormatter.java

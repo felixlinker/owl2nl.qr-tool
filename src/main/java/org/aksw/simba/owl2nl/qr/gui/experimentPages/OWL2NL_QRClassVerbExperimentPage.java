@@ -64,21 +64,23 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
 
             Table tripleTable = new Table();
             if (experiment.isPerformedByExpert()) {
-                LinkedList<String> headCells = new LinkedList<>();
-                headCells.add("Triple");
-                headCells.add("Verbalization");
-                tripleTable.addRow(new TableRow(headCells));
+                TableRow headCells = new TableRow();
+                headCells.addCell(new BoldText("Triple"));
+                headCells.addCell(new BoldText("Verbalization"));
+                tripleTable.addRow(headCells);
             }
 
             for (OWL2NL_QRTriple triple: instance.getTriples()) {
-                LinkedList<String> cells = new LinkedList<>();
+                TableRow cells = new TableRow();
                 if (experiment.isPerformedByExpert()) {
-                    cells.add(triple.getTriple());
+                    cells.addCell(new Paragraph(triple.getTriple()));
                 }
-                cells.add(triple.getVerbalization());
+                cells.addCell(new Paragraph(triple.getVerbalization()));
 
-                tripleTable.addRow(new TableRow(cells));
+                tripleTable.addRow(cells);
             }
+            instanceDiv.addElement(tripleTable);
+            instancesDiv.addElement(instanceDiv);
         }
         bodyDiv.addElement(instancesDiv);
 
@@ -91,20 +93,21 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         LinkedList<OWL2NL_QRTriple> overheadTriples = experiment.getOverheadTriples();
         Table overheadTable = new Table();
         if (experiment.isPerformedByExpert()) {
-            LinkedList<String> head = new LinkedList<>();
-            head.add("Triple");
-            head.add("Verbalization");
+            TableRow head = new TableRow();
+            head.addCell(new Paragraph("Triple"));
+            head.addCell(new Paragraph("Verbalization"));
             overheadTable.addRow(head);
         }
 
         for (OWL2NL_QRTriple triple: overheadTriples) {
-            LinkedList<String> cells = new LinkedList<>();
+            TableRow cells = new TableRow();
             if (experiment.isPerformedByExpert()) {
-                cells.add(triple.getTriple());
+                cells.addCell(new Paragraph(triple.getTriple()));
             }
-            cells.add(triple.getVerbalization());
-            overheadDiv.addElement(overheadTable);
+            cells.addCell(new Paragraph(triple.getVerbalization()));
+            overheadTable.addRow(cells);
         }
+        overheadDiv.addElement(overheadTable);
         bodyDiv.addElement(overheadDiv);
 
         experimentDiv.addElement(bodyDiv);

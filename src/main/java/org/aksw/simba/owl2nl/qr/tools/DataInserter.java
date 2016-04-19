@@ -24,6 +24,8 @@ public class DataInserter {
     private static final String DB_FILE_PROPERTY_KEY = "org.aksw.simba.owl2nl.qr.db.file";
     private static final String DB_URL_FIRST_PART = "jdbc:hsqldb:file:";
 
+    private static final OWL2NL_QRObjectRowMapper OBJECT_ROW_MAPPER = new OWL2NL_QRObjectRowMapper();
+
     public static void main(String[] args) {
         JdbcTemplate jdbctemplate = getJdbcTemplate();
         if (jdbctemplate == null) {
@@ -32,7 +34,7 @@ public class DataInserter {
         DataInserter inserter = new DataInserter(jdbctemplate);
         inserter.runAxioms(new File("C:/Git/owl2nl.qr-tool/data/axioms.csv"));
         inserter.runResources(new File("C:/Git/owl2nl.qr-tool/data/resources.csv"));
-//        inserter.runClasses(new File("C:/Git/owl2nl.qr-tool/data/instances.csv"));
+        inserter.runClasses(new File("C:/Git/owl2nl.qr-tool/data/instances.csv"));
     }
 
     protected static JdbcTemplate getJdbcTemplate() {
@@ -86,7 +88,7 @@ public class DataInserter {
         }
 
         for (Axiom axiom: axioms) {
-            if (jdbctemplate.query(SELECT_AXIOM_ID, new Object[]{axiom.axiom}, new OWL2NL_QRObjectRowMapper()).isEmpty()) {
+            if (jdbctemplate.query(SELECT_AXIOM_ID, new Object[]{axiom.axiom}, OBJECT_ROW_MAPPER).isEmpty()) {
                 jdbctemplate.update(INSERT_AXIOM, new Object[] { axiom.axiom, axiom.verbalization });
             }
         }
@@ -138,7 +140,7 @@ public class DataInserter {
             try {
                 String res = resource.resource;
 
-                if ((jdbctemplate.query(SELECT_RESOURCE_ID, new Object[] { res }, new OWL2NL_QRObjectRowMapper()).isEmpty())) {
+                if ((jdbctemplate.query(SELECT_RESOURCE_ID, new Object[] { res }, OBJECT_ROW_MAPPER).isEmpty())) {
                     if (jdbctemplate.update(INSERT_RESOURCE, new Object[] { res, resource.verbalization }) == 0) {
                         throw new SQLException("Couldn't update db - resource");
                     }
@@ -153,7 +155,7 @@ public class DataInserter {
                 int pk = primaryKeyResult.get(0);
 
                 for (Triple t: resource.cluster) {
-                    if (jdbctemplate.query(SELECT_TRIPLE_ID, new Object[] { t.triple }, new OWL2NL_QRObjectRowMapper()).isEmpty()) {
+                    if (jdbctemplate.query(SELECT_TRIPLE_ID, new Object[] { t.triple }, OBJECT_ROW_MAPPER).isEmpty()) {
                         if (jdbctemplate.update(INSERT_TRIPLE_TO_RESOURCE, new Object[] { pk, t.triple, t.verbalization }) == 0) {
                             throw new SQLException("Couldn't update db - triple");
                         }
@@ -226,70 +228,131 @@ public class DataInserter {
     private static final String SELECT_OVERHEAD_TRIPLE = "SELECT id FROM InstanceTriples WHERE overheadTripleOf=? AND triple=?;";
 
     public void runClasses(File file) {
-        HashMap<String, LinkedList<Instance>> classes;
+        LinkedList<ClassVerbExp> experiments;
         try {
-            classes = loadClasses(file);
+            experiments = loadClasses(file);
         } catch (FileNotFoundException e) {
-            LOGGER.error("File not found: " + file.getPath());
+            e.printStackTrace();
             return;
         }
 
-        Set<Map.Entry<String, LinkedList<Instance>>> entrySet = classes.entrySet();
-        for (Map.Entry<String, LinkedList<Instance>> entry: entrySet) {
-            String axiom = entry.getKey();
-            LinkedList<Instance> instances = entry.getValue();
-
-            List<Integer> pks = jdbctemplate.query(SELECT_AXIOM_ID, new Object[] { axiom }, new IntegerRowMapper());
+        for (ClassVerbExp experiment: experiments) {
+            List<Integer> pks = jdbctemplate.query(SELECT_AXIOM_ID, new Object[] { experiment.axiom }, new IntegerRowMapper());
             if (pks.isEmpty()) {
-                LOGGER.error("Error: couldn't find pk to axiom: " + axiom);
+                LOGGER.error("Couldn't find pk for axiom: " + experiment.axiom);
                 continue;
             }
-
             int pk = pks.get(0);
-            for (Instance instace: instances) {
-                if (jdbctemplate.query(SELECT_INSTANCE, new Object[] { instace.instance, pk }, new OWL2NL_QRObjectRowMapper()).isEmpty()) {
-                    if ((jdbctemplate.update(UPDATE_INSTANCE, new Object[] { pk, instace.instance, instace.verbalization, instace.isCorrect ? 1 : 0 })) == 0) {
-                        LOGGER.error("Error: Couldn't insert instace: " + instace.instance);
+
+            for (Triple t: experiment.overheadTriples) {
+                if ((jdbctemplate.query(SELECT_OVERHEAD_TRIPLE, new Object[] { pk, t.triple }, OBJECT_ROW_MAPPER)).isEmpty()) {
+                    if (jdbctemplate.update(UPDATE_OVERHEAD_TRIPLE, new Object[] { pk, t.triple, t.verbalization }) == 0) {
+                        LOGGER.error("Couldn't insert overhead triple for axiom: " + pk);
+                    }
+                }
+            }
+
+            for (Instance instance: experiment.instances) {
+                if ((jdbctemplate.query(SELECT_INSTANCE, new Object[] { instance.name, pk }, OBJECT_ROW_MAPPER)).isEmpty()) {
+                    if (jdbctemplate.update(UPDATE_INSTANCE, new Object[] { pk, instance.name, instance.isCorrect }) == 0) {
+                        LOGGER.error("Couldn't insert instance: " + instance.name);
+                        continue;
+                    }
+                }
+
+                List<Integer> pksInstances = jdbctemplate.query(SELECT_INSTANCE, new Object[] { instance.name, pk }, new IntegerRowMapper());
+                if (pksInstances.isEmpty()) {
+                    LOGGER.error("Couldn't get pk from instance: " + instance.name);
+                    continue;
+                }
+                int pkInstance = pksInstances.get(0);
+
+                for (Triple t: instance.triples) {
+                    if ((jdbctemplate.query(SELECT_INSTANCE_TRIPLE, new Object[] { t.triple, pkInstance }, OBJECT_ROW_MAPPER)).isEmpty()) {
+                        if (jdbctemplate.update(UPDATE_INSTANCE_TRIPLE, new Object[] { pkInstance, t.triple, t.verbalization }) == 0) {
+                            LOGGER.error("Couldn't insert triple for " + pkInstance + " triple: " + t.triple);
+                        }
                     }
                 }
             }
         }
     }
 
-    private HashMap<String, LinkedList<Instance>> loadClasses(File file) throws FileNotFoundException {
-        LinkedList<LinkedList<String>> cells = new CsvParser(file).getRows();
+    private LinkedList<ClassVerbExp> loadClasses(File file) throws FileNotFoundException {
+        CsvParser experiments = new CsvParser("C:/Git/owl2nl.qr-tool/data/instances.csv");
+        HashMap<String, ClassVerbExp> classExperiments = new HashMap<>();
+        LinkedList<ClassVerbExp> result = new LinkedList<>();
 
-        HashMap<String, LinkedList<Instance>> classes = new HashMap<>();
-        for (LinkedList<String> row: cells) {
-            if (row.size() < 11) {
-                LOGGER.error("Error: malformed row for class experiments");
+        for (LinkedList<String> row: experiments.getRows()) {
+            if (row.size() < 5) {
                 continue;
             }
 
-            Iterator<String> listIerator = row.listIterator();
-            String axiom = listIerator.next();
+            Iterator<String> iterator = row.listIterator();
+            String axiom = iterator.next();
+            String type = iterator.next();
+            boolean isCorrect = iterator.next().equals("WAHR");
 
-            LinkedList<Instance> instances = new LinkedList<>();
-            for (int i = 0; i < 4; i++) {
-                instances.add(new Instance(listIerator.next(), listIerator.next(), false));
+            ClassVerbExp exp = classExperiments.get(axiom);
+            if (exp == null) {
+                exp = new ClassVerbExp(axiom);
+                classExperiments.put(axiom, exp);
+                result.add(exp);
             }
-            instances.add((new Instance(listIerator.next(), listIerator.next(), true)));
 
-            classes.put(axiom, instances);
+            if (type.equals("overhead")) {
+                while (iterator.hasNext()) {
+                    String triple = iterator.next();
+                    if (!iterator.hasNext()) { break; }
+                    String verb = iterator.next();
+                    exp.addOverheadTriple(new Triple(triple, verb));
+                }
+            } else {
+                Instance instance = new Instance(type, isCorrect);
+                while (iterator.hasNext()) {
+                    String triple = iterator.next();
+                    if (!iterator.hasNext()) { break; }
+                    String verb = iterator.next();
+                    instance.addTriple(new Triple(triple, verb));
+                }
+                exp.addInstance(instance);
+            }
         }
 
-        return classes;
+        return result;
+    }
+
+    private class ClassVerbExp {
+        public String axiom;
+        public LinkedList<Instance> instances = new LinkedList<>();
+        public LinkedList<Triple> overheadTriples = new LinkedList<>();
+
+        public ClassVerbExp(String axiom) {
+            this.axiom = axiom;
+        }
+
+        public void addInstance(Instance instance) {
+            this.instances.add(instance);
+        }
+
+        public void addOverheadTriple(Triple triple) {
+            this.overheadTriples.add(triple);
+        }
     }
 
     private class Instance {
-        public String instance;
-        public String verbalization;
+        public String name;
+        public LinkedList<Triple> triples = new LinkedList<>();
         public boolean isCorrect;
 
-        public Instance(String instance, String verbalization, boolean isCorrect) {
-            this.instance = instance;
-            this.verbalization = verbalization;
+        public Instance(String name, boolean isCorrect) {
+            this.name = name;
+            this.triples = triples;
             this.isCorrect = isCorrect;
+        }
+
+        public void addTriple(Triple t) {
+            this.triples.add(t);
         }
     }
 }
