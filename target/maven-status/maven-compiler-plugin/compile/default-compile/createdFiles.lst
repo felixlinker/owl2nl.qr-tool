@@ -5,6 +5,7 @@ org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2NL_QRResourceVerbExperimentRowMapper
 org\aksw\simba\owl2nl\qr\db\consumer\OWL2NL_QRResourceVerbResultConsumer.class
 org\aksw\simba\owl2nl\qr\db\consumer\OWL2NL_QRClassVerbResultConsumer.class
 org\aksw\simba\owl2nl\qr\gui\webElementsHelper\OWL2NL_QRRadioButtonHelper.class
+org\aksw\simba\owl2nl\qr\data\ontoelements\OWL2NL_QRInstance.class
 org\aksw\simba\owl2nl\qr\data\OWL2NL_QRSimpleFormatter.class
 org\aksw\simba\owl2nl\qr\data\results\OWL2NL_QRResourceVerbExperimentResult.class
 org\aksw\simba\owl2nl\qr\parser\OWL2NL_QRResourceVerbResultParser.class
@@ -48,6 +49,7 @@ org\aksw\simba\owl2nl\qr\data\ListConverter.class
 org\aksw\simba\owl2nl\qr\gui\guiHelper\OWL2NL_QRGuiHelper$1.class
 org\aksw\simba\owl2nl\qr\tools\DataInserter.class
 org\aksw\simba\owl2nl\qr\data\experiments\OWL2NL_QRClassVerbExperimentSetup.class
+org\aksw\simba\owl2nl\qr\data\rowMapper\OWL2NL_QRInstanceRowMapper.class
 org\aksw\simba\owl2nl\qr\db\supplier\OWL2NL_QRAxiomVerbSetupSupplier.class
 org\aksw\simba\owl2nl\qr\gui\guiHelper\OWL2NL_QRAxiomVerbGuiHelper.class
 org\aksw\simba\owl2nl\qr\parser\OWL2NL_QRResultParser.class
