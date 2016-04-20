@@ -39,7 +39,7 @@ public abstract class OWL2NL_QRSetupSupplier extends AbstractStartedExperimentsF
                 // We know whether he is an expert or not -> do experiments
                 if (setup instanceof OWL2NL_QRExperimentSetup) {
                     owl2NlSetup.setUserAnswerCount(owl2NLQrUser.getNumberOfAnswers());
-                    owl2NlSetup.setPerformedByExpert(((OWL2NL_QRUser) user).isExpert());
+                    owl2NlSetup.setPerformedByExpert(owl2NLQrUser.isExpert());
                 }
 
                 return owl2NlSetup;

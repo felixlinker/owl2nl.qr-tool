@@ -19,7 +19,7 @@ public class OWL2NL_QRExperimentResultBase {
      */
     private boolean expert = false;
 
-    private boolean baseResultOnly;
+    private boolean baseResultOnly = false;
 
     public OWL2NL_QRExperimentResultBase(int id) {
         this.experimentSetupId = id;

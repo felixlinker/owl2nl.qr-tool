@@ -20,7 +20,7 @@ public class OWL2NL_QRClassVerbResultConsumer extends OWL2NL_QRResultConsumer {
         super.storeExperimentResult(jdbcTemplate, result, user);
 
         if (!(result instanceof OWL2NL_QRClassVerbExperimentResult)) {
-            LOGGER.info("The result was user group setting only.");
+            LOGGER.info("The result was meta settings only.");
             return true;
         }
         OWL2NL_QRClassVerbExperimentResult classResult = (OWL2NL_QRClassVerbExperimentResult)result;

@@ -155,7 +155,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
 
             addHiddenValue(guiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
 
-            ListConverter<String, OWL2NL_QRRadioButtonHelper> converter = a -> new OWL2NL_QRRadioButtonHelper(mapExperimentType(a), OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, a);
+            ListConverter<String, OWL2NL_QRRadioButtonHelper> converter = str -> new OWL2NL_QRRadioButtonHelper(mapExperimentType(str), OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, str);
             container.addElement(new Paragraph("If you haven't tried below experiments, you can try them now!"));
             container.addElement(generateRadioButtonList(converter.map(experimentTypes)));
 

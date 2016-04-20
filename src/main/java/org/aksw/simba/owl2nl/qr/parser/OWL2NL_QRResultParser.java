@@ -20,6 +20,13 @@ public abstract class OWL2NL_QRResultParser implements ExperimentResultParser {
     }
 
     protected OWL2NL_QRExperimentResultBase getBaseResult(HttpServletRequest request) throws NumberFormatException {
+        // Force user group selection - ToDo
+        if (request.getParameter(OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_KEY) != null) {
+            OWL2NL_QRExperimentResultBase baseResult = new OWL2NL_QRExperimentResultBase(-1);
+            baseResult.setIsBaseResultOnly();
+            return baseResult;
+        }
+
         String tmpString = request.getParameter(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY);
         int experimentId = Integer.parseInt(tmpString);
         OWL2NL_QRExperimentResultBase baseResult = new OWL2NL_QRExperimentResultBase(experimentId);

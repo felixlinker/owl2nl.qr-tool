@@ -21,7 +21,7 @@ public class OWL2NL_QRAxiomVerbResultConsumer extends OWL2NL_QRResultConsumer {
         super.storeExperimentResult(jdbcTemplate, result, user);
 
         if (!(result instanceof OWL2NL_QRAxiomVerbExperimentResult)) {
-            LOGGER.info("The result was user group setting only.");
+            LOGGER.info("The result was meta settings only.");
             return true;
         }
         OWL2NL_QRAxiomVerbExperimentResult axiomResult = (OWL2NL_QRAxiomVerbExperimentResult)result;
