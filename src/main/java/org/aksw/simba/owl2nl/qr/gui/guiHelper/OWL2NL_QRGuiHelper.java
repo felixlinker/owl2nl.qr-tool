@@ -11,6 +11,10 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
     public static final String EXPERIMENT_IDENTIFIER_KEY = "experimentType";
     public static final String SUBMIT_BUTTON_KEY = "submit";
     public static final String SUBMIT_BUTTON_LABEL = "Submit";
+    public static final String SUBMIT_BUTTON_ID = "submit";
+    public static final String EXPERIMENT_SELECTION_BUTTON_KEY = "selectexperiment";
+    public static final String EXPERIMENT_SELECTION_BUTTON_LABEL = "Select Experiment";
+    public static final String EXPERIMENT_SELECTION_BUTTON_ID = "selectexperiment"; // ToDo: maybe this must be id?
     public static final String PATH = "survey";
     public static final String PATH_FOR_SUBMIT = "survey";
 

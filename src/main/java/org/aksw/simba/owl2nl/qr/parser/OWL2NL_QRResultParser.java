@@ -14,11 +14,6 @@ public abstract class OWL2NL_QRResultParser implements ExperimentResultParser {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(OWL2NL_QRResultParser.class);
 
-    protected ExperimentResult logIdParsingError() {
-        LOGGER.error("Couldn't parse the ID of the experiment. Returning null.");
-        return null;
-    }
-
     protected ExperimentResult logParsingError() {
         LOGGER.error("Couldn't parse experiment result. Returning null.");
         return null;

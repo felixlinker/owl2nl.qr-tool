@@ -1,22 +1,27 @@
-2016-04-20 12:18:41,731 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
-2016-04-20 12:18:41,882 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Wed Apr 20 12:18:41 CEST 2016]; root of context hierarchy
-2016-04-20 12:18:41,946 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
-2016-04-20 12:18:42,292 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
-2016-04-20 12:18:42,308 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@13dd7887: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#1,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#2]; root of factory hierarchy
-2016-04-20 12:18:42,328 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
-2016-04-20 12:18:42,922 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
-2016-04-20 12:18:42,977 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
-2016-04-20 12:18:42,981 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
-2016-04-20 12:18:43,002 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 21 ms.
-2016-04-20 12:18:43,261 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization completed in 1530 ms
-2016-04-20 12:18:52,819 INFO  [http-8080-1    ]  qr.Controller                  - Containing 3 experiments after initialization.
-2016-04-20 12:18:52,863 INFO  [http-8080-1    ]  qr.OWL2NL_QRController         - Identified a new user session (B1906BB58E28125D6D8A1FD6A7E81269). Adding it to the database.
-2016-04-20 12:19:02,618 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #15 has already 0 answers.
-2016-04-20 12:19:02,618 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-20 12:19:02,619 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (15) for experiment #-1.
-2016-04-20 12:19:02,624 INFO  [http-8080-2    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
-2016-04-20 12:19:02,625 INFO  [http-8080-2    ]  qr.Controller                  - There are no more experiments for the user with the Id 15. Sending finish page.
-2016-04-20 12:19:05,069 INFO  [http-8080-3    ]  qr.OWL2NL_QRController         - user #15 has already 0 answers.
-2016-04-20 12:19:05,069 INFO  [http-8080-3    ]  qr.Controller                  - Request should contain an experiment result.
-2016-04-20 12:19:05,069 INFO  [http-8080-3    ]  qr.Controller                  - Found an experiment result of user (15) for experiment #-1.
-2016-04-20 12:19:05,069 INFO  [http-8080-3    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
+2016-04-20 12:38:36,547 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization started
+2016-04-20 12:38:36,681 INFO  [main           ]  support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Wed Apr 20 12:38:36 CEST 2016]; root of context hierarchy
+2016-04-20 12:38:36,765 INFO  [main           ]  xml.XmlBeanDefinitionReader    - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/applicationContext.xml]
+2016-04-20 12:38:37,081 INFO  [main           ]  support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [OWL2NL_QR.properties]
+2016-04-20 12:38:37,106 INFO  [main           ]  support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@780129bc: defining beans [org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0,databaseDataSource,dbAdapter,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#0,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#1,org.aksw.simba.qr.datatypes.SimpleExperimentDescription#2]; root of factory hierarchy
+2016-04-20 12:38:37,134 INFO  [main           ]  datasource.DriverManagerDataSource - Loaded JDBC driver: org.hsqldb.jdbc.JDBCDriver
+2016-04-20 12:38:37,972 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose start
+2016-04-20 12:38:38,042 INFO  [main           ]  HSQLDB523FB7C4A8.ENGINE        - checkpointClose end
+2016-04-20 12:38:38,047 INFO  [main           ]  init.ResourceDatabasePopulator - Executing SQL script from class path resource [create-db.sql]
+2016-04-20 12:38:38,066 INFO  [main           ]  init.ResourceDatabasePopulator - Done executing SQL script from class path resource [create-db.sql] in 19 ms.
+2016-04-20 12:38:38,470 INFO  [main           ]  context.ContextLoader          - Root WebApplicationContext: initialization completed in 1922 ms
+2016-04-20 12:38:41,191 INFO  [http-8080-1    ]  qr.Controller                  - Containing 3 experiments after initialization.
+2016-04-20 12:38:41,234 INFO  [http-8080-1    ]  qr.OWL2NL_QRController         - Identified a new user session (D19304151A8A28E64C96E59319A81210). Adding it to the database.
+2016-04-20 12:38:44,117 INFO  [http-8080-2    ]  qr.OWL2NL_QRController         - user #20 has already 0 answers.
+2016-04-20 12:38:44,118 INFO  [http-8080-2    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-20 12:38:44,118 INFO  [http-8080-2    ]  parser.OWL2NL_QRResultParser   - 
+2016-04-20 12:38:44,119 INFO  [http-8080-2    ]  qr.Controller                  - Found an experiment result of user (20) for experiment #-1.
+2016-04-20 12:38:44,125 INFO  [http-8080-2    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
+2016-04-20 12:38:44,126 INFO  [http-8080-2    ]  qr.Controller                  - There are no more experiments for the user with the Id 20. Sending finish page.
+2016-04-20 12:38:50,780 INFO  [http-8080-3    ]  qr.OWL2NL_QRController         - user #20 has already 0 answers.
+2016-04-20 12:38:50,780 INFO  [http-8080-3    ]  qr.Controller                  - Request should contain an experiment result.
+2016-04-20 12:38:50,780 INFO  [http-8080-3    ]  parser.OWL2NL_QRResultParser   - 
+2016-04-20 12:38:50,780 INFO  [http-8080-3    ]  qr.Controller                  - Found an experiment result of user (20) for experiment #-1.
+2016-04-20 12:38:50,781 INFO  [http-8080-3    ]  consumer.OWL2NL_QRResultConsumer - The result was user group setting only.
+2016-04-20 12:38:54,600 INFO  [http-8080-5    ]  qr.OWL2NL_QRController         - user #20 has already 0 answers.
+2016-04-20 12:39:05,387 INFO  [http-8080-5    ]  qr.OWL2NL_QRController         - user #20 has already 0 answers.
+2016-04-20 12:39:12,773 INFO  [http-8080-5    ]  qr.OWL2NL_QRController         - user #20 has already 0 answers.

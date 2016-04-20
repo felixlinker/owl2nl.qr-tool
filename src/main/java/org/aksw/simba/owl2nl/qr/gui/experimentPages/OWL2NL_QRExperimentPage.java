@@ -84,21 +84,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         this.message = message;
     }
 
-    protected void addPageContent(HtmlContainer container) {
-        if (!experiment.isExpertValueKnown()) {
-            Div headerDiv = new Div();
-            headerDiv.addAttribute("class", "page-header");
-            headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
-            container.addElement(headerDiv);
-            container.addElement(new Paragraph("Before you start with the evaluation please tell us how familiar you are with RDF and OWL concepts."));
-            container.addElement(new Paragraph("If you're not familiar with OWL and RDF concepts, please select 'Amateur' as user group. If you are familiar with those concepts, you can select 'Expert' as user group."));
-
-            container.addElement(createUserGroupSelection());
-            this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
-            this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, guiHelper.getExperimentIdentifierValue());
-            return;
-        }
-
+    protected void addPageContentExperiment(HtmlContainer container) {
         HtmlContainer intructions = getInstructions();
         intructions.addElement(new Paragraph(getWinText()));
         container.addElement(intructions);
@@ -114,6 +100,19 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, guiHelper.getExperimentIdentifierValue());
 
         container.addElement(experimentDiv);
+    }
+
+    protected void addPageContentUserSelection(HtmlContainer container) {
+        Div headerDiv = new Div();
+        headerDiv.addAttribute("class", "page-header");
+        headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
+        container.addElement(headerDiv);
+        container.addElement(new Paragraph("Before you start with the evaluation please tell us how familiar you are with RDF and OWL concepts."));
+        container.addElement(new Paragraph("If you're not familiar with OWL and RDF concepts, please select 'Amateur' as user group. If you are familiar with those concepts, you can select 'Expert' as user group."));
+
+        container.addElement(createUserGroupSelection());
+        this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
+        this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, guiHelper.getExperimentIdentifierValue());
     }
 
     protected HtmlContainer createUserGroupSelection() {
@@ -135,8 +134,11 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
 
     protected HtmlContainer createContent() {
         HtmlContainer container = new HtmlContainer();
-        if (experiment != null) {
-            addPageContent(container);
+        if (experiment != null && experiment.isExpertValueKnown()) {
+            addPageContentExperiment(container);
+            container.addElement(createButtons());
+        } else if (experiment != null && !experiment.isExpertValueKnown()) {
+            addPageContentUserSelection(container);
             container.addElement(createSubmitButton());
         } else {
             Div alertDiv = new Div();
@@ -150,8 +152,6 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
             experimentTypes.add(OWL2NL_QRClassVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE);
             experimentTypes.add(OWL2NL_QRResourceVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE);
             experimentTypes.remove(guiHelper.getExperimentIdentifierValue());
-
-            // ToDo: map experiment identifiers to more fluent language
 
             addHiddenValue(guiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
 
@@ -208,7 +208,6 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         return form;
     }
 
-    // ToDo: Maybe add message during usergroup selection?
     protected Div createMessageDiv() {
         Div messagesDiv = new Div();
         if ((this.message != null) && (!this.message.isEmpty())) {
@@ -321,10 +320,26 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         return input;
     }
 
+    protected WebElement createButtons() {
+        Table buttonTable = new Table();
+        TableRow row = new TableRow();
+        row.addCell(createSubmitButton());
+        row.addCell(createExperimentSelectionButton());
+        buttonTable.addRow(row);
+        return buttonTable;
+    }
+
     protected WebElement createSubmitButton() {
         InputElement input = new InputElement(OWL2NL_QRGuiHelper.SUBMIT_BUTTON_KEY, InputType.Submit);
-        input.addAttribute("id", "submit");
+        input.addAttribute("id", OWL2NL_QRGuiHelper.SUBMIT_BUTTON_ID);
         input.addAttribute("value", OWL2NL_QRGuiHelper.SUBMIT_BUTTON_LABEL);
+        return new Paragraph(input);
+    }
+
+    protected WebElement createExperimentSelectionButton() {
+        InputElement input = new InputElement(OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_KEY, InputType.Submit);
+        input.addAttribute("id", OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_ID);
+        input.addAttribute("value", OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_LABEL);
         return new Paragraph(input);
     }
 
