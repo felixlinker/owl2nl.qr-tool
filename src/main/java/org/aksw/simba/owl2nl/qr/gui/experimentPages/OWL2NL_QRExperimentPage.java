@@ -277,14 +277,12 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         Label label;
         for (OWL2NL_QRRadioButtonHelper button: buttons) {
             input = new InputElement(button.getKey(), InputType.Radiobutton);
-            input.addAttribute("id", "radio_");
+            input.addAttribute("id", "radio_" + button.getValue());
             input.addAttribute("value", button.getValue());
-//            container.addElement(input);
 
             label = new Label(new Text(button.getName()));
-//            label.addAttribute("for", "radio_");
-//            label.addAttribute("class", "rating_label");
-//            container.addElement(label);
+            label.addAttribute("for", "radio_" + button.getValue());
+            label.addAttribute("class", "rating_label");
 
             TableRow row = new TableRow();
             row.addCell(input);
