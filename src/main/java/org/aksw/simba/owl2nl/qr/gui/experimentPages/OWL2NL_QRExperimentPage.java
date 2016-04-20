@@ -168,7 +168,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         Paragraph footerParagraph = new Paragraph();
         footerParagraph.addAttribute("class", "footer_paragraph");
         footerParagraph.addElement(new Text("This survey has been created by "));
-        footerParagraph.addElement(new Link("Michael Röder", "http://www.aksw.org/MichaelRoeder.html"));
+        footerParagraph.addElement(new Link("Axel Ngonga", "http://www.aksw.org/AxelNgonga.html"));
         footerParagraph.addElement(new Text(", a member of the Agile Knowledge Semantic Web (AKSW) research group ("));
         footerParagraph.addElement(new Link("http://www.aksw.org", "http://www.aksw.org"));
         footerParagraph.addElement(new Text(
