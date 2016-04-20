@@ -21,6 +21,17 @@ $(function() {
 });
 
 function checkSubmit() {
-    var isChecked = changeExperiment || ($("input.star_rating[value!='0']").length == $("input.star_rating").length);
-    return isChecked;
+    if(changeExperiment) {
+        return true;
+    }
+    // if this is a star rating page
+    if($("input.star_rating").length) {
+        return $("input.star_rating[value!='0']").length > 0;
+    }
+    // if this is a radio button page
+    if($("input[name='chosenInstance']").length) {
+        return $("input[name='chosenInstance']:checked").length > 0;
+    }
+    console.log('There is no validity check for this page!');
+    return true;
 }
