@@ -1,6 +1,5 @@
 package org.aksw.simba.owl2nl.qr.gui.experimentPages;
 
-import org.aksw.simba.owl2nl.qr.data.ListConverter;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.*;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRRadioButtonHelper;

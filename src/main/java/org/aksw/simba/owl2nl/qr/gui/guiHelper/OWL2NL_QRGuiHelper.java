@@ -1,7 +1,6 @@
 package org.aksw.simba.owl2nl.qr.gui.guiHelper;
 
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
-import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentPage;
 import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentSelectionPage;
 import org.aksw.simba.qr.datatypes.ExperimentSetup;
 import org.aksw.simba.qr.gui.AbstractGuiHelper;

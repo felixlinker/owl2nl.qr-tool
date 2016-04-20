@@ -1,12 +1,9 @@
 package org.aksw.simba.owl2nl.qr.tools;
 
-import org.aksw.simba.webelements.Link;
-
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
