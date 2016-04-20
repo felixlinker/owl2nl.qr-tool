@@ -23,11 +23,14 @@ public class OWL2NL_QRController extends Controller {
 
     private static final long serialVersionUID = 1L;
 
+    public OWL2NL_QRController() {
+        this.setDefaultGuiHelper(new OWL2NL_QRExperimentSelectionGuiHelper());
+    }
+
     @Override
     protected User identifyUser(HttpServletRequest request, GuiHelper<ExperimentSetup> guiHelper) {
         // Force login page upon experiment selection
         if (request.getParameter(OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_KEY) != null) {
-            this.setDefaultGuiHelper(new OWL2NL_QRExperimentSelectionGuiHelper());
             return null;
         }
 
