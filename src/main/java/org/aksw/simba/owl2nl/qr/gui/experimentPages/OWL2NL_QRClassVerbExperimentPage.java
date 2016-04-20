@@ -28,8 +28,10 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
         container.addElement(headerDiv);
 
-        container.addElement(new Paragraph("In this experiment, you will see an axiom and it's verbalization. Below there are five instances of the axiom. Four of them wrong and one correct."));
+        container.addElement(new Paragraph("In this experiment, you will see an axiom and/or it's verbalization. Below there are five instances of the class described by the axiom. Four of them wrong and one correct."));
         container.addElement(new Paragraph("Please select the correct instance."));
+        container.addElement(new Paragraph("The instances are described by triples. If you're not an expert you'll only see some \"facts\" about the instance."));
+        container.addElement(new Paragraph("Below the instance selection you see some triples describing overall information that might be necessary in order to decide which instance is the correct one."));
 
         return container;
     }
