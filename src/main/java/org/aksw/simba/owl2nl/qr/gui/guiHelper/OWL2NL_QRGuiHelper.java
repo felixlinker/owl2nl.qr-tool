@@ -64,7 +64,7 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
 
     @Override
     public Page getLoginPage() {
-        return new OWL2NL_QRExperimentSelectionPage();
+        return new OWL2NL_QRExperimentSelectionPage(false);
     }
 
     public abstract String getExperimentIdentifierValue();

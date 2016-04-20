@@ -2,6 +2,7 @@ package org.aksw.simba.owl2nl.qr.gui.guiHelper;
 
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRAxiomVerbExperimentSetup;
 import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRAxiomVerbExperimentPage;
+import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentSelectionPage;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRStarRatingHelper;
 import org.aksw.simba.qr.gui.Page;
 
@@ -22,7 +23,8 @@ public class OWL2NL_QRAxiomVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QRAxi
 
     @Override
     public Page getFinishPage() {
-        return new OWL2NL_QRAxiomVerbExperimentPage(this, null);
+//        return new OWL2NL_QRAxiomVerbExperimentPage(this, null);
+        return new OWL2NL_QRExperimentSelectionPage(false);
     }
 
     @Override
