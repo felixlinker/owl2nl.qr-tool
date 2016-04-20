@@ -3,10 +3,13 @@ package org.aksw.simba.owl2nl.qr.gui.guiHelper;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
 import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentPage;
 import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentSelectionPage;
+import org.aksw.simba.qr.datatypes.ExperimentSetup;
 import org.aksw.simba.qr.gui.AbstractGuiHelper;
 import org.aksw.simba.qr.gui.Page;
 
-public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> extends AbstractGuiHelper<T> {
+public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> extends AbstractGuiHelper<ExperimentSetup> {
+
+    private Class<T> type;
 
     public static final String APPLICATION_NAME = "Survey";
     public static final String LONG_APPLICATION_NAME = "";
@@ -31,7 +34,11 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
             + "<link href=\"css/bootstrap-theme.min.css\" type=\"text/css\" rel=\"stylesheet\">\n"
             + "<link href=\"css/star-rating.min.css\" type=\"text/css\" rel=\"stylesheet\">\n"
             + "<!--java script files are included at the end of the body -->\n";
-    
+
+    public OWL2NL_QRGuiHelper(Class<T> type) {
+        this.type = type;
+    }
+
     @Override
     public String getStringValue(StringValue key) {
         switch (key) {
@@ -63,9 +70,14 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
     }
 
     @Override
-    public Page getLoginPage() {
-        return new OWL2NL_QRExperimentSelectionPage(false);
+    public Page getExperimentPage(ExperimentSetup experimentSetup) {
+        if (type.isInstance(experimentSetup)) {
+            return this.getExperimentPageFinal((T)experimentSetup);
+        }
+        return null;
     }
+
+    public abstract Page getExperimentPageFinal(T t);
 
     public abstract String getExperimentIdentifierValue();
 }

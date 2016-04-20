@@ -4,6 +4,7 @@ import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRAxiomVerbExperimentSet
 import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRAxiomVerbExperimentPage;
 import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentSelectionPage;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRStarRatingHelper;
+import org.aksw.simba.qr.datatypes.ExperimentSetup;
 import org.aksw.simba.qr.gui.Page;
 
 public class OWL2NL_QRAxiomVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QRAxiomVerbExperimentSetup> {
@@ -16,8 +17,12 @@ public class OWL2NL_QRAxiomVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QRAxi
 
     public static final OWL2NL_QRStarRatingHelper[] STAR_RATINGS = { new OWL2NL_QRStarRatingHelper(ADEQUACY_RATING_KEY, ADEQUACY_RATING_NAME), new OWL2NL_QRStarRatingHelper(FLUENCY_RATING_KEY, FLUENCY_RATING_NAME)};
 
+    public OWL2NL_QRAxiomVerbGuiHelper() {
+        super(OWL2NL_QRAxiomVerbExperimentSetup.class);
+    }
+
     @Override
-    public Page getExperimentPage(OWL2NL_QRAxiomVerbExperimentSetup experimentSetup) {
+    public Page getExperimentPageFinal(OWL2NL_QRAxiomVerbExperimentSetup experimentSetup) {
         return new OWL2NL_QRAxiomVerbExperimentPage(this, experimentSetup);
     }
 

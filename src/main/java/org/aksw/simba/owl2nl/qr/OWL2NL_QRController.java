@@ -2,6 +2,7 @@ package org.aksw.simba.owl2nl.qr;
 
 import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRUser;
 import org.aksw.simba.owl2nl.qr.db.OWL2NL_QRDbAdapterExtension;
+import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRExperimentSelectionGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper;
 import org.aksw.simba.qr.Controller;
 import org.aksw.simba.qr.datatypes.ExperimentDescription;
@@ -26,6 +27,7 @@ public class OWL2NL_QRController extends Controller {
     protected User identifyUser(HttpServletRequest request, GuiHelper<ExperimentSetup> guiHelper) {
         // Force login page upon experiment selection
         if (request.getParameter(OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_KEY) != null) {
+            this.setDefaultGuiHelper(new OWL2NL_QRExperimentSelectionGuiHelper());
             return null;
         }
 

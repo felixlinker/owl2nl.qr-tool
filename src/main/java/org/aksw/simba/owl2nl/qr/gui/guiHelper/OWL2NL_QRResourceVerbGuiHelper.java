@@ -23,8 +23,12 @@ public class OWL2NL_QRResourceVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QR
     public static final OWL2NL_QRStarRatingHelper[] STAR_RATINGS_EXPERT = { new OWL2NL_QRStarRatingHelper(ADEQUACY_RATING_KEY, ADEQUACY_RATING_NAME), new OWL2NL_QRStarRatingHelper(FLUENCY_RATING_KEY, FLUENCY_RATING_NAME), new OWL2NL_QRStarRatingHelper(COMPLETENSS_RATING_KEY, COMPLETENESS_RATING_NAME)};
     public static final OWL2NL_QRStarRatingHelper[] STAR_RATINGS_AMATEUR = { new OWL2NL_QRStarRatingHelper(FLUENCY_RATING_KEY, FLUENCY_RATING_NAME)};
 
+    public OWL2NL_QRResourceVerbGuiHelper() {
+        super(OWL2NL_QRResourceVerbExperimentSetup.class);
+    }
+
     @Override
-    public Page getExperimentPage(OWL2NL_QRResourceVerbExperimentSetup experimentSetup) {
+    public Page getExperimentPageFinal(OWL2NL_QRResourceVerbExperimentSetup experimentSetup) {
         return new OWL2NL_QRResourceVerbExperimentPage(this, experimentSetup);
     }
 
