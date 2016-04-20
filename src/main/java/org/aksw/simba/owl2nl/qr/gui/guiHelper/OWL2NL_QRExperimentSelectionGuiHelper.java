@@ -25,13 +25,4 @@ public class OWL2NL_QRExperimentSelectionGuiHelper extends OWL2NL_QRGuiHelper<OW
         return "";
     }
 
-    @Override
-    public Page getLoginPage() {
-        return new OWL2NL_QRExperimentSelectionPage(false);
-    }
-
-    @Override
-    public Page getLoginPage(List<String> experimentNames) {
-        return getLoginPage();
-    }
 }

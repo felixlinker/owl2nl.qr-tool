@@ -7,6 +7,8 @@ import org.aksw.simba.qr.datatypes.ExperimentSetup;
 import org.aksw.simba.qr.gui.AbstractGuiHelper;
 import org.aksw.simba.qr.gui.Page;
 
+import java.util.List;
+
 public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> extends AbstractGuiHelper<ExperimentSetup> {
 
     private Class<T> type;
@@ -75,6 +77,17 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
             return this.getExperimentPageFinal((T)experimentSetup);
         }
         return null;
+    }
+
+
+    @Override
+    public Page getLoginPage() {
+        return new OWL2NL_QRExperimentSelectionPage(false);
+    }
+
+    @Override
+    public Page getLoginPage(List<String> experimentNames) {
+        return this.getLoginPage();
     }
 
     public abstract Page getExperimentPageFinal(T t);

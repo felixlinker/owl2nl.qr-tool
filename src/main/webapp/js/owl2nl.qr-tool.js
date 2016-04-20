@@ -10,7 +10,6 @@ $(function() {
 		});
 	});
 	$(".submit-button").button()
-//  	$("#selectexperiment").button()
 });
 
 function checkSubmit() {
