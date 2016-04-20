@@ -4,6 +4,8 @@ import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
 import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentSelectionPage;
 import org.aksw.simba.qr.gui.Page;
 
+import java.util.List;
+
 /**
  * Created by felix on 20.04.2016.
  */
@@ -27,5 +29,10 @@ public class OWL2NL_QRExperimentSelectionGuiHelper extends OWL2NL_QRGuiHelper<OW
     public Page getLoginPage() {
         System.out.println("abcabcdeeee");
         return new OWL2NL_QRExperimentSelectionPage(false);
+    }
+
+    @Override
+    public Page getLoginPage(List<String> experimentNames) {
+        return getLoginPage();
     }
 }
