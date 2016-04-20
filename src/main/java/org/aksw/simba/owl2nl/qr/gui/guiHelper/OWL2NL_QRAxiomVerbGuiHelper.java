@@ -24,7 +24,7 @@ public class OWL2NL_QRAxiomVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QRAxi
     @Override
     public Page getFinishPage() {
 //        return new OWL2NL_QRAxiomVerbExperimentPage(this, null);
-        return new OWL2NL_QRExperimentSelectionPage(false);
+        return new OWL2NL_QRExperimentSelectionPage(true);
     }
 
     @Override
