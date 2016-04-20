@@ -140,27 +140,8 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         } else if (experiment != null && !experiment.isExpertValueKnown()) {
             addPageContentUserSelection(container);
             container.addElement(createSubmitButton());
-        } /*else {
-            Div alertDiv = new Div();
-            alertDiv.addAttribute("class", "alert alert-warning");
-            alertDiv.addAttribute("role", "alert");
-            alertDiv.addElement(new Text("There are no more datasets for you. Thank you very much for all the work that you have done!"));
-            container.addElement(alertDiv);
+        }
 
-            LinkedList<String> experimentTypes = new LinkedList<>();
-            experimentTypes.add(OWL2NL_QRAxiomVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE);
-            experimentTypes.add(OWL2NL_QRClassVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE);
-            experimentTypes.add(OWL2NL_QRResourceVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE);
-            experimentTypes.remove(guiHelper.getExperimentIdentifierValue());
-
-            addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
-
-            ListConverter<String, OWL2NL_QRRadioButtonHelper> converter = str -> new OWL2NL_QRRadioButtonHelper(mapExperimentType(str), OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, str);
-            container.addElement(new Paragraph("If you haven't tried below experiments, you can try them now!"));
-            container.addElement(generateRadioButtonList(converter.map(experimentTypes)));
-
-            container.addElement(createSubmitButton());
-        }*/
         return container;
     }
 
@@ -331,6 +312,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
 
     protected WebElement createSubmitButton() {
         InputElement input = new InputElement(OWL2NL_QRGuiHelper.SUBMIT_BUTTON_KEY, InputType.Submit);
+        input.addAttribute("class", "submit-button");
         input.addAttribute("id", OWL2NL_QRGuiHelper.SUBMIT_BUTTON_ID);
         input.addAttribute("value", OWL2NL_QRGuiHelper.SUBMIT_BUTTON_LABEL);
         return new Paragraph(input);
@@ -338,6 +320,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
 
     protected WebElement createExperimentSelectionButton() {
         InputElement input = new InputElement(OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_KEY, InputType.Submit);
+        input.addAttribute("class", "submit-button");
         input.addAttribute("id", OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_ID);
         input.addAttribute("value", OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_LABEL);
         return new Paragraph(input);

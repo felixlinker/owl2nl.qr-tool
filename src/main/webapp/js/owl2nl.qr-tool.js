@@ -9,10 +9,8 @@ $(function() {
 			$(this).attr("value",0);
 		});
 	});
-	$("#submit").button()
-	/*if !(document.getElementById("#selectexperiment")) {
-    	$("#selectexperiment").button()
-	}*/
+	$(".submit-button").button()
+//  	$("#selectexperiment").button()
 });
 
 function checkSubmit() {
