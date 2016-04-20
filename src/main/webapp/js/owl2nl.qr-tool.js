@@ -10,6 +10,9 @@ $(function() {
 		});
 	});
 	$("#submit").button()
+	if !(document.getElementById("#selectexperiment")) {
+    	$("#selectexperiment").button()
+	}
 });
 
 function checkSubmit() {

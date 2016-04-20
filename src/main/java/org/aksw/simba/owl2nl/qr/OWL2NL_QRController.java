@@ -24,6 +24,11 @@ public class OWL2NL_QRController extends Controller {
 
     @Override
     protected User identifyUser(HttpServletRequest request, GuiHelper<ExperimentSetup> guiHelper) {
+        // Force login page upon experiment selection
+        if (request.getParameter(OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_KEY) != null) {
+            return null;
+        }
+
         HttpSession session = request.getSession();
         DbAdapter db = getDbAdapter();
         int userId = db.getUserId(session.getId());

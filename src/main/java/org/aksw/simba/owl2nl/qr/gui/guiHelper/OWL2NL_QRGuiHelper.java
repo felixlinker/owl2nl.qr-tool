@@ -1,7 +1,10 @@
 package org.aksw.simba.owl2nl.qr.gui.guiHelper;
 
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
+import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentPage;
+import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentSelectionPage;
 import org.aksw.simba.qr.gui.AbstractGuiHelper;
+import org.aksw.simba.qr.gui.Page;
 
 public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> extends AbstractGuiHelper<T> {
 
@@ -14,7 +17,7 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
     public static final String SUBMIT_BUTTON_ID = "submit";
     public static final String EXPERIMENT_SELECTION_BUTTON_KEY = "selectexperiment";
     public static final String EXPERIMENT_SELECTION_BUTTON_LABEL = "Select Experiment";
-    public static final String EXPERIMENT_SELECTION_BUTTON_ID = "selectexperiment"; // ToDo: maybe this must be id?
+    public static final String EXPERIMENT_SELECTION_BUTTON_ID = "selectexperiment";
     public static final String PATH = "survey";
     public static final String PATH_FOR_SUBMIT = "survey";
 
@@ -57,6 +60,11 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
                 return super.getStringValue(key);
             }
         }
+    }
+
+    @Override
+    public Page getLoginPage() {
+        return new OWL2NL_QRExperimentSelectionPage();
     }
 
     public abstract String getExperimentIdentifierValue();
