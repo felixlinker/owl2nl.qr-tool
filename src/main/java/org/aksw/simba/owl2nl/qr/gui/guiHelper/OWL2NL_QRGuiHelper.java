@@ -89,6 +89,15 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
         return this.getLoginPage();
     }
 
+    public static String mapExperimentType(String type) {
+        switch (type) {
+            case OWL2NL_QRAxiomVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE: return OWL2NL_QRAxiomVerbGuiHelper.EXPERIMENT_IDENTIFIER_NAME;
+            case OWL2NL_QRClassVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE: return OWL2NL_QRClassVerbGuiHelper.EXPERIMENT_IDENTIFIER_NAME;
+            case OWL2NL_QRResourceVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE: return OWL2NL_QRResourceVerbGuiHelper.EXPERIMENT_IDENTIFIER_NAME;
+            default: return type;
+        }
+    }
+
     public abstract Page getExperimentPageFinal(T t);
 
     public abstract String getExperimentIdentifierValue();
