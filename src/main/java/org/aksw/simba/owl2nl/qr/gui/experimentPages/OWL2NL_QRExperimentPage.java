@@ -325,7 +325,6 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
     }
 
     protected String getWinText() {
-        // ToDo: alter this text
         StringBuilder builder = new StringBuilder();
         builder.append("For getting a chance to win one of the amazon vouchers, you will have to submit the answers of ");
         builder.append(NUMBER_OF_ANSWERS_NEEDED_FOR_KEY_WORD);
