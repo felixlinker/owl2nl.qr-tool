@@ -66,9 +66,9 @@ CREATE TABLE IF NOT EXISTS Triples (
 CREATE TABLE IF NOT EXISTS ResourceExperiments (
     userId INT FOREIGN KEY REFERENCES Users(id) NOT NULL,
     resourceId INT FOREIGN KEY REFERENCES Resources(id),
-    adequacy INT NOT NULL,
+    adequacy INT,
     fluency INT NOT NULL,
-    completeness INT NOT NULL,
+    completeness INT,
     CONSTRAINT pk_resourceExperiment PRIMARY KEY (userId, resourceId)
 );
 

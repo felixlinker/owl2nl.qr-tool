@@ -1,6 +1,5 @@
 package org.aksw.simba.owl2nl.qr.gui.experimentPages;
 
-import org.aksw.simba.owl2nl.qr.data.ListConverter;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.*;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRRadioButtonHelper;
@@ -311,6 +310,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
 
     protected WebElement createSubmitButton() {
         InputElement input = new InputElement(OWL2NL_QRGuiHelper.SUBMIT_BUTTON_KEY, InputType.Submit);
+        input.addAttribute("class", "submit-button");
         input.addAttribute("id", OWL2NL_QRGuiHelper.SUBMIT_BUTTON_ID);
         input.addAttribute("value", OWL2NL_QRGuiHelper.SUBMIT_BUTTON_LABEL);
         return new Paragraph(input);
@@ -318,6 +318,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
 
     protected WebElement createExperimentSelectionButton() {
         InputElement input = new InputElement(OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_KEY, InputType.Submit);
+        input.addAttribute("class", "submit-button");
         input.addAttribute("id", OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_ID);
         input.addAttribute("value", OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_LABEL);
         return new Paragraph(input);
@@ -331,15 +332,6 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         builder.append(" different pages (during a single session). After the submission of the tenth page, a solution word is displayed, that you can send to roeder@informatik.uni-leipzig.de if you want to take part in the lottery.");
 
         return builder.toString();
-    }
-
-    protected String mapExperimentType(String type) {
-        switch (type) {
-            case OWL2NL_QRAxiomVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE: return OWL2NL_QRAxiomVerbGuiHelper.EXPERIMENT_IDENTIFIER_NAME;
-            case OWL2NL_QRClassVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE: return OWL2NL_QRClassVerbGuiHelper.EXPERIMENT_IDENTIFIER_NAME;
-            case OWL2NL_QRResourceVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE: return OWL2NL_QRResourceVerbGuiHelper.EXPERIMENT_IDENTIFIER_NAME;
-            default: return type;
-        }
     }
 
     abstract HtmlContainer getInstructions();
