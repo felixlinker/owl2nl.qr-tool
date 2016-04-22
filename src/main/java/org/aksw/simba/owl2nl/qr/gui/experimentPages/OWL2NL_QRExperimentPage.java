@@ -213,7 +213,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
                 // ToDo: change keyword or mail?
                 p.addElement(new Text(
                         " You have answered enough questions to take part in the lottery. Just send the keyword \"banana\" to "));
-                p.addElement(new Link("roeder@informatik.uni-leipzig.de", "mailto:roeder@informatik.uni-leipzig.de"));
+                p.addElement(new Link("buehmann@informatik.uni-leipzig.de", "mailto:buehmann@informatik.uni-leipzig.de"));
                 p.addElement(new Text("."));
                 messageDiv.addElement(p);
                 messageDiv.addElement(new Paragraph("Thank you very much for your effort!"));
@@ -329,7 +329,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         StringBuilder builder = new StringBuilder();
         builder.append("For getting a chance to win one of the amazon vouchers, you will have to submit the answers of ");
         builder.append(NUMBER_OF_ANSWERS_NEEDED_FOR_KEY_WORD);
-        builder.append(" different pages (during a single session). After the submission of the tenth page, a solution word is displayed, that you can send to roeder@informatik.uni-leipzig.de if you want to take part in the lottery.");
+        builder.append(" different pages (during a single session). After the submission of the tenth page, you will see a message with further instructions for taking part in the lottery.");
 
         return builder.toString();
     }
