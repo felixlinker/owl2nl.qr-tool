@@ -11,9 +11,6 @@ import org.aksw.simba.webelements.Text;
 
 import java.util.LinkedList;
 
-/**
- * Created by felix on 20.04.2016.
- */
 public class OWL2NL_QRExperimentSelectionPage extends OWL2NL_QRExperimentPage<OWL2NL_QRExperimentSetup> {
 
     private boolean finishPage;

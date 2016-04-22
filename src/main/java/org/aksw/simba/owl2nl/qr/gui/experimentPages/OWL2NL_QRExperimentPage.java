@@ -108,7 +108,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
         container.addElement(headerDiv);
         container.addElement(new Paragraph("Before you start with the evaluation please tell us how familiar you are with RDF and OWL concepts."));
-        container.addElement(new Paragraph("If you're not familiar with OWL and RDF concepts, please select 'Amateur' as user group. If you are familiar with those concepts, you can select 'Expert' as user group."));
+        container.addElement(new Paragraph("If you're not familiar with OWL and RDF concepts, please select 'User' as user group. If you are familiar with those concepts, you can select 'Experienced user' as user group."));
 
         container.addElement(createUserGroupSelection());
         this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
@@ -121,10 +121,9 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         Div messageDiv = new Div();
         messageDiv.addElement(new Paragraph(new BoldText("Please select a user group:")));
 
-        OWL2NL_QRUserGroupGuiHelper userGuiHelper = new OWL2NL_QRUserGroupGuiHelper();
         LinkedList<OWL2NL_QRRadioButtonHelper> buttonHelpers = new LinkedList<>();
-        buttonHelpers.add(new OWL2NL_QRRadioButtonHelper(userGuiHelper.EXPERT_RADIO_NAME, userGuiHelper.RADIO_KEY, userGuiHelper.EXPERT_RADIO_VALUE));
-        buttonHelpers.add(new OWL2NL_QRRadioButtonHelper(userGuiHelper.AMATEUR_RADIO_NAME, userGuiHelper.RADIO_KEY, userGuiHelper.AMATEUR_RADIO_NAME));
+        buttonHelpers.add(new OWL2NL_QRRadioButtonHelper(OWL2NL_QRUserGroupGuiHelper.EXPERT_RADIO_NAME, OWL2NL_QRUserGroupGuiHelper.RADIO_KEY, OWL2NL_QRUserGroupGuiHelper.EXPERT_RADIO_VALUE));
+        buttonHelpers.add(new OWL2NL_QRRadioButtonHelper(OWL2NL_QRUserGroupGuiHelper.AMATEUR_RADIO_NAME, OWL2NL_QRUserGroupGuiHelper.RADIO_KEY, OWL2NL_QRUserGroupGuiHelper.AMATEUR_RADIO_NAME));
 
         messageDiv.addElement(generateRadioButtonList(buttonHelpers));
 
@@ -140,27 +139,8 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         } else if (experiment != null && !experiment.isExpertValueKnown()) {
             addPageContentUserSelection(container);
             container.addElement(createSubmitButton());
-        } /*else {
-            Div alertDiv = new Div();
-            alertDiv.addAttribute("class", "alert alert-warning");
-            alertDiv.addAttribute("role", "alert");
-            alertDiv.addElement(new Text("There are no more datasets for you. Thank you very much for all the work that you have done!"));
-            container.addElement(alertDiv);
+        }
 
-            LinkedList<String> experimentTypes = new LinkedList<>();
-            experimentTypes.add(OWL2NL_QRAxiomVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE);
-            experimentTypes.add(OWL2NL_QRClassVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE);
-            experimentTypes.add(OWL2NL_QRResourceVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE);
-            experimentTypes.remove(guiHelper.getExperimentIdentifierValue());
-
-            addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
-
-            ListConverter<String, OWL2NL_QRRadioButtonHelper> converter = str -> new OWL2NL_QRRadioButtonHelper(mapExperimentType(str), OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, str);
-            container.addElement(new Paragraph("If you haven't tried below experiments, you can try them now!"));
-            container.addElement(generateRadioButtonList(converter.map(experimentTypes)));
-
-            container.addElement(createSubmitButton());
-        }*/
         return container;
     }
 
