@@ -12,7 +12,7 @@ public class OWL2NL_QRAxiomVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QRAxi
     public static final String FLUENCY_RATING_NAME = "fluency:";
     public static final String FLUENCY_RATING_KEY = "fluency";
     public static final String EXPERIMENT_IDENTIFIER_VALUE = "OWL2NL_QRAxiomVerb";
-    public static final String EXPERIMENT_IDENTIFIER_NAME = "Axiom verbalization (for experts only)";
+    public static final String EXPERIMENT_IDENTIFIER_NAME = "Axiom verbalization (for experienced users only)";
 
     public static final OWL2NL_QRStarRatingHelper[] STAR_RATINGS = { new OWL2NL_QRStarRatingHelper(ADEQUACY_RATING_KEY, ADEQUACY_RATING_NAME), new OWL2NL_QRStarRatingHelper(FLUENCY_RATING_KEY, FLUENCY_RATING_NAME)};
 
