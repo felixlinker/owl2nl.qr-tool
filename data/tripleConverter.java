@@ -2,7 +2,7 @@ public static void main(String[] args) throws Exception {
 		LinkedList<TripleHelper> output = new LinkedList<>();
 		TripleConverter c = new TripleConverter();
 
-		BufferedReader fileReader = new BufferedReader(new FileReader("C:/Git/owl2nl.qr-tool/data/instances_base.csv"));
+		BufferedReader fileReader = new BufferedReader(new FileReader("C:/Git/owl2nl.qr-tool/data/instances_verb_base.csv"));
 
 		String line;
 		while ((line = fileReader.readLine()) != null) {
@@ -10,7 +10,7 @@ public static void main(String[] args) throws Exception {
 		}
 		fileReader.close();
 
-		FileWriter fw = new FileWriter("C:/Git/owl2nl.qr-tool/data/instances_verb_new.csv");
+		FileWriter fw = new FileWriter("C:/Git/owl2nl.qr-tool/data/instances_verb.csv");
 		for (TripleHelper t: output) {
 			fw.append(t.csvLine());
 		}
@@ -23,7 +23,7 @@ public static void main(String[] args) throws Exception {
 		public TripleConverter c;
 
 		public TripleHelper(String triple, TripleConverter c) {
-			this.triple = triple;
+			this.triple = triple.replace("http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#","koala:").replace("http://www.w3.org/1999/02/22-rdf-syntax-ns#","rdf:");
 			this.c = c;
 			this.parseTriple();
 		}

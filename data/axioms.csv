@@ -1,41 +1,41 @@
-Female EquivalentTo hasGender value female;every female has gender female
-KoalaWithPhD EquivalentTo Koala and (hasDegree value PhD);every koala with phd is a koala that has degree PhD
-Male EquivalentTo hasGender value male;every male has gender male
-MaleStudentWith3Daughters EquivalentTo Student and (hasChildren only Female) and (hasGender value male) and (hasChildren exactly 3 Thing);every male student with 3 daughter is a student that has as child only a female, that has gender male and that has exactly 3 children
-Parent EquivalentTo Animal and (hasChildren min 1 Thing);every parent is an animal that has at least 1 child
-Student EquivalentTo Person and (hasHabitat some University) and (isHardWorking value true);every student is a person that has as habitat an university and that is hard working
-Animal SubClassOf hasHabitat min 1 Thing;every animal has at least 1 habitat
-Animal SubClassOf hasGender exactly 1 Thing;every animal has exactly 1 gender
-DryEucalyptForest SubClassOf Forest;every dry eucalypt forest is a forest
-Forest SubClassOf Habitat;every forest is a habitat
-GraduateStudent SubClassOf Student;every graduate student is a student
-GraduateStudent SubClassOf hasDegree some ({BA , BS});every graduate student has as degree BA or BS
-Koala SubClassOf Marsupials;every koala is a marsupial
-Koala SubClassOf hasHabitat some DryEucalyptForest;every koala has as habitat a dry eucalypt forest
-Koala SubClassOf isHardWorking value false;every koala is not hard working
-Marsupials SubClassOf Animal;every marsupial is an animal
-Parent SubClassOf Animal;every parent is an animal
-Person SubClassOf Animal;every person is an animal
-Quokka SubClassOf Marsupials;every quokka is a marsupial
-Quokka SubClassOf isHardWorking value true;every quokka is hard working
-Rainforest SubClassOf Forest;every rainforest is a forest
-TasmanianDevil SubClassOf Marsupials;every tasmanian devil is a marsupial
-University SubClassOf Habitat;every university is a habitat
-BA Type Degree;BA is a degree
-BS Type Degree;BS is a degree
-MA Type Degree;MA is a degree
-PhD Type Degree;PhD is a degree
-female Type Gender;female is a gender
-male Type Gender;male is a gender
- Functional: hasGender;everything has at most 1 gender
-hasChildren Domain Animal;everything that has a child is an animal
-hasDegree Domain Person;everything that has a degree is a person
-hasGender Domain Animal;everything that has a gender is an animal
-hasHabitat Domain Animal;everything that has a habitat is an animal
-hasChildren Range Animal;everything has as child only an animal
-hasDegree Range Degree;everything has as degree only a degree
-hasGender Range Gender;everything has as gender only a gender
-hasHabitat Range Habitat;everything has as habitat only a habitat
- Functional: isHardWorking;everything is hard working at most 1 Literals
-isHardWorking Domain Person;everything that is hard working is a person
-isHardWorking Range: boolean;everything something that is either hard working or not
+Female EquivalentTo hasGender value female;Every female has gender female.
+KoalaWithPhD EquivalentTo Koala and (hasDegree value PhD);Every koala with phd is a koala that has degree PhD.
+Male EquivalentTo hasGender value male;Every male has gender male.
+MaleStudentWith3Daughters EquivalentTo Student and (hasChildren only Female) and (hasGender value male) and (hasChildren exactly 3 Thing);Every male student with three daughters is a student that has gender male and that has exactly three children that are a female.
+Parent EquivalentTo Animal and (hasChildren min 1 Thing);Every parent is an animal that has at least one child.
+Student EquivalentTo Person and (hasHabitat some University) and (isHardWorking value true);Every student is a person that has as habitat an university and that is hard working.
+Animal SubClassOf hasHabitat min 1 Thing;Every animal has at least one habitat.
+Animal SubClassOf hasGender exactly 1 Thing;Every animal has exactly one gender.
+DryEucalyptForest SubClassOf Forest;Every dry eucalypt forest is a forest.
+Forest SubClassOf Habitat;Every forest is a habitat.
+GraduateStudent SubClassOf Student;Every graduate student is a student.
+GraduateStudent SubClassOf hasDegree some ({BA , BS});Every graduate student has as degree BA or BS.
+Koala SubClassOf Marsupials;Every koala is a marsupial.
+Koala SubClassOf hasHabitat some DryEucalyptForest;Every koala has as habitat a dry eucalypt forest.
+Koala SubClassOf isHardWorking value false;Every koala is not hard working.
+Marsupials SubClassOf Animal;Every marsupial is an animal.
+Parent SubClassOf Animal;Every parent is an animal.
+Person SubClassOf Animal;Every person is an animal.
+Quokka SubClassOf Marsupials;Every quokka is a marsupial.
+Quokka SubClassOf isHardWorking value true;Every quokka is hard working.
+Rainforest SubClassOf Forest;Every rainforest is a forest.
+TasmanianDevil SubClassOf Marsupials;Every tasmanian devil is a marsupial.
+University SubClassOf Habitat;Every university is a habitat.
+BA Type Degree;BA is a degree.
+BS Type Degree;BS is a degree.
+MA Type Degree;MA is a degree.
+PhD Type Degree;PhD is a degree.
+female Type Gender;Female is a gender.
+male Type Gender;Male is a gender.
+ Functional: hasGender;Everything has at most one gender.
+hasChildren Domain Animal;Everything that has a child is an animal.
+hasDegree Domain Person;Everything that has a degree is a person.
+hasGender Domain Animal;Everything that has a gender is an animal.
+hasHabitat Domain Animal;Everything that has a habitat is an animal.
+hasChildren Range Animal;Everything has as child only an animal.
+hasDegree Range Degree;Everything has as degree only a degree.
+hasGender Range Gender;Everything has as gender only a gender.
+hasHabitat Range Habitat;Everything has as habitat only a habitat.
+ Functional: isHardWorking;Everything is hard working at most one Literals.
+isHardWorking Domain Person;Everything that is hard working is a person.
+isHardWorking Range: boolean;Everything is hard working or not.

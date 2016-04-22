@@ -14,7 +14,7 @@ public class CsvMapper {
         HashMap<String, String> verbalizationsMap = new HashMap<>();
         CsvParser instances, verbalizations;
         try {
-            instances = new CsvParser("C:/Git/owl2nl.qr-tool/data/instances.csv");
+            instances = new CsvParser("C:/Git/owl2nl.qr-tool/data/instances_base.csv");
             verbalizations = new CsvParser("C:/Git/owl2nl.qr-tool/data/instances_verb.csv");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -48,7 +48,7 @@ public class CsvMapper {
 
         FileWriter fw;
         try {
-            fw = new FileWriter("C:/Git/owl2nl.qr-tool/data/tmp.csv");
+            fw = new FileWriter("C:/Git/owl2nl.qr-tool/data/instances.csv");
         } catch (IOException e) {
             e.printStackTrace();
             return;
