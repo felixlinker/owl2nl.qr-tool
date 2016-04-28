@@ -36,7 +36,7 @@ public class DataEvaluater {
 
         evaluateAxiomExperiments(jdbcTemplate);
         evaluateResourceExperiments(jdbcTemplate);
-
+        evaluateClassExperiments(jdbcTemplate);
     }
 
     public static void evaluateAxiomExperiments(JdbcTemplate jdbcTemplate) {
@@ -52,13 +52,13 @@ public class DataEvaluater {
         if (queryResults.isEmpty()) {
             return;
         }
-        double meanAdequacyAxiom = queryResults.get(0) / axiomCount;
+        double meanAdequacyAxiom = (double)queryResults.get(0) / (double)axiomCount;
 
         queryResults = jdbcTemplate.query(QUERY_SUM_FLUENCY_AXIOM, INTEGER_ROW_MAPPER);
         if (queryResults.isEmpty()) {
             return;
         }
-        double meanFluencyAxiom = queryResults.get(0) / axiomCount;
+        double meanFluencyAxiom = (double)queryResults.get(0) / (double)axiomCount;
 
         System.out.println("Evaluation of adequacy experiments:");
         System.out.println("Mean adequacy is: " + meanAdequacyAxiom);
@@ -85,13 +85,13 @@ public class DataEvaluater {
         if (queryResults.isEmpty()) {
             return;
         }
-        double meanAdequacy = queryResults.get(0) / resourceCountExpert;
+        double meanAdequacy = (double)queryResults.get(0) / (double)resourceCountExpert;
 
         queryResults = jdbcTemplate.query(QUERY_SUM_COMPLETENESS_RESOURCE, INTEGER_ROW_MAPPER);
         if (queryResults.isEmpty()) {
             return;
         }
-        double meanCompleteness = queryResults.get(0) / resourceCountExpert;
+        double meanCompleteness = (double)queryResults.get(0) / (double)resourceCountExpert;
 
         queryResults = jdbcTemplate.query(QUERY_SUM_FLUENCY_RESOURCE_EXPERT, INTEGER_ROW_MAPPER);
         if (queryResults.isEmpty()) {
@@ -105,9 +105,9 @@ public class DataEvaluater {
         }
         int sumFluencyUser = queryResults.get(0);
 
-        double meanFluency = (sumFluencyExpert + sumFluencyUser) / resourceCount;
-        double meanFluencyExpert = sumFluencyExpert / resourceCountExpert;
-        double meanFluencyUser = sumFluencyUser / resourceCountUser;
+        double meanFluency = (double)(sumFluencyExpert + sumFluencyUser) / (double)resourceCount;
+        double meanFluencyExpert = (double)sumFluencyExpert / (double)resourceCountExpert;
+        double meanFluencyUser = (double)sumFluencyUser / (double)resourceCountUser;
 
         System.out.println("Evaluation of resource experiments:");
         System.out.println("Experts voted on fluency, adequacy and completeness.");
@@ -117,7 +117,7 @@ public class DataEvaluater {
         System.out.println("Users voted only on fluency.");
         System.out.println("Mean user fluency rating: " + meanFluencyUser);
         System.out.println("Since both experts and users voted on fluency, we can combine their rating:");
-        System.out.println("Mean user rating: " + meanFluency);
+        System.out.println("Mean fluency rating: " + meanFluency);
     }
 
     public static void evaluateClassExperiments(JdbcTemplate jdbcTemplate) {
@@ -147,9 +147,9 @@ public class DataEvaluater {
         }
         int sumCorrectInstanceUser = queryResults.get(0);
 
-        double percentageCorrectExpert = (sumCorrectInstanceExpert / classCountExpert) * 100;
-        double percentageCorrectUser = (sumCorrectInstanceUser / classCountUser) * 100;
-        double percentageCorrect = ((sumCorrectInstanceExpert + sumCorrectInstanceUser) / (classCountExpert + classCountUser)) * 100;
+        double percentageCorrectExpert = ((double)sumCorrectInstanceExpert / (double)classCountExpert) * 100;
+        double percentageCorrectUser = ((double)sumCorrectInstanceUser / (double)classCountUser) * 100;
+        double percentageCorrect = ((double)(sumCorrectInstanceExpert + sumCorrectInstanceUser) / (double)(classCountExpert + classCountUser)) * 100;
 
         System.out.println("Evaluation of class experiments:");
         System.out.println("Percentage of correctly guessed instances by experts: " + percentageCorrectExpert);
