@@ -67,8 +67,8 @@ public class DataEvaluater {
     }
 
     // Resource queries
-    private static final String QUERY_ADEQUACY_RATINGS_RESOURCE = "SELECT adequacy FROM ResourceExperiments;";
-    private static final String QUERY_COMPLETENESS_RATINGS_RESOURCE = "SELECT completeness FROM ResourceExperiments;";
+    private static final String QUERY_ADEQUACY_RATINGS_RESOURCE = "SELECT adequacy FROM ResourceExperiments WHERE adequacy IS NOT NULL;";
+    private static final String QUERY_COMPLETENESS_RATINGS_RESOURCE = "SELECT completeness FROM ResourceExperiments WHERE completeness IS NOT NULL;";
     private static final String QUERY_FLUENCY_RATINGS_RESOURCE_USER = "SELECT fluency FROM ResourceExperiments as R JOIN Users as U ON R.userId=U.id WHERE isExpert=0;";
     private static final String QUERY_FLUENCY_RATINGS_RESOURCE_EXPERT = "SELECT fluency FROM ResourceExperiments as R JOIN Users as U ON R.userId=U.id WHERE isExpert=1;";
 
@@ -98,14 +98,14 @@ public class DataEvaluater {
             return;
         }
         double meanFluencyExpert = MEAN_APPLIER.mapCollection(fluencyRatingsExpert, 0.0, (double)fluencyRatingsExpert.size());
-        double stdDeviationmeanFluencyExpert = Math.sqrt(VARIANCE_APPLIER.mapCollection(fluencyRatingsExpert, 0.0, meanFluencyExpert) / (double)fluencyRatingsExpert.size());
+        double stdDeviationFluencyExpert = Math.sqrt(VARIANCE_APPLIER.mapCollection(fluencyRatingsExpert, 0.0, meanFluencyExpert) / (double)fluencyRatingsExpert.size());
 
         List<Integer> fluencyRatingsUser = jdbcTemplate.query(QUERY_FLUENCY_RATINGS_RESOURCE_USER, INTEGER_ROW_MAPPER);
         if (queryResults.isEmpty()) {
             return;
         }
         double meanFluencyUser = MEAN_APPLIER.mapCollection(fluencyRatingsUser, 0.0, (double)fluencyRatingsUser.size());
-        double stdDeviationFluencyUser = Math.sqrt(VARIANCE_APPLIER.mapCollection(fluencyRatingsUser, 0.0, meanFluencyExpert) / (double)fluencyRatingsUser.size());
+        double stdDeviationFluencyUser = Math.sqrt(VARIANCE_APPLIER.mapCollection(fluencyRatingsUser, 0.0, meanFluencyUser) / (double)fluencyRatingsUser.size());
 
         List<Integer> fluencyRatings = fluencyRatingsExpert;
         fluencyRatings.addAll(fluencyRatingsUser);
@@ -137,7 +137,7 @@ public class DataEvaluater {
 
         System.out.println("Evaluation of resource experiments:");
         System.out.println("Experts voted on fluency, adequacy and completeness.");
-        System.out.println("Mean expert fluency rating: " + meanFluencyExpert + " with a standard deviation of: " + stdDeviationmeanFluencyExpert);
+        System.out.println("Mean expert fluency rating: " + meanFluencyExpert + " with a standard deviation of: " + stdDeviationFluencyExpert);
         System.out.println("Mean expert adequacy rating: " + meanAdequacy + " with a standard deviation of: " + stdDeviationAdequacy);
         System.out.println("Mean expert completeness rating: " + meanCompleteness + " with a standard deviation of: " + stdDeviationCompleteness);
         System.out.println("Users voted only on fluency.");
