@@ -8,9 +8,9 @@ import java.util.List;
 public class OWL2NL_QRUserGroupGuiHelper {
 
     public static final String RADIO_KEY = "usergroup";
-    public static final String EXPERT_RADIO_NAME = "Experienced user";
+    public static final String EXPERT_RADIO_NAME = "Expert";
     public static final String EXPERT_RADIO_VALUE = "true";
-    public static final String AMATEUR_RADIO_NAME = "User";
+    public static final String AMATEUR_RADIO_NAME = "Non-expert";
     public static final String AMATEUR_RADIO_VALUE = "false";
 
     public List<OWL2NL_QRRadioButtonHelper> getRadioButtons() {

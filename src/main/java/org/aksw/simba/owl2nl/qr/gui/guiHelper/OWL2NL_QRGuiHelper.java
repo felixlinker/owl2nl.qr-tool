@@ -25,7 +25,7 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
     public static final String PATH = "survey";
     public static final String PATH_FOR_SUBMIT = "survey";
 
-    public static final String RESULT_SAVED_SUCCESSFULLY_MSG = "Your ratings have been saved successfully.";
+    public static final String RESULT_SAVED_SUCCESSFULLY_MSG = "Your input has been saved successfully.";
     public static final String RESULT_SAVED_ERROR_MSG = "Your rating couldn't be saved.";
 
     public static final String HEAD_TAGS = "<meta content=\"text/html; charset=UTF-8\" http-equiv=\"content-type\" />\n"

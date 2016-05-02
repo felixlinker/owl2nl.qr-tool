@@ -107,7 +107,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
         container.addElement(headerDiv);
         container.addElement(new Paragraph("Before you start with the evaluation please tell us how familiar you are with RDF and OWL concepts."));
-        container.addElement(new Paragraph("If you're not familiar with OWL and RDF concepts, please select 'User' as user group. If you are familiar with those concepts, you can select 'Experienced user' as user group."));
+        container.addElement(new Paragraph("If you're not familiar with OWL and RDF concepts, please select '" + OWL2NL_QRUserGroupGuiHelper.AMATEUR_RADIO_NAME + "' as user group. If you are familiar with those concepts, you can select '" + OWL2NL_QRUserGroupGuiHelper.EXPERT_RADIO_NAME + "' as user group."));
 
         container.addElement(createUserGroupSelection());
         this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
@@ -211,8 +211,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
                 Paragraph p = new Paragraph();
                 p.addElement(new BoldText("Congratulations!"));
                 // ToDo: change keyword or mail?
-                p.addElement(new Text(
-                        " You have answered enough questions to take part in the lottery. Just send the keyword \"banana\" to "));
+                p.addElement(new Text(" You have answered enough questions to take part in the lottery. Just send the keyword \"banana\" to "));
                 p.addElement(new Link("buehmann@informatik.uni-leipzig.de", "mailto:buehmann@informatik.uni-leipzig.de"));
                 p.addElement(new Text("."));
                 messageDiv.addElement(p);

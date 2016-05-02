@@ -66,16 +66,17 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
         HtmlContainer container = new HtmlContainer();
 
         Div explanationDiv = new Div();
-        explanationDiv.addElement(new Paragraph("Below you see all resources and their verbalization by which the resource has been verbalized."));
+        explanationDiv.addElement(new Paragraph("The table below shows all triples (incl. their verbalization) that were used to generate the summary shown above."));
         container.addElement(explanationDiv);
 
+        Table tripleTable = new Table();
         for (OWL2NL_QRTriple triple: triples) {
-            Div tripleDiv = new Div();
-            tripleDiv.addElement(new Paragraph(triple.getTriple()));
-            tripleDiv.addElement(new Paragraph(triple.getVerbalization()));
-            tripleDiv.addElement(new Paragraph());
-            container.addElement(tripleDiv);
+            TableRow tableRow = new TableRow();
+            tableRow.addCell(new Paragraph(triple.getTriple()));
+            tableRow.addCell(new Paragraph(triple.getVerbalization()));
+            tripleTable.addRow(tableRow);
         }
+        container.addElement(tripleTable);
 
         return container;
     }
