@@ -124,7 +124,7 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
     @Override
     HtmlContainer getNextExperimentContainer() {
         HtmlContainer container = new HtmlContainer();
-        container.addElement(new Paragraph("Thank you for your effort so far! You will now do a different experiment."));
+        container.addElement(new Paragraph("Thank you for your effort so far! You will now do a different experiment. Note that this experiment will only be shown when you are an expert."));
         OWL2NL_QRAxiomVerbExperimentPage.addInstructionsParagraph(container);
         return container;
     }

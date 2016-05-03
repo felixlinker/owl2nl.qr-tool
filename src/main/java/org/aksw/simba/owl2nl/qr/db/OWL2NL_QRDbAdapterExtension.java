@@ -14,7 +14,7 @@ public class OWL2NL_QRDbAdapterExtension {
 
     private static final String UPDATE_EXPERT_USER = "UPDATE Users SET isExpert=? WHERE id=?;";
     private static final String INSERT_USER = "INSERT INTO Users(username) VALUES (?)";
-    private static final String SELECT_NUMBER_OF_ANSWERS = "(SELECT COUNT(axiomId) FROM AxiomExperiments WHERE userId=?) UNION (SELECT COUNT(axiomId) FROM ClassExperiments WHERE userId=?) UNION (SELECT COUNT(resourceId) FROM ResourceExperiments WHERE userId=?);";
+    private static final String SELECT_NUMBER_OF_ANSWERS = "SELECT COUNT(axiomId) FROM AxiomExperiments WHERE userId=?;";
     private static final String SELECT_USER = "SELECT id, isExpert FROM Users WHERE id=?;";
     private static final String SELECT_USER_IS_EXPERT = "SELECT isExpert FROM USERS WHERE id=?;";
 
@@ -43,7 +43,7 @@ public class OWL2NL_QRDbAdapterExtension {
         if (!users.isEmpty()) {
             user = users.get(0);
 
-            List<Integer> numberOfAnswers = db.getJdbcTemplate().query(SELECT_NUMBER_OF_ANSWERS, new Object[] { userId, userId, userId }, INT_ROW_MAPPER);
+            List<Integer> numberOfAnswers = db.getJdbcTemplate().query(SELECT_NUMBER_OF_ANSWERS, new Object[] { userId }, INT_ROW_MAPPER);
             if (!numberOfAnswers.isEmpty()) {
                 int count = 0;
                 for (Integer number: numberOfAnswers) {
