@@ -7,9 +7,6 @@ import org.aksw.simba.webelements.*;
 
 import java.util.HashMap;
 
-/**
- * Created by felix on 03.05.2016.
- */
 public abstract class OWL2NL_QRPage implements Page {
 
     protected String onload;

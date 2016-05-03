@@ -21,33 +21,22 @@ public class OWL2NL_QRResourceVerbExperimentResult extends OWL2NL_QRExperimentRe
 
     /**
      * Constructor for user group amateur result
-     * @param baseResult
-     * @param fluency
+     * @param baseResult Base result
+     * @param fluency FLuency rating
      */
     public OWL2NL_QRResourceVerbExperimentResult(OWL2NL_QRExperimentResultBase baseResult, int fluency) {
-        super(baseResult);
-        initResult(-1, fluency, -1);
+        this(baseResult, -1, fluency, -1);
     }
 
     /**
      * Constructor for user group expert result
-     * @param id
-     * @param adequacy
-     * @param fluency
-     * @param completeness
+     * @param baseResult Base result
+     * @param adequacy Adequacy rating
+     * @param fluency Fluency rating
+     * @param completeness Completeness rating
      */
     public OWL2NL_QRResourceVerbExperimentResult(OWL2NL_QRExperimentResultBase baseResult, int adequacy, int fluency, int completeness) {
         super(baseResult);
-        initResult(adequacy, fluency, completeness);
-    }
-
-    /**
-     * Local constructor helper
-     * @param adequacy
-     * @param fluency
-     * @param completeness
-     */
-    private void initResult(int adequacy, int fluency, int completeness) {
         this.adequacy = adequacy;
         this.fluency = fluency;
         this.completeness = completeness;

@@ -1,8 +1,5 @@
 package org.aksw.simba.owl2nl.qr.gui.webElementsHelper;
 
-/**
- * Created by felix on 07.04.2016.
- */
 public class OWL2NL_QRRadioButtonHelper {
     private String name;
     private String key;
