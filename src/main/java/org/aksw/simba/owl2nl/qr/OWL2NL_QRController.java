@@ -74,6 +74,6 @@ public class OWL2NL_QRController extends Controller {
 
     @Override
     protected boolean shouldContainExperimentResult(HttpServletRequest request, GuiHelper<ExperimentSetup> guiHelper) {
-        return request.getParameter(OWL2NL_QRGuiHelper.SUBMIT_BUTTON_KEY) != null;
+        return request.getParameter(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY) != null;
     }
 }

@@ -36,7 +36,6 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
     protected void addPageContentNextExperiment(HtmlContainer container) {
         container.addElement(getNextExperimentContainer());
 
-        this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
         this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, getNextExperimentType());
     }
 

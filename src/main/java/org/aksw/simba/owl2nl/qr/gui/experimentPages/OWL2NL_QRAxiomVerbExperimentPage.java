@@ -53,7 +53,7 @@ public class OWL2NL_QRAxiomVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         axiomParagraph.addElement(new BoldText(experiment.getAxiom()));
         bodyDiv.addElement(axiomParagraph);
 
-        bodyDiv.addElement(new Paragraph("Verbalization: "+experiment.getVerbalization()));
+        bodyDiv.addElement(new Paragraph("Verbalization: "+ experiment.getVerbalization()));
 
         bodyDiv.addElement(OWL2NL_QRPageElements.generateStarRatingTable(guiHelper.STAR_RATINGS));
 

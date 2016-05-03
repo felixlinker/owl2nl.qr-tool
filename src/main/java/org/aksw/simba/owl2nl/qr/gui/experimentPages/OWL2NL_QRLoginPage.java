@@ -26,7 +26,6 @@ public class OWL2NL_QRLoginPage extends OWL2NL_QRPage {
         loginContainer.addElement(new Paragraph("If you're not familiar with OWL and RDF concepts, please select '" + OWL2NL_QRUserGroupGuiHelper.AMATEUR_RADIO_NAME + "' as user group. If you are familiar with those concepts, you can select '" + OWL2NL_QRUserGroupGuiHelper.EXPERT_RADIO_NAME + "' as user group."));
 
         loginContainer.addElement(createUserGroupSelection());
-        this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY, Integer.toString(-1));
         this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, guiHelper.getExperimentIdentifierValue());
 
         loginContainer.addElement(OWL2NL_QRPageElements.createSubmitButton());
