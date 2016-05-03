@@ -71,14 +71,14 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
 
             Table tripleTable = new Table();
             if (experiment.isPerformedByExpert()) {
-                TableRow headCells = OWL2NL_QRPageElements.newTableRow();
+                TableRow headCells = OWL2NL_QRPageElements.newPaddedTableRow();
                 headCells.addCell(new BoldText("Triple"));
                 headCells.addCell(new BoldText("Verbalization"));
                 tripleTable.addRow(headCells);
             }
 
             for (OWL2NL_QRTriple triple: instance.getTriples()) {
-                TableRow cells = OWL2NL_QRPageElements.newTableRow();
+                TableRow cells = OWL2NL_QRPageElements.newPaddedTableRow();
                 if (experiment.isPerformedByExpert()) {
                     cells.addCell(new Paragraph(triple.getTriple()));
                 }
@@ -100,14 +100,14 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         LinkedList<OWL2NL_QRTriple> overheadTriples = experiment.getOverheadTriples();
         Table overheadTable = new Table();
         if (experiment.isPerformedByExpert()) {
-            TableRow head = OWL2NL_QRPageElements.newTableRow();
+            TableRow head = OWL2NL_QRPageElements.newPaddedTableRow();
             head.addCell(new Paragraph("Triple"));
             head.addCell(new Paragraph("Verbalization"));
             overheadTable.addRow(head);
         }
 
         for (OWL2NL_QRTriple triple: overheadTriples) {
-            TableRow cells = OWL2NL_QRPageElements.newTableRow();
+            TableRow cells = OWL2NL_QRPageElements.newPaddedTableRow();
             if (experiment.isPerformedByExpert()) {
                 cells.addCell(new Paragraph(triple.getTriple()));
             }

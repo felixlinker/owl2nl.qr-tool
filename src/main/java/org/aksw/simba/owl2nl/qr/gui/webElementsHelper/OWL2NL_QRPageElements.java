@@ -43,7 +43,7 @@ public class OWL2NL_QRPageElements {
             label.addAttribute("for", "radio_" + button.getValue());
             label.addAttribute("class", "rating_label");
 
-            TableRow row = OWL2NL_QRPageElements.newTableRow();
+            TableRow row = new TableRow();
             row.addCell(input);
             row.addCell(label);
             table.addRow(row);
@@ -60,7 +60,7 @@ public class OWL2NL_QRPageElements {
 
         Table table = new Table();
         for (OWL2NL_QRStarRatingHelper rating: ratings) {
-            TableRow row = OWL2NL_QRPageElements.newTableRow();
+            TableRow row = new TableRow();
             row.addCell(new TableCell(new Text(rating.getName())));
             row.addCell(new TableCell(generateStarRating(0, 5, 1, rating.getKey(), rating.getKey())));
             table.addRow(row);
@@ -95,7 +95,7 @@ public class OWL2NL_QRPageElements {
         return headerDiv;
     }
 
-    public static TableRow newTableRow() {
+    public static TableRow newPaddedTableRow() {
         TableRow tableRow = new TableRow();
         tableRow.setClass(TABLE_ROW_CLASS);
         return tableRow;
