@@ -31,12 +31,33 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, guiHelper.getExperimentIdentifierValue());
 
         container.addElement(experimentDiv);
+
+        container.addElement(OWL2NL_QRPageElements.createSubmitButton());
     }
 
     protected void addPageContentNextExperiment(HtmlContainer container) {
+        HtmlContainer nextExperimentContainer = getNextExperimentContainer();
+
+        if (nextExperimentContainer == null) {
+            addPageContentFinishPage(container);
+            return;
+        }
+
         container.addElement(getNextExperimentContainer());
 
+        container.addElement(OWL2NL_QRPageElements.createSubmitButton());
+
         this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, getNextExperimentType());
+    }
+
+    protected void addPageContentFinishPage(HtmlContainer container) {
+        Div alertDiv = new Div();
+        alertDiv.addAttribute("class", "alert alert-warning");
+        alertDiv.addAttribute("role", "alert");
+        alertDiv.addElement(new Text("There are no more datasets for you. Thank you very much for all the work that you have done!"));
+        container.addElement(alertDiv);
+
+        container.addElement(getWinMessage());
     }
 
     protected HtmlContainer createContent() {
@@ -46,7 +67,6 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         } else { // experiment == null
             addPageContentNextExperiment(container);
         }
-        container.addElement(OWL2NL_QRPageElements.createSubmitButton());
 
         return container;
     }
@@ -70,21 +90,25 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
                 messagesDiv.addElement(messageDiv);
             }
             if (experiment.getUserAnswerCount() >= OWL2NL_QRGuiHelper.NUMBER_OF_ANSWERS_NEEDED_FOR_KEY_WORD) {
-                Div messageDiv = new Div();
-                messageDiv.addAttribute("class", "alert alert-success");
-                messageDiv.addAttribute("role", "alert");
-                Paragraph p = new Paragraph();
-                p.addElement(new BoldText("Congratulations!"));
-                // ToDo: change keyword or mail?
-                p.addElement(new Text(" You have answered enough questions to take part in the lottery. Just send the keyword \"banana\" to "));
-                p.addElement(new Link("buehmann@informatik.uni-leipzig.de", "mailto:buehmann@informatik.uni-leipzig.de"));
-                p.addElement(new Text("."));
-                messageDiv.addElement(p);
-                messageDiv.addElement(new Paragraph("Thank you very much for your effort!"));
-                messagesDiv.addElement(messageDiv);
+                messagesDiv.addElement(getWinMessage());
             }
         }
         return messagesDiv;
+    }
+
+    protected static WebElement getWinMessage() {
+        Div messageDiv = new Div();
+        messageDiv.addAttribute("class", "alert alert-success");
+        messageDiv.addAttribute("role", "alert");
+        Paragraph p = new Paragraph();
+        p.addElement(new BoldText("Congratulations!"));
+        p.addElement(new Text(" You have answered enough questions to take part in the lottery. Just send the keyword \"banana\" to "));
+        p.addElement(new Link("buehmann@informatik.uni-leipzig.de", "mailto:buehmann@informatik.uni-leipzig.de"));
+        p.addElement(new Text("."));
+        messageDiv.addElement(p);
+        messageDiv.addElement(new Paragraph("Thank you very much for your effort!"));
+
+        return messageDiv;
     }
 
     protected static String getWinText() {
