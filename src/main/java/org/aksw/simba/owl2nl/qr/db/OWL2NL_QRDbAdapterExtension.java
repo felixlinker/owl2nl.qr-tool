@@ -16,18 +16,14 @@ public class OWL2NL_QRDbAdapterExtension {
     private static final String INSERT_USER = "INSERT INTO Users(username) VALUES (?)";
     private static final String SELECT_NUMBER_OF_ANSWERS = "SELECT COUNT(axiomId) FROM AxiomExperiments WHERE userId=?;";
     private static final String SELECT_USER = "SELECT id, isExpert FROM Users WHERE id=?;";
-    private static final String SELECT_USER_IS_EXPERT = "SELECT isExpert FROM USERS WHERE id=?;";
+    private static final String SELECT_USER_IS_EXPERT = "SELECT * FROM USERS WHERE id=? AND isExpert IS NOT NULL;";
 
     private static final IntegerRowMapper INT_ROW_MAPPER = new IntegerRowMapper();
     private static final OWL2NL_QRUserRowMapper USER_ROW_MAPPER = new OWL2NL_QRUserRowMapper();
-    private static final RowMapper<Object> USER_EXPERT_ROW_MAPPER = new RowMapper<Object>() {
+    private static final RowMapper<Object> OBJECT_ROW_MAPPER = new RowMapper<Object>() {
         @Override
         public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-            if (rs.getString("isExpert") != null) {
-                return new Object();
-            }
-
-            return null;
+            return new Object();
         }
     };
 
@@ -58,7 +54,7 @@ public class OWL2NL_QRDbAdapterExtension {
     }
 
     public static boolean isExpertUnknown(int userId, DbAdapter db) {
-        return db.getJdbcTemplate().query(SELECT_USER_IS_EXPERT, new Object[] { userId }, USER_EXPERT_ROW_MAPPER).isEmpty();
+        return db.getJdbcTemplate().query(SELECT_USER_IS_EXPERT, new Object[] { userId }, OBJECT_ROW_MAPPER).isEmpty();
     }
 
     public static void setUserIsExpert(boolean isExpert, int userId, DbAdapter db) {

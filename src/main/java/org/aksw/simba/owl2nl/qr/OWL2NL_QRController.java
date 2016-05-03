@@ -50,7 +50,9 @@ public class OWL2NL_QRController extends Controller {
             if (userGroupParameter != null) {
                 boolean isExpert = Boolean.parseBoolean(userGroupParameter);
                 OWL2NL_QRDbAdapterExtension.setUserIsExpert(isExpert, userId, db);
-            } else if (OWL2NL_QRDbAdapterExtension.isExpertUnknown(userId, db)) {
+            }
+
+            if (OWL2NL_QRDbAdapterExtension.isExpertUnknown(userId, db)) {
                 return null;
             }
 
