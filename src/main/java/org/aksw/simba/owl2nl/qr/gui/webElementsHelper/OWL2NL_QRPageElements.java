@@ -9,6 +9,9 @@ import java.util.Collection;
  * Holds some static methods for creating web elements.
  */
 public class OWL2NL_QRPageElements {
+
+    private static final String TABLE_ROW_CLASS = "tr-owl";
+
     public static WebElement generateUnorderedList(Collection<String> items) throws IllegalArgumentException {
         if (items.size() == 0) {
             throw new IllegalArgumentException();
@@ -40,7 +43,7 @@ public class OWL2NL_QRPageElements {
             label.addAttribute("for", "radio_" + button.getValue());
             label.addAttribute("class", "rating_label");
 
-            TableRow row = new TableRow();
+            TableRow row = OWL2NL_QRPageElements.newTableRow();
             row.addCell(input);
             row.addCell(label);
             table.addRow(row);
@@ -57,7 +60,7 @@ public class OWL2NL_QRPageElements {
 
         Table table = new Table();
         for (OWL2NL_QRStarRatingHelper rating: ratings) {
-            TableRow row = new TableRow();
+            TableRow row = OWL2NL_QRPageElements.newTableRow();
             row.addCell(new TableCell(new Text(rating.getName())));
             row.addCell(new TableCell(generateStarRating(0, 5, 1, rating.getKey(), rating.getKey())));
             table.addRow(row);
@@ -92,4 +95,9 @@ public class OWL2NL_QRPageElements {
         return headerDiv;
     }
 
+    public static TableRow newTableRow() {
+        TableRow tableRow = new TableRow();
+        tableRow.setClass(TABLE_ROW_CLASS);
+        return tableRow;
+    }
 }

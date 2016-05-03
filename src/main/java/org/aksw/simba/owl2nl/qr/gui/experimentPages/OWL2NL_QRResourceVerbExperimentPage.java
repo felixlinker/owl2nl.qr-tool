@@ -75,7 +75,7 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
 
         Table tripleTable = new Table();
         for (OWL2NL_QRTriple triple: triples) {
-            TableRow tableRow = new TableRow();
+            TableRow tableRow = OWL2NL_QRPageElements.newTableRow();
             tableRow.addCell(new Paragraph(triple.getTriple()));
             tableRow.addCell(new Paragraph(triple.getVerbalization()));
             tripleTable.addRow(tableRow);
