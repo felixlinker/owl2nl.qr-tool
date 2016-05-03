@@ -33,6 +33,7 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
             + "<link href=\"css/bootstrap.min.css\" type=\"text/css\" rel=\"stylesheet\">\n"
             + "<link href=\"css/bootstrap-theme.min.css\" type=\"text/css\" rel=\"stylesheet\">\n"
             + "<link href=\"css/star-rating.min.css\" type=\"text/css\" rel=\"stylesheet\">\n"
+            + "<link href=\"css/table-styles.css\" type=\"text/css\" rel=\"stylesheet\">\n"
             + "<!--java script files are included at the end of the body -->\n";
 
     public OWL2NL_QRGuiHelper(Class<T> type) {
