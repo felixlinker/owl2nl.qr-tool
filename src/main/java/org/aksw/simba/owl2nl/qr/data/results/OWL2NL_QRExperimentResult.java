@@ -16,12 +16,4 @@ public class OWL2NL_QRExperimentResult implements ExperimentResult {
     public int getExperimentSetupId() {
         return baseResult.getExperimentSetupId();
     }
-
-    public boolean isExpert() {
-        return baseResult.isExpert();
-    }
-
-    public boolean isExpertSet() {
-        return baseResult.isExpertSet();
-    }
 }

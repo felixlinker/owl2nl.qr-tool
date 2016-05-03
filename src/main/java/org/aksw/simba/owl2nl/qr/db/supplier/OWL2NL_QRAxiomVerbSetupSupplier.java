@@ -24,8 +24,8 @@ public class OWL2NL_QRAxiomVerbSetupSupplier extends OWL2NL_QRAxiomSetupSupplier
     public ExperimentSetup getExperimentSetupForUser(JdbcTemplate jdbctemplate, User user) {
         // excluse amateurs from this experiment
         if (user instanceof OWL2NL_QRUser) {
-            if (!((OWL2NL_QRUser) user).isExpert() && ((OWL2NL_QRUser) user).isExpertSet()) {
-                return null;
+            if (!((OWL2NL_QRUser) user).isExpert()) {
+                return null; // ToDo: maybe better way to do this?
             }
         }
 

@@ -2,7 +2,9 @@ package org.aksw.simba.owl2nl.qr.gui.experimentPages;
 
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRResourceVerbExperimentSetup;
 import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;
+import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRClassVerbGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRResourceVerbGuiHelper;
+import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRPageElements;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRStarRatingHelper;
 import org.aksw.simba.webelements.*;
 import org.aksw.simba.webelements.Heading.HeadingOrder;
@@ -26,11 +28,14 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
         headerDiv.addAttribute("class", "page-header");
         headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
         container.addElement(headerDiv);
-
-        container.addElement(new Paragraph("In this experiment you have to rate the verbalization of a resource. If you're not an expert, you'll just be able to rate the fluency of the language."));
-        container.addElement(new Paragraph("If however you are an expert you'll see the triples creating the resource. Please rate how complete and adequate the resources verbalization is, too."));
+        addInstructionsParagraph(container);
 
         return container;
+    }
+
+    public static void addInstructionsParagraph(HtmlContainer container) {
+        container.addElement(new Paragraph("In this experiment you have to rate the verbalization of a resource. If you're not an expert, you'll just be able to rate the fluency of the language."));
+        container.addElement(new Paragraph("If however you are an expert you'll see the triples creating the resource. Please rate how complete and adequate the resources verbalization is, too."));
     }
 
     @Override
@@ -50,13 +55,12 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
         bodyDiv.addElement(new Paragraph(new BoldText(experiment.getResourceVerbalization())));
         OWL2NL_QRStarRatingHelper[] starRatingHelpers;
         if (experiment.isPerformedByExpert()) {
-//            bodyDiv.addElement(generateUnorderedList(guiHelper.TRIPLE_STRING_LIST_CONVERTER.map(experiment.getTriples())));
             bodyDiv.addElement(generateTriplesParagraph(experiment.getTriples()));
             starRatingHelpers = guiHelper.STAR_RATINGS_EXPERT;
         } else {
             starRatingHelpers = guiHelper.STAR_RATINGS_AMATEUR;
         }
-        bodyDiv.addElement(generateStarRatingTable(starRatingHelpers));
+        bodyDiv.addElement(OWL2NL_QRPageElements.generateStarRatingTable(starRatingHelpers));
 
         experimentDiv.addElement(bodyDiv);
         return experimentDiv;
@@ -79,5 +83,18 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
         container.addElement(tripleTable);
 
         return container;
+    }
+
+    @Override
+    HtmlContainer getNextExperimentContainer() {
+        HtmlContainer container = new HtmlContainer();
+        container.addElement(new Paragraph("Thank you for your effort so far! You will now do a different experiment."));
+        OWL2NL_QRClassVerbExperimentPage.addInstructionsParagraph(container);
+        return container;
+    }
+
+    @Override
+    String getNextExperimentType() {
+        return OWL2NL_QRClassVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE;
     }
 }

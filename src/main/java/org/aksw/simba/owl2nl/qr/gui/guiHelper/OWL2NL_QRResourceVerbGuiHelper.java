@@ -3,7 +3,6 @@ package org.aksw.simba.owl2nl.qr.gui.guiHelper;
 import org.aksw.simba.owl2nl.qr.data.ListConverter;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRResourceVerbExperimentSetup;
 import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;
-import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentSelectionPage;
 import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRResourceVerbExperimentPage;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRStarRatingHelper;
 import org.aksw.simba.qr.gui.Page;
@@ -34,8 +33,7 @@ public class OWL2NL_QRResourceVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QR
 
     @Override
     public Page getFinishPage() {
-//        return new OWL2NL_QRResourceVerbExperimentPage(this, null);
-        return new OWL2NL_QRExperimentSelectionPage(true);
+        return new OWL2NL_QRResourceVerbExperimentPage(this, null);
     }
 
     @Override

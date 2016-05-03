@@ -26,6 +26,22 @@
 
 	<!--<bean id="guiHelper" class="org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper" />-->
 
+	<!-- Resource verbalization -->
+	<bean class="org.aksw.simba.qr.datatypes.SimpleExperimentDescription">
+		<constructor-arg name="experimentName" value="OWL2NL_QRResourceVerb" />
+		<constructor-arg name="experimentSetupSupplier">
+			<bean class="org.aksw.simba.owl2nl.qr.db.supplier.OWL2NL_QRResourceVerbSetupSupplier" />
+		</constructor-arg>
+		<constructor-arg name="guiHelper">
+			<bean class="org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRResourceVerbGuiHelper" />
+		</constructor-arg>
+		<constructor-arg name="experimentResultParser">
+			<bean class="org.aksw.simba.owl2nl.qr.parser.OWL2NL_QRResourceVerbResultParser" />
+		</constructor-arg>
+		<constructor-arg name="experimentResultConsumer">
+			<bean class="org.aksw.simba.owl2nl.qr.db.consumer.OWL2NL_QRResourceVerbResultConsumer" />
+		</constructor-arg>
+	</bean>
 
 	<!-- Class verbalization -->
 	<bean class="org.aksw.simba.qr.datatypes.SimpleExperimentDescription">
@@ -41,23 +57,6 @@
 		</constructor-arg>
 		<constructor-arg name="experimentResultConsumer">
 			<bean class="org.aksw.simba.owl2nl.qr.db.consumer.OWL2NL_QRClassVerbResultConsumer" />
-		</constructor-arg>
-	</bean>
-
-	<!-- Resource verbalization -->
-	<bean class="org.aksw.simba.qr.datatypes.SimpleExperimentDescription">
-		<constructor-arg name="experimentName" value="OWL2NL_QRResourceVerb" />
-		<constructor-arg name="experimentSetupSupplier">
-			<bean class="org.aksw.simba.owl2nl.qr.db.supplier.OWL2NL_QRResourceVerbSetupSupplier" />
-		</constructor-arg>
-		<constructor-arg name="guiHelper">
-			<bean class="org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRResourceVerbGuiHelper" />
-		</constructor-arg>
-		<constructor-arg name="experimentResultParser">
-			<bean class="org.aksw.simba.owl2nl.qr.parser.OWL2NL_QRResourceVerbResultParser" />
-		</constructor-arg>
-		<constructor-arg name="experimentResultConsumer">
-			<bean class="org.aksw.simba.owl2nl.qr.db.consumer.OWL2NL_QRResourceVerbResultConsumer" />
 		</constructor-arg>
 	</bean>
 

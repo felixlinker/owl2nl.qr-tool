@@ -18,7 +18,6 @@ public class OWL2NL_QRResourceVerbResultConsumer extends OWL2NL_QRResultConsumer
 
     @Override
     public boolean storeExperimentResult(JdbcTemplate jdbcTemplate, OWL2NL_QRExperimentResult result, User user) {
-        super.storeExperimentResult(jdbcTemplate, result, user);
 
         if (!(result instanceof OWL2NL_QRResourceVerbExperimentResult)) {
             LOGGER.info("The result was meta settings only.");

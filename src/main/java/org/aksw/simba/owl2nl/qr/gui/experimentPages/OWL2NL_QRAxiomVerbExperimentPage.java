@@ -2,6 +2,7 @@ package org.aksw.simba.owl2nl.qr.gui.experimentPages;
 
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRAxiomVerbExperimentSetup;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRAxiomVerbGuiHelper;
+import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRPageElements;
 import org.aksw.simba.webelements.*;
 import org.aksw.simba.webelements.Heading.HeadingOrder;
 
@@ -10,7 +11,7 @@ public class OWL2NL_QRAxiomVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
     private OWL2NL_QRAxiomVerbGuiHelper guiHelper;
 
     public OWL2NL_QRAxiomVerbExperimentPage(OWL2NL_QRAxiomVerbGuiHelper guiHelper, OWL2NL_QRAxiomVerbExperimentSetup experiment) {
-        super(guiHelper,experiment);
+        super(guiHelper, experiment);
         this.guiHelper = guiHelper;
     }
 
@@ -22,12 +23,15 @@ public class OWL2NL_QRAxiomVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         headerDiv.addAttribute("class", "page-header");
         headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
         container.addElement(headerDiv);
+        addInstructionsParagraph(container);
 
+        return container;
+    }
+
+    public static void addInstructionsParagraph(HtmlContainer container) {
         // ToDo: check language
         container.addElement(new Paragraph("Below you can see an axiom from an owl ontology and its verbalization."));
         container.addElement(new Paragraph("Please rate the verbalization according to how adequately it is describing the axiom and how fluent the language is."));
-
-        return container;
     }
 
     @Override
@@ -51,9 +55,19 @@ public class OWL2NL_QRAxiomVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
 
         bodyDiv.addElement(new Paragraph("Verbalization: "+experiment.getVerbalization()));
 
-        bodyDiv.addElement(generateStarRatingTable(guiHelper.STAR_RATINGS));
+        bodyDiv.addElement(OWL2NL_QRPageElements.generateStarRatingTable(guiHelper.STAR_RATINGS));
 
         experimentDiv.addElement(bodyDiv);
         return experimentDiv;
+    }
+
+    @Override
+    HtmlContainer getNextExperimentContainer() {
+        return null; // ToDo - catch null
+    }
+
+    @Override
+    String getNextExperimentType() {
+        return null; // ToDo - catch null
     }
 }

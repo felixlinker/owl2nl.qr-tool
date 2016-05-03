@@ -19,8 +19,6 @@ public class OWL2NL_QRExperimentResultBase {
      */
     private boolean expert = false;
 
-    private boolean baseResultOnly = false;
-
     public OWL2NL_QRExperimentResultBase(int id) {
         this.experimentSetupId = id;
     }
@@ -29,24 +27,8 @@ public class OWL2NL_QRExperimentResultBase {
         return experimentSetupId;
     }
 
-    public void setExpert(boolean expert) {
-        this.expertSet = true;
-        this.expert = expert;
-    }
-
-    public boolean isExpert() {
-        return expert;
-    }
-
-    public boolean isExpertSet() {
-        return expertSet;
-    }
-
     public boolean isBaseResultOnly() {
-        return this.baseResultOnly;
+        return this.experimentSetupId == -1;
     }
 
-    public void setIsBaseResultOnly() {
-        this.baseResultOnly = true;
-    }
 }

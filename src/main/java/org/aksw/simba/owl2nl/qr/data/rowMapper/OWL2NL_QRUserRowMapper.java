@@ -9,11 +9,7 @@ import java.sql.SQLException;
 public class OWL2NL_QRUserRowMapper implements RowMapper<OWL2NL_QRUser> {
     @Override
     public OWL2NL_QRUser mapRow(ResultSet resultSet, int i) throws SQLException {
-        OWL2NL_QRUser user = new OWL2NL_QRUser(resultSet.getInt("id"));
-        // ToDo: what happens if value is not null? Will string be empty, etc.?
-        if (resultSet.getString("isExpert") != null) {
-            user.setExpert(resultSet.getBoolean("isExpert"));
-        }
+        OWL2NL_QRUser user = new OWL2NL_QRUser(resultSet.getInt("id"), resultSet.getBoolean("isExpert"));
 
         return user;
     }
