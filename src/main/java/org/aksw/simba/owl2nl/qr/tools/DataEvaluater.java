@@ -3,7 +3,9 @@ package org.aksw.simba.owl2nl.qr.tools;
 import org.aksw.simba.db.mapper.IntegerRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * Created by felix on 28.04.2016.
@@ -12,8 +14,6 @@ public class DataEvaluater {
 
     private static final IntegerRowMapper INTEGER_ROW_MAPPER = new IntegerRowMapper();
 
-    private static final IApplier<Integer, Double> MEAN_APPLIER = (a, b, c) -> a + (b / c);
-    private static final IApplier<Integer, Double> VARIANCE_APPLIER = (a, b, c) -> a + (b - c)*(b - c);
 
     public static void main(String[] args) {
         JdbcTemplate jdbcTemplate = DataInserter.getJdbcTemplate();
@@ -36,15 +36,16 @@ public class DataEvaluater {
         if (queryResults.isEmpty()) {
             return;
         }
-        double meanFluencyRating = MEAN_APPLIER.mapCollection(queryResults, (double)0, (double)queryResults.size());
-        double stdDeviationFluencyRating = Math.sqrt(VARIANCE_APPLIER.mapCollection(queryResults, 0.0, meanFluencyRating) / (double)queryResults.size());
+
+        double meanFluencyRating = calculateMean(queryResults);
+        double stdDeviationFluencyRating = calculateStandardDeviation(queryResults, meanFluencyRating);
 
         queryResults = jdbcTemplate.query(QUERY_ADEQUACY_RATINGS_AXIOM, INTEGER_ROW_MAPPER);
         if (queryResults.isEmpty()) {
             return;
         }
-        double meanAdequacyRating = MEAN_APPLIER.mapCollection(queryResults, (double)0, (double)queryResults.size());
-        double stdDeviationAdequacyRating = Math.sqrt(VARIANCE_APPLIER.mapCollection(queryResults, 0.0, meanAdequacyRating) / (double)queryResults.size());
+        double meanAdequacyRating = calculateMean(queryResults);
+        double stdDeviationAdequacyRating = calculateStandardDeviation(queryResults, meanAdequacyRating);
 
         queryResults = jdbcTemplate.query(QUERY_COUNT_AXIOMS, INTEGER_ROW_MAPPER);
         if (queryResults.isEmpty()) {
@@ -83,34 +84,34 @@ public class DataEvaluater {
         if (queryResults.isEmpty()) {
             return;
         }
-        double meanAdequacy = MEAN_APPLIER.mapCollection(queryResults, 0.0, (double)queryResults.size());
-        double stdDeviationAdequacy = Math.sqrt(VARIANCE_APPLIER.mapCollection(queryResults, 0.0, meanAdequacy) / (double)queryResults.size());
+        double meanAdequacy = calculateMean(queryResults);
+        double stdDeviationAdequacy = calculateStandardDeviation(queryResults, meanAdequacy);
 
         queryResults = jdbcTemplate.query(QUERY_COMPLETENESS_RATINGS_RESOURCE, INTEGER_ROW_MAPPER);
         if (queryResults.isEmpty()) {
             return;
         }
-        double meanCompleteness = MEAN_APPLIER.mapCollection(queryResults, 0.0, (double)queryResults.size());
-        double stdDeviationCompleteness = Math.sqrt(VARIANCE_APPLIER.mapCollection(queryResults, 0.0, meanCompleteness) / (double)queryResults.size());
+        double meanCompleteness = calculateMean(queryResults);
+        double stdDeviationCompleteness = calculateStandardDeviation(queryResults, meanCompleteness);
 
         List<Integer> fluencyRatingsExpert = jdbcTemplate.query(QUERY_FLUENCY_RATINGS_RESOURCE_EXPERT, INTEGER_ROW_MAPPER);
-        if (queryResults.isEmpty()) {
+        if (fluencyRatingsExpert.isEmpty()) {
             return;
         }
-        double meanFluencyExpert = MEAN_APPLIER.mapCollection(fluencyRatingsExpert, 0.0, (double)fluencyRatingsExpert.size());
-        double stdDeviationFluencyExpert = Math.sqrt(VARIANCE_APPLIER.mapCollection(fluencyRatingsExpert, 0.0, meanFluencyExpert) / (double)fluencyRatingsExpert.size());
+        double meanFluencyExpert = calculateMean(fluencyRatingsExpert);
+        double stdDeviationFluencyExpert = calculateStandardDeviation(fluencyRatingsExpert, meanFluencyExpert);
 
         List<Integer> fluencyRatingsUser = jdbcTemplate.query(QUERY_FLUENCY_RATINGS_RESOURCE_USER, INTEGER_ROW_MAPPER);
-        if (queryResults.isEmpty()) {
+        if (fluencyRatingsUser.isEmpty()) {
             return;
         }
-        double meanFluencyUser = MEAN_APPLIER.mapCollection(fluencyRatingsUser, 0.0, (double)fluencyRatingsUser.size());
-        double stdDeviationFluencyUser = Math.sqrt(VARIANCE_APPLIER.mapCollection(fluencyRatingsUser, 0.0, meanFluencyUser) / (double)fluencyRatingsUser.size());
+        double meanFluencyUser = calculateMean(fluencyRatingsUser);
+        double stdDeviationFluencyUser = calculateStandardDeviation(fluencyRatingsUser, meanFluencyUser);
 
         List<Integer> fluencyRatings = fluencyRatingsExpert;
         fluencyRatings.addAll(fluencyRatingsUser);
-        double meanFluency = MEAN_APPLIER.mapCollection(fluencyRatings, 0.0, (double)fluencyRatings.size());
-        double stdDeviationFluency = Math.sqrt(VARIANCE_APPLIER.mapCollection(fluencyRatings, 0.0, meanFluencyExpert) / (double)fluencyRatings.size());
+        double meanFluency = calculateMean(fluencyRatings);
+        double stdDeviationFluency = calculateStandardDeviation(fluencyRatings, meanFluency);
 
         queryResults = jdbcTemplate.query(QUERY_COUNT_RESOURCES, INTEGER_ROW_MAPPER);
         if (queryResults.isEmpty()) {
@@ -206,5 +207,21 @@ public class DataEvaluater {
         System.out.println("Each class has been tested by an user for " + answeredByUser + " times");
         System.out.println("Each class has been tested by any for " + answeredByAny + " times");
         System.out.println();
+    }
+
+    private static double calculateMean(Collection<Integer> values) {
+        double size = values.size();
+        return values.stream()
+                .mapToDouble(value -> (double)value / size)
+                .sum();
+    }
+
+    private static double calculateStandardDeviation(Collection<Integer> values, double mean) {
+        double size = values.size();
+        double sum = values.stream()
+                .mapToDouble(value -> (value - mean)*(value - mean))
+                .sum();
+
+        return Math.sqrt(sum / size);
     }
 }
