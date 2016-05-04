@@ -26,22 +26,20 @@
 
 	<!--<bean id="guiHelper" class="org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper" />-->
 
-
-	<!-- Axiom verbalization -->
-	<!-- ToDo: different description for different beans? -->
+	<!-- Resource verbalization -->
 	<bean class="org.aksw.simba.qr.datatypes.SimpleExperimentDescription">
-		<constructor-arg name="experimentName" value="OWL2NL_QRAxiomVerb" />
+		<constructor-arg name="experimentName" value="OWL2NL_QRResourceVerb" />
 		<constructor-arg name="experimentSetupSupplier">
-			<bean class="org.aksw.simba.owl2nl.qr.db.supplier.OWL2NL_QRAxiomVerbSetupSupplier" />
+			<bean class="org.aksw.simba.owl2nl.qr.db.supplier.OWL2NL_QRResourceVerbSetupSupplier" />
 		</constructor-arg>
 		<constructor-arg name="guiHelper">
-			<bean class="org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRAxiomVerbGuiHelper" />
+			<bean class="org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRResourceVerbGuiHelper" />
 		</constructor-arg>
 		<constructor-arg name="experimentResultParser">
-			<bean class="org.aksw.simba.owl2nl.qr.parser.OWL2NL_QRAxiomVerbResultParser" />
+			<bean class="org.aksw.simba.owl2nl.qr.parser.OWL2NL_QRResourceVerbResultParser" />
 		</constructor-arg>
 		<constructor-arg name="experimentResultConsumer">
-			<bean class="org.aksw.simba.owl2nl.qr.db.consumer.OWL2NL_QRAxiomVerbResultConsumer" />
+			<bean class="org.aksw.simba.owl2nl.qr.db.consumer.OWL2NL_QRResourceVerbResultConsumer" />
 		</constructor-arg>
 	</bean>
 
@@ -62,20 +60,20 @@
 		</constructor-arg>
 	</bean>
 
-	<!-- Resource verbalization -->
+	<!-- Axiom verbalization -->
 	<bean class="org.aksw.simba.qr.datatypes.SimpleExperimentDescription">
-		<constructor-arg name="experimentName" value="OWL2NL_QRResourceVerb" />
+		<constructor-arg name="experimentName" value="OWL2NL_QRAxiomVerb" />
 		<constructor-arg name="experimentSetupSupplier">
-			<bean class="org.aksw.simba.owl2nl.qr.db.supplier.OWL2NL_QRResourceVerbSetupSupplier" />
+			<bean class="org.aksw.simba.owl2nl.qr.db.supplier.OWL2NL_QRAxiomVerbSetupSupplier" />
 		</constructor-arg>
 		<constructor-arg name="guiHelper">
-			<bean class="org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRResourceVerbGuiHelper" />
+			<bean class="org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRAxiomVerbGuiHelper" />
 		</constructor-arg>
 		<constructor-arg name="experimentResultParser">
-			<bean class="org.aksw.simba.owl2nl.qr.parser.OWL2NL_QRResourceVerbResultParser" />
+			<bean class="org.aksw.simba.owl2nl.qr.parser.OWL2NL_QRAxiomVerbResultParser" />
 		</constructor-arg>
 		<constructor-arg name="experimentResultConsumer">
-			<bean class="org.aksw.simba.owl2nl.qr.db.consumer.OWL2NL_QRResourceVerbResultConsumer" />
+			<bean class="org.aksw.simba.owl2nl.qr.db.consumer.OWL2NL_QRAxiomVerbResultConsumer" />
 		</constructor-arg>
 	</bean>
 </beans>

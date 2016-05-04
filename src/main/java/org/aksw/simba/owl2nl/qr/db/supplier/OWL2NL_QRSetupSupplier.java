@@ -30,20 +30,16 @@ public abstract class OWL2NL_QRSetupSupplier extends AbstractStartedExperimentsF
 
     @Override
     public ExperimentSetup getExperimentSetupForUser(JdbcTemplate jdbctemplate, User user) {
+
         ExperimentSetup setup = super.getExperimentSetupForUser(jdbctemplate, user);
         if (user instanceof OWL2NL_QRUser && setup instanceof OWL2NL_QRExperimentSetup) {
             OWL2NL_QRUser owl2NLQrUser = (OWL2NL_QRUser)user;
             OWL2NL_QRExperimentSetup owl2NlSetup = (OWL2NL_QRExperimentSetup) setup;
 
-            if (owl2NLQrUser.isExpertSet()) {
-                // We know whether he is an expert or not -> do experiments
-                if (setup instanceof OWL2NL_QRExperimentSetup) {
-                    owl2NlSetup.setUserAnswerCount(owl2NLQrUser.getNumberOfAnswers());
-                    owl2NlSetup.setPerformedByExpert(owl2NLQrUser.isExpert());
-                }
+            owl2NlSetup.setUserAnswerCount(owl2NLQrUser.getNumberOfAnswers());
+            owl2NlSetup.setPerformedByExpert(owl2NLQrUser.isExpert());
 
-                return owl2NlSetup;
-            }
+            return owl2NlSetup;
         }
 
         return setup;
@@ -51,9 +47,9 @@ public abstract class OWL2NL_QRSetupSupplier extends AbstractStartedExperimentsF
 
     /**
      * Builds experiment from database based on id
-     * @param jdbcTemplate
-     * @param setupId
-     * @return
+     * @param jdbcTemplate JdbcTemplate
+     * @param setupId Experiment setup id
+     * @return Experiment setup
      */
     @Override
     public ExperimentSetup getExperimentSetup(JdbcTemplate jdbcTemplate, Integer setupId) {
@@ -90,7 +86,7 @@ public abstract class OWL2NL_QRSetupSupplier extends AbstractStartedExperimentsF
      * Will be called on every getExperimentSetup(...) unless you override this method. You can perform any operation you'd like to add needed information to the experiment.
      * @param jdbcTemplate
      * @param experimentSetup
-     * @return
+     * @return Finished experiment setup
      * @throws ClassCastException Should be thrown if experimentSetup is of a wrong subclass of OWL2NL_QRExperimentSetup
      * @throws SQLDataException Should be thrown if there occurs any error during data retrieval for wrong data
      * @throws DataAccessException Should be thrown if there ocurs any error during querying the database

@@ -21,11 +21,6 @@ public abstract class OWL2NL_QRExperimentSetup implements ExperimentSetup {
      */
     private boolean performedByExpert = false;
 
-    /**
-     * Flag to symbolize whether the experiment must include a user group selection
-     */
-    private boolean expertValueKnown = false;
-
     public OWL2NL_QRExperimentSetup(int id) {
         this.id = id;
     }
@@ -48,11 +43,6 @@ public abstract class OWL2NL_QRExperimentSetup implements ExperimentSetup {
     }
 
     public void setPerformedByExpert(boolean performedByExpert) {
-        this.expertValueKnown = true;
         this.performedByExpert = performedByExpert;
-    }
-
-    public boolean isExpertValueKnown() {
-        return expertValueKnown;
     }
 }

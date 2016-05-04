@@ -3,21 +3,29 @@ package org.aksw.simba.owl2nl.qr.db;
 import org.aksw.simba.db.mapper.IntegerRowMapper;
 import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRUser;
 import org.aksw.simba.owl2nl.qr.data.rowMapper.OWL2NL_QRUserRowMapper;
-import org.aksw.simba.qr.datatypes.User;
 import org.aksw.simba.qr.db.DbAdapter;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class OWL2NL_QRDbAdapterExtension {
 
     private static final String UPDATE_EXPERT_USER = "UPDATE Users SET isExpert=? WHERE id=?;";
     private static final String INSERT_USER = "INSERT INTO Users(username) VALUES (?)";
-    private static final String SELECT_NUMBER_OF_ANSWERS = "(SELECT COUNT(axiomId) FROM AxiomExperiments WHERE userId=?) UNION (SELECT COUNT(axiomId) FROM ClassExperiments WHERE userId=?) UNION (SELECT COUNT(resourceId) FROM ResourceExperiments WHERE userId=?);";
+    private static final String SELECT_NUMBER_OF_ANSWERS = "SELECT COUNT(axiomId) FROM AxiomExperiments WHERE userId=?;";
     private static final String SELECT_USER = "SELECT id, isExpert FROM Users WHERE id=?;";
+    private static final String SELECT_USER_IS_EXPERT = "SELECT * FROM USERS WHERE id=? AND isExpert IS NOT NULL;";
 
     private static final IntegerRowMapper INT_ROW_MAPPER = new IntegerRowMapper();
     private static final OWL2NL_QRUserRowMapper USER_ROW_MAPPER = new OWL2NL_QRUserRowMapper();
+    private static final RowMapper<Object> OBJECT_ROW_MAPPER = new RowMapper<Object>() {
+        @Override
+        public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return new Object();
+        }
+    };
 
     public static int addUser(String loginName, DbAdapter db) {
         db.getJdbcTemplate().update(INSERT_USER, new Object[] { loginName });
@@ -31,7 +39,7 @@ public class OWL2NL_QRDbAdapterExtension {
         if (!users.isEmpty()) {
             user = users.get(0);
 
-            List<Integer> numberOfAnswers = db.getJdbcTemplate().query(SELECT_NUMBER_OF_ANSWERS, new Object[] { userId, userId, userId }, INT_ROW_MAPPER);
+            List<Integer> numberOfAnswers = db.getJdbcTemplate().query(SELECT_NUMBER_OF_ANSWERS, new Object[] { userId }, INT_ROW_MAPPER);
             if (!numberOfAnswers.isEmpty()) {
                 int count = 0;
                 for (Integer number: numberOfAnswers) {
@@ -45,13 +53,11 @@ public class OWL2NL_QRDbAdapterExtension {
         return user;
     }
 
-    public static void setUserIsExpert(JdbcTemplate jdbcTemplate, User user, boolean isExpert) {
-        if (jdbcTemplate.update(UPDATE_EXPERT_USER, new Object[] { isExpert ? 1 : 0, user.getId() }) > 0) {
-            if (user instanceof OWL2NL_QRUser) {
-                ((OWL2NL_QRUser) user).setExpert(isExpert);
-            }
-        }
+    public static boolean isExpertUnknown(int userId, DbAdapter db) {
+        return db.getJdbcTemplate().query(SELECT_USER_IS_EXPERT, new Object[] { userId }, OBJECT_ROW_MAPPER).isEmpty();
+    }
 
-        // ToDo: log errors
+    public static void setUserIsExpert(boolean isExpert, int userId, DbAdapter db) {
+        db.getJdbcTemplate().update(UPDATE_EXPERT_USER, new Object[] { isExpert ? 1 : 0, userId });
     }
 }

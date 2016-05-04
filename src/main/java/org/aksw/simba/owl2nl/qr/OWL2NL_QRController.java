@@ -2,8 +2,8 @@ package org.aksw.simba.owl2nl.qr;
 
 import org.aksw.simba.owl2nl.qr.data.OWL2NL_QRUser;
 import org.aksw.simba.owl2nl.qr.db.OWL2NL_QRDbAdapterExtension;
-import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRExperimentSelectionGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper;
+import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRUserGroupGuiHelper;
 import org.aksw.simba.qr.Controller;
 import org.aksw.simba.qr.datatypes.ExperimentDescription;
 import org.aksw.simba.qr.datatypes.ExperimentSetup;
@@ -24,24 +24,38 @@ public class OWL2NL_QRController extends Controller {
     private static final long serialVersionUID = 1L;
 
     public OWL2NL_QRController() {
-        this.setDefaultGuiHelper(new OWL2NL_QRExperimentSelectionGuiHelper());
+        this.setDefaultGuiHelper(new OWL2NL_QRUserGroupGuiHelper());
     }
 
     @Override
     protected User identifyUser(HttpServletRequest request, GuiHelper<ExperimentSetup> guiHelper) {
-        // Force login page upon experiment selection
-        if (request.getParameter(OWL2NL_QRGuiHelper.EXPERIMENT_SELECTION_BUTTON_KEY) != null) {
-            return null;
-        }
 
         HttpSession session = request.getSession();
         DbAdapter db = getDbAdapter();
+
         int userId = db.getUserId(session.getId());
         if (userId == DbAdapter.ID_NOT_FOUND) {
             LOGGER.info("Identified a new user session ({}). Adding it to the database.", session.getId());
-            userId = OWL2NL_QRDbAdapterExtension.addUser(session.getId(), db);
-            return new OWL2NL_QRUser(userId);
+
+            // Add the user
+            OWL2NL_QRDbAdapterExtension.addUser(session.getId(), db);
+
+            // Send login page
+            return null;
+
         } else {
+
+            // Parse user group selection
+            String userGroupParameter = request.getParameter(OWL2NL_QRUserGroupGuiHelper.RADIO_KEY);
+            if (userGroupParameter != null) {
+                boolean isExpert = Boolean.parseBoolean(userGroupParameter);
+                OWL2NL_QRDbAdapterExtension.setUserIsExpert(isExpert, userId, db);
+            }
+
+            if (OWL2NL_QRDbAdapterExtension.isExpertUnknown(userId, db)) {
+                return null;
+            }
+
             OWL2NL_QRUser user = OWL2NL_QRDbAdapterExtension.getUser(userId, db);
             LOGGER.info("user #" + userId + " has already " + user.getNumberOfAnswers() + " answers.");
             return user;
@@ -49,8 +63,7 @@ public class OWL2NL_QRController extends Controller {
     }
 
     @Override
-    protected ExperimentDescription<?, ?> identifyExperiment(HttpServletRequest request,
-            GuiHelper<ExperimentSetup> guiHelper) {
+    protected ExperimentDescription<?, ?> identifyExperiment(HttpServletRequest request, GuiHelper<ExperimentSetup> guiHelper) {
         ExperimentDescription<?, ?> expDesc = super.identifyExperiment(request, guiHelper);
         if (expDesc == null) {
             List<ExperimentDescription<?, ?>> experimentDescriptions = getExperimentDescriptions();
@@ -62,6 +75,6 @@ public class OWL2NL_QRController extends Controller {
 
     @Override
     protected boolean shouldContainExperimentResult(HttpServletRequest request, GuiHelper<ExperimentSetup> guiHelper) {
-        return request.getParameter(OWL2NL_QRGuiHelper.SUBMIT_BUTTON_KEY) != null;
+        return request.getParameter(OWL2NL_QRGuiHelper.EXPERIMENT_ID_KEY) != null;
     }
 }

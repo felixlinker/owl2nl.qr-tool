@@ -3,7 +3,9 @@ package org.aksw.simba.owl2nl.qr.gui.experimentPages;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRClassVerbExperimentSetup;
 import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRInstance;
 import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;
+import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRAxiomVerbGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRClassVerbGuiHelper;
+import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRPageElements;
 import org.aksw.simba.webelements.*;
 import org.aksw.simba.webelements.Heading.HeadingOrder;
 
@@ -27,13 +29,16 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         headerDiv.addAttribute("class", "page-header");
         headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
         container.addElement(headerDiv);
+        addInstructionsParagraph(container);
 
+        return container;
+    }
+
+    public static void addInstructionsParagraph(HtmlContainer container) {
         container.addElement(new Paragraph("In this experiment, you will see an axiom and/or it's verbalization. Below there are five instances of the class described by the axiom. Four of them wrong and one correct."));
         container.addElement(new Paragraph("Please select the correct instance."));
         container.addElement(new Paragraph("The instances are described by triples. If you're not an expert you'll only see some \"facts\" about the instance."));
         container.addElement(new Paragraph("Below the instance selection you see some triples describing overall information that might be necessary in order to decide which instance is the correct one."));
-
-        return container;
     }
 
     @Override
@@ -66,14 +71,14 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
 
             Table tripleTable = new Table();
             if (experiment.isPerformedByExpert()) {
-                TableRow headCells = new TableRow();
+                TableRow headCells = OWL2NL_QRPageElements.newPaddedTableRow();
                 headCells.addCell(new BoldText("Triple"));
                 headCells.addCell(new BoldText("Verbalization"));
                 tripleTable.addRow(headCells);
             }
 
             for (OWL2NL_QRTriple triple: instance.getTriples()) {
-                TableRow cells = new TableRow();
+                TableRow cells = OWL2NL_QRPageElements.newPaddedTableRow();
                 if (experiment.isPerformedByExpert()) {
                     cells.addCell(new Paragraph(triple.getTriple()));
                 }
@@ -87,7 +92,7 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         bodyDiv.addElement(instancesDiv);
 
         // Add user selection
-        bodyDiv.addElement(generateRadioButtonList(guiHelper.INSTANCE_TO_RADIO_MAPPER.map(instances)));
+        bodyDiv.addElement(OWL2NL_QRPageElements.generateRadioButtonList(guiHelper.INSTANCE_TO_RADIO_MAPPER.map(instances)));
 
         // Add overhead instances
         Div overheadDiv = new Div();
@@ -95,14 +100,14 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         LinkedList<OWL2NL_QRTriple> overheadTriples = experiment.getOverheadTriples();
         Table overheadTable = new Table();
         if (experiment.isPerformedByExpert()) {
-            TableRow head = new TableRow();
+            TableRow head = OWL2NL_QRPageElements.newPaddedTableRow();
             head.addCell(new Paragraph("Triple"));
             head.addCell(new Paragraph("Verbalization"));
             overheadTable.addRow(head);
         }
 
         for (OWL2NL_QRTriple triple: overheadTriples) {
-            TableRow cells = new TableRow();
+            TableRow cells = OWL2NL_QRPageElements.newPaddedTableRow();
             if (experiment.isPerformedByExpert()) {
                 cells.addCell(new Paragraph(triple.getTriple()));
             }
@@ -114,5 +119,18 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
 
         experimentDiv.addElement(bodyDiv);
         return experimentDiv;
+    }
+
+    @Override
+    HtmlContainer getNextExperimentContainer() {
+        HtmlContainer container = new HtmlContainer();
+        container.addElement(new Paragraph("Thank you for your effort so far! You will now do a different experiment. Note that this experiment will only be shown when you are an expert."));
+        OWL2NL_QRAxiomVerbExperimentPage.addInstructionsParagraph(container);
+        return container;
+    }
+
+    @Override
+    String getNextExperimentType() {
+        return OWL2NL_QRAxiomVerbGuiHelper.EXPERIMENT_IDENTIFIER_VALUE; // ToDo: check for non-experts
     }
 }

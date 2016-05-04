@@ -5,9 +5,6 @@ import org.apache.commons.lang3.StringEscapeUtils;
 import java.io.*;
 import java.util.LinkedList;
 
-/**
- * Created by felix on 15.04.2016.
- */
 public class CsvParser {
     private File file;
     private BufferedReader fileReader;

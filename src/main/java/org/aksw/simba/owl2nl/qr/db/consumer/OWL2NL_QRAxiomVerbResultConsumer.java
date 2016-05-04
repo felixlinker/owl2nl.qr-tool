@@ -8,9 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
-/**
- * Created by felix on 05.04.2016.
- */
 public class OWL2NL_QRAxiomVerbResultConsumer extends OWL2NL_QRResultConsumer {
 
     private static final String STORE_QUERY = "INSERT INTO AxiomExperiments (userId, axiomId, adequacy, fluency) VALUES (?,?,?,?);";
@@ -18,7 +15,6 @@ public class OWL2NL_QRAxiomVerbResultConsumer extends OWL2NL_QRResultConsumer {
 
     @Override
     public boolean storeExperimentResult(JdbcTemplate jdbcTemplate, OWL2NL_QRExperimentResult result, User user) {
-        super.storeExperimentResult(jdbcTemplate, result, user);
 
         if (!(result instanceof OWL2NL_QRAxiomVerbExperimentResult)) {
             LOGGER.info("The result was meta settings only.");

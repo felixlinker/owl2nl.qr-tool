@@ -3,18 +3,17 @@ package org.aksw.simba.owl2nl.qr.gui.guiHelper;
 import org.aksw.simba.owl2nl.qr.data.ListConverter;
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRResourceVerbExperimentSetup;
 import org.aksw.simba.owl2nl.qr.data.ontoelements.OWL2NL_QRTriple;
-import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentSelectionPage;
 import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRResourceVerbExperimentPage;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRStarRatingHelper;
 import org.aksw.simba.qr.gui.Page;
 
 public class OWL2NL_QRResourceVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QRResourceVerbExperimentSetup> {
 
-    public static final String ADEQUACY_RATING_NAME = "adequacy:";
+    public static final String ADEQUACY_RATING_NAME = "Adequacy:";
     public static final String ADEQUACY_RATING_KEY = "adequacy";
-    public static final String FLUENCY_RATING_NAME = "fluency:";
+    public static final String FLUENCY_RATING_NAME = "Fluency:";
     public static final String FLUENCY_RATING_KEY = "fluency";
-    public static final String COMPLETENESS_RATING_NAME = "completeness:";
+    public static final String COMPLETENESS_RATING_NAME = "Completeness:";
     public static final String COMPLETENSS_RATING_KEY = "completeness";
     public static final String EXPERIMENT_IDENTIFIER_VALUE = "OWL2NL_QRResourceVerb";
     public static final String EXPERIMENT_IDENTIFIER_NAME = "Resource verbalization";
@@ -34,8 +33,7 @@ public class OWL2NL_QRResourceVerbGuiHelper extends OWL2NL_QRGuiHelper<OWL2NL_QR
 
     @Override
     public Page getFinishPage() {
-//        return new OWL2NL_QRResourceVerbExperimentPage(this, null);
-        return new OWL2NL_QRExperimentSelectionPage(true);
+        return new OWL2NL_QRResourceVerbExperimentPage(this, null);
     }
 
     @Override

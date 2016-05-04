@@ -1,7 +1,7 @@
 package org.aksw.simba.owl2nl.qr.gui.guiHelper;
 
 import org.aksw.simba.owl2nl.qr.data.experiments.OWL2NL_QRExperimentSetup;
-import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRExperimentSelectionPage;
+import org.aksw.simba.owl2nl.qr.gui.experimentPages.OWL2NL_QRLoginPage;
 import org.aksw.simba.qr.datatypes.ExperimentSetup;
 import org.aksw.simba.qr.gui.AbstractGuiHelper;
 import org.aksw.simba.qr.gui.Page;
@@ -10,6 +10,8 @@ import java.util.List;
 
 public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> extends AbstractGuiHelper<ExperimentSetup> {
 
+    public static final int NUMBER_OF_ANSWERS_NEEDED_FOR_KEY_WORD = 10;
+
     private Class<T> type;
 
     public static final String APPLICATION_NAME = "Survey";
@@ -17,15 +19,12 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
     public static final String EXPERIMENT_ID_KEY = "experimentId";
     public static final String EXPERIMENT_IDENTIFIER_KEY = "experimentType";
     public static final String SUBMIT_BUTTON_KEY = "submit";
-    public static final String SUBMIT_BUTTON_LABEL = "Submit";
+    public static final String SUBMIT_BUTTON_LABEL = "Continue";
     public static final String SUBMIT_BUTTON_ID = "submit";
-    public static final String EXPERIMENT_SELECTION_BUTTON_KEY = "selectexperiment";
-    public static final String EXPERIMENT_SELECTION_BUTTON_LABEL = "Select Experiment";
-    public static final String EXPERIMENT_SELECTION_BUTTON_ID = "selectexperiment";
     public static final String PATH = "survey";
     public static final String PATH_FOR_SUBMIT = "survey";
 
-    public static final String RESULT_SAVED_SUCCESSFULLY_MSG = "Your ratings have been saved successfully.";
+    public static final String RESULT_SAVED_SUCCESSFULLY_MSG = "Your input has been saved successfully.";
     public static final String RESULT_SAVED_ERROR_MSG = "Your rating couldn't be saved.";
 
     public static final String HEAD_TAGS = "<meta content=\"text/html; charset=UTF-8\" http-equiv=\"content-type\" />\n"
@@ -34,6 +33,7 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
             + "<link href=\"css/bootstrap.min.css\" type=\"text/css\" rel=\"stylesheet\">\n"
             + "<link href=\"css/bootstrap-theme.min.css\" type=\"text/css\" rel=\"stylesheet\">\n"
             + "<link href=\"css/star-rating.min.css\" type=\"text/css\" rel=\"stylesheet\">\n"
+            + "<link href=\"css/table-styles.css\" type=\"text/css\" rel=\"stylesheet\">\n"
             + "<!--java script files are included at the end of the body -->\n";
 
     public OWL2NL_QRGuiHelper(Class<T> type) {
@@ -78,10 +78,9 @@ public abstract class OWL2NL_QRGuiHelper<T extends OWL2NL_QRExperimentSetup> ext
         return null;
     }
 
-
     @Override
     public Page getLoginPage() {
-        return new OWL2NL_QRExperimentSelectionPage(false);
+        return new OWL2NL_QRLoginPage();
     }
 
     @Override
