@@ -1,3 +1,16 @@
-.tr-owl td {
+.table-owl td {
     padding: 5px;
+    border: 1px solid #CCC;
+}
+
+.table-owl {
+    width: 840px;
+}
+
+.table-owl .light-row td {
+
+}
+
+.table-owl .dark-row td {
+    background-color: rgba( 211, 211, 211, 0.4);
 }

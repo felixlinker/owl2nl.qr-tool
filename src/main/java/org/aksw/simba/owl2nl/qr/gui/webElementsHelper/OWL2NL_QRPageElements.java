@@ -1,5 +1,6 @@
 package org.aksw.simba.owl2nl.qr.gui.webElementsHelper;
 
+import com.sun.javafx.scene.control.skin.TableHeaderRow;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper;
 import org.aksw.simba.webelements.*;
 
@@ -93,11 +94,5 @@ public class OWL2NL_QRPageElements {
         headerDiv.addAttribute("class", "page-header");
         headerDiv.addElement(new Heading(new Text(title), Heading.HeadingOrder.H1));
         return headerDiv;
-    }
-
-    public static TableRow newPaddedTableRow() {
-        TableRow tableRow = new TableRow();
-        tableRow.setClass(TABLE_ROW_CLASS);
-        return tableRow;
     }
 }

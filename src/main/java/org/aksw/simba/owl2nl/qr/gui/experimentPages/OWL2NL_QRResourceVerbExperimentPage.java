@@ -6,6 +6,7 @@ import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRClassVerbGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRResourceVerbGuiHelper;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRPageElements;
 import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRStarRatingHelper;
+import org.aksw.simba.owl2nl.qr.gui.webElementsHelper.OWL2NL_QRTable;
 import org.aksw.simba.webelements.*;
 import org.aksw.simba.webelements.Heading.HeadingOrder;
 
@@ -73,14 +74,11 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
         explanationDiv.addElement(new Paragraph("The table below shows all triples (incl. their verbalization) that were used to generate the summary shown above."));
         container.addElement(explanationDiv);
 
-        Table tripleTable = new Table();
+        OWL2NL_QRTable tripleTable = new OWL2NL_QRTable();
         for (OWL2NL_QRTriple triple: triples) {
-            TableRow tableRow = OWL2NL_QRPageElements.newPaddedTableRow();
-            tableRow.addCell(new Paragraph(triple.getTriple()));
-            tableRow.addCell(new Paragraph(triple.getVerbalization()));
-            tripleTable.addRow(tableRow);
+            tripleTable.addRow(triple.getTriple(), triple.getVerbalization());
         }
-        container.addElement(tripleTable);
+        container.addElement(tripleTable.getTable());
 
         return container;
     }
