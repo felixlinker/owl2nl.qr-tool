@@ -1,6 +1,5 @@
 package org.aksw.simba.owl2nl.qr.gui.webElementsHelper;
 
-import com.sun.javafx.scene.control.skin.TableHeaderRow;
 import org.aksw.simba.owl2nl.qr.gui.guiHelper.OWL2NL_QRGuiHelper;
 import org.aksw.simba.webelements.*;
 

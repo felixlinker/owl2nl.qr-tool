@@ -5,8 +5,6 @@ import org.aksw.simba.webelements.TableRow;
 import org.aksw.simba.webelements.Text;
 import org.aksw.simba.webelements.WebElement;
 
-import java.util.Arrays;
-
 public class OWL2NL_QRTable {
 
     private static final String TABLE_CLASS = "table-owl";
