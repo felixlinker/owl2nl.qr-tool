@@ -38,8 +38,9 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
     public static void addInstructionsParagraph(HtmlContainer container) {
         container.addElement(new Paragraph("In this experiment, you will see an axiom and/or it's verbalization. Below there are five instances of the class described by the axiom. Four of them wrong and one correct."));
         container.addElement(new Paragraph("Please select the correct instance."));
-        container.addElement(new Paragraph("The instances are described by triples. If you're not an expert you'll only see some \"facts\" about the instance."));
+        container.addElement(new Paragraph("The instances are described by triples. If you're not an expert you'll only see some 'facts' about the instance."));
         container.addElement(new Paragraph("Below the instance selection you see some triples describing overall information that might be necessary in order to decide which instance is the correct one."));
+        container.addElement(new Paragraph("For example you might see an axiom like: 'Every pupil is a person that goes to school.' This axiom describes the class 'pupil'. Below there might be an instance like: 'Anna is a person that goes to school.' In this example 'Anna' would be the correct instance of the class 'pupil'."));
     }
 
     @Override
@@ -57,13 +58,36 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         Div bodyDiv = new Div();
         bodyDiv.addAttribute("class", "panel-body");
         if (experiment.isPerformedByExpert()) {
-            bodyDiv.addElement(new Paragraph(experiment.getAxiom()));
+            Paragraph axiomParagraph = new Paragraph();
+            axiomParagraph.addElement(new Text("Axiom: "));
+            axiomParagraph.addElement(new BoldText("Axiom: " + experiment.getAxiom()));
+            bodyDiv.addElement(axiomParagraph);
         }
-        bodyDiv.addElement(new Paragraph(experiment.getVerbalization()));
+        bodyDiv.addElement(new Paragraph("Verbalization: " + experiment.getVerbalization()));
+
+        // Add overhead instances
+        Div overheadDiv = new Div();
+        overheadDiv.addElement(new Paragraph("Below you see some necessary information for the instances."));
+        LinkedList<OWL2NL_QRTriple> overheadTriples = experiment.getOverheadTriples();
+        OWL2NL_QRTable overheadTable = new OWL2NL_QRTable();
+        if (experiment.isPerformedByExpert()) {
+            overheadTable.addRowLight(new BoldText("Triple"), new BoldText("Verbalization"));
+        }
+
+        for (OWL2NL_QRTriple triple: overheadTriples) {
+            if (experiment.isPerformedByExpert()) {
+                overheadTable.addRow(triple.getTriple(), triple.getVerbalization());
+            } else {
+                overheadTable.addRow(triple.getVerbalization());
+            }
+        }
+        overheadDiv.addElement(overheadTable.getTable());
+        bodyDiv.addElement(overheadDiv);
 
         // Show all instances
         Div instancesDiv = new Div();
-        instancesDiv.addElement(new BoldText("Instances"));
+        instancesDiv.addElement(new Paragraph());
+        instancesDiv.addElement(new Text("Below you see all instances. Please choose the instance that is of the class described by the axiom."));
         LinkedList<OWL2NL_QRInstance> instances = experiment.getInstances();
         Collections.shuffle(instances);
         for (OWL2NL_QRInstance instance: instances) {
@@ -91,25 +115,6 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
 
         // Add user selection
         bodyDiv.addElement(OWL2NL_QRPageElements.generateRadioButtonList(guiHelper.INSTANCE_TO_RADIO_MAPPER.map(instances)));
-
-        // Add overhead instances
-        Div overheadDiv = new Div();
-        overheadDiv.addElement(new Paragraph("Below you see some necessary information for above instances."));
-        LinkedList<OWL2NL_QRTriple> overheadTriples = experiment.getOverheadTriples();
-        OWL2NL_QRTable overheadTable = new OWL2NL_QRTable();
-        if (experiment.isPerformedByExpert()) {
-            overheadTable.addRowLight(new BoldText("Triple"), new BoldText("Verbalization"));
-        }
-
-        for (OWL2NL_QRTriple triple: overheadTriples) {
-            if (experiment.isPerformedByExpert()) {
-                overheadTable.addRow(triple.getTriple(), triple.getVerbalization());
-            } else {
-                overheadTable.addRow(triple.getVerbalization());
-            }
-        }
-        overheadDiv.addElement(overheadTable.getTable());
-        bodyDiv.addElement(overheadDiv);
 
         experimentDiv.addElement(bodyDiv);
         return experimentDiv;
