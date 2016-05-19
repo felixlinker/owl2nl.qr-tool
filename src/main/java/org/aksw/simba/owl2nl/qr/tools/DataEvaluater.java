@@ -5,15 +5,42 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Function;
 
 public class DataEvaluater {
 
     private static final IntegerRowMapper INTEGER_ROW_MAPPER = new IntegerRowMapper();
 
+    private static final String QUERY_COUNT_USERS = "SELECT count(*) FROM Users;";
+    private static final String QUERY_COUNT_USERS_EXPERT = "SELECT count(*) FROM Users WHERE isExpert=1;";
+    private static final String QUERY_COUNT_USERS_USER = "SELECT count(*) FROM Users WHERE isExpert=0;";
 
     public static void main(String[] args) {
         JdbcTemplate jdbcTemplate = DataInserter.getJdbcTemplate();
+
+        List<Integer> results = jdbcTemplate.query(QUERY_COUNT_USERS, INTEGER_ROW_MAPPER);
+        int usersCount = 0;
+        if (!results.isEmpty()) {
+            usersCount = results.get(0);
+        }
+        System.out.println(usersCount + " Users have participated in this experiment.");
+
+        results = jdbcTemplate.query(QUERY_COUNT_USERS_EXPERT, INTEGER_ROW_MAPPER);
+        int usersCountExpert = 0;
+        if (!results.isEmpty()) {
+            usersCountExpert = results.get(0);
+        }
+        System.out.println(usersCountExpert + " of them were experts.");
+
+        results = jdbcTemplate.query(QUERY_COUNT_USERS_USER, INTEGER_ROW_MAPPER);
+        int usersCountUser = 0;
+        if (!results.isEmpty()) {
+            usersCountUser = results.get(0);
+        }
+        System.out.println(usersCountUser + " of them were normal users.");
+
+        System.out.println("That means that " + (usersCount - usersCountExpert - usersCountUser) + " didn't start the evaluation at all.");
+
+        System.out.println();
 
         evaluateAxiomExperiments(jdbcTemplate);
         evaluateResourceExperiments(jdbcTemplate);
@@ -63,6 +90,7 @@ public class DataEvaluater {
         System.out.println("Evaluation of adequacy experiments:");
         System.out.println("Mean adequacy is: " + meanAdequacyRating + " with a standard deviation of: " + stdDeviationAdequacyRating);
         System.out.println("Mean fluency is: " + meanFluencyRating + " with a standard deviation of: " + stdDeviationFluencyRating);
+        System.out.println("There are " + countAxiomExperiments + " results.");
         System.out.println("Each axiom has been answered about " + meanAxiomAnswer + " times.");
         System.out.println();
     }
@@ -151,6 +179,9 @@ public class DataEvaluater {
         System.out.println("Mean user fluency rating: " + meanFluencyUser + " with a standard deviation of: " + stdDeviationFluencyUser);
         System.out.println("Since both experts and users voted on fluency, we can combine their rating:");
         System.out.println("Mean fluency rating: " + meanFluency + " with a standard deviation of: " + stdDeviationFluency);
+        System.out.println("There are " + countExpertResourceExperiments + " results by experts.");
+        System.out.println("There are " + countUserResourceExperiments + " results by users.");
+        System.out.println("There are " + (countExpertResourceExperiments + countUserResourceExperiments) + " results in total.");
         System.out.println("Each resource has been tested by an user for " + resourceTestedByUser + " times");
         System.out.println("Each resource has been tested by an expert for " + resourceTestedByExpert + " times");
         System.out.println("Each resource has been tested by any for " + resourceTestedByAny + " times");
@@ -210,6 +241,9 @@ public class DataEvaluater {
         System.out.println("Percentage of correctly guessed instances by experts: " + percentageCorrectExpert);
         System.out.println("Percentage of correctly guessed instances by users: " + percentageCorrectUser);
         System.out.println("Percentage of correctly guessed instances overall: " + percentageCorrect);
+        System.out.println("There are " + classCountExpert + " results by experts.");
+        System.out.println("There are " + classCountUser + " results by users.");
+        System.out.println("There are " + (classCountExpert + classCountUser) + " results in total.");
         System.out.println("Each class has been tested by an expert for " + answeredByExpert + " times");
         System.out.println("Each class has been tested by an user for " + answeredByUser + " times");
         System.out.println("Each class has been tested by any for " + answeredByAny + " times");
