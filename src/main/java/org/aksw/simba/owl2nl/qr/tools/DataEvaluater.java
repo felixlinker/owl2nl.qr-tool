@@ -7,9 +7,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
 
-/**
- * Created by felix on 28.04.2016.
- */
 public class DataEvaluater {
 
     private static final IntegerRowMapper INTEGER_ROW_MAPPER = new IntegerRowMapper();
@@ -60,7 +57,7 @@ public class DataEvaluater {
         double meanAxiomAnswer = Double.NaN;
         if (!queryResults.isEmpty()) {
             countAxiomExperiments = queryResults.get(0);
-            meanAxiomAnswer = (double) countAxiomExperiments / countAxioms == 0 ? Double.NaN : (double) countAxioms;
+            meanAxiomAnswer = (double) countAxiomExperiments / (countAxioms == 0 ? Double.NaN : (double) countAxioms);
         }
 
         System.out.println("Evaluation of adequacy experiments:");
@@ -194,13 +191,13 @@ public class DataEvaluater {
             sumCorrectInstanceUser = queryResults.get(0);
         }
 
-        double percentageCorrectExpert = ((double) sumCorrectInstanceExpert / classCountExpert == 0 ? Double.NaN : (double) classCountExpert) * 100;
-        double percentageCorrectUser = ((double) sumCorrectInstanceUser / classCountUser == 0 ? Double.NaN : (double) classCountUser) * 100;
-        double percentageCorrect = ((double) (sumCorrectInstanceExpert + sumCorrectInstanceUser) / classCountExpert + classCountUser == 0 ? Double.NaN : (double) (classCountExpert + classCountUser)) * 100;
+        double percentageCorrectExpert = ((double) sumCorrectInstanceExpert / (classCountExpert == 0 ? Double.NaN : (double) classCountExpert)) * 100;
+        double percentageCorrectUser = ((double) sumCorrectInstanceUser / (classCountUser == 0 ? Double.NaN : (double) classCountUser)) * 100;
+        double percentageCorrect = ((double) (sumCorrectInstanceExpert + sumCorrectInstanceUser) / (classCountExpert + classCountUser == 0 ? Double.NaN : (double) (classCountExpert + classCountUser))) * 100;
 
         queryResults = jdbcTemplate.query(QUERY_COUNT_CLASSES, INTEGER_ROW_MAPPER);
         int countClasses = 0;
-        if (queryResults.isEmpty()) {
+        if (!queryResults.isEmpty()) {
             countClasses = queryResults.get(0);
         }
 
