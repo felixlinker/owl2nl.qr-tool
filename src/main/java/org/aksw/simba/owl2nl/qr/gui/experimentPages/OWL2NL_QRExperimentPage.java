@@ -115,7 +115,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         StringBuilder builder = new StringBuilder();
         builder.append("For getting a chance to win one of the amazon vouchers, you will have to submit the answers of ");
         builder.append(OWL2NL_QRGuiHelper.NUMBER_OF_ANSWERS_NEEDED_FOR_KEY_WORD);
-        builder.append(" axiom experiments (during a single session) as well as six resource and four class experiments. After the submission of the last page, you will see a message with further instructions for taking part in the lottery.");
+        builder.append(" axiom experiments (during a single session) as well as 6 resource and 4 class experiments. After the submission of the last page, you will see a message with further instructions for taking part in the lottery.");
 
         return builder.toString();
     }

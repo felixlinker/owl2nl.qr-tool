@@ -89,9 +89,9 @@ public abstract class OWL2NL_QRPage implements Page {
         footerParagraph.addElement(new Link("Axel Ngonga", "http://www.aksw.org/AxelNgonga.html"));
         footerParagraph.addElement(new Text(", a member of the Agile Knowledge Semantic Web (AKSW) research group ("));
         footerParagraph.addElement(new Link("http://www.aksw.org", "http://www.aksw.org"));
-        footerParagraph.addElement(new Text("). The answers are stored in an anonymized way. The cookie that comes with this page only contains a session id that is used to count the number of anwers the user has generated. "));
-        footerParagraph.addElement(new Text("After answering " + OWL2NL_QRGuiHelper.NUMBER_OF_ANSWERS_NEEDED_FOR_KEY_WORD + " forms during a single session, a key word is shown with which the user can take part in the lottery of amazon vouchers. "));
-        footerParagraph.addElement(new Text("Regarding the lottery, any recourse to courts of law is excluded and the judges' decision is final."));
+        footerParagraph.addElement(new Text(") in collaboration with Lorenz Bühmann, Felix Linker and Michael Röder. The answers are stored in an anonymized way. The cookie that comes with this page only contains a session id that is used to count the number of anwers the user has generated. "));
+        footerParagraph.addElement(new Text(OWL2NL_QRExperimentPage.getWinText()));
+        footerParagraph.addElement(new Text(" Regarding the lottery, any recourse to courts of law is excluded and the judges' decision is final."));
         return footerParagraph;
     }
 

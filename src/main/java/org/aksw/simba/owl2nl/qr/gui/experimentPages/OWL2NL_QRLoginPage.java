@@ -25,6 +25,7 @@ public class OWL2NL_QRLoginPage extends OWL2NL_QRPage {
         loginContainer.addElement(new Paragraph("Before you start with the evaluation please tell us how familiar you are with RDF and OWL concepts."));
         loginContainer.addElement(new Paragraph("If you're not familiar with OWL and RDF concepts, please select '" + OWL2NL_QRUserGroupGuiHelper.AMATEUR_RADIO_NAME + "' as user group. If you are familiar with those concepts, you can select '" + OWL2NL_QRUserGroupGuiHelper.EXPERT_RADIO_NAME + "' as user group."));
         loginContainer.addElement(new Paragraph("The experiments will take about 15 minutes. Users of user group '" + OWL2NL_QRUserGroupGuiHelper.AMATEUR_RADIO_NAME + "' will need less time."));
+        loginContainer.addElement(new Paragraph(OWL2NL_QRExperimentPage.getWinText()));
 
         loginContainer.addElement(createUserGroupSelection());
         this.addHiddenValue(OWL2NL_QRGuiHelper.EXPERIMENT_IDENTIFIER_KEY, guiHelper.getExperimentIdentifierValue());
