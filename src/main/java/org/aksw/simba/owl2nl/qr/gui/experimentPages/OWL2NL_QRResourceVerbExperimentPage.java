@@ -35,8 +35,8 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
     }
 
     public static void addInstructionsParagraph(HtmlContainer container) {
-        container.addElement(new Paragraph("In this experiment you have to rate the verbalization of a resource. If you're not an expert, you'll just be able to rate the fluency of the language."));
-        container.addElement(new Paragraph("If however you are an expert you'll see the triples creating the resource. Please rate how complete and adequate the resources verbalization is, too."));
+        container.addElement(new Paragraph("In this experiment you have to rate the verbalization of a resource. If you're not an expert, please rate how fluent the language is."));
+        container.addElement(new Paragraph("If however you are an expert you'll see the triples creating the resource. Please rate how complete the verbalization is, i.e. whether it has used all of the triples. Please rate the adequacy of the resources verbalization in regards to the verbalization of the triples itself, too."));
     }
 
     @Override
