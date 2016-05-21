@@ -36,7 +36,19 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
 
     public static void addInstructionsParagraph(HtmlContainer container) {
         container.addElement(new Paragraph("In this experiment you have to rate the verbalization of a resource. If you're not an expert, please rate how fluent the language is."));
-        container.addElement(new Paragraph("If however you are an expert you'll see the triples creating the resource. Please rate how complete the verbalization is, i.e. whether it has used all of the triples. Please rate the adequacy of the resources verbalization in regards to the verbalization of the triples itself, too."));
+        container.addElement(new Paragraph("Fluency means that readability and understandability of the language of the verbalization. Does the verbalization sound odd? Is it's phrasing difficult or easy to understand?"));
+        container.addElement(new Paragraph("If however you are an expert you'll see the triples creating the resource. Please rate on completeness and adequacy, too."));
+        container.addElement(new Paragraph("Completeness means whether all triples making up the resource have been verbalized."));
+        container.addElement(new Paragraph("Adequacy means the 'correctness' of the verbalization. Is the verbalization consistent with the triples, i.e. are all covered triples verbalized correctly? Is the resource verbalization consistent with the resource itself?"));
+        container.addElement(new Paragraph());
+        container.addElement(new Paragraph("For example have a look at this verbalziation: 'Volkswagen is a car manufacturers of germany. Volkswagen's internationally is and its industry is Automotive industry.'"));
+        container.addElement(new Paragraph("It was created using following triples:"));
+        container.addElement(new Paragraph("dbr:Volkswagen @dbo:internationally \"1\"^^http://www.w3.org/2001/XMLSchema#boolean"));
+        container.addElement(new Paragraph("dbr:Volkswagen @dbo:industry dbr:Automotive_industry"));
+        container.addElement(new Paragraph("dbr:Volkswagen @dbo:product dbr:Car"));
+        container.addElement(new Paragraph("dbr:Volkswagen @rdf:type http://dbpedia.org/class/yago/CarManufacturersOfGermany"));
+        container.addElement(new Paragraph());
+        container.addElement(new Paragraph("This verbalization's fluency rating would be low as the second sentence sounds odd. Also it's completeness rating would be low since one triple is missing. The adequacy rating would be low as well since the verbalization of the first triple doesn't really reflect it's meaning."));
     }
 
     @Override

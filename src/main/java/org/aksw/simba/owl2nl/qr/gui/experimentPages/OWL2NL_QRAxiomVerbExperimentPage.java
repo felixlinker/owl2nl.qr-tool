@@ -30,8 +30,11 @@ public class OWL2NL_QRAxiomVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
 
     public static void addInstructionsParagraph(HtmlContainer container) {
         // ToDo: check language
-        container.addElement(new Paragraph("Below you can see an axiom from an owl ontology and its verbalization."));
-        container.addElement(new Paragraph("Please rate the verbalization according to how adequately it is describing the axiom and how fluent the language is."));
+        container.addElement(new Paragraph("In this experiment there is an axiom from an owl ontology and its verbalization. Note that you'll only get to rate this experiment if you are an expert."));
+        container.addElement(new Paragraph("Please rate the verbalization according to fluency and adequacy."));
+        container.addElement(new Paragraph());
+        container.addElement(new Paragraph("Adequacy means how well the axiom was verbalized in regards to the actual axiom. Is every information verbalized? Is there anything missing? Does the verbalziation reflect the axiom?"));
+        container.addElement(new Paragraph("Fluency means that readability and understandability of the language of the verbalization. Does the verbalization sound odd? Is it's phrasing difficult or easy to understand?"));
     }
 
     @Override
