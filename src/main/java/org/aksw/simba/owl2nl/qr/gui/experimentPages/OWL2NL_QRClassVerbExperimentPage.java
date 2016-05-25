@@ -36,11 +36,11 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
     }
 
     public static void addInstructionsParagraph(HtmlContainer container) {
-        container.addElement(new Paragraph("In this experiment, you will see an axiom and/or it's verbalization. Below there are five instances of the class described by the axiom. Four of them wrong and one correct."));
+        container.addElement(new Paragraph("In this experiment, you will see an OWL axiom(in Manchester OWL syntax) and it's verbalization. Below there are five instances of the class described by the axiom. Four of them wrong and one correct."));
         container.addElement(new Paragraph("Please select the correct instance."));
-        container.addElement(new Paragraph("The instances are described by triples. If you're not an expert you'll only see some 'facts' about the instance."));
-        container.addElement(new Paragraph("Below the instance selection you see some triples describing overall information that might be necessary in order to decide which instance is the correct one."));
-        container.addElement(new Paragraph("For example you might see an axiom like: 'Every pupil is a person that goes to school.' This axiom describes the class 'pupil'. Below there might be an instance like: 'Anna is a person that goes to school.' In this example 'Anna' would be the correct instance of the class 'pupil'."));
+        container.addElement(new Paragraph("The instances are described by triples. If you're not an expert, you'll only see some 'facts' about the instance."));
+        container.addElement(new Paragraph("First you see some triples describing overall information that might be necessary to decide which instance is the correct one."));
+        container.addElement(new Paragraph("For example, you might see an axiom like: 'Every pupil is a person that goes to school.' This axiom describes the class 'pupil'. Below there might be an instance 'Anna' with additional information, e.g. that 'Anna is a person.' and that 'Anna goes to school.'. In this case, 'Anna' would be the correct instance of the class 'pupil'."));
     }
 
     @Override
