@@ -23,9 +23,10 @@ public static void main(String[] args) throws Exception {
 		public TripleConverter c;
 
 		public TripleHelper(String triple, TripleConverter c) {
-			this.triple = triple.replace("http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#","koala:").replace("http://www.w3.org/1999/02/22-rdf-syntax-ns#","rdf:");
+			this.triple = triple;
 			this.c = c;
 			this.parseTriple();
+			this.triple = triple.replace("http://protege.stanford.edu/plugins/owl/owl-library/koala.owl#",":").replace("http://www.w3.org/1999/02/22-rdf-syntax-ns#","rdf:");
 		}
 
 		private void parseTriple() {

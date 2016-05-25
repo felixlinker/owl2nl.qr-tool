@@ -108,7 +108,7 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
         Paragraph p = new Paragraph();
         p.addElement(new BoldText("Congratulations!"));
         p.addElement(new Text(" You have answered enough questions to take part in the lottery. Just send the keyword \"banana\" to "));
-        p.addElement(new Link("buehmann@informatik.uni-leipzig.de", "mailto:buehmann@informatik.uni-leipzig.de"));
+        p.addElement(new Link("survey.semweb2nl@gmail.com", "mailto:survey.semweb2nl@gmail.com"));
         p.addElement(new Text("."));
         messageDiv.addElement(p);
         messageDiv.addElement(new Paragraph("Thank you very much for your effort!"));
