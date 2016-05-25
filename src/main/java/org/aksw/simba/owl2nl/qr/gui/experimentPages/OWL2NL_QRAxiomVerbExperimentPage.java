@@ -23,13 +23,18 @@ public class OWL2NL_QRAxiomVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         headerDiv.addAttribute("class", "page-header");
         headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
         container.addElement(headerDiv);
-        addInstructionsParagraph(container);
+        addInstructionsParagraphs(container);
 
         return container;
     }
 
-    public static void addInstructionsParagraph(HtmlContainer container) {
+    @Override
+    public void addInstructionsParagraphs(HtmlContainer container) {
         // ToDo: check language
+        addInstructionsParagraphsStatic(container);
+    }
+
+    public static void addInstructionsParagraphsStatic(HtmlContainer container) {
         container.addElement(new Paragraph("In this experiment, there is an axiom from an OWL ontology and its verbalization. Note that you'll only get to rate this experiment if you are an expert."));
         container.addElement(new Paragraph("Please rate the verbalization according to fluency and adequacy."));
         container.addElement(new Paragraph());

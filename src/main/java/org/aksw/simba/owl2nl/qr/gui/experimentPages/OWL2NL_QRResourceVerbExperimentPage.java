@@ -29,12 +29,17 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
         headerDiv.addAttribute("class", "page-header");
         headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
         container.addElement(headerDiv);
-        addInstructionsParagraph(container);
+        addInstructionsParagraphs(container);
 
         return container;
     }
 
-    public static void addInstructionsParagraph(HtmlContainer container) {
+    @Override
+    public void addInstructionsParagraphs(HtmlContainer container) {
+        addInstructionsParagraphsStatic(container);
+    }
+
+    public void addInstructionsParagraphsStatic(HtmlContainer container) {
         container.addElement(new Paragraph("In this experiment, you have to rate the verbalization of a resource. If you're not an expert, please rate how fluent the language is."));
         Paragraph p = new Paragraph(new BoldText("Fluency"));
         p.addElement(new Text(" means the readability and understandability of the language of the verbalization. Does the verbalization sound odd? Is it's phrasing difficult or easy to understand?"));
@@ -57,7 +62,7 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
         container.addElement(new Paragraph("This verbalization's fluency rating would be low as the second sentence sounds odd. Also, it's completeness rating would be low since one triple is missing. The adequacy rating would be low as well since the verbalization of the first triple doesn't really reflect it's meaning."));
     }
 
-    @Override
+        @Override
     Div generateExperimentDiv(OWL2NL_QRResourceVerbExperimentSetup experiment) {
         Div experimentDiv = new Div();
         experimentDiv.addAttribute("class", "panel panel-default experiment_div");
@@ -105,7 +110,7 @@ public class OWL2NL_QRResourceVerbExperimentPage extends OWL2NL_QRExperimentPage
     HtmlContainer getNextExperimentContainer() {
         HtmlContainer container = new HtmlContainer();
         container.addElement(new Paragraph("Thank you for your effort so far! You will now do a different experiment."));
-        OWL2NL_QRClassVerbExperimentPage.addInstructionsParagraph(container);
+        OWL2NL_QRClassVerbExperimentPage.addInstructionsParagraphsStatic(container);
         return container;
     }
 

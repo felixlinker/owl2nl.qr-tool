@@ -19,9 +19,14 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
     }
 
     protected void addPageContentExperiment(HtmlContainer container) {
-        HtmlContainer instructions = getInstructions();
-        instructions.addElement(new Paragraph(getWinText()));
+
+        HtmlContainer instructionsContent = new HtmlContainer();
+        addInstructionsParagraphs(instructionsContent);
+        instructionsContent.addElement(new Paragraph(getWinText()));
+
+        Div instructions = OWL2NL_QRPageElements.collapseAble("instructions", "Instructions (click to expand)", instructionsContent);
         container.addElement(instructions);
+
         container.addElement(createMessageDiv());
 
         container.addElement(OWL2NL_QRPageElements.createHeadDiv("Task"));
@@ -125,6 +130,8 @@ public abstract class OWL2NL_QRExperimentPage<T extends OWL2NL_QRExperimentSetup
     abstract HtmlContainer getNextExperimentContainer();
 
     abstract HtmlContainer getInstructions();
+
+    abstract void addInstructionsParagraphs(HtmlContainer container);
 
     abstract Div generateExperimentDiv(T t);
 }

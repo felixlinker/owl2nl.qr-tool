@@ -30,12 +30,17 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
         headerDiv.addAttribute("class", "page-header");
         headerDiv.addElement(new Heading(new Text("Instructions"), HeadingOrder.H1));
         container.addElement(headerDiv);
-        addInstructionsParagraph(container);
+        addInstructionsParagraphs(container);
 
         return container;
     }
 
-    public static void addInstructionsParagraph(HtmlContainer container) {
+    @Override
+    public void addInstructionsParagraphs(HtmlContainer container) {
+        addInstructionsParagraphsStatic(container);
+    }
+
+    public static void addInstructionsParagraphsStatic(HtmlContainer container) {
         container.addElement(new Paragraph("In this experiment, you will see an OWL axiom(in Manchester OWL syntax) and it's verbalization. Below there are five instances of the class described by the axiom. Four of them wrong and one correct."));
         container.addElement(new Paragraph("Please select the correct instance."));
         container.addElement(new Paragraph("The instances are described by triples. If you're not an expert, you'll only see some 'facts' about the instance."));
@@ -124,7 +129,7 @@ public class OWL2NL_QRClassVerbExperimentPage extends OWL2NL_QRExperimentPage<OW
     HtmlContainer getNextExperimentContainer() {
         HtmlContainer container = new HtmlContainer();
         container.addElement(new Paragraph("Thank you for your effort so far! You will now do a different experiment. Note that this experiment will only be shown when you are an expert."));
-        OWL2NL_QRAxiomVerbExperimentPage.addInstructionsParagraph(container);
+        OWL2NL_QRAxiomVerbExperimentPage.addInstructionsParagraphsStatic(container);
         return container;
     }
 

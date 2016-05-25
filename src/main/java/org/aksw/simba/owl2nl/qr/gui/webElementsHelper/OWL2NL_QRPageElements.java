@@ -94,4 +94,34 @@ public class OWL2NL_QRPageElements {
         headerDiv.addElement(new Heading(new Text(title), Heading.HeadingOrder.H1));
         return headerDiv;
     }
+
+    public static Div collapseAble(String id, String title, HtmlContainer content) {
+        Div mainDiv = new Div();
+        mainDiv.setClass("panel panel-default");
+
+        Div linkDiv = new Div();
+        linkDiv.setClass("panel-heading");
+        linkDiv.addAttribute("role","tab");
+        linkDiv.setId(id);
+        Link link = new Link(new Text(title), "#" + id + "_collapse");
+        link.addAttribute("role","button");
+        link.addAttribute("data-toggle", "collapse");
+        link.addAttribute("aria-expanded", "false");
+        link.addAttribute("aria-controls", id + "_collapse");
+        linkDiv.addElement(link);
+        mainDiv.addElement(linkDiv);
+
+        Div contentDiv = new Div();
+        contentDiv.setId(id + "_collapse");
+        contentDiv.setClass("panel-collapse collapse");
+        contentDiv.addAttribute("role","tabpanel");
+        contentDiv.addAttribute("aria-labelledby",id);
+        Div contentDivContent = new Div();
+        contentDivContent.setClass("panel-body");
+        contentDivContent.addElement(content);
+        contentDiv.addElement(contentDivContent);
+        mainDiv.addElement(contentDiv);
+
+        return mainDiv;
+    }
 }
