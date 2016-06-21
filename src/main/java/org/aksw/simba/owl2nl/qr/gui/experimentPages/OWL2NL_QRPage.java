@@ -78,7 +78,7 @@ public abstract class OWL2NL_QRPage implements Page {
         Div headDiv = new Div();
         headDiv.addAttribute("class", "jumbotron");
         headDiv.addElement(new Heading(new Text("Survey"), Heading.HeadingOrder.H1));
-        headDiv.addElement(new Paragraph(new Text("This is a survey for evaluating the calculation of RDF dataset similarity in terms of topical relatedness.")));
+        headDiv.addElement(new Paragraph(new Text("This survey evaluates modern solutions for converting RDF and OWL to close-to-natural language.")));
         return headDiv;
     }
 
