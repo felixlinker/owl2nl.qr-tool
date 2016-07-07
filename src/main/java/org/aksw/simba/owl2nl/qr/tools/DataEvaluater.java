@@ -54,7 +54,7 @@ public class DataEvaluater {
     private static final RowMapper<Integer> CompletenessRowMapper = (rs, rowNum) -> rs.getInt("completeness");
 
     // Axiom queries
-    private static final String QUERY_AXIOM_RATINGS = "SELECT fluency, adequacy FROM AxiomExperiments;";
+    private static final String QUERY_AXIOM_RATINGS = "SELECT fluency, adequacy FROM AxiomExperiments WHERE adequacy > 0 AND fluency > 0;";
 //    private static final String QUERY_FLUENCY_RATINGS_AXIOM = "SELECT fluency FROM AxiomExperiments;";
 //    private static final String QUERY_ADEQUACY_RATINGS_AXIOM = "SELECT adequacy FROM AxiomExperiments;";
 
