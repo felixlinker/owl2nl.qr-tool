@@ -259,8 +259,11 @@ public class DataEvaluater {
 
         System.out.println("Evaluation of class experiments:");
         System.out.println("Percentage of correctly guessed instances by experts: " + percentageCorrectExpert);
+        System.out.println("Absolute: " + sumCorrectInstanceExpert);
         System.out.println("Percentage of correctly guessed instances by users: " + percentageCorrectUser);
+        System.out.println("Absolute: " + sumCorrectInstanceUser);
         System.out.println("Percentage of correctly guessed instances overall: " + percentageCorrect);
+        System.out.println("Absolute: " + (sumCorrectInstanceUser + sumCorrectInstanceExpert));
         System.out.println("There are " + classCountExpert + " results by experts.");
         System.out.println("There are " + classCountUser + " results by users.");
         System.out.println("There are " + (classCountExpert + classCountUser) + " results in total.");
