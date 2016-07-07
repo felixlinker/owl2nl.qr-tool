@@ -3,6 +3,7 @@ package org.aksw.simba.owl2nl.qr.tools;
 import org.aksw.simba.db.mapper.IntegerRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -56,10 +57,14 @@ public class DataEvaluater {
     public static void evaluateAxiomExperiments(JdbcTemplate jdbcTemplate) {
         List<Integer> queryResults;
 
+        int[] fluencyCounts = new int[5];
+        int[] adequacyCounts = new int[5];
+
         queryResults = jdbcTemplate.query(QUERY_FLUENCY_RATINGS_AXIOM, INTEGER_ROW_MAPPER);
         double meanFluencyRating = Double.NaN;
         double stdDeviationFluencyRating = Double.NaN;
         if (!queryResults.isEmpty()) {
+            queryResults.stream().forEach(result -> fluencyCounts[result - 1]++);
             meanFluencyRating = calculateMean(queryResults);
             stdDeviationFluencyRating = calculateStandardDeviation(queryResults, meanFluencyRating);
         }
@@ -69,6 +74,7 @@ public class DataEvaluater {
         double meanAdequacyRating = Double.NaN;
         double stdDeviationAdequacyRating = Double.NaN;
         if (!queryResults.isEmpty()) {
+            queryResults.stream().forEach(result -> adequacyCounts[result - 1]++);
             meanAdequacyRating = calculateMean(queryResults);
             stdDeviationAdequacyRating = calculateStandardDeviation(queryResults, meanAdequacyRating);
         }
@@ -89,7 +95,9 @@ public class DataEvaluater {
 
         System.out.println("Evaluation of adequacy experiments:");
         System.out.println("Mean adequacy is: " + meanAdequacyRating + " with a standard deviation of: " + stdDeviationAdequacyRating);
+        System.out.println("Ratings from 1 to 5 stars: " + Arrays.toString(adequacyCounts));
         System.out.println("Mean fluency is: " + meanFluencyRating + " with a standard deviation of: " + stdDeviationFluencyRating);
+        System.out.println("Ratings from 1 to 5 stars: " + Arrays.toString(fluencyCounts));
         System.out.println("There are " + countAxiomExperiments + " results.");
         System.out.println("Each axiom has been answered about " + meanAxiomAnswer + " times.");
         System.out.println();
@@ -108,11 +116,16 @@ public class DataEvaluater {
     public static void evaluateResourceExperiments(JdbcTemplate jdbcTemplate) {
         List<Integer> queryResults;
 
+        int[] userFluencyCounts = new int[5];
+        int[] expertFluencyCounts = new int[5];
+        int[] expertAdequacyCounts = new int[5];
+        int[] expertCompletenessCounts = new int[5];
 
         double meanAdequacyExpert = Double.NaN;
         double stdDeviationAdequacyExpert = Double.NaN;
         queryResults = jdbcTemplate.query(QUERY_ADEQUACY_RATINGS_RESOURCE, INTEGER_ROW_MAPPER);
         if (!queryResults.isEmpty()) {
+            queryResults.stream().forEach(result -> expertAdequacyCounts[result - 1]++);
             meanAdequacyExpert = calculateMean(queryResults);
             stdDeviationAdequacyExpert = calculateStandardDeviation(queryResults, meanAdequacyExpert);
         }
@@ -121,6 +134,7 @@ public class DataEvaluater {
         double stdDeviationCompletenessExpert = Double.NaN;
         queryResults = jdbcTemplate.query(QUERY_COMPLETENESS_RATINGS_RESOURCE, INTEGER_ROW_MAPPER);
         if (!queryResults.isEmpty()) {
+            queryResults.stream().forEach(result -> expertCompletenessCounts[result - 1]++);
             meanCompletenessExpert = calculateMean(queryResults);
             stdDeviationCompletenessExpert = calculateStandardDeviation(queryResults, meanCompletenessExpert);
         }
@@ -129,6 +143,7 @@ public class DataEvaluater {
         double stdDeviationFluencyExpert = Double.NaN;
         List<Integer> fluencyRatingsExpert = jdbcTemplate.query(QUERY_FLUENCY_RATINGS_RESOURCE_EXPERT, INTEGER_ROW_MAPPER);
         if (!fluencyRatingsExpert.isEmpty()) {
+            queryResults.stream().forEach(result -> expertFluencyCounts[result - 1]++);
             meanFluencyExpert = calculateMean(fluencyRatingsExpert);
             stdDeviationFluencyExpert = calculateStandardDeviation(fluencyRatingsExpert, meanFluencyExpert);
         }
@@ -137,6 +152,7 @@ public class DataEvaluater {
         double stdDeviationFluencyUser = Double.NaN;
         List<Integer> fluencyRatingsUser = jdbcTemplate.query(QUERY_FLUENCY_RATINGS_RESOURCE_USER, INTEGER_ROW_MAPPER);
         if (!fluencyRatingsUser.isEmpty()) {
+            queryResults.stream().forEach(result -> userFluencyCounts[result - 1]++);
             meanFluencyUser = calculateMean(fluencyRatingsUser);
             stdDeviationFluencyUser = calculateStandardDeviation(fluencyRatingsUser, meanFluencyUser);
         }
@@ -172,11 +188,15 @@ public class DataEvaluater {
         System.out.println("Evaluation of resource experiments:");
         System.out.println("Experts voted on fluency, adequacy and completeness.");
         System.out.println("Mean expert fluency rating: " + meanFluencyExpert + " with a standard deviation of: " + stdDeviationFluencyExpert);
+        System.out.println("Ratings from 1 to 5 stars: " + Arrays.toString(expertFluencyCounts));
         System.out.println("Mean expert adequacy rating: " + meanAdequacyExpert + " with a standard deviation of: " + stdDeviationAdequacyExpert);
+        System.out.println("Ratings from 1 to 5 stars: " + Arrays.toString(expertAdequacyCounts));
         System.out.println("Mean expert completeness rating: " + meanCompletenessExpert + " with a standard deviation of: " + stdDeviationCompletenessExpert);
+        System.out.println("Ratings from 1 to 5 stars: " + Arrays.toString(expertCompletenessCounts));
 
         System.out.println("Users voted only on fluency.");
         System.out.println("Mean user fluency rating: " + meanFluencyUser + " with a standard deviation of: " + stdDeviationFluencyUser);
+        System.out.println("Ratings from 1 to 5 stars: " + Arrays.toString(userFluencyCounts));
         System.out.println("Since both experts and users voted on fluency, we can combine their rating:");
         System.out.println("Mean fluency rating: " + meanFluency + " with a standard deviation of: " + stdDeviationFluency);
         System.out.println("There are " + countExpertResourceExperiments + " results by experts.");
