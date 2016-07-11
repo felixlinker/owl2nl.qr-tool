@@ -141,7 +141,7 @@ public class DataEvaluater {
 
         @Override
         public String toString() {
-            String tsvLine = resource.concat("\"").concat(verbalization);
+            String tsvLine = resource.concat("\t").concat(verbalization);
             for (int rating: fluencyRatings) {
                 tsvLine = tsvLine.concat("\t").concat(Integer.toString(rating));
             }
