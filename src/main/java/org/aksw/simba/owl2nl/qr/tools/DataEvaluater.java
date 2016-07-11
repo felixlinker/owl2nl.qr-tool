@@ -21,11 +21,11 @@ public class DataEvaluater {
 
     public static void main(String[] args) {
 //        evaluateMain();
-        printResultsToTSV("C:\\Users\\felix\\Desktop\\axioms.tsv", "C:\\Users\\felix\\Desktop\\resources_exp.txt", "C:\\Users\\felix\\Desktop\\resources_user.txt");
+        printResultsToTSV("C:\\Users\\felix\\Desktop\\axioms.tsv", "C:\\Users\\felix\\Desktop\\resources_exp.tsv", "C:\\Users\\felix\\Desktop\\resources_user.tsv");
     }
 
     private static final String QUERY_AXIOM_RATINGS_DETAILED = "SELECT axiom, " +
-            "SELECT verbalization, " +
+            "verbalization, " +
             "SUM( CASE WHEN adequacy = 1 THEN 1 ELSE 0 END) as star1Adequacy, " +
             "SUM( CASE WHEN adequacy = 2 THEN 1 ELSE 0 END) as star2Adequacy, " +
             "SUM( CASE WHEN adequacy = 3 THEN 1 ELSE 0 END) as star3Adequacy, " +
@@ -36,7 +36,7 @@ public class DataEvaluater {
             "SUM( CASE WHEN fluency = 3 THEN 1 ELSE 0 END) as star3Fluency, " +
             "SUM( CASE WHEN fluency = 4 THEN 1 ELSE 0 END) as star4Fluency, " +
             "SUM( CASE WHEN fluency = 5 THEN 1 ELSE 0 END) as star5Fluency " +
-            "FROM Axioms as A JOIN AxiomExperiments as E ON E.axiomId = A.id AND adequacy > 0 AND fluency > 0 GROUP BY axiom;";
+            "FROM Axioms as A JOIN AxiomExperiments as E ON E.axiomId = A.id AND adequacy > 0 AND fluency > 0 GROUP BY axiom, verbalization;";
 
     private static class AxiomRating {
         String axiom;
@@ -90,7 +90,7 @@ public class DataEvaluater {
     };
 
     private static final String QUERY_RESOURCE_RATINGS_DETAILED_EXPERT = "SELECT resource, " +
-            "SELECT verbalization, " +
+            "verbalization, " +
             "SUM( CASE WHEN adequacy = 1 THEN 1 ELSE 0 END) as star1Adequacy, " +
             "SUM( CASE WHEN adequacy = 2 THEN 1 ELSE 0 END) as star2Adequacy, " +
             "SUM( CASE WHEN adequacy = 3 THEN 1 ELSE 0 END) as star3Adequacy, " +
@@ -109,13 +109,13 @@ public class DataEvaluater {
             "FROM Resources as R JOIN ResourceExperiments as E ON R.id = E.resourceId JOIN Users as U on E.userId = U.id WHERE U.isExpert = 1 AND completeness > 0 AND adequacy > 0 AND fluency > 0 GROUP BY resource, verbalization;";
 
     private static final String QUERY_RESOURCE_RATINGS_DETAILED_USER = "SELECT resource, " +
-            "SELECT verbalization, " +
+            "verbalization, " +
             "SUM( CASE WHEN fluency = 1 THEN 1 else 0 END) as star1Fluency, " +
             "SUM( CASE WHEN fluency = 2 THEN 1 ELSE 0 END) as star2Fluency, " +
             "SUM( CASE WHEN fluency = 3 THEN 1 ELSE 0 END) as star3Fluency, " +
             "SUM( CASE WHEN fluency = 4 THEN 1 ELSE 0 END) as star4Fluency, " +
             "SUM( CASE WHEN fluency = 5 THEN 1 ELSE 0 END) as star5Fluency " +
-            "FROM Resources as R JOIN ResourceExperiments as E ON R.id = E.resourceId JOIN Users as U on E.userId = U.id WHERE U.isExpert = 0 AND fluency > 0 GROUP BY resource;";
+            "FROM Resources as R JOIN ResourceExperiments as E ON R.id = E.resourceId JOIN Users as U on E.userId = U.id WHERE U.isExpert = 0 AND fluency > 0 GROUP BY resource, verbalization;";
 
     private static class ResourceRatingUser {
         String resource;
