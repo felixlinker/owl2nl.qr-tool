@@ -17,6 +17,149 @@ public class DataEvaluater {
     private static final String QUERY_COUNT_USERS_USER = "SELECT count(*) FROM Users WHERE isExpert=0;";
 
     public static void main(String[] args) {
+//        evaluateMain();
+        printResultsToCSV();
+    }
+
+    private static final String QUERY_AXIOM_RATINGS_DETAILED = "SELECT axiom, " +
+            "SUM( CASE WHEN adequacy = 1 THEN 1 ELSE 0 END) as star1Adequacy, " +
+            "SUM( CASE WHEN adequacy = 2 THEN 1 ELSE 0 END) as star2Adequacy, " +
+            "SUM( CASE WHEN adequacy = 3 THEN 1 ELSE 0 END) as star3Adequacy, " +
+            "SUM( CASE WHEN adequacy = 4 THEN 1 ELSE 0 END) as star4Adequacy, " +
+            "SUM( CASE WHEN adequacy = 5 THEN 1 ELSE 0 END) as star5Adequacy, " +
+            "SUM( CASE WHEN fluency = 1 THEN 1 else 0 END) as star1Fluency, " +
+            "SUM( CASE WHEN fluency = 2 THEN 1 ELSE 0 END) as star2Fluency, " +
+            "SUM( CASE WHEN fluency = 3 THEN 1 ELSE 0 END) as star3Fluency, " +
+            "SUM( CASE WHEN fluency = 4 THEN 1 ELSE 0 END) as star4Fluency, " +
+            "SUM( CASE WHEN fluency = 5 THEN 1 ELSE 0 END) as star5Fluency " +
+            "FROM Axioms as A JOIN AxiomExperiments as E ON E.axiomId = A.id GROUP BY axiom;";
+
+    private static class AxiomRating {
+
+        String axiom;
+        int[] adequacyRatings = new int[5];
+        int[] fluencyRatings = new int[5];
+        void addAdequacyRating(int rating, int count) {
+            addRating(adequacyRatings, rating, count);
+        }
+
+        void addFluencyRating(int rating, int count) {
+            addRating(fluencyRatings, rating, count);
+        }
+
+        private void addRating(int[] ratings, int rating, int count) {
+            if (rating <= 0 ||rating > 5) {
+                return;
+            }
+
+            ratings[rating - 1] = count;
+        }
+
+        AxiomRating(String axiom) {
+            this.axiom = axiom;
+        }
+
+        @Override
+        public String toString() {
+            return axiom.concat("\nAdequacy ratings: ")
+                    .concat(Arrays.toString(adequacyRatings))
+                    .concat("\nFluency ratings: ")
+                    .concat(Arrays.toString(fluencyRatings ))
+                    .concat("\n");
+        }
+    }
+
+    private static final RowMapper<AxiomRating> AXIOM_RATING_ROW_MAPPER = (rs, rowNum) -> {
+        AxiomRating rating = new AxiomRating(rs.getString("axiom"));
+        for (int i = 1; i <= 5; i++) {
+            rating.addFluencyRating(i, rs.getInt("star".concat(Integer.toString(i)).concat("Fluency")));
+            rating.addAdequacyRating(i, rs.getInt("star".concat(Integer.toString(i)).concat("Adequacy")));
+        }
+
+        return rating;
+    };
+
+    private static final String QUERY_RESOURCE_RATINGS_DETAILED = "SELECT resource, " +
+            "SUM( CASE WHEN adequacy = 1 THEN 1 ELSE 0 END) as star1Adequacy, " +
+            "SUM( CASE WHEN adequacy = 2 THEN 1 ELSE 0 END) as star2Adequacy, " +
+            "SUM( CASE WHEN adequacy = 3 THEN 1 ELSE 0 END) as star3Adequacy, " +
+            "SUM( CASE WHEN adequacy = 4 THEN 1 ELSE 0 END) as star4Adequacy, " +
+            "SUM( CASE WHEN adequacy = 5 THEN 1 ELSE 0 END) as star5Adequacy, " +
+            "SUM( CASE WHEN fluency = 1 THEN 1 else 0 END) as star1Fluency, " +
+            "SUM( CASE WHEN fluency = 2 THEN 1 ELSE 0 END) as star2Fluency, " +
+            "SUM( CASE WHEN fluency = 3 THEN 1 ELSE 0 END) as star3Fluency, " +
+            "SUM( CASE WHEN fluency = 4 THEN 1 ELSE 0 END) as star4Fluency, " +
+            "SUM( CASE WHEN fluency = 5 THEN 1 ELSE 0 END) as star5Fluency, " +
+            "SUM( CASE WHEN completeness = 1 THEN 1 else 0 END) as star1Completeness, " +
+            "SUM( CASE WHEN completeness = 2 THEN 1 ELSE 0 END) as star2Completeness, " +
+            "SUM( CASE WHEN completeness = 3 THEN 1 ELSE 0 END) as star3Completeness, " +
+            "SUM( CASE WHEN completeness = 4 THEN 1 ELSE 0 END) as star4Completeness, " +
+            "SUM( CASE WHEN completeness = 5 THEN 1 ELSE 0 END) as star5Completeness " +
+            "FROM Resources as R JOIN ResourceExperiments as E ON R.id = E.resourceId JOIN Users as U on E.userId = U.id WHERE U.isExpert = 1 GROUP BY resource;";
+
+    private static class ResourceRating {
+        String resource;
+        int[] completenessRatings = new int[5];
+        int[] adequacyRatings = new int[5];
+        int[] fluencyRatings = new int[5];
+
+        void addCompletenessRating(int rating, int count) {
+            addRating(completenessRatings, rating, count);
+        }
+
+        void addAdequacyRating(int rating, int count) {
+            addRating(adequacyRatings, rating, count);
+        }
+
+        void addFluencyRating(int rating, int count) {
+            addRating(fluencyRatings, rating, count);
+        }
+
+        private void addRating(int[] ratings, int rating, int count) {
+            if (rating <= 0 ||rating > 5) {
+                return;
+            }
+
+            ratings[rating - 1] = count;
+        }
+
+        ResourceRating(String resource) {
+            this.resource = resource;
+        }
+
+        @Override
+        public String toString() {
+            return resource.concat("\nAdequacy ratings: ")
+                    .concat(Arrays.toString(adequacyRatings))
+                    .concat("\nFluency ratings: ")
+                    .concat(Arrays.toString(fluencyRatings ))
+                    .concat("\nCompleteness ratings: ")
+                    .concat(Arrays.toString(completenessRatings))
+                    .concat("\n");
+        }
+    }
+
+    private static final RowMapper<ResourceRating> RESOURCE_RATING_ROW_MAPPER = (rs, rowNum) -> {
+        ResourceRating rating = new ResourceRating(rs.getString("resource"));
+        for (int i = 1; i <= 5; i++) {
+            rating.addFluencyRating(i, rs.getInt("star".concat(Integer.toString(i)).concat("Fluency")));
+            rating.addAdequacyRating(i, rs.getInt("star".concat(Integer.toString(i)).concat("Adequacy")));
+            rating.addCompletenessRating(i, rs.getInt("star".concat(Integer.toString(i)).concat("Completeness")));
+        }
+
+        return rating;
+    };
+
+    public static void printResultsToCSV() {
+        JdbcTemplate jdbcTemplate = DataInserter.getJdbcTemplate();
+
+        List<AxiomRating> axiomRatings = jdbcTemplate.query(QUERY_AXIOM_RATINGS_DETAILED, AXIOM_RATING_ROW_MAPPER);
+        List<ResourceRating> resourceRatings = jdbcTemplate.query(QUERY_RESOURCE_RATINGS_DETAILED, RESOURCE_RATING_ROW_MAPPER);
+        axiomRatings.stream().forEach(System.out::println);
+        resourceRatings.stream().forEach(System.out::println);
+    }
+
+    public static void evaluateMain() {
         JdbcTemplate jdbcTemplate = DataInserter.getJdbcTemplate();
 
         List<Integer> results = jdbcTemplate.query(QUERY_COUNT_USERS, INTEGER_ROW_MAPPER);
@@ -55,8 +198,6 @@ public class DataEvaluater {
 
     // Axiom queries
     private static final String QUERY_AXIOM_RATINGS = "SELECT fluency, adequacy FROM AxiomExperiments;";
-//    private static final String QUERY_FLUENCY_RATINGS_AXIOM = "SELECT fluency FROM AxiomExperiments;";
-//    private static final String QUERY_ADEQUACY_RATINGS_AXIOM = "SELECT adequacy FROM AxiomExperiments;";
 
     public static void evaluateAxiomExperiments(JdbcTemplate jdbcTemplate) {
         List<Integer> queryResults;
@@ -75,10 +216,6 @@ public class DataEvaluater {
     // Resource queries
     private static final String QUERY_RESOURCE_RATINGS_EXPERTS = "SELECT adequacy, completeness, fluency FROM ResourceExperiments as R JOIN Users as U ON R.userId=U.id WHERE adequacy is NOT NULL AND adequacy > 0 AND completeness IS NOT NULL AND completeness > 0 AND fluency > 0 AND isExpert=1;";
     private static final String QUERY_RESOURCE_RATINGS_USERS = "SELECT adequacy, completeness, fluency FROM ResourceExperiments as R JOIN Users as U ON R.userId=U.id WHERE fluency > 0 AND isExpert=0;";
-//    private static final String QUERY_ADEQUACY_RATINGS_RESOURCE = "SELECT adequacy FROM ResourceExperiments WHERE adequacy IS NOT NULL;";
-//    private static final String QUERY_COMPLETENESS_RATINGS_RESOURCE = "SELECT completeness FROM ResourceExperiments WHERE completeness IS NOT NULL;";
-//    private static final String QUERY_FLUENCY_RATINGS_RESOURCE_USER = "SELECT fluency FROM ResourceExperiments as R JOIN Users as U ON R.userId=U.id WHERE isExpert=0;";
-//    private static final String QUERY_FLUENCY_RATINGS_RESOURCE_EXPERT = "SELECT fluency FROM ResourceExperiments as R JOIN Users as U ON R.userId=U.id WHERE isExpert=1;";
 
     public static void evaluateResourceExperiments(JdbcTemplate jdbcTemplate) {
         List<Integer> queryResults;
