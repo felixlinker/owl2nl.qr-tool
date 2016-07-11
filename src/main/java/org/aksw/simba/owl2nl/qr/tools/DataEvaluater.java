@@ -67,11 +67,11 @@ public class DataEvaluater {
         @Override
         public String toString() {
             String tsvLine = axiom.concat("\t").concat(verbalization);
-            for (int rating: adequacyRatings) {
+            for (int rating: fluencyRatings) {
                 tsvLine = tsvLine.concat("\t").concat(Integer.toString(rating));
             }
 
-            for (int rating: fluencyRatings) {
+            for (int rating: adequacyRatings) {
                 tsvLine = tsvLine.concat("\t").concat(Integer.toString(rating));
             }
 
@@ -169,11 +169,11 @@ public class DataEvaluater {
         @Override
         public String toString() {
             String tsvLine = super.toString();
-            for (int rating: completenessRatings) {
+            for (int rating: adequacyRatings) {
                 tsvLine = tsvLine.concat("\t").concat(Integer.toString(rating));
             }
 
-            for (int rating: adequacyRatings) {
+            for (int rating: completenessRatings) {
                 tsvLine = tsvLine.concat("\t").concat(Integer.toString(rating));
             }
 
