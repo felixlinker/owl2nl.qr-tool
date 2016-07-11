@@ -4,6 +4,9 @@ import org.aksw.simba.db.mapper.IntegerRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,10 +21,11 @@ public class DataEvaluater {
 
     public static void main(String[] args) {
 //        evaluateMain();
-        printResultsToCSV();
+        printResultsToTSV("C:\\Users\\felix\\Desktop\\axioms.tsv", "C:\\Users\\felix\\Desktop\\resources_exp.txt", "C:\\Users\\felix\\Desktop\\resources_user.txt");
     }
 
     private static final String QUERY_AXIOM_RATINGS_DETAILED = "SELECT axiom, " +
+            "SELECT verbalization, " +
             "SUM( CASE WHEN adequacy = 1 THEN 1 ELSE 0 END) as star1Adequacy, " +
             "SUM( CASE WHEN adequacy = 2 THEN 1 ELSE 0 END) as star2Adequacy, " +
             "SUM( CASE WHEN adequacy = 3 THEN 1 ELSE 0 END) as star3Adequacy, " +
@@ -32,11 +36,11 @@ public class DataEvaluater {
             "SUM( CASE WHEN fluency = 3 THEN 1 ELSE 0 END) as star3Fluency, " +
             "SUM( CASE WHEN fluency = 4 THEN 1 ELSE 0 END) as star4Fluency, " +
             "SUM( CASE WHEN fluency = 5 THEN 1 ELSE 0 END) as star5Fluency " +
-            "FROM Axioms as A JOIN AxiomExperiments as E ON E.axiomId = A.id GROUP BY axiom;";
+            "FROM Axioms as A JOIN AxiomExperiments as E ON E.axiomId = A.id AND adequacy > 0 AND fluency > 0 GROUP BY axiom;";
 
     private static class AxiomRating {
-
         String axiom;
+        String verbalization;
         int[] adequacyRatings = new int[5];
         int[] fluencyRatings = new int[5];
         void addAdequacyRating(int rating, int count) {
@@ -55,22 +59,28 @@ public class DataEvaluater {
             ratings[rating - 1] = count;
         }
 
-        AxiomRating(String axiom) {
+        AxiomRating(String axiom, String verbalization) {
             this.axiom = axiom;
+            this.verbalization = verbalization;
         }
 
         @Override
         public String toString() {
-            return axiom.concat("\nAdequacy ratings: ")
-                    .concat(Arrays.toString(adequacyRatings))
-                    .concat("\nFluency ratings: ")
-                    .concat(Arrays.toString(fluencyRatings ))
-                    .concat("\n");
+            String tsvLine = axiom.concat("\t").concat(verbalization);
+            for (int rating: adequacyRatings) {
+                tsvLine = tsvLine.concat("\t").concat(Integer.toString(rating));
+            }
+
+            for (int rating: fluencyRatings) {
+                tsvLine = tsvLine.concat("\t").concat(Integer.toString(rating));
+            }
+
+            return tsvLine;
         }
     }
 
     private static final RowMapper<AxiomRating> AXIOM_RATING_ROW_MAPPER = (rs, rowNum) -> {
-        AxiomRating rating = new AxiomRating(rs.getString("axiom"));
+        AxiomRating rating = new AxiomRating(rs.getString("axiom"), rs.getString("verbalization"));
         for (int i = 1; i <= 5; i++) {
             rating.addFluencyRating(i, rs.getInt("star".concat(Integer.toString(i)).concat("Fluency")));
             rating.addAdequacyRating(i, rs.getInt("star".concat(Integer.toString(i)).concat("Adequacy")));
@@ -79,7 +89,8 @@ public class DataEvaluater {
         return rating;
     };
 
-    private static final String QUERY_RESOURCE_RATINGS_DETAILED = "SELECT resource, " +
+    private static final String QUERY_RESOURCE_RATINGS_DETAILED_EXPERT = "SELECT resource, " +
+            "SELECT verbalization, " +
             "SUM( CASE WHEN adequacy = 1 THEN 1 ELSE 0 END) as star1Adequacy, " +
             "SUM( CASE WHEN adequacy = 2 THEN 1 ELSE 0 END) as star2Adequacy, " +
             "SUM( CASE WHEN adequacy = 3 THEN 1 ELSE 0 END) as star3Adequacy, " +
@@ -95,13 +106,53 @@ public class DataEvaluater {
             "SUM( CASE WHEN completeness = 3 THEN 1 ELSE 0 END) as star3Completeness, " +
             "SUM( CASE WHEN completeness = 4 THEN 1 ELSE 0 END) as star4Completeness, " +
             "SUM( CASE WHEN completeness = 5 THEN 1 ELSE 0 END) as star5Completeness " +
-            "FROM Resources as R JOIN ResourceExperiments as E ON R.id = E.resourceId JOIN Users as U on E.userId = U.id WHERE U.isExpert = 1 GROUP BY resource;";
+            "FROM Resources as R JOIN ResourceExperiments as E ON R.id = E.resourceId JOIN Users as U on E.userId = U.id WHERE U.isExpert = 1 AND completeness > 0 AND adequacy > 0 AND fluency > 0 GROUP BY resource, verbalization;";
 
-    private static class ResourceRating {
+    private static final String QUERY_RESOURCE_RATINGS_DETAILED_USER = "SELECT resource, " +
+            "SELECT verbalization, " +
+            "SUM( CASE WHEN fluency = 1 THEN 1 else 0 END) as star1Fluency, " +
+            "SUM( CASE WHEN fluency = 2 THEN 1 ELSE 0 END) as star2Fluency, " +
+            "SUM( CASE WHEN fluency = 3 THEN 1 ELSE 0 END) as star3Fluency, " +
+            "SUM( CASE WHEN fluency = 4 THEN 1 ELSE 0 END) as star4Fluency, " +
+            "SUM( CASE WHEN fluency = 5 THEN 1 ELSE 0 END) as star5Fluency " +
+            "FROM Resources as R JOIN ResourceExperiments as E ON R.id = E.resourceId JOIN Users as U on E.userId = U.id WHERE U.isExpert = 0 AND fluency > 0 GROUP BY resource;";
+
+    private static class ResourceRatingUser {
         String resource;
+        String verbalization;
+        int[] fluencyRatings = new int[5];
+
+        void addFluencyRating(int rating, int count) {
+            addRating(fluencyRatings, rating, count);
+        }
+
+        void addRating(int[] ratings, int rating, int count) {
+            if (rating <= 0 ||rating > 5) {
+                return;
+            }
+
+            ratings[rating - 1] = count;
+        }
+
+        ResourceRatingUser(String resource, String verbalization) {
+            this.resource = resource;
+            this.verbalization = verbalization;
+        }
+
+        @Override
+        public String toString() {
+            String tsvLine = resource.concat("\"").concat(verbalization);
+            for (int rating: fluencyRatings) {
+                tsvLine = tsvLine.concat("\t").concat(Integer.toString(rating));
+            }
+
+            return tsvLine;
+        }
+    }
+
+    private static class ResourceRatingExpert extends ResourceRatingUser {
         int[] completenessRatings = new int[5];
         int[] adequacyRatings = new int[5];
-        int[] fluencyRatings = new int[5];
 
         void addCompletenessRating(int rating, int count) {
             addRating(completenessRatings, rating, count);
@@ -111,36 +162,27 @@ public class DataEvaluater {
             addRating(adequacyRatings, rating, count);
         }
 
-        void addFluencyRating(int rating, int count) {
-            addRating(fluencyRatings, rating, count);
-        }
-
-        private void addRating(int[] ratings, int rating, int count) {
-            if (rating <= 0 ||rating > 5) {
-                return;
-            }
-
-            ratings[rating - 1] = count;
-        }
-
-        ResourceRating(String resource) {
-            this.resource = resource;
+        ResourceRatingExpert(String resource, String verbalization) {
+            super(resource, verbalization);
         }
 
         @Override
         public String toString() {
-            return resource.concat("\nAdequacy ratings: ")
-                    .concat(Arrays.toString(adequacyRatings))
-                    .concat("\nFluency ratings: ")
-                    .concat(Arrays.toString(fluencyRatings ))
-                    .concat("\nCompleteness ratings: ")
-                    .concat(Arrays.toString(completenessRatings))
-                    .concat("\n");
+            String tsvLine = super.toString();
+            for (int rating: completenessRatings) {
+                tsvLine = tsvLine.concat("\t").concat(Integer.toString(rating));
+            }
+
+            for (int rating: adequacyRatings) {
+                tsvLine = tsvLine.concat("\t").concat(Integer.toString(rating));
+            }
+
+            return tsvLine;
         }
     }
 
-    private static final RowMapper<ResourceRating> RESOURCE_RATING_ROW_MAPPER = (rs, rowNum) -> {
-        ResourceRating rating = new ResourceRating(rs.getString("resource"));
+    private static final RowMapper<ResourceRatingExpert> RESOURCE_RATING_EXPERT_ROW_MAPPER = (rs, rowNum) -> {
+        ResourceRatingExpert rating = new ResourceRatingExpert(rs.getString("resource"), rs.getString("verbalization"));
         for (int i = 1; i <= 5; i++) {
             rating.addFluencyRating(i, rs.getInt("star".concat(Integer.toString(i)).concat("Fluency")));
             rating.addAdequacyRating(i, rs.getInt("star".concat(Integer.toString(i)).concat("Adequacy")));
@@ -150,13 +192,41 @@ public class DataEvaluater {
         return rating;
     };
 
-    public static void printResultsToCSV() {
+    private static final RowMapper<ResourceRatingUser> RESOURCE_RATING_USER_ROW_MAPPER = (rs, rowNum) -> {
+        ResourceRatingExpert rating = new ResourceRatingExpert(rs.getString("resource"), rs.getString("verbalization"));
+        for (int i = 1; i <= 5; i++) {
+            rating.addFluencyRating(i, rs.getInt("star".concat(Integer.toString(i)).concat("Fluency")));
+        }
+
+        return rating;
+    };
+
+    private static void printResultsToTsv(String fileName, List<? extends Object> results) {
+        try (BufferedWriter fw = new BufferedWriter(new FileWriter(fileName))) {
+            results.stream().map(Object::toString)
+                    .forEach(line -> {
+                        try {
+                            fw.write(line);
+                            fw.newLine();
+                        } catch (IOException e) {
+                            System.out.println("Exception writing file ".concat(fileName));
+                        }
+                    });
+        } catch (IOException e) {
+            System.out.println("Exception writing file ".concat(fileName));
+        }
+    }
+
+    public static void printResultsToTSV(String axiomFile, String resourceFileExp, String resourceFileUser) {
         JdbcTemplate jdbcTemplate = DataInserter.getJdbcTemplate();
 
         List<AxiomRating> axiomRatings = jdbcTemplate.query(QUERY_AXIOM_RATINGS_DETAILED, AXIOM_RATING_ROW_MAPPER);
-        List<ResourceRating> resourceRatings = jdbcTemplate.query(QUERY_RESOURCE_RATINGS_DETAILED, RESOURCE_RATING_ROW_MAPPER);
-        axiomRatings.stream().forEach(System.out::println);
-        resourceRatings.stream().forEach(System.out::println);
+        List<ResourceRatingExpert> resourceRatingExperts = jdbcTemplate.query(QUERY_RESOURCE_RATINGS_DETAILED_EXPERT, RESOURCE_RATING_EXPERT_ROW_MAPPER);
+        List<ResourceRatingUser> resourceRatingUsers = jdbcTemplate.query(QUERY_RESOURCE_RATINGS_DETAILED_USER, RESOURCE_RATING_USER_ROW_MAPPER);
+
+        printResultsToTsv(axiomFile, axiomRatings);
+        printResultsToTsv(resourceFileExp, resourceRatingExperts);
+        printResultsToTsv(resourceFileUser, resourceRatingUsers);
     }
 
     public static void evaluateMain() {
